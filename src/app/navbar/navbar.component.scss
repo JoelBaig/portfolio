@@ -1,0 +1,19 @@
+@import './../../mixin.scss';
+
+.navbar-main {
+    @include elementSize($w: 100vw, $h: 200px, $mw: none);
+    cursor: pointer;
+}
+
+.nav-links {
+    @include dFlex($f: flex, $c: space-between, $ai: none);
+}
+
+.logo-blue {
+width: 20px;
+    height: 20px;
+}
+
+li {
+    cursor: pointer;
+}
