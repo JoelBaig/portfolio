@@ -4,11 +4,54 @@
     @include dFlex($f: flex, $c: center, $ai: none);
 }
 
-.navbar-main {
-    @include elementSize($w: 70vw, $h: 200px, $mw: none);
-    cursor: pointer;
+.navbar {
+    @include elementSize($w: 70vw, $h: 100px, $mw: none);
+    height: 1000px;
 }
 
 .nav-links {
     @include dFlex($f: flex, $c: space-between, $ai: none);
+    font-weight: 700;
+    color: #F8F9FA;
+    list-style: none;
+}
+
+li {
+    @include elementSize($w: 100px, $h: 50px);
+    @include dFlex($f: flex, $c: center, $ai: center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-about-me:hover {
+    background-image: url('./../../assets/img/header/B.2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    cursor: pointer;
+}
+
+.nav-skills:hover {
+    background-image: url('./../../assets/img/header/B.1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    cursor: pointer;
+}
+
+.nav-projects:hover {
+    background-image: url('./../../assets/img/header/B.4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    cursor: pointer;
+}
+
+.nav-contact:hover {
+    background-image: url('./../../assets/img/header/B.3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    cursor: pointer;
 }
