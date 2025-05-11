@@ -6,7 +6,6 @@
 
 .navbar {
     @include elementSize($w: 70vw, $h: 100px, $mw: none);
-    height: 1000px;
 }
 
 .nav-links {
@@ -28,7 +27,6 @@ li {
     background-image: url('./../../assets/img/header/B.2.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100px;
     cursor: pointer;
 }
 
@@ -36,7 +34,6 @@ li {
     background-image: url('./../../assets/img/header/B.1.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100px;
     cursor: pointer;
 }
 
@@ -44,7 +41,6 @@ li {
     background-image: url('./../../assets/img/header/B.4.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100px;
     cursor: pointer;
 }
 
@@ -52,6 +48,6 @@ li {
     background-image: url('./../../assets/img/header/B.3.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100px;
     cursor: pointer;
 }
+
