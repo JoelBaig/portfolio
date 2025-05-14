@@ -56,23 +56,27 @@ li {
 .logo-main {
     margin-left: 30px;
     margin-right: 100px;
+    cursor: pointer;
 }
 
 .language-main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 100px;
 }
 
 .language-switch-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 40px;
+    padding-left: 18px;
+    cursor: pointer;
 }
 
 .language-line {
-
+    
 }
 
 .language-dot {
@@ -80,4 +84,10 @@ li {
     right: 34px;
 }
 
+.en-language-red {
+    cursor: pointer;
+}
 
+.de-language-white {
+    cursor: pointer;
+}
