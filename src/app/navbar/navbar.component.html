@@ -14,17 +14,24 @@
         </ul>
     </nav>
 
-    <div class="language-main">
-        <div>
-            <img class="en-language-red" src="/assets/img/header/en_red.png" alt="english-language">
+    <div class="language-wrapper">
+
+        <div class="en-language-wrapper" (click)="selectLanguage('en')">
+            <img class="language-pos en-language-red" src="/assets/img/header/en_red.png" alt="english-language">
+            <img class="language-pos en-language-mark" src="/assets/img/header/en_toggle.png" alt="language-mark">
         </div>
-        <div class="language-switch-main">
+
+        <div class="language-switch-wrapper">
             <img class="language-line" src="/assets/img/header/language_line.png" alt="language-switch">
-            <img class="language-dot" src="/assets/img/header/language_dot.png" alt="language-switch">
+            <img [ngClass]="dotAnimationClass" class="language-dot" src="/assets/img/header/language_dot.png"
+                alt="language-switch">
         </div>
-        <div>
-            <img class="de-language-white" src="/assets/img/header/de_white.png" alt="german-language">
+
+        <div class="de-language-wrapper" (click)="selectLanguage('de')">
+            <img class="language-pos de-language-white" src="/assets/img/header/de_white.png" alt="german-language">
+            <img class="language-pos de-language-mark" src="/assets/img/header/de_toggle.png" alt="language-mark">
         </div>
+
     </div>
 
 </div>
