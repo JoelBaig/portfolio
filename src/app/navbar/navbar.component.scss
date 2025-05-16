@@ -53,12 +53,6 @@ li {
     cursor: pointer;
 }
 
-.logo-main {
-    margin-left: 30px;
-    margin-right: 100px;
-    cursor: pointer;
-}
-
 .language-main {
     display: flex;
     justify-content: center;
@@ -75,9 +69,7 @@ li {
     cursor: pointer;
 }
 
-.language-line {
-    
-}
+.language-line {}
 
 .language-dot {
     position: relative;
@@ -90,4 +82,35 @@ li {
 
 .de-language-white {
     cursor: pointer;
+}
+
+.logo-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 100px;
+    margin-top: -40px;
+    cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+}
+
+.logo-blue {
+    opacity: 1;
+    z-index: 1;
+}
+
+.logo-yellow {
+    opacity: 0;
+    z-index: 2;
+}
+
+.logo-wrapper:hover .logo-blue {
+    opacity: 0;
+}
+
+.logo-wrapper:hover .logo-yellow {
+    opacity: 1;
 }
