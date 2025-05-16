@@ -17,8 +17,11 @@
     <div class="language-wrapper">
 
         <div class="en-language-wrapper" (click)="selectLanguage('en')">
-            <img class="language-pos en-language-red" src="/assets/img/header/en_red.png" alt="english-language">
+            <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
+                src="/assets/img/header/en_red.png" alt="english-language">
             <img class="language-pos en-language-mark" src="/assets/img/header/en_toggle.png" alt="language-mark">
+            <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white"
+                src="/assets/img/header/en_white.png" alt="english-language">
         </div>
 
         <div class="language-switch-wrapper">
@@ -28,8 +31,11 @@
         </div>
 
         <div class="de-language-wrapper" (click)="selectLanguage('de')">
-            <img class="language-pos de-language-white" src="/assets/img/header/de_white.png" alt="german-language">
+            <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white"
+                src="/assets/img/header/de_white.png" alt="german-language">
             <img class="language-pos de-language-mark" src="/assets/img/header/de_toggle.png" alt="language-mark">
+            <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red"
+                src="/assets/img/header/de_red.png" alt="german-language">
         </div>
 
     </div>

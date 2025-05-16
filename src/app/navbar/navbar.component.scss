@@ -137,16 +137,13 @@ li {
     @include dFlex($f: flex, $c: center, $ai: center);
     cursor: pointer;
     position: absolute;
+    opacity: 0;
+    transition: opacity 0.2 ease-in-out;
 }
 
-.en-language-red {
+.visible {
     opacity: 1;
-    cursor: pointer;
-}
-
-.de-language-white {
-    opacity: 1;
-    cursor: pointer;
+    z-index: 1;
 }
 
 .en-language-mark {
