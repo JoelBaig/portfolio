@@ -172,3 +172,14 @@ li {
 .de-language-wrapper:hover .de-language-mark {
     opacity: 1;
 }
+
+@keyframes slideInFromLeftZoom {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }

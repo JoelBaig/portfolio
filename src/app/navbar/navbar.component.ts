@@ -12,6 +12,13 @@ export class NavbarComponent {
   selectedLanguage: 'en' | 'de' = 'en';
   dotAnimationClass = '';
 
+  isHovered = {
+    about: false,
+    skills: false,
+    projects: false,
+    contact: false
+  };
+
   selectLanguage(lang: 'en' | 'de') {
     if (lang === this.selectedLanguage) return;
 
@@ -19,5 +26,13 @@ export class NavbarComponent {
       lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
 
     this.selectedLanguage = lang;
+  }
+
+  triggerLinkHoverEffect(link: keyof typeof this.isHovered) {
+    this.isHovered[link] = true;
+  }
+
+  removeLinkHoverEffect(link: keyof typeof this.isHovered) {
+    this.isHovered[link] = false;
   }
 }
