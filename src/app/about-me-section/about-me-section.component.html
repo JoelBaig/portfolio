@@ -15,16 +15,23 @@
         </div>
     </div>
 
-    <div class="about-me-txt">
+    <div class="about-me">
         <p [ngStyle]="{'font-size.px': 22}">WHO´S JOEL?</p>
+
         <h1 [ngStyle]="{'margin-top.px': -10}">About Me</h1>
-        <p [ngStyle]="{'font-size.px': 20}">Hey there, I'm Joel. Write some information about yourself that is IT
+
+        <div class="line-animation-wrapper">
+            <img src="assets/img/header/about_me/blue_line.png" class="animated-line" alt="line">
+        </div>
+
+        <p class="about-me-txt" [ngStyle]="{'font-size.px': 20}">Hey there, I'm Joel. Write some information about yourself that is IT
             related. Why are you passionate about
             coding? What is your source of inspiration for improving your programming skills? Do you learn from each
             challenge as you search for the most efficient or elegant solution?<br><br>
 
             Let’s collaborate and build something remarkable together!<br>
         </p>
+
         <app-app-btn class="lets-talk-btn" text="Let´s talk" [visible]="true"></app-app-btn>
     </div>
 </div>

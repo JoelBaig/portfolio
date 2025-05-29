@@ -8,23 +8,31 @@
 
 .image-overlap {
     @include dFlex($f: flex, $c: center, $ai: center, $fd: column);
-  }
+}
 
-  h1 {
+h1 {
     font-size: 64px;
-  }
+    margin: 0;
+}
 
-  .about-me-txt {
+.about-me {
+    position: relative;
+    top: 30px;
     margin-right: 150px;
     margin-left: 80px;
-  }
+}
 
-  .image-overlap > div {
+.about-me-txt {
+    position: relative;
+    top: 30px;
+}
+
+.image-overlap>div {
     position: relative;
     display: inline-block;
-  }
-  
-  .image-text {
+}
+
+.image-text {
     @include dFlex($f: flex, $c: center, $ai: center);
     position: absolute;
     width: 80%;
@@ -36,10 +44,44 @@
     line-height: 1.4;
     transform-origin: center;
     gap: 16px;
-  }
+}
 
-  .lets-talk-btn {
+.lets-talk-btn {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding-top: 50px;
+}
+
+.line-animation-wrapper {
+    overflow: hidden;
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.animated-line {
+    height: 20px;
+    width: 0%;
+    animation: linePulse 6.4s infinite;
+    transform-origin: left;
+  }
+  
+  @keyframes linePulse {
+    0% {
+      width: 0%;
+    }
+    4% {
+      width: 100%;
+    }
+    82% {
+      width: 100%;
+    }
+    86% {
+      width: 0%;
+    }
+    100% {
+      width: 0%;
+    }
   }
