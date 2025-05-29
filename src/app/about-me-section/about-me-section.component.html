@@ -1,17 +1,27 @@
 <div class="about-me-main">
     <div class="image-overlap">
-        <img *ngFor="let img of images; let i = index" [src]="img" [ngStyle]="{
-          'margin-bottom.px': i === 2 ? -90 : -65,
+        <div *ngFor="let block of imageBlocks; let i = index" [ngStyle]="{
+          'margin-bottom.px': i === 2 ? -90 : -70,
           'z-index': i === 0 ? 30 : i === 1 ? 20 : 10
-        }" style="position: relative;" alt="about-image">
+        }" style="position: relative;">
+
+            <img [src]="block.src" alt="about-image">
+
+            <div class="image-text" [ngStyle]="getTextStyle(i)">
+                <img [src]="block.icon" alt="icon" class="text-icon">
+                {{ block.text }}
+            </div>
+
+        </div>
     </div>
 
     <div class="about-me-txt">
         <p [ngStyle]="{'font-size.px': 22}">WHO´S JOEL?</p>
-        <h1>About Me</h1>
-        <p [ngStyle]="{'font-size.px': 20}">Hey there, I'm Karl. Write some information about yourself that is IT related. Why are you passionate about
+        <h1 [ngStyle]="{'margin-top.px': -10}">About Me</h1>
+        <p [ngStyle]="{'font-size.px': 20}">Hey there, I'm Joel. Write some information about yourself that is IT
+            related. Why are you passionate about
             coding? What is your source of inspiration for improving your programming skills? Do you learn from each
-            challenge as you search for the most efficient or elegant solution?
+            challenge as you search for the most efficient or elegant solution?<br><br>
 
             Let’s collaborate and build something remarkable together!
         </p>

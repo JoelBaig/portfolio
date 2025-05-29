@@ -1,0 +1,28 @@
+.img-button {
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  
+    img {
+      display: block;
+      width: 100%;
+    }
+  
+    .hover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  
+    &:hover .hover-img {
+      opacity: 1;
+    }
+  
+    &:hover .default-img {
+      opacity: 0;
+    }
+  }
