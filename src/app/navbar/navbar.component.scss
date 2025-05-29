@@ -30,6 +30,7 @@ li {
     padding: 8px 16px;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 
     .hover-bg {
         position: absolute;
@@ -71,28 +72,35 @@ li {
     margin-left: 30px;
     margin-top: -40px;
     cursor: pointer;
-}
+  
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  
+    .logo-blue {
+      z-index: 1;
+      opacity: 1;
+    }
+  
+    .logo-yellow {
+      z-index: 2;
+      opacity: 0;
+    }
+  
+    &:hover .logo-blue {
+      opacity: 0;
+    }
+  
+    &:hover .logo-yellow {
+      opacity: 1;
+    }
+  }
 
 .logo {
     position: absolute;
-}
-
-.logo-blue {
-    opacity: 1;
-    z-index: 1;
-}
-
-.logo-yellow {
-    opacity: 0;
-    z-index: 2;
-}
-
-.logo-wrapper:hover .logo-blue {
-    opacity: 0;
-}
-
-.logo-wrapper:hover .logo-yellow {
-    opacity: 1;
 }
 
 .language-wrapper {
@@ -103,7 +111,6 @@ li {
 
 .language-switch-wrapper {
     @include dFlex($f: flex, $c: center, $ai: center);
-    cursor: pointer;
     position: relative;
 }
 
@@ -194,3 +201,20 @@ li {
         transform: translateX(0) scale(1);
     }
 }
+
+.language-mark {
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .en-language-wrapper:hover .en-language-mark,
+  .de-language-wrapper:hover .de-language-mark {
+    transform: scaleX(1);
+    opacity: 1;
+    z-index: 0;
+  }
