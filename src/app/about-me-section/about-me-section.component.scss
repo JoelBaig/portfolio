@@ -4,7 +4,6 @@
     @include dFlex($f: flex, $c: center, $ai: center);
     @include elementSize($w: none, $h: 80vh, $mw: 100vw);
     margin-left: 150px;
-
 }
 
 .image-overlap {
@@ -39,8 +38,8 @@
     gap: 16px;
   }
 
-  .btn {
-    position: relative;
-    right: 0;
-    cursor: pointer;
+  .lets-talk-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }

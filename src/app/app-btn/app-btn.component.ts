@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './app-btn.component.scss'
 })
 export class AppBtnComponent {
-  @Input() text: string = 'Klick mich';
+  @Input() text: string = '';
   @Input() className: string = '';
+  @Input() visible: boolean = false;
 }

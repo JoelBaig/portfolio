@@ -4,25 +4,58 @@
     background: none;
     padding: 0;
     cursor: pointer;
-  
+
     img {
-      display: block;
-      width: 100%;
+        display: block;
+        width: 100%;
     }
-  
+
     .hover-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
-  
+
     &:hover .hover-img {
-      opacity: 1;
+        opacity: 1;
     }
-  
+
     &:hover .default-img {
-      opacity: 0;
+        opacity: 0;
     }
-  }
+
+    .btn-text {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-weight: 200;
+        color: black;
+        z-index: 2;
+        pointer-events: none;
+        white-space: nowrap;
+        font-family: inherit;
+        transition: color 0.3s ease;
+      }
+
+
+      &:hover .hover-img {
+        opacity: 1;
+      }
+    
+      &:hover .default-img {
+        opacity: 0;
+      }
+    
+      &:hover .btn-text {
+        color: white;
+        top: 50%;
+      }
+}
+
+.hidden {
+    display: none;
+}
