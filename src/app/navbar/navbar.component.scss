@@ -20,39 +20,31 @@
 }
 
 li {
-    @include elementSize($w: 130px, $h: 50px);
+    @include elementSize($w: 100%, $h: 100%);
     @include dFlex($f: flex, $c: center, $ai: center);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.nav-about-me:hover {
-    background-image: url('./../../assets/img/header/B.2.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.nav-links li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
 }
 
-.nav-skills:hover {
-    background-image: url('./../../assets/img/header/B.1.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.nav-links li a .hover-image {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    pointer-events: none;
 }
 
-.nav-projects:hover {
-    background-image: url('./../../assets/img/header/B.4.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-
-.nav-contact:hover {
-    background-image: url('./../../assets/img/header/B.3.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.nav-links li a:hover .hover-image {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .logo-wrapper {
@@ -175,11 +167,12 @@ li {
 
 @keyframes slideInFromLeftZoom {
     0% {
-      opacity: 0;
-      transform: translateX(-40px) scale(0.8);
+        opacity: 0;
+        transform: translateX(-40px) scale(0.8);
     }
+
     100% {
-      opacity: 1;
-      transform: translateX(0) scale(1);
+        opacity: 1;
+        transform: translateX(0) scale(1);
     }
-  }
+}

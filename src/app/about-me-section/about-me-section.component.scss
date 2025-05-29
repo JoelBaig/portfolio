@@ -1,0 +1,24 @@
+.about-me-main {
+    max-width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+
+}
+
+.image-overlap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  .about-me-txt {
+    margin-right: 150px;
+    margin-left: 80px;
+  }

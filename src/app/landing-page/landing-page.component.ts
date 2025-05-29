@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../shared/header/header.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../shared/footer/footer.component';
+import { AboutMeSectionComponent } from '../about-me-section/about-me-section.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [HeaderComponent, NavbarComponent, FooterComponent],
+  imports: [ NavbarComponent, AboutMeSectionComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
