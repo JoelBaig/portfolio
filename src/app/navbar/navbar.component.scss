@@ -20,7 +20,7 @@
 }
 
 li {
-    @include elementSize($w: 100px, $h: 50px);
+    @include elementSize($w: 130px, $h: 50px);
     @include dFlex($f: flex, $c: center, $ai: center);
     display: flex;
     justify-content: center;
