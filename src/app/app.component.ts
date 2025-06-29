@@ -7,7 +7,11 @@ import { AppBtnComponent } from "./app-btn/app-btn.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AboutMeSectionComponent, HeaderComponent, AppBtnComponent],
+  imports: [
+    RouterOutlet, 
+    // AboutMeSectionComponent, 
+    HeaderComponent, 
+    AppBtnComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

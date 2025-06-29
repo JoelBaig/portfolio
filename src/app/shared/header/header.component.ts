@@ -4,7 +4,9 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [
+    // NavbarComponent
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
