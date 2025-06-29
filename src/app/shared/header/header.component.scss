@@ -4,3 +4,12 @@
     width: 20px;
     height: 20px;
 }
+
+.header-con {
+    @include elementSize($w: 100vw, $h: 100vh);
+
+    >img {
+        width: 100%;
+        height: 100%;
+    }
+}

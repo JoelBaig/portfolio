@@ -1,9 +1,18 @@
 @import './../../mixin.scss';
 
+.about-me-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+
 .about-me-main {
     @include dFlex($f: flex, $c: center, $ai: center);
-    @include elementSize($w: none, $h: 80vh, $mw: 100vw);
-    margin-left: 150px;
+    @include elementSize($w: 80%, $h: 70vh, $mw: none);
+    gap: 100px;
+    position: relative;
+    top: -50px;
 }
 
 .image-overlap {
@@ -18,8 +27,6 @@ h1 {
 .about-me {
     position: relative;
     top: 30px;
-    margin-right: 150px;
-    margin-left: 80px;
 }
 
 .about-me-txt {

@@ -3,9 +3,14 @@
 
 .header-main {
     @include elementSize($w: 100vw, $h: 100vh, $mw: none);
-    @include dFlex($f: flex, $c: center, $ai: center);
-    background-image: url('./../assets/img/header/background_header.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    // @include dFlex($f: flex, $c: center, $ai: center);
+}
+
+.navbar-main {
+    position: absolute;
+    width: 100%;
+}
+
+.about-me-section-main {
+    width: 100%;
 }
