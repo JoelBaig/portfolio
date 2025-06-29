@@ -33,16 +33,6 @@
     display: flex;
 }
 
-.wrapper-bottom {
-    background-color: green;
-    width: 80%;
-    height: 50%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-}
-
 h1 {
     color: red;
     font-size: 64px;
@@ -63,4 +53,14 @@ p {
     background-color: beige;
     width: 70%;
     height: 100%;
+}
+
+.wrapper-bottom {
+    background-color: green;
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
 }
