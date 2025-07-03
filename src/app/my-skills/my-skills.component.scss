@@ -71,7 +71,7 @@ p {
     }
 }
 
-.headline-wrapper > p {
+.headline-wrapper>p {
     font-size: 20px;
     color: red;
     position: absolute;
@@ -97,7 +97,7 @@ p {
     .skill-intro-wrapper {
         position: relative;
         width: 100%;
-        max-width: 800px;
+        max-width: 650px;
         aspect-ratio: 4 / 1;
     }
 
@@ -112,7 +112,7 @@ p {
 
     .skill-intro-wrapper>p {
         position: absolute;
-        top: 20%;
+        top: 15%;
         left: 5%;
         right: 5%;
         bottom: 20%;
@@ -146,18 +146,30 @@ p {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 100px;
-    gap: 50px;
+    height: 130px;
+    gap: 30px;
 }
 
 .single-skill-con {
+    width: 100px;
+    height: 120px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+}
 
-    >p {
-        position: relative;
-        top: -15px;
-    }
+.single-skill-con>p {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.single-skill-con img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.single-skill-con:hover img {
+    filter: grayscale(0%);
 }
