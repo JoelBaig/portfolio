@@ -70,8 +70,16 @@
                     </div>
                 </div>
             </div>
-            <div class="sticker-con">
-                <img src="./assets/img/header/skills/sticker.png" alt="">
+            <div class="sticker-con" (click)="animateSticker()">
+                <img [src]="currentSticker" alt="Sticker" alt="">
             </div>
+            <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
+                <p class="sticker-text">Let’s build something awesome together!</p>
+              
+                <div class="sticker-skills">
+                  <img src="./assets/img/header/skills/sticker_react.png" alt="react">
+                  <img src="./assets/img/header/skills/sticker_vuejs.png" alt="vuejs">
+                </div>
+              </div>
         </div>
     </div>

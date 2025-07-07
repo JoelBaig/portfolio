@@ -3,7 +3,6 @@
 
 .header-main {
     @include elementSize($w: 100vw, $h: 100vh, $mw: none);
-    // @include dFlex($f: flex, $c: center, $ai: center);
 }
 
 .navbar-main {

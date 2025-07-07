@@ -194,3 +194,42 @@ p {
         top: -12px;
     }
 }
+
+.sticker-con > img {
+    transition: transform 0.3s ease, opacity 0.15s ease;
+  }
+
+  .sticker-reveal {
+    position: absolute;
+    top: 45px; 
+    right: 284px;
+    width: 180px;
+    padding: 10px;
+    text-align: center;
+    transform: rotate(10deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .sticker-text {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .sticker-skills {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
