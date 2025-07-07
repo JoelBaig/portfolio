@@ -18,14 +18,12 @@
 
 .wrapper-main {
     position: absolute;
-    width: 80%;
+    width: 100%;
     height: 55%;
-    background-color: aqua;
 }
 
 .wrapper-top {
-    background-color: blue;
-    width: 80%;
+    width: 100%;
     height: 50%;
     position: absolute;
     top: 0;
@@ -34,7 +32,6 @@
 }
 
 h1 {
-    color: red;
     font-size: 64px;
     position: relative;
 }
@@ -50,7 +47,14 @@ h1 {
 
 p {
     font-size: 20px;
-    color: red;
+}
+
+.skill-headline {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
 
 .headline-wrapper {
@@ -61,6 +65,7 @@ p {
         position: relative;
         top: 35px;
         z-index: 2;
+        color: white;
     }
 
     .orange-circle {
@@ -72,23 +77,16 @@ p {
 }
 
 .headline-wrapper>p {
+    color: white;
     font-size: 20px;
-    color: red;
     position: absolute;
     right: 0;
     top: 20px;
     z-index: 1;
 }
 
-.skill-headline {
-    background-color: yellow;
-    width: 30%;
-    height: 100%;
-}
-
 .skill-introduction {
-    background-color: beige;
-    width: 70%;
+    width: 63%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -124,17 +122,18 @@ p {
 }
 
 .wrapper-bottom {
-    background-color: green;
-    width: 80%;
+    width: 83%;
     height: 50%;
     position: absolute;
     bottom: 0;
     right: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .skill-set {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +144,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     height: 130px;
     gap: 30px;
 }
@@ -157,19 +156,41 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
 }
 
 .single-skill-con>p {
     position: static;
     margin-top: 10px;
     text-align: center;
+    color: white;
 }
 
 .single-skill-con img {
     filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    transition: filter 0.15s ease, transform 0.15s ease;
+    transform-origin: bottom right;
 }
 
 .single-skill-con:hover img {
     filter: grayscale(0%);
+    transform: scale(0.8);
+}
+
+.sticker-con {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    >img {
+        height: 200px;
+        width: 200px;
+        transform: rotate(10deg);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        top: -12px;
+    }
 }
