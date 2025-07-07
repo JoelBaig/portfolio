@@ -43,7 +43,7 @@ h1 {
     top: 0;
     left: 0;
     z-index: 1;
-    animation: ovalPulse 5s ease-in-out infinite;
+    animation: ovalOrbit 3s ease-in-out infinite;
 }
 
 p {
@@ -236,21 +236,53 @@ p {
     }
 }
 
-@keyframes ovalPulse {
+// @keyframes ovalPulse {
+//     0% {
+//       transform: rotate(0deg) scale(1);
+//       opacity: 1;
+//     }
+//     60% {
+//       transform: rotate(0deg) scale(1);
+//       opacity: 1;
+//     }
+//     80% {
+//       transform: rotate(8deg) scale(0.8);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform: rotate(0deg) scale(1);
+//       opacity: 1;
+//     }
+//   }
+
+@keyframes ovalOrbit {
     0% {
-      transform: rotate(0deg) scale(1);
+      transform: translate(0, 0) rotate(0deg) scale(1);
       opacity: 1;
     }
-    60% {
-      transform: rotate(0deg) scale(1);
+  
+    40% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
       opacity: 1;
     }
-    80% {
-      transform: rotate(8deg) scale(0.8);
+  
+    50% {
+      transform: translate(50px, 30px) rotate(180deg) scale(0);
       opacity: 0;
     }
+  
+    60% {
+      transform: translate(50px, 30px) rotate(180deg) scale(0);
+      opacity: 0;
+    }
+  
+    70% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+  
     100% {
-      transform: rotate(0deg) scale(1);
+      transform: translate(0, 0) rotate(0deg) scale(1);
       opacity: 1;
     }
   }
