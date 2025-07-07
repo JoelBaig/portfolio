@@ -1,9 +1,9 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-my-skills',
-  imports: [NgIf],
+  imports: [NgIf, NgClass],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
 })

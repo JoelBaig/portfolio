@@ -12,9 +12,8 @@
             </div>
             <div class="skill-introduction">
                 <div class="skill-intro-wrapper">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque voluptatem reiciendis error
-                        obcaecati
-                        quasi explicabo.</p>
+                    <p>Over the past months, I’ve been building up this stack of skills — here’s what I’m confident
+                        working with.</p>
                     <img src="./assets/img/header/skills/skills_paper.png" alt="">
                 </div>
             </div>
@@ -70,16 +69,16 @@
                     </div>
                 </div>
             </div>
-            <div class="sticker-con" (click)="animateSticker()">
-                <img [src]="currentSticker" alt="Sticker" alt="">
-            </div>
-            <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
-                <p class="sticker-text">Let’s build something awesome together!</p>
-              
-                <div class="sticker-skills">
-                  <img src="./assets/img/header/skills/sticker_react.png" alt="react">
-                  <img src="./assets/img/header/skills/sticker_vuejs.png" alt="vuejs">
+            <div class="sticker-con" [ngClass]="{ 'no-pointer': isOpen }">
+                <img [src]="currentSticker" (click)="animateSticker()" alt="Sticker">
+
+                <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
+                    <p class="sticker-text">Also, I´m interested in diving into:</p>
+                    <div class="sticker-skills">
+                        <img src="./assets/img/header/skills/sticker_react.png" alt="react">
+                        <img src="./assets/img/header/skills/sticker_vuejs.png" alt="vuejs">
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
     </div>

@@ -110,7 +110,7 @@ p {
 
     .skill-intro-wrapper>p {
         position: absolute;
-        top: 15%;
+        top: 21%;
         left: 5%;
         right: 5%;
         bottom: 20%;
@@ -178,11 +178,12 @@ p {
 }
 
 .sticker-con {
-    width: 20%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
+    left: 180px;
 
     >img {
         height: 200px;
@@ -195,41 +196,53 @@ p {
     }
 }
 
-.sticker-con > img {
+.sticker-con>img {
     transition: transform 0.3s ease, opacity 0.15s ease;
-  }
+}
 
-  .sticker-reveal {
+.sticker-con.no-pointer {
+    pointer-events: none;
+}
+
+.sticker-reveal {
     position: absolute;
-    top: 45px; 
-    right: 284px;
+    top: 40px;
     width: 180px;
+    height: 170px;
     padding: 10px;
     text-align: center;
     transform: rotate(10deg);
     transition: transform 0.3s ease;
     cursor: pointer;
-  }
-  
-  .sticker-text {
-    font-size: 18px;
+    pointer-events: auto;
+}
+
+.sticker-text {
+    font-size: 16px;
     color: white;
     margin-bottom: 8px;
-  }
-  
-  .sticker-skills {
+}
+
+.sticker-skills {
     display: flex;
     justify-content: center;
-    gap: 8px;
-  
+    gap: 6px;
+
     img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
     }
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
