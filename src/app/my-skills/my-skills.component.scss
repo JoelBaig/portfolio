@@ -236,25 +236,6 @@ p {
     }
 }
 
-// @keyframes ovalPulse {
-//     0% {
-//       transform: rotate(0deg) scale(1);
-//       opacity: 1;
-//     }
-//     60% {
-//       transform: rotate(0deg) scale(1);
-//       opacity: 1;
-//     }
-//     80% {
-//       transform: rotate(8deg) scale(0.8);
-//       opacity: 0;
-//     }
-//     100% {
-//       transform: rotate(0deg) scale(1);
-//       opacity: 1;
-//     }
-//   }
-
 @keyframes ovalOrbit {
     0% {
       transform: translate(0, 0) rotate(0deg) scale(1);

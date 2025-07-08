@@ -4,6 +4,7 @@ import { HeaderComponent } from "./shared/header/header.component";
 import { AppBtnComponent } from "./app-btn/app-btn.component";
 import { MySkillsComponent } from './my-skills/my-skills.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AboutMeSectionComponent, 
     HeaderComponent, 
     AppBtnComponent,
-    MySkillsComponent
+    MySkillsComponent,
+    ProjectsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
