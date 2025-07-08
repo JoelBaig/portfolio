@@ -4,7 +4,8 @@
             <h3 class="headline-my-craft">MY CRAFT</h3>
             <h1>Projects</h1>
             <div class="line-wrapper">
-                <img class="animated-line" src="./assets/img/header/projects/yellow_line.png" alt="yellow_line" />
+                <img [ngClass]="{ 'animated-line': animateLine }" src="./assets/img/header/projects/yellow_line.png"
+                    alt="yellow_line" />
             </div>
             <p class="headline-info-txt">Feel free to explore my projects and try things out! I focus on building
                 responsive, user-friendly experiences with clean and efficient code.</p>

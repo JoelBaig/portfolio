@@ -7,7 +7,8 @@
                 <div class="headline-wrapper">
                     <p>MY STACK</p>
                     <h1>Skill set</h1>
-                    <img class="orange-circle" src="./assets/img/header/skills/orange_line.png" alt="">
+                    <img [ngClass]="{ 'animate-oval': animateOval }" class="orange-circle"
+                        src="./assets/img/header/skills/orange_line.png" alt="">
                 </div>
             </div>
             <div class="skill-introduction">
@@ -22,49 +23,20 @@
         <div class="wrapper-bottom">
             <div class="skill-set">
                 <div class="skills">
-                    <div class="single-skill-con">
-                        <img src="./assets/img/header/skills/html.png" alt="">
-                        <p>HTML</p>
-                    </div>
-                    <div class="single-skill-con">
-                        <img src="./assets/img/header/skills/css.png" alt="">
-                        <p>CSS</p>
-                    </div>
-                    <div class="single-skill-con">
-                        <img src="./assets/img/header/skills/js.png" alt="">
-                        <p>JavaScript</p>
-                    </div>
-                    <div class="single-skill-con">
-                        <img src="./assets/img/header/skills/ts.png" alt="">
-                        <p>TypeScript</p>
-                    </div>
-                    <div class="single-skill-con">
-                        <img src="./assets/img/header/skills/angular.png" alt="">
-                        <p>Angular</p>
+                    <div class="single-skill-con" *ngFor="let skill of skillsTop"
+                        (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
+                        <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
+                            alt="{{ skill.name }}" />
+                        <p>{{ skill.name }}</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills">
-                        <div class="single-skill-con">
-                            <img src="./assets/img/header/skills/firebase.png" alt="">
-                            <p>Firebase</p>
-                        </div>
-                        <div class="single-skill-con">
-                            <img src="./assets/img/header/skills/git.png" alt="">
-                            <p>Git</p>
-                        </div>
-                        <div class="single-skill-con">
-                            <img src="./assets/img/header/skills/restapi.png" alt="">
-                            <p>REST-API</p>
-                        </div>
-                        <div class="single-skill-con">
-                            <img src="./assets/img/header/skills/scrum.png" alt="">
-                            <p>Scrum</p>
-                        </div>
-                        <div class="single-skill-con">
-                            <img src="./assets/img/header/skills/materialdesign.png" alt="">
-                            <p>Material<br>
-                                Design</p>
+                        <div class="single-skill-con" *ngFor="let skill of skillsBottom"
+                            (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
+                            <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
+                                alt="{{ skill.name }}" />
+                            <p>{{ skill.name }}</p>
                         </div>
                     </div>
                 </div>
