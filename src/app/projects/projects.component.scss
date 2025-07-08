@@ -58,17 +58,10 @@
     font-weight: 400;
 }
 
-.yellow-line {
-    position: absolute;
-    top: 310px;
-    left: 70px;
-}
-
 .headline-info-txt {
     width: 80%;
     position: relative;
-    top: 00px;
-
+    top: -15px;
 }
 
 .project-info-txt {
@@ -76,4 +69,43 @@
     position: relative;
     top: 200px;
     height: 50px;
+}
+
+.line-wrapper {
+    width: 37%;
+    position: relative;
+    top: -45px;
+    left: -150px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.animated-line {
+    height: 20px;
+    width: 0%;
+    animation: linePulse 6.4s infinite;
+    transform-origin: left;
+    display: block;
+}
+
+@keyframes linePulse {
+    0% {
+        width: 0%;
+    }
+
+    4% {
+        width: 100%;
+    }
+
+    82% {
+        width: 100%;
+    }
+
+    86% {
+        width: 0%;
+    }
+
+    100% {
+        width: 0%;
+    }
 }
