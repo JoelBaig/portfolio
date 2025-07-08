@@ -6,6 +6,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.wrapper {
+    display: flex;
+    gap: 10px;
+}
 
+.single-project-con {
+    position: relative;
+    top: 150px;
+    height: 700px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+
+    >img {
+        border-radius: 20px;
+        position: absolute;
+        top: 80px;
+    }
+
+    >h2 {
+        width: 80%;
+        margin-bottom: 0;
+        position: relative;
+        top: 200px;
+    }
+
+    >p {
+        width: 80%;
+        position: relative;
+        top: 200px;
+        height: 50px;
+    }
+}
