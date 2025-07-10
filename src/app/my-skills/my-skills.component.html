@@ -42,15 +42,17 @@
                 </div>
             </div>
             <div class="sticker-con" [ngClass]="{ 'no-pointer': isOpen }">
-                <img [src]="currentSticker" (click)="animateSticker()" alt="Sticker">
+                <img [src]="currentSticker" (click)="animateSticker()" alt="Sticker" />
 
                 <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
                     <p class="sticker-text">Also, I´m interested in diving into:</p>
                     <div class="sticker-skills">
-                        <img src="./assets/img/header/skills/sticker_react.png" alt="react">
-                        <img src="./assets/img/header/skills/sticker_vuejs.png" alt="vuejs">
+                        <div class="sticker-skills">
+                            <img *ngFor="let s of stickerSkills" [src]="s.src" [alt]="s.name" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

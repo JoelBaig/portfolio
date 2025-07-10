@@ -1,19 +1,81 @@
-@import './../../mixin.scss';
-
 .projects-main {
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+    align-items: center;
+}
+
+.first-row {
+    display: flex;
+    gap: 10px;
 }
 
 .wrapper {
     display: flex;
     gap: 10px;
 }
+
+.project-img-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    >.project-img {
+        border-radius: 20px;
+        position: absolute;
+        top: 30px;
+        left: 70px;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .base {
+        z-index: 1;
+        opacity: 1;
+      }
+    
+      .zoomed {
+        z-index: 2;
+        opacity: 0;
+      }
+    
+      .zoomed-max {
+        z-index: 3;
+        opacity: 0;
+      }
+    
+      &:hover .base {
+        opacity: 0;
+      }
+    
+      &:hover .zoomed {
+        opacity: 1;
+      }
+    
+      &:hover .zoomed-max {
+        opacity: 0;
+      }
+    
+      .has-max-zoom &:hover .zoomed {
+        opacity: 0;
+      }
+    
+      .has-max-zoom &:hover .zoomed-max {
+        opacity: 1;
+      }
+}
+
+.zoomed-max {
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .project-img-wrapper:hover .zoomed-max {
+    opacity: 1;
+  }
 
 .single-project-con {
     position: relative;
@@ -45,13 +107,6 @@
         position: relative;
         top: 200px;
     }
-}
-
-.project-img {
-    border-radius: 20px;
-    position: absolute;
-    top: 30px;
-    cursor: pointer;
 }
 
 .headline-my-craft {
