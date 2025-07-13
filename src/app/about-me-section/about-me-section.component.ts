@@ -4,7 +4,10 @@ import { AppBtnComponent } from '../app-btn/app-btn.component';
 
 @Component({
   selector: 'app-about-me-section',
-  imports: [CommonModule, AppBtnComponent],
+  imports: [
+    CommonModule,
+    AppBtnComponent
+  ],
   templateUrl: './about-me-section.component.html',
   styleUrl: './about-me-section.component.scss'
 })

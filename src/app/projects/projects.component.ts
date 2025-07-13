@@ -47,17 +47,25 @@
 
 
 import { Component } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { AppBtnComponent } from '../app-btn/app-btn.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NgClass, NgFor],
+  imports: [
+    NgClass,
+    NgFor,
+    AppBtnComponent,
+    NgIf
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
+
 export class ProjectsComponent {
   animateLine = true;
+  hoveredProject: string | null = null;
 
   projects = [
     {

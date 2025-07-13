@@ -1,5 +1,5 @@
-<button class="img-button" [ngClass]="{ 'hidden': !visible }">
-    <img src="./assets/img/header/app_btn/black_btn.png" class="default-img" alt="button">
-    <img src="./assets/img/header/app_btn/hover_btn.png" class="hover-img" alt="hover">
+<button class="img-button" [ngClass]="{ 'hidden': !visible }" [ngStyle]="{ width: width, height: height }">
+    <img [src]="defaultImg" class="default-img" alt="button" />
+    <img [src]="hoverImg" class="hover-img" alt="hover" />
     <span class="btn-text">{{ text }}</span>
 </button>
