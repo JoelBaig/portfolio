@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './app-btn.component.scss'
 })
 export class AppBtnComponent {
-  @Input() width: string = '220px';
+  @Input() width: string = '300px';
   @Input() height: string = '60px';
+  @Input() color: string = 'black'; 
   @Input() text: string = '';
   @Input() visible: boolean = false;
   @Input() defaultImg: string = '';

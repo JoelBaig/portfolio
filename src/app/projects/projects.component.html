@@ -1,43 +1,3 @@
-<!-- <div class="projects-main">
-    <div class="first-row">
-      <div class="single-project-con intro">
-        <h3 class="headline-my-craft">MY CRAFT</h3>
-        <h1>Projects</h1>
-        <div class="line-wrapper">
-          <img
-            [ngClass]="{ 'animated-line': animateLine }"
-            src="./assets/img/header/projects/yellow_line.png"
-            alt="yellow_line"
-          />
-        </div>
-        <p class="headline-info-txt">
-          Feel free to explore my projects and try things out! I focus on building responsive, user-friendly
-          experiences with clean and efficient code.
-        </p>
-      </div>
-      <div class="single-project-con has-max-zoom">
-        <div class="project-img-wrapper">
-          <img class="project-img base" [src]="projects[0].image" [alt]="projects[0].alt" />
-          <img class="project-img zoomed" [src]="projects[0].zoomImage" [alt]="projects[0].alt + ' zoomed'" />
-          <img class="project-img zoomed-max" [src]="projects[0].zoomImageMax" [alt]="projects[0].alt + ' zoomed-max'" />
-        </div>
-        <h2>{{ projects[0].title }}</h2>
-        <p class="project-info-txt">{{ projects[0].description }}</p>
-      </div>
-    </div>
-  
-    <div class="wrapper" *ngFor="let group of groupProjects(projects.slice(1))">
-      <div class="single-project-con" *ngFor="let project of group">
-        <div class="project-img-wrapper">
-          <img class="project-img base" [src]="project.image" [alt]="project.alt" />
-          <img class="project-img zoomed" [src]="project.zoomImage" [alt]="project.alt + ' zoomed'" />
-        </div>
-        <h2>{{ project.title }}</h2>
-        <p class="project-info-txt">{{ project.description }}</p>
-      </div>
-    </div>
-  </div> -->
-
 <div class="projects-main">
     <div class="first-row">
         <div class="single-project-con intro">
@@ -56,7 +16,8 @@
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = projects[0].title"
                 (mouseleave)="hoveredProject = null">
                 <img class="project-img floating-img" [src]="projects[0].image" [alt]="projects[0].alt" />
-                <app-app-btn class="notebook-btn" text="Project details" *ngIf="hoveredProject === projects[0].title">
+                <app-app-btn class="notebook-btn d-none" text="Project details"
+                    *ngIf="hoveredProject === projects[0].title">
                 </app-app-btn>
             </div>
             <h2>{{ projects[0].title }}</h2>
@@ -66,14 +27,23 @@
 
     <div class="wrapper">
         <div class="single-project-con" *ngFor="let project of projects.slice(1)">
-            <app-app-btn [text]="'Let´s talk'" [visible]="true" [width]="'180px'" [height]="'50px'"
-                [defaultImg]="'./assets/img/header/app_btn/transparent4.png'"
-                [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
-            </app-app-btn>
+           
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = project.title"
                 (mouseleave)="hoveredProject = null">
                 <img class="project-img" [src]="project.image" [alt]="project.alt" />
             </div>
+
+            <app-app-btn  class="img-button"
+            [ngClass]="{ 'btn-visible': hoveredProject === project.title, 'btn-hidden': hoveredProject !== project.title }"
+            [text]="'Project details'"
+            [color]="'white'"
+            [visible]="true"
+            [width]="'180px'"
+            [height]="'45px'"
+            [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+            [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+        </app-app-btn>
+
             <h2>{{ project.title }}</h2>
             <p class="project-info-txt">{{ project.description }}</p>
         </div>

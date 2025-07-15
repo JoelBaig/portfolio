@@ -1,5 +1,6 @@
-<button class="img-button" [ngClass]="{ 'hidden': !visible }" [ngStyle]="{ width: width, height: height }">
+<button class="img-button" [ngClass]="{ 'hidden': !visible }"
+    [ngStyle]="{ width: width, height: height, color: color }">
     <img [src]="defaultImg" class="default-img" alt="button" />
     <img [src]="hoverImg" class="hover-img" alt="hover" />
-    <span class="btn-text">{{ text }}</span>
+    <span class="btn-text" [ngStyle]="{ color: color }">{{ text }}</span>
 </button>
