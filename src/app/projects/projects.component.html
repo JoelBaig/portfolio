@@ -15,10 +15,17 @@
         <div class="single-project-con">
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = projects[0].title"
                 (mouseleave)="hoveredProject = null">
+
                 <img class="project-img floating-img" [src]="projects[0].image" [alt]="projects[0].alt" />
-                <app-app-btn class="notebook-btn d-none" text="Project details"
-                    *ngIf="hoveredProject === projects[0].title">
-                </app-app-btn>
+
+                <div class="button-overlay-notebook">
+                    <app-app-btn class="img-button" [class.btn-visible]="hoveredProject === projects[0].title"
+                        [class.btn-hidden]="hoveredProject !== projects[0].title" [text]="'Project details'"
+                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+                        [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+                    </app-app-btn>
+                </div>
             </div>
             <h2>{{ projects[0].title }}</h2>
             <p class="project-info-txt">{{ projects[0].description }}</p>
@@ -27,22 +34,22 @@
 
     <div class="wrapper">
         <div class="single-project-con" *ngFor="let project of projects.slice(1)">
-           
+
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = project.title"
                 (mouseleave)="hoveredProject = null">
-                <img class="project-img" [src]="project.image" [alt]="project.alt" />
-            </div>
 
-            <app-app-btn  class="img-button"
-            [ngClass]="{ 'btn-visible': hoveredProject === project.title, 'btn-hidden': hoveredProject !== project.title }"
-            [text]="'Project details'"
-            [color]="'white'"
-            [visible]="true"
-            [width]="'180px'"
-            [height]="'45px'"
-            [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
-            [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
-        </app-app-btn>
+                <img class="project-img" [src]="project.image" [alt]="project.alt" />
+
+                <div class="button-overlay">
+                    <app-app-btn class="img-button" [class.btn-visible]="hoveredProject === project.title"
+                        [class.btn-hidden]="hoveredProject !== project.title" [text]="'Project details'"
+                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+                        [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+                    </app-app-btn>
+                </div>
+
+            </div>
 
             <h2>{{ project.title }}</h2>
             <p class="project-info-txt">{{ project.description }}</p>

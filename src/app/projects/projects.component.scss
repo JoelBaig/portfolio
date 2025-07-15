@@ -202,21 +202,44 @@
     display: none;
 }
 
-.img-button {
-    position: absolute;
-    top: 350px;
-    right: 50px;
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.btn-visible {
-    display: block;
-  }
+.project-img-wrapper {
+    position: relative;
   
-  .btn-hidden {
-    display: none;
+    .button-overlay {
+      position: absolute;
+      top: 350px;
+      right: -40px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .button-overlay-notebook {
+        position: absolute;
+        top: 310px;
+        right: -40px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+  
+    .img-button {
+      pointer-events: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  
+    .btn-visible {
+      opacity: 1;
+    }
+  
+    .btn-hidden {
+      opacity: 0;
+    }
   }

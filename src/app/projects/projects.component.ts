@@ -9,7 +9,6 @@ import { AppBtnComponent } from '../app-btn/app-btn.component';
     NgClass,
     NgFor,
     AppBtnComponent,
-    NgIf
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
