@@ -18,6 +18,8 @@ export class ProjectsComponent {
   animateLine = true;
   hoveredProject: string | null = null;
   zoomedProject: string | null = null;
+  isFloating = true;
+  private floatTimer: any;
 
   projects = [
     {
@@ -57,5 +59,15 @@ export class ProjectsComponent {
 
   hideButton(projectTitle: string) {
     this.hoveredProject = null;
+  }
+
+  onMouseEnter(projectTitle: string): void {
+    this.hoveredProject = projectTitle;
+    this.isFloating = false;
+  }
+  
+  onMouseLeave(): void {
+    this.hoveredProject = null;
+    this.isFloating = true;
   }
 }
