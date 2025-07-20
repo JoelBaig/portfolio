@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
+import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 
 @Component({
   selector: 'app-about-me-section',
   imports: [
     CommonModule,
-    AppBtnComponent
+    AppBtnComponent,
+    AppHeadlineComponent
   ],
   templateUrl: './about-me-section.component.html',
   styleUrl: './about-me-section.component.scss'
