@@ -6,6 +6,7 @@ import { MySkillsComponent } from './my-skills/my-skills.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
+import { AppHeadlineComponent } from './app-headline/app-headline.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,6 @@ import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-th
     NavbarComponent,
     AboutMeSectionComponent,
     HeaderComponent,
-    AppBtnComponent,
     MySkillsComponent,
     ProjectsComponent,
     ColleaguesThoughtsComponent
