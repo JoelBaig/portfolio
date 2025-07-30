@@ -23,12 +23,24 @@
             transform-origin: left center;
             transition: transform 0.5s ease;
 
-            &.animated-line {
+            // &.animated-line {
+            //     mask-image: linear-gradient(to right, black 0%, black 100%);
+            //     mask-size: 0% 100%;
+            //     mask-repeat: no-repeat;
+            //     animation: maskLine 6.4s infinite linear;
+            // }
+
+            &.horizontal-mask {
                 mask-image: linear-gradient(to right, black 0%, black 100%);
                 mask-size: 0% 100%;
                 mask-repeat: no-repeat;
                 animation: maskLine 6.4s infinite linear;
-            }
+              }
+            
+              &.circular-mask {
+                mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+                animation: drawCircle 6.4s infinite linear;
+              }
         }
     }
 
@@ -38,20 +50,36 @@
     }
 }
 
+// @keyframes maskLine {
+//     0% {
+//       mask-size: 0% 100%;
+//     }
+//     4% {
+//       mask-size: 100% 100%;
+//     }
+//     82% {
+//       mask-size: 100% 100%;
+//     }
+//     86% {
+//       mask-size: 0% 100%;
+//     }
+//     100% {
+//       mask-size: 0% 100%;
+//     }
+//   }
+
 @keyframes maskLine {
-    0% {
-      mask-size: 0% 100%;
-    }
-    4% {
-      mask-size: 100% 100%;
-    }
-    82% {
-      mask-size: 100% 100%;
-    }
-    86% {
-      mask-size: 0% 100%;
-    }
-    100% {
-      mask-size: 0% 100%;
-    }
+    0%   { mask-size: 0% 100%; }
+    4%   { mask-size: 100% 100%; }
+    82%  { mask-size: 100% 100%; }
+    86%  { mask-size: 0% 100%; }
+    100% { mask-size: 0% 100%; }
+  }
+  
+  @keyframes drawCircle {
+    0%   { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
+    4%   { mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg); }
+    82%  { mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg); }
+    86%  { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
+    100% { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
   }

@@ -3,7 +3,11 @@
     <h1>{{ title }}</h1>
 
     <div class="line-wrapper">
-        <img [ngClass]="{ 'animated-line': animateLine }" [src]="lineImage" alt="line image" *ngIf="lineImage">
+        <img [ngClass]="{
+            'animated-line': animateLine,
+            'horizontal-mask': maskDirection === 'horizontal',
+            'circular-mask': maskDirection === 'circular'
+          }" [src]="lineImage" alt="line image" *ngIf="lineImage">
     </div>
 
     <p class="section-info-text">{{ infoText }}</p>

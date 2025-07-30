@@ -1,17 +1,4 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-app-headline',
-//   imports: [],
-//   templateUrl: './app-headline.component.html',
-//   styleUrl: './app-headline.component.scss'
-// })
-// export class AppHeadlineComponent {
-
-// }
-
-
-import { CommonModule, NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -19,7 +6,6 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [
     CommonModule,
-    // NgStyle,
   ],
   templateUrl: './app-headline.component.html',
   styleUrl: './app-headline.component.scss'
@@ -30,4 +16,5 @@ export class AppHeadlineComponent {
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
   @Input() animateLine: boolean = false;
+  @Input() maskDirection: 'horizontal' | 'circular' = 'horizontal';
 }
