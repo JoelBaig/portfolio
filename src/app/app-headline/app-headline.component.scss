@@ -23,13 +23,6 @@
             transform-origin: left center;
             transition: transform 0.5s ease;
 
-            // &.animated-line {
-            //     mask-image: linear-gradient(to right, black 0%, black 100%);
-            //     mask-size: 0% 100%;
-            //     mask-repeat: no-repeat;
-            //     animation: maskLine 6.4s infinite linear;
-            // }
-
             &.horizontal-mask {
                 mask-image: linear-gradient(to right, black 0%, black 100%);
                 mask-size: 0% 100%;
@@ -49,24 +42,6 @@
         line-height: 1.5;
     }
 }
-
-// @keyframes maskLine {
-//     0% {
-//       mask-size: 0% 100%;
-//     }
-//     4% {
-//       mask-size: 100% 100%;
-//     }
-//     82% {
-//       mask-size: 100% 100%;
-//     }
-//     86% {
-//       mask-size: 0% 100%;
-//     }
-//     100% {
-//       mask-size: 0% 100%;
-//     }
-//   }
 
 @keyframes maskLine {
     0%   { mask-size: 0% 100%; }
