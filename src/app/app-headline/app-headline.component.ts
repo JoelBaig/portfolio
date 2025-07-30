@@ -17,7 +17,10 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-app-headline',
   standalone: true,
-  imports: [CommonModule, NgStyle],
+  imports: [
+    CommonModule,
+    // NgStyle,
+  ],
   templateUrl: './app-headline.component.html',
   styleUrl: './app-headline.component.scss'
 })
