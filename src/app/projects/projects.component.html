@@ -1,18 +1,15 @@
 <div class="projects-main">
 
     <div class="first-row">
-        <div class="single-project-con intro">
-            <h3 class="headline-my-craft">MY CRAFT</h3>
-            <h1>Projects</h1>
-            <div class="line-wrapper">
-                <img [ngClass]="{ 'animated-line': animateLine }" src="./assets/img/header/projects/yellow_line.png"
-                    alt="yellow_line" />
-            </div>
-            <p class="headline-info-txt">
-                Feel free to explore my projects and try things out! I focus on building responsive, user-friendly
-                experiences with clean and efficient code.
-            </p>
-        </div>
+        <app-app-headline class="single-project-con intro"
+        [subtitle]="'MY CRAFT'" 
+        [title]="'PROJECTS'"
+        [infoText]="'Feel free to explore my projects and try things out! I focus on building responsive, user-friendly experiences with clean and efficient code.'"
+        [lineImage]="'./assets/img/header/projects/yellow_line.png'" 
+        [animateLine]="true"
+        [maskDirection]="'horizontal'"
+        [lineWidth]="'315px'">
+        </app-app-headline>
 
         <div class="single-project-con">
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = projects[0].title"

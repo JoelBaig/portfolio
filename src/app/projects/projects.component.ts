@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
+import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
   imports: [
-    NgClass,
     NgFor,
     AppBtnComponent,
+    AppHeadlineComponent,
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
@@ -65,7 +66,7 @@ export class ProjectsComponent {
     this.hoveredProject = projectTitle;
     this.isFloating = false;
   }
-  
+
   onMouseLeave(): void {
     this.hoveredProject = null;
     this.isFloating = true;

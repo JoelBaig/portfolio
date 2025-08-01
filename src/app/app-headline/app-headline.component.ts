@@ -16,5 +16,6 @@ export class AppHeadlineComponent {
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
   @Input() animateLine: boolean = false;
+  @Input() lineWidth: string = '340px';
   @Input() maskDirection: 'horizontal' | 'circular' = 'horizontal';
 }

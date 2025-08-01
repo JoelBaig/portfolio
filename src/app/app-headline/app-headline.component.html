@@ -2,7 +2,7 @@
     <h3 class="section-subtitle">{{ subtitle }}</h3>
     <h1>{{ title }}</h1>
 
-    <div class="line-wrapper">
+    <div class="line-wrapper" [ngStyle]="{ width: lineWidth }">
         <img [ngClass]="{
             'animated-line': animateLine,
             'horizontal-mask': maskDirection === 'horizontal',
