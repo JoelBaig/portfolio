@@ -1,6 +1,130 @@
+// .section-header {
+//     text-align: left;
+//     width: 80%;
+
+//     h3 {
+//         font-weight: 400;
+//         margin-bottom: 10px;
+//     }
+
+//     h1 {
+//         font-size: 65px;
+//         margin: 0;
+//     }
+
+//     .line-wrapper {
+//         width: 340px;
+//         height: 24px;
+//         margin: 0 0 50px 0;
+
+//         img {
+//             display: block;
+//             width: 100%;
+//             object-fit: fill;
+//             transform-origin: left center;
+//             transition: transform 0.5s ease;
+
+//             &.horizontal-mask {
+//                 mask-image: linear-gradient(to right, black 0%, black 100%);
+//                 mask-size: 0% 100%;
+//                 mask-repeat: no-repeat;
+//                 animation: maskLine 6.4s infinite linear;
+//             }
+
+//             &.circular-mask {
+//                 mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+//                 animation: drawCircle 6.4s infinite linear;
+//             }
+//         }
+//     }
+
+//     p.section-info-text {
+//         font-size: 20px;
+//         line-height: 1.5;
+//     }
+// }
+
+// @keyframes maskLine {
+//     0% {
+//         mask-size: 0% 100%;
+//     }
+
+//     4% {
+//         mask-size: 100% 100%;
+//     }
+
+//     82% {
+//         mask-size: 100% 100%;
+//     }
+
+//     86% {
+//         mask-size: 0% 100%;
+//     }
+
+//     100% {
+//         mask-size: 0% 100%;
+//     }
+// }
+
+// @keyframes maskLineRtl {
+//     0% {
+//         mask-size: 0% 100%;
+//     }
+
+//     4% {
+//         mask-size: 100% 100%;
+//     }
+
+//     82% {
+//         mask-size: 100% 100%;
+//     }
+
+//     86% {
+//         mask-size: 0% 100%;
+//     }
+
+//     100% {
+//         mask-size: 0% 100%;
+//     }
+// }
+
+// @keyframes drawCircle {
+//     0% {
+//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+//     }
+
+//     4% {
+//         mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
+//     }
+
+//     82% {
+//         mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
+//     }
+
+//     86% {
+//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+//     }
+
+//     100% {
+//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+//     }
+// }
+
+
 .section-header {
-    text-align: left;
     width: 80%;
+
+    &.align-left {
+        text-align: left;
+    }
+
+    &.align-right {
+        text-align: right;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
 
     h3 {
         font-weight: 400;
@@ -13,13 +137,14 @@
     }
 
     .line-wrapper {
-        width: 340px;
+        display: inline-block;
         height: 24px;
         margin: 0 0 50px 0;
 
         img {
             display: block;
             width: 100%;
+            height: 100%;
             object-fit: fill;
             transform-origin: left center;
             transition: transform 0.5s ease;
@@ -29,12 +154,19 @@
                 mask-size: 0% 100%;
                 mask-repeat: no-repeat;
                 animation: maskLine 6.4s infinite linear;
-              }
-            
-              &.circular-mask {
+            }
+
+            &.horizontal-mask-rtl {
+                mask-image: linear-gradient(to left, black 0%, black 100%);
+                mask-size: 0% 100%;
+                mask-repeat: no-repeat;
+                animation: maskLineRtl 6.4s infinite linear;
+            }
+
+            &.circular-mask {
                 mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
                 animation: drawCircle 6.4s infinite linear;
-              }
+            }
         }
     }
 
@@ -45,17 +177,67 @@
 }
 
 @keyframes maskLine {
-    0%   { mask-size: 0% 100%; }
-    4%   { mask-size: 100% 100%; }
-    82%  { mask-size: 100% 100%; }
-    86%  { mask-size: 0% 100%; }
-    100% { mask-size: 0% 100%; }
-  }
-  
-  @keyframes drawCircle {
-    0%   { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
-    4%   { mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg); }
-    82%  { mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg); }
-    86%  { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
-    100% { mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg); }
-  }
+    0% {
+        mask-size: 0% 100%;
+    }
+
+    4% {
+        mask-size: 100% 100%;
+    }
+
+    82% {
+        mask-size: 100% 100%;
+    }
+
+    86% {
+        mask-size: 0% 100%;
+    }
+
+    100% {
+        mask-size: 0% 100%;
+    }
+}
+
+@keyframes maskLineRtl {
+    0% {
+        mask-size: 0% 100%;
+    }
+
+    4% {
+        mask-size: 100% 100%;
+    }
+
+    82% {
+        mask-size: 100% 100%;
+    }
+
+    86% {
+        mask-size: 0% 100%;
+    }
+
+    100% {
+        mask-size: 0% 100%;
+    }
+}
+
+@keyframes drawCircle {
+    0% {
+        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+    }
+
+    4% {
+        mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
+    }
+
+    82% {
+        mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
+    }
+
+    86% {
+        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+    }
+
+    100% {
+        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+    }
+}

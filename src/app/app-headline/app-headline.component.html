@@ -1,14 +1,20 @@
-<div class="section-header">
+<div class="section-header" [ngClass]="'align-' + textAlign">
     <h3 class="section-subtitle">{{ subtitle }}</h3>
     <h1>{{ title }}</h1>
-
-    <div class="line-wrapper" [ngStyle]="{ width: lineWidth }">
-        <img [ngClass]="{
-            'animated-line': animateLine,
-            'horizontal-mask': maskDirection === 'horizontal',
-            'circular-mask': maskDirection === 'circular'
-          }" [src]="lineImage" alt="line image" *ngIf="lineImage">
+  
+    <div class="line-wrapper" [ngStyle]="{ width: lineWidth, marginBottom: lineMarginBottom + 'px' }">
+      <img
+        [ngClass]="{
+          'animated-line': animateLine,
+          'horizontal-mask': maskDirection === 'horizontal',
+          'horizontal-mask-rtl': maskDirection === 'rtl',
+          'circular-mask': maskDirection === 'circular'
+        }"
+        [src]="lineImage"
+        alt="line image"
+        *ngIf="lineImage"
+      />
     </div>
-
+  
     <p class="section-info-text">{{ infoText }}</p>
-</div>
+  </div>
