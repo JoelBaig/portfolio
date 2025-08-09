@@ -1,13 +1,14 @@
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
-:host {
-    display: block;
-    width: 100%;
+  .colleagues-wrapper {
+    width: 93%;
+    display: flex;
+    justify-content: flex-end;
     height: 100vh;
-    margin-top: 500px;
+    margin-top: 180px;
   }
 
-  .colleagues-wrapper {
-    width: 100vw;
+  .colleagues-headline {
+    width: 100%; 
   }

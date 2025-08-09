@@ -11,13 +11,19 @@
   }
   
   .first-row {
+    position: relative;
+    gap: 100px;
     display: flex;
-    gap: 70px;
+    justify-content: space-between;
+    width: 85%;
   }
   
   .wrapper {
+    position: relative;
+    gap: 100px;
     display: flex;
-    gap: 70px;
+    justify-content: space-between;
+    width: 85%;
   }
   
   .project-img-wrapper {
