@@ -22,4 +22,5 @@ export class AppHeadlineComponent {
   @Input() maskDirection: 'horizontal' | 'rtl' | 'circular' = 'horizontal';
   @Input() textAlign: 'left' | 'right' | 'center' = 'left';
   @Input() lineAboveTitle: boolean = false;
+  @Input() lineLeftOfSubtitle: boolean = false;
 }

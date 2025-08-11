@@ -198,27 +198,50 @@
     }
 }
 
+// @keyframes maskLineRtl {
+//     0% {
+//         mask-size: 0% 100%;
+//     }
+
+//     4% {
+//         mask-size: 100% 100%;
+//     }
+
+//     82% {
+//         mask-size: 100% 100%;
+//     }
+
+//     86% {
+//         mask-size: 0% 100%;
+//     }
+
+//     100% {
+//         mask-size: 0% 100%;
+//     }
+// }
+
 @keyframes maskLineRtl {
     0% {
-        mask-size: 0% 100%;
+      mask-size: 0% 100%;
+      mask-position: right center; /* Start am rechten Rand */
     }
-
     4% {
-        mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      mask-position: right center;
     }
-
     82% {
-        mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      mask-position: right center;
     }
-
     86% {
-        mask-size: 0% 100%;
+      mask-size: 0% 100%;
+      mask-position: right center;
     }
-
     100% {
-        mask-size: 0% 100%;
+      mask-size: 0% 100%;
+      mask-position: right center;
     }
-}
+  }
 
 @keyframes drawCircle {
     0% {
