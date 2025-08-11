@@ -1,116 +1,3 @@
-// .section-header {
-//     text-align: left;
-//     width: 80%;
-
-//     h3 {
-//         font-weight: 400;
-//         margin-bottom: 10px;
-//     }
-
-//     h1 {
-//         font-size: 65px;
-//         margin: 0;
-//     }
-
-//     .line-wrapper {
-//         width: 340px;
-//         height: 24px;
-//         margin: 0 0 50px 0;
-
-//         img {
-//             display: block;
-//             width: 100%;
-//             object-fit: fill;
-//             transform-origin: left center;
-//             transition: transform 0.5s ease;
-
-//             &.horizontal-mask {
-//                 mask-image: linear-gradient(to right, black 0%, black 100%);
-//                 mask-size: 0% 100%;
-//                 mask-repeat: no-repeat;
-//                 animation: maskLine 6.4s infinite linear;
-//             }
-
-//             &.circular-mask {
-//                 mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-//                 animation: drawCircle 6.4s infinite linear;
-//             }
-//         }
-//     }
-
-//     p.section-info-text {
-//         font-size: 20px;
-//         line-height: 1.5;
-//     }
-// }
-
-// @keyframes maskLine {
-//     0% {
-//         mask-size: 0% 100%;
-//     }
-
-//     4% {
-//         mask-size: 100% 100%;
-//     }
-
-//     82% {
-//         mask-size: 100% 100%;
-//     }
-
-//     86% {
-//         mask-size: 0% 100%;
-//     }
-
-//     100% {
-//         mask-size: 0% 100%;
-//     }
-// }
-
-// @keyframes maskLineRtl {
-//     0% {
-//         mask-size: 0% 100%;
-//     }
-
-//     4% {
-//         mask-size: 100% 100%;
-//     }
-
-//     82% {
-//         mask-size: 100% 100%;
-//     }
-
-//     86% {
-//         mask-size: 0% 100%;
-//     }
-
-//     100% {
-//         mask-size: 0% 100%;
-//     }
-// }
-
-// @keyframes drawCircle {
-//     0% {
-//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-//     }
-
-//     4% {
-//         mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
-//     }
-
-//     82% {
-//         mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
-//     }
-
-//     86% {
-//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-//     }
-
-//     100% {
-//         mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-//     }
-// }
-
-
 .section-header {
     width: 100%;
 
@@ -177,24 +64,21 @@
     }
 }
 
-/* Linie links neben Subtitle im Row-Layout */
 .section-header .subtitle-row {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: -10px; /* Abstand zur H1 */
-    white-space: nowrap; /* hält Linie + Subtitle zusammen */
+    margin-bottom: -10px;
+    white-space: nowrap;
   }
   
-  /* In der subtitle-row KEIN globales Bottom-Margin der line-wrapper */
   .section-header .subtitle-row .line-wrapper {
-    margin: -10;              /* überschreibt dein globales margin: 0 0 50px 0 */
+    margin: -10; 
     height: 24px;
     display: inline-block;
-    vertical-align: middle; /* optische Zentrierung */
+    vertical-align: middle;
   }
-  
-  /* Sicherheitshalber: Bild nicht absolut/überlagernd, sauber im Flow */
+
   .section-header .subtitle-row .line-wrapper img {
     position: static;
     display: block;

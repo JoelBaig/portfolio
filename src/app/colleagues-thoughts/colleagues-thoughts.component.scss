@@ -1,14 +1,47 @@
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
-  .colleagues-wrapper {
-    width: 93%;
-    display: flex;
-    justify-content: flex-end;
-    height: 100vh;
-    margin-top: 500px;
-  }
+.colleagues-wrapper {
+  width: 93%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100vh;
+  margin-top: -60px;
+  margin-bottom: 200px;
+}
 
-  .colleagues-headline {
-    width: 100%; 
+.colleagues-headline {
+  width: 100%;
+}
+
+.feedback-cards {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  top: 60px;
+
+  >img {
+    width: 400px;
+    height: 250px;
   }
+}
+
+.image-overlap {
+  @include dFlex($f: flex, $c: center, $ai: center, $fd: column);
+}
+
+.image-text {
+  @include dFlex($f: flex, $c: center, $ai: center);
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.4;
+  transform-origin: center;
+  gap: 16px;
+}

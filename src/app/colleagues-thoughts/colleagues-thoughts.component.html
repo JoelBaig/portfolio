@@ -12,4 +12,23 @@
   [lineWidth]="'180'"
   [lineMarginBottom]="-20">
 </app-app-headline>
+
+<div class="feedback-cards">
+    <div class="image-overlap">
+        <div *ngFor="let card of imageCards; let i = index" [ngStyle]="{
+      'margin-bottom.px': i === 2 ? -90 : -70,
+      'z-index': i === 0 ? 30 : i === 1 ? 20 : 10
+    }" style="position: relative;">
+
+            <img [src]="card.src" alt="about-image">
+
+            <div class="image-text" [ngStyle]="getTextStyle(i)">
+                <img [src]="card.icon" alt="icon" class="linkedin-icon">
+                {{ card.text }}
+                {{ card.name }}
+            </div>
+
+        </div>
+    </div>
+</div>
 </div>
