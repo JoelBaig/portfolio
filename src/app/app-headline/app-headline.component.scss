@@ -138,8 +138,9 @@
 
     .line-wrapper {
         display: inline-block;
+        width: 110px;
         height: 24px;
-        margin: 0 0 50px 0;
+        margin: 0 0 0 0;
 
         img {
             display: block;
@@ -176,6 +177,29 @@
     }
 }
 
+/* Linie links neben Subtitle im Row-Layout */
+.section-header .subtitle-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: -10px; /* Abstand zur H1 */
+    white-space: nowrap; /* hält Linie + Subtitle zusammen */
+  }
+  
+  /* In der subtitle-row KEIN globales Bottom-Margin der line-wrapper */
+  .section-header .subtitle-row .line-wrapper {
+    margin: -10;              /* überschreibt dein globales margin: 0 0 50px 0 */
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle; /* optische Zentrierung */
+  }
+  
+  /* Sicherheitshalber: Bild nicht absolut/überlagernd, sauber im Flow */
+  .section-header .subtitle-row .line-wrapper img {
+    position: static;
+    display: block;
+  }
+
 @keyframes maskLine {
     0% {
         mask-size: 0% 100%;
@@ -198,32 +222,10 @@
     }
 }
 
-// @keyframes maskLineRtl {
-//     0% {
-//         mask-size: 0% 100%;
-//     }
-
-//     4% {
-//         mask-size: 100% 100%;
-//     }
-
-//     82% {
-//         mask-size: 100% 100%;
-//     }
-
-//     86% {
-//         mask-size: 0% 100%;
-//     }
-
-//     100% {
-//         mask-size: 0% 100%;
-//     }
-// }
-
 @keyframes maskLineRtl {
     0% {
       mask-size: 0% 100%;
-      mask-position: right center; /* Start am rechten Rand */
+      mask-position: right center;
     }
     4% {
       mask-size: 100% 100%;
