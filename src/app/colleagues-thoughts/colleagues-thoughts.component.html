@@ -1,34 +1,35 @@
 <div class="colleagues-wrapper">
-<app-app-headline
-  class="colleagues-headline"
-  [subtitle]="'IN THEIR WORDS:'"
-  [title]="'Colleague´s Thoughts'"
-  [lineImage]="'./assets/img/header/colleagues_thoughts/blue_arrow.png'"
-  [animateLine]="true"
-  [maskDirection]="'rtl'"
-  [textAlign]="'right'"
-  [lineAboveTitle]="true"
-  [lineLeftOfSubtitle]="true"
-  [lineWidth]="'180'"
-  [lineMarginBottom]="-20">
-</app-app-headline>
+    <app-app-headline class="colleagues-headline" [subtitle]="'IN THEIR WORDS:'" [title]="'Colleague´s Thoughts'"
+        [lineImage]="'./assets/img/header/colleagues_thoughts/blue_arrow.png'" [animateLine]="true"
+        [maskDirection]="'rtl'" [textAlign]="'right'" [lineAboveTitle]="true" [lineLeftOfSubtitle]="true"
+        [lineWidth]="'180'" [lineMarginBottom]="-20">
+    </app-app-headline>
 
-<div class="feedback-cards">
-    <div class="image-overlap">
-        <div *ngFor="let card of imageCards; let i = index" [ngStyle]="{
-      'margin-bottom.px': i === 2 ? -90 : -70,
-      'z-index': i === 0 ? 30 : i === 1 ? 20 : 10
-    }" style="position: relative;">
+    <div class="feedback-cards">
+        <div class="image-overlap">
+            <div class="single-card" *ngFor="let card of imageCards; let i = index" (mouseenter)="hoveredIndex = i"
+                (mouseleave)="hoveredIndex = null" [ngStyle]="combinedStyle(i)">
+                <img [src]="card.src" alt="about-image" />
 
-            <img [src]="card.src" alt="about-image">
+                <img *ngIf="card.hoverOverlay" [src]="card.hoverOverlay" alt="hover-overlay" class="card-hover-overlay"
+                    [style.opacity]="hoveredIndex === i ? 1 : 0" />
 
-            <div class="image-text" [ngStyle]="getTextStyle(i)">
-                <img [src]="card.icon" alt="icon" class="linkedin-icon">
-                {{ card.text }}
-                {{ card.name }}
+                <div class="image-text" [style.transform]="getTextRotation(i)">
+                    {{ card.text }}
+
+                    <div class="card-bottom" [class.is-hovered]="hoveredIndex === i">
+                        <div class="name-main">
+                            <h3 class="card-name">{{ card.name }}</h3>
+                            <div>{{ card.job }}</div>
+                        </div>
+
+                        <div class="linkedin-icon-wrapper" (click)="openLinkedIn(card)">
+                            <img [src]="card.icon" alt="icon" class="linkedin-icon default-icon" />
+                            <img [src]="card.iconHover" alt="icon hover" class="linkedin-icon hover-icon" />
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
-</div>
 </div>

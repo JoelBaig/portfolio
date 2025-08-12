@@ -15,46 +15,54 @@ export class ColleaguesThoughtsComponent {
   imageCards = [
     {
       src: 'assets/img/header/colleagues_thoughts/feedback1.png',
-      srcCardHover: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
-      icon: 'assets/img/header/about_me/location_icon_position.png',
+      hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
+      icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
+      iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'Tobias Lange'
+      name: 'Tobias Lange',
+      job: 'Frontend Developer'
     },
     {
       src: 'assets/img/header/colleagues_thoughts/feedback2.png',
-      srcCardHover: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
-      icon: 'assets/img/header/about_me/location_icon_route.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'Maria Schäfer'
+      hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
+      icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
+      iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      name: 'Maria Schäfer',
+      job: 'Frontend Developer'
     },
     {
       src: 'assets/img/header/colleagues_thoughts/feedback1.png',
-      srcHover: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
-      icon: 'assets/img/header/about_me/location_icon_home.png',
+      hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
+      icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
+      iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'David Braun'
+      name: 'David Braun',
+      job: 'Frontend Developer'
     }
   ];
 
-  getTextStyle(index: number): { [key: string]: string } {
+  hoveredIndex: number | null = null;
+
+  getCardStyle(index: number): { [key: string]: string } {
     switch (index) {
-      case 0:
+      case 0: 
         return {
-          top: '40%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) rotate(-5deg)'
+          top: '30%',
+          left: '75%',
+          transform: 'translate(-50%, -50%) rotate(5deg)' 
         };
-      case 1:
+      case 1: 
         return {
-          top: '45%',
+          top: '55%',
           left: '50%',
           transform: 'translate(-50%, -50%) rotate(0deg)'
         };
       case 2:
         return {
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) rotate(5deg)'
+          top: '30%',
+          left: '25%',
+          transform: 'translate(-50%, -50%) rotate(-5deg)'
         };
       default:
         return {
@@ -67,10 +75,27 @@ export class ColleaguesThoughtsComponent {
 
   getTextRotation(index: number): string {
     switch (index) {
-      case 0: return 'rotate(-4deg)';
+      case 0: return 'rotate(0deg)';
       case 1: return 'rotate(0deg)';
-      case 2: return 'rotate(4deg)';
+      case 2: return 'rotate(0deg)';
       default: return 'rotate(0deg)';
     }
+  }
+
+  openLinkedIn(card: any) {
+    if (card.link) { window.open(card.link, '_blank'); }
+  }
+
+  baseZ(i: number): number {
+    return i === 0 ? 30 : i === 1 ? 20 : 10;
+  }
+
+  combinedStyle(i: number): { [key: string]: string | number } {
+    const base = this.getCardStyle(i);
+    return {
+      ...base,
+      position: 'absolute',
+      zIndex: this.hoveredIndex === i ? 999 : this.baseZ(i),
+    };
   }
 }

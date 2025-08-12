@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 
 @Component({
@@ -9,7 +9,6 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
     NgIf,
     NgClass,
     NgFor,
-    AppHeadlineComponent
   ],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
