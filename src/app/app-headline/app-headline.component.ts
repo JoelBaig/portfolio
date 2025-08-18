@@ -24,4 +24,5 @@ export class AppHeadlineComponent {
   @Input() textAlign: 'left' | 'right' | 'center' = 'left';
   @Input() lineAboveTitle: boolean = false;
   @Input() lineLeftOfSubtitle: boolean = false;
+  @Input() lineUnderInfoText: boolean = false;
 }

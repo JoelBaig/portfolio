@@ -6,9 +6,9 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  margin-top: 50px;
   margin-bottom: 200px;
-  position: absolute;
+  position: relative;
+  top: 300px;
 }
 
 .colleagues-headline {
