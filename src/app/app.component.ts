@@ -5,6 +5,7 @@ import { MySkillsComponent } from './my-skills/my-skills.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-th
     HeaderComponent,
     MySkillsComponent,
     ProjectsComponent,
-    ColleaguesThoughtsComponent
-],
+    ColleaguesThoughtsComponent,
+    ContactFormComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

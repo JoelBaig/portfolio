@@ -19,6 +19,7 @@ export class AppHeadlineComponent {
   @Input() animateLine: boolean = false;
   @Input() lineWidth: string = '340px';
   @Input() lineMarginBottom: number = 50;
+  @Input() lineAlign: string = 'center';
   @Input() maskDirection: 'horizontal' | 'rtl' | 'circular' = 'horizontal';
   @Input() textAlign: 'left' | 'right' | 'center' = 'left';
   @Input() lineAboveTitle: boolean = false;
