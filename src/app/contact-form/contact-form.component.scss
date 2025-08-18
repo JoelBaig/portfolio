@@ -2,14 +2,25 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    top: 900px;
+    top: 750px;
     display: flex;
     justify-content: space-around;
-    position: relative;
+    color: white;
+
+    >img {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        height: 90%;
+        object-fit: conatin;
+        object-position: center;
+    }
 }
 
 .contact-headline-con {
-    width: 80%;
+    width: 100%;
+    position: absolute;
+    top: 240px;
 }
 
 .contact-headline {
@@ -23,3 +34,4 @@
     position: absolute;
     right: 0;
 }
+

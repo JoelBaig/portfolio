@@ -17,9 +17,9 @@ export class AppHeadlineComponent {
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
   @Input() animateLine: boolean = false;
-  @Input() lineWidth: string = '340px';
+  @Input() lineWidth: number = 340;
   @Input() lineMarginBottom: number = 50;
-  @Input() lineAlign: string = 'center';
+  @Input() lineAlign: 'flex-start' | 'center' | 'flex-end' = 'center';
   @Input() maskDirection: 'horizontal' | 'rtl' | 'circular' = 'horizontal';
   @Input() textAlign: 'left' | 'right' | 'center' = 'left';
   @Input() lineAboveTitle: boolean = false;

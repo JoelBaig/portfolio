@@ -31,7 +31,7 @@
                 'horizontal-mask': maskDirection === 'horizontal',
                 'horizontal-mask-rtl': maskDirection === 'rtl',
                 'circular-mask': maskDirection === 'circular'
-              }" [src]="lineImage" alt="line image" *ngIf="lineImage" />
+              }" [src]="lineImage" alt="line image" *ngIf="lineImage" [style.width.px]="lineWidth" />
         </div>
         <h3 class="section-subtitle">{{ subtitle }}</h3>
       </div>
@@ -47,7 +47,7 @@
               'horizontal-mask': maskDirection === 'horizontal',
               'horizontal-mask-rtl': maskDirection === 'rtl',
               'circular-mask': maskDirection === 'circular'
-            }" [src]="lineImage" alt="line image" *ngIf="lineImage" />
+            }" [src]="lineImage" alt="line image" *ngIf="lineImage" [style.width.px]="lineWidth" />
       </div>
       <h1>{{ title }}</h1>
     </ng-template>
@@ -64,7 +64,7 @@
             'horizontal-mask': maskDirection === 'horizontal',
             'horizontal-mask-rtl': maskDirection === 'rtl',
             'circular-mask': maskDirection === 'circular'
-          }" [src]="lineImage" alt="line image" *ngIf="lineImage" />
+          }" [src]="lineImage" alt="line image" *ngIf="lineImage" [style.width.px]="lineWidth" />
     </div>
   </ng-template>
 
