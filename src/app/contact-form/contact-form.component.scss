@@ -32,6 +32,32 @@
 .contact-con {
     width: 40%;
     position: absolute;
+    top: 200px;
     right: 0;
 }
 
+label {
+    color: white;
+    font-size: 26px;
+}
+
+.name-field {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.email-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.help-field {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    color: white;
+}
