@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     MySkillsComponent,
     ProjectsComponent,
     ColleaguesThoughtsComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    FormsModule, 
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
