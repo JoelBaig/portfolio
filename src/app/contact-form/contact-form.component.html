@@ -12,8 +12,8 @@
 
     <div class="contact-con">
 
-        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-
+        <form  #contactForm="ngForm">
+            <!-- (ngSubmit)="onSubmit(contactForm)" -->
             <div class="name-field">
                 <label for="name">What´s your name?</label>
                 <input [(ngModel)]="contactData.contactName" type="text" id="name" name="name"
