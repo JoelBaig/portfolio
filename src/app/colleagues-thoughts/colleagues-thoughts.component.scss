@@ -5,29 +5,39 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  flex-direction: column;
-  margin-bottom: 200px;
+  // flex-direction: column;
+  margin-bottom: 150px;
   position: relative;
-  top: 100px;
+  top: 300px;
 }
 
 .colleagues-main {
-  width: 1500px;
+width: 80vw;
+// position: relative;
+// right: 0;
+// margin:0 auto;
+display: flex;
+justify-content: center;
 }
 
 .colleagues-headline {
-  // width: 100%;
+position: relative;
+top: -200px;
+width: 40vw;
 }
 
 .feedback-cards {
   display: flex;
   justify-content: center;
-  width: 100px;
+  align-items: center;
+  width: 60vw;
   height: 300px;
   // position: absolute;
   // left: 55px;
   // top: 150px;
   // margin-bottom: 200px;
+  position: relative;
+  top: -80px;
 
   >img {
     width: 400px;

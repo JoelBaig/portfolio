@@ -12,8 +12,7 @@
 
     <div class="contact-con">
 
-        <form  #contactForm="ngForm">
-            <!-- (ngSubmit)="onSubmit(contactForm)" -->
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
             <div class="name-field">
                 <label for="name">What´s your name?</label>
                 <input [(ngModel)]="contactData.contactName" type="text" id="name" name="name"
@@ -29,8 +28,8 @@
 
             <div class="help-field">
                 <label for="message">How can I help you?</label>
-                <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message" rows="5"
-                    placeholder="Ask me here..." required></textarea>
+                <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message"
+                    rows="5" placeholder="Ask me here..." required></textarea>
                 @if (!message.valid && message.touched) {
                 <span>Please enter a message</span>
                 }
