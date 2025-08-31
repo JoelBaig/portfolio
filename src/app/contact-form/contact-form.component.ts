@@ -63,11 +63,15 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule, AppHeadlineComponent],
+  imports: [
+    FormsModule,
+    AppHeadlineComponent,
+    NgStyle],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
