@@ -1,20 +1,20 @@
 .contact-con-main {
     height: 100vh;
-    width: 100%;
+    width: 80vw;
     position: relative;
     top: 150px;
     display: flex;
     justify-content: space-around;
     color: white;
 
-    >img {
-        position: absolute;
-        top: 100px;
-        width: 100%;
-        height: 100%;
-        object-fit: conatin;
-        object-position: center;
-    }
+    // >img {
+    //     position: absolute;
+    //     top: 100px;
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: conatin;
+    //     object-position: center;
+    // }
 }
 
 .contact-headline-con {
