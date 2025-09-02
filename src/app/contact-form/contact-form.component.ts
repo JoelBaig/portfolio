@@ -1,69 +1,9 @@
-// import { Component, inject } from '@angular/core';
-// import { FormsModule, NgForm } from '@angular/forms';
-// import { AppHeadlineComponent } from '../app-headline/app-headline.component';
-// import { AppBtnComponent } from '../app-btn/app-btn.component';
-// import { HttpClient } from '@angular/common/http';
-
-// @Component({
-//   selector: 'app-contact-form',
-//   standalone: true,
-//   imports: [
-//     AppHeadlineComponent,
-//     AppBtnComponent,
-//     FormsModule,
-//   ],
-//   templateUrl: './contact-form.component.html',
-//   styleUrl: './contact-form.component.scss'
-// })
-// export class ContactFormComponent {
-
-//   http = inject(HttpClient)
-
-//   contactData = {
-//     contactName: '',
-//     email: '',
-//     message: '',
-//   }
-
-//   mailTest = false;
-
-//   post = {
-//     endPoint: 'https://joelbaig.com/sendMail.php',
-//     body: (payload: any) => JSON.stringify(payload),
-//     options: {
-//       headers: {
-//         'Content-Type': 'text/plain',
-//         responseType: 'text',
-//       },
-//     },
-//   };
-
-//   onSubmit(ngForm: NgForm) {
-//     if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-//       this.http.post(this.post.endPoint, this.post.body(this.contactData))
-//         .subscribe({
-//           next: (response) => {
-
-//             ngForm.resetForm();
-//           },
-//           error: (error) => {
-//             console.error(error);
-//           },
-//           complete: () => console.info('send post complete'),
-//         });
-//     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-
-//       ngForm.resetForm();
-//     }
-//   }
-// }
-
-
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
-import { NgStyle } from '@angular/common';
+import { NgClass, NgIf, NgStyle } from '@angular/common';
+import { AppBtnComponent } from '../app-btn/app-btn.component';
 
 @Component({
   selector: 'app-contact-form',
@@ -71,7 +11,10 @@ import { NgStyle } from '@angular/common';
   imports: [
     FormsModule,
     AppHeadlineComponent,
-    NgStyle],
+    NgClass,
+    AppBtnComponent,
+    NgIf
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
@@ -84,6 +27,13 @@ export class ContactFormComponent {
     email: '',
     message: '',
   };
+
+  namePlaceholder = 'Your name goes here';
+  emailPlaceholder = 'youremail@email.com';
+  messagePlaceholder = 'Ask me here...';
+
+  accepted = false;
+  hovered = false;
 
   // Endpunkt: deine Domain mit der PHP-Datei
   endPoint = 'https://joelbaig.com/sendMail.php';
@@ -113,4 +63,10 @@ export class ContactFormComponent {
       }
     });
   }
+
+  toggleCheckbox(event: Event) {
+    event.preventDefault(); // Verhindert unnötige Nebeneffekte
+    this.accepted = !this.accepted;
+  }
+
 }
