@@ -35,7 +35,6 @@ li {
 .nav-link {
     position: relative;
     display: inline-block;
-    // padding: 8px 16px;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -62,6 +61,56 @@ li {
     }
 }
 
+.nav-links {
+    @include dFlex($f: flex, $c: space-between, $ai: center);
+    height: 100px;
+    width: 70vw;
+    font-weight: 700;
+    color: #F8F9FA;
+    padding: 0;
+  }
+  
+
+/* Text-Span: gibt die Größe vor */
+.nav-link .label {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;      /* steuert „Rand“ der blauen Kapsel */
+    z-index: 1;             /* über dem Hintergrund */
+    line-height: 1;         /* saubere Höhe */
+  }
+  
+  .legal-link { 
+    position: relative;
+    display: inline-block;
+  }
+  
+  .legal-link .label {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;    /* „Pill“-Innenabstand */
+    line-height: 1;
+    z-index: 1;           /* Text über dem ::before */
+  }
+  
+  .legal-link .label::before {
+    content: "";
+    position: absolute;
+    inset: 0;             /* füllt exakt die Label-Box */
+    border-radius: 10px;
+    background: #3355ff;  /* <— korrektes Hex mit # */
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: -1;          /* hinter dem Text, verschiebt nichts */
+  }
+  
+  .legal-link:hover .label::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+
 .nav-about-me .hover-bg {
     transform: scaleY(0);
     transform-origin: top;
@@ -73,3 +122,55 @@ li {
     transform: scaleY(1);
     opacity: 1;
 }
+
+/* Nur Legal Notice */
+.legal-link { 
+    position: relative; 
+    overflow: visible; /* darf über den Link hinausragen */
+  }
+  
+  /* Hover-Bild: größer + zentriert + Maske */
+  .legal-link .hover-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;            /* Größe anpassen */
+    height: 200%;
+    transform: translate(-50%, -50%) !important;  /* zentriert halten, alte scaleX-Regel aushebeln */
+    object-fit: contain;
+    padding-top: 10px;
+    z-index: 1;             /* über dem Text */
+    opacity: 0;
+    transition: opacity .25s ease;
+  
+    /* Masken: von links nach rechts “zeichnen” */
+    -webkit-mask-image: linear-gradient(to right, #000 0 0);
+    -webkit-mask-size: 0% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: left center;
+  
+    mask-image: linear-gradient(to right, #000 0 0);
+    mask-size: 0% 100%;
+    mask-repeat: no-repeat;
+    mask-position: left center;
+  }
+  
+  /* Hover: sichtbar + animiert */
+  .legal-link:hover .hover-bg {
+    opacity: 1;
+    animation: drawImageLR .8s ease forwards;
+    transform: translate(-50%, -50%) !important; /* gegen die allgemeine scaleX(1)-Regel */
+  }
+  
+  /* Keyframes: links -> rechts */
+  @keyframes drawImageLR {
+    from {
+      -webkit-mask-size: 0% 100%;
+              mask-size: 0% 100%;
+    }
+    to {
+      -webkit-mask-size: 100% 100%;
+              mask-size: 100% 100%;
+    }
+  }
+

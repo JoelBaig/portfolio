@@ -229,8 +229,49 @@ height: 18px;
     fill: #111;
 }
 
-.logo {
+.logo-sticker {
     position: absolute;
     top: 50px;
     left: 55px;
+}
+
+.logo-wrapper {
+    position: absolute;
+    display: inline-block;
+    margin-top: 1320px;
+    cursor: pointer;
+  
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  
+    .logo-blue {
+      z-index: 1;
+      opacity: 1;
+    }
+  
+    .logo-yellow {
+      z-index: 2;
+      opacity: 0;
+    }
+  
+    &:hover .logo-blue {
+      opacity: 0;
+    }
+  
+    &:hover .logo-yellow {
+      opacity: 1;
+    }
+  }
+
+.logo {
+    position: absolute;
+}
+
+.my-name {
+    position: relative;
+    top: 55px;
 }
