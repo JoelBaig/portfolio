@@ -7,6 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "./shared/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,9 @@ import { FormsModule } from '@angular/forms';
     ProjectsComponent,
     ColleaguesThoughtsComponent,
     ContactFormComponent,
-    FormsModule, 
-  ],
+    FormsModule,
+    FooterComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

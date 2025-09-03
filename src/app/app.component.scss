@@ -1,12 +1,24 @@
 @import './../mixin.scss';
 @import './../keyframes.scss';
 
+:host {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+}
+
+.navbar-main {
+    width: 100%;
+}
 
 .header-main {
     @include elementSize($w: 100vw, $h: 100vh, $mw: none);
 }
 
-.navbar-main {
-    position: absolute;
-    width: 100%;
+.page-content {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    z-index: 1;
 }

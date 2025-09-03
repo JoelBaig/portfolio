@@ -12,6 +12,24 @@
         </div>
 
         <div class="contact-con">
+            <div class="sticker-con">
+                <img class="orange-sticker" src="./assets/contact_form/sticker_contact.png" alt="orange_sticker">
+                <svg class="sticker-text" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath" d="M150,150
+                             m -118,0
+                             a 118,118 0 1,1 236,0
+                             a 118,118 0 1,1 -236,0" />
+                    </defs>
+
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
+                            Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;
+                        </textPath>
+                    </text>
+                </svg>
+                <img class="logo" src="./assets/contact_form/logo_black.png" alt="">
+            </div>
 
             <div class="form-line-1"></div>
 
@@ -51,11 +69,12 @@
                 <div class="checkbox-con">
                     <div>
                         <img (click)="toggleCheckbox($event)" (mouseenter)="hovered = true"
-                            (mouseleave)="hovered = false" class="checkbox-unchecked" [src]="accepted ? './assets/contact_form/property_checked.png'
+                            (mouseleave)="hovered = false" class="checkbox-img"
+                            [ngClass]="accepted ? 'checked' : 'unchecked'" [src]="accepted ? './assets/contact_form/property_checked.png'
                         : './assets/contact_form/check_box_outline_blank.png'" alt=" Checkbox">
 
-                        <img class="checkbox-hover-img" *ngIf="hovered" src="./assets/contact_form/property_unchecked_hover.png"
-                            alt="Checkbox hover" />
+                        <img class="checkbox-hover-img" *ngIf="hovered"
+                            src="./assets/contact_form/property_unchecked_hover.png" alt="Checkbox hover" />
                     </div>
                     <div>
                         <span class="privacy-policy-text">I´ve read the privacy police and agree to the processing of my

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
+import { FooterComponent } from "../shared/footer/footer.component";
 
 @Component({
   selector: 'app-contact-form',
@@ -13,8 +14,10 @@ import { AppBtnComponent } from '../app-btn/app-btn.component';
     AppHeadlineComponent,
     NgClass,
     AppBtnComponent,
-    NgIf
-  ],
+    NgIf,
+    FooterComponent,
+   FooterComponent
+],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
