@@ -1,3 +1,38 @@
-<header class="header-con">
-    <img src="./assets/img/header/background_header.png" alt="">
+<header>
+    <div class="logo-lang-con">
+        <div class="logo-wrapper">
+            <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
+            <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
+        </div>
+
+        <div class="language-wrapper">
+            <div class="en-language-wrapper" (click)="selectLanguage('en')">
+                <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
+                    src="/assets/img/header/en_red.png" alt="english-language">
+                <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png"
+                    alt="language-mark">
+                <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white"
+                    src="/assets/img/header/en_white.png" alt="english-language">
+            </div>
+
+            <div class="language-switch-wrapper">
+                <img class="language-line" src="/assets/img/header/language_line.png" alt="language-switch">
+                <img [ngClass]="dotAnimationClass" class="language-dot" src="/assets/img/header/language_dot.png"
+                    alt="language-switch">
+            </div>
+
+            <div class="de-language-wrapper" (click)="selectLanguage('de')">
+                <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white"
+                    src="/assets/img/header/de_white.png" alt="german-language">
+                <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png"
+                    alt="language-mark">
+                <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red"
+                    src="/assets/img/header/de_red.png" alt="german-language">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <img class="landingpage-bgr" src="./assets/img/header/background_header.png" alt="">
+    </div>
 </header>

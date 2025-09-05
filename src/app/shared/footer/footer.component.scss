@@ -1,197 +1,210 @@
 @import '../../../mixin.scss';
 @import '../../../keyframes.scss';
 
-/* ===== Grundlayout ===== */
+:root {
+    --t-in: 0.5s;
+    --t-out: 0.55s;
+}
 
 .footer-main {
-  color: white;
-  height: 100px;
-  width: 100%;
+    color: white;
+    height: 100px;
+    width: 100%;
 }
 
 .nav-pos {
-  @include dFlex($f: flex, $c: c, $ai: center);
-  width: 100%;
+    @include dFlex($f: flex, $c: c, $ai: center);
+    width: 100%;
 }
 
 .navbar {
-  @include elementSize($w: 100vw, $h: 100px, $mw: none);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    @include elementSize($w: 100vw, $h: 100px, $mw: none);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links {
-  @include dFlex($f: flex, $c: space-between, $ai: center);
-  height: 100px;
-  width: 70vw;
-  font-weight: 700;
-  color: #F8F9FA;
-  padding: 0;
+    @include dFlex($f: flex, $c: space-between, $ai: center);
+    height: 100px;
+    width: 70vw;
+    font-weight: 700;
+    color: #F8F9FA;
+    padding: 0;
 }
 
 li {
-  @include dFlex($f: flex, $c: center, $ai: center);
+    @include dFlex($f: flex, $c: center, $ai: center);
 }
 
-/* ===== Legal Notice – unverändert lassen ===== */
-
 .legal-link {
-  position: relative;
-  display: inline-block;
-  overflow: visible;
+    position: relative;
+    display: inline-block;
+    overflow: visible;
 }
 
 .legal-link .hover-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  transform: translate(-50%, -50%) !important;
-  object-fit: contain;
-  padding-top: 10px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity .25s ease;
-  -webkit-mask-image: linear-gradient(to right, #000 0 0);
-  -webkit-mask-size: 0% 100%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: left center;
-          mask-image: linear-gradient(to right, #000 0 0);
-          mask-size: 0% 100%;
-          mask-repeat: no-repeat;
-          mask-position: left center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%) !important;
+    object-fit: contain;
+    padding-top: 10px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .25s ease;
+    -webkit-mask-image: linear-gradient(to right, #000 0 0);
+    -webkit-mask-size: 0% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: left center;
+    mask-image: linear-gradient(to right, #000 0 0);
+    mask-size: 0% 100%;
+    mask-repeat: no-repeat;
+    mask-position: left center;
 }
 
 .legal-link:hover .hover-bg {
-  opacity: 1;
-  animation: drawImageLR .8s ease forwards;
-  transform: translate(-50%, -50%) !important;
+    opacity: 1;
+    animation: drawImageLR .8s ease forwards;
+    transform: translate(-50%, -50%) !important;
 }
 
 @keyframes drawImageLR {
-  from { -webkit-mask-size: 0% 100%; mask-size: 0% 100%; }
-  to   { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
-}
+    from {
+        -webkit-mask-size: 0% 100%;
+        mask-size: 0% 100%;
+    }
 
-/* ===== Links (GitHub/LinkedIn/Email) ===== */
+    to {
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+    }
+}
 
 .nav-link {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
 }
 
-/* Label steuert Pill + Icon-Zone */
 .nav-link .label {
-  position: relative;
-  display: inline-block;
-  padding: 8px 12px;    /* Pill-Größe */
-  line-height: 1.1;
-
-  /* Variablen fürs Icon */
-  --icon-size: 22px;
-  --gap-end: 10px;      /* Abstand Icon zum Wort (Ende) */
-  --reserve: calc(var(--icon-size) + var(--gap-end) + 6px);
-
-  /* Rechts Platz fürs Icon reservieren, damit Hover nicht abreißt */
-  padding-right: calc(12px + var(--reserve));
-  overflow: visible;
+    position: relative;
+    display: inline-block;
+    padding: 8px 17px;
+    line-height: 1.4;
+    --icon-size: 22px;
+    --gap-end: -26px;
+    --reserve: calc(var(--icon-size) + var(--gap-end));
+    padding-right: calc(16px + var(--reserve));
+    overflow: visible;
 }
 
-/* Blaue Pill NUR ums Wort (ohne den reservierten Iconbereich) */
 .nav-link:not(.legal-link) .label::before {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: var(--reserve);
-  border-radius: 20px;
-  background: #3355ff;
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity .18s ease, transform .18s ease;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: var(--reserve);
+    border-radius: 20px;
+    background: #3355ff;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: -1;
 }
 
 .nav-link:not(.legal-link):hover .label::before {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }
 
-/* ===== Icon-Bewegung (Wrapper) & Rotation (img separat) ===== */
-
-/* Start: Mitte, über dem Text, unsichtbar (Bewegung) */
 .nav-main .nav-link .label .icon-wrap {
-  position: absolute;
-  top: 0;              /* über dem Text; auf Text-Höhe -> top:50%; translateY(-50%) */
-  left: 50%;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  transform: translate(-50%, -120%);
-  opacity: 0;
-  pointer-events: none;
-  will-change: left, transform, opacity;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: translate(-50%, -120%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: left, transform, opacity;
 }
 
-/* Hover AN: Mitte -> rechts (sichtbar), Endpose halten */
 .nav-main .nav-link .label .icon-wrap.on {
-  opacity: 1;
-  animation: slideIn 1.4s cubic-bezier(.22,.7,.2,1) both;
-}
+    opacity: 1;
+    animation: slideIn var(--t-in, .5s) linear both; /* linear */
+  }
 
-/* Hover AUS: rechts -> Mitte (ausblenden) */
 .nav-main .nav-link .label .icon-wrap:not(.on) {
-  animation: slideOut .9s ease both;
+    animation: slideOut .9s ease both;
 }
 
-/* Bild im Wrapper: nur Rotation */
 .nav-main .nav-link .label .icon {
-  width: 100%;
-  height: 100%;
-  display: block;
-  transform-origin: 50% 50%;
-  will-change: transform;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;
+    will-change: transform;
 }
 
-/* Rotation mit/gegen den Uhrzeigersinn */
+/* Rotation synchron & linear */
 .nav-main .nav-link .label .icon-wrap.on .icon {
-  animation: spinCW 1.4s cubic-bezier(.22,.7,.2,1) both;
+  animation: spinCW var(--t-in, .5s) linear both;
 }
 .nav-main .nav-link .label .icon-wrap:not(.on) .icon {
-  animation: spinCCW .9s ease both;
+  animation: spinCCW var(--t-out, .55s) linear both;
 }
 
-/* Bewegung Mitte -> rechts (Ende gerade) */
 @keyframes slideIn {
-  0% {
-    left: 50%;
-    transform: translate(-50%, -120%);
-    opacity: 0;
-  }
-  100% {
-    left: calc(100% - (var(--icon-size) / 2) - var(--gap-end));
-    transform: translate(0, -120%);
-    opacity: 1;
-  }
+    0% {
+        left: 50%;
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
+
+    100% {
+        left: var(--icon-end-left, calc(100% + var(--gap-end) + (var(--icon-size) / 2)));
+        transform: translate(0, -120%);
+        opacity: 1;
+    }
 }
 
-/* Bewegung rechts -> Mitte */
 @keyframes slideOut {
-  0% {
-    left: calc(100% - (var(--icon-size) / 2) - var(--gap-end));
-    transform: translate(0, -120%);
-    opacity: 1;
-  }
-  100% {
-    left: 50%;
-    transform: translate(-50%, -120%);
-    opacity: 0;
-  }
+    0% {
+        left: var(--icon-end-left, calc(100% + var(--gap-end) + (var(--icon-size) / 2)));
+        transform: translate(0, -120%);
+        opacity: 1;
+    }
+
+    100% {
+        left: 50%;
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
 }
 
-/* Rotation */
-@keyframes spinCW  { from { transform: rotate(0turn); } to { transform: rotate(1turn); } }
-@keyframes spinCCW { from { transform: rotate(1turn); } to { transform: rotate(0turn); } }
+@keyframes spinCW {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes spinCCW {
+    from {
+        transform: rotate(1turn);
+    }
+
+    to {
+        transform: rotate(0turn);
+    }
+}

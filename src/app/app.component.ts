@@ -8,11 +8,13 @@ import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-th
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from "./shared/footer/footer.component";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    LandingPageComponent,
     NavbarComponent,
     AboutMeSectionComponent,
     HeaderComponent,
@@ -21,7 +23,8 @@ import { FooterComponent } from "./shared/footer/footer.component";
     ColleaguesThoughtsComponent,
     ContactFormComponent,
     FormsModule,
-    FooterComponent
+    FooterComponent,
+    LandingPageComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
