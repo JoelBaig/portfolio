@@ -1,0 +1,137 @@
+@import './../../mixin.scss';
+
+.navbar-main {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.header-main {
+    @include elementSize($w: 100vw, $h: 100vh, $mw: none);
+    z-index: 1;
+}
+
+.landingpage-bgr {
+    width: 100vw;
+    height: 95vh;
+}
+
+.landing-page-main-con {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    width: 40vw;
+    height: 50vh;
+    position: absolute;
+    top: 200px;
+    background-color: red;
+}
+
+.main-content-top {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-color: blue;
+    position: relative;
+}
+
+.main-content-bottom {
+    width: 100%;
+    height: 50%;
+    background-color: green;
+    position: relative;
+}
+
+span {
+    color: white;
+    font-weight: 700;
+    font-size: 120px;
+    position: absolute;
+}
+
+.text-top {
+    bottom: 0;
+}
+
+.text-bottom {
+    right: 0;
+}
+
+// .hello-world {
+//     position: absolute;
+//     top: 140px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 30px;
+//     width: 120px;
+//     border: 1px solid;
+//     border-color: whhite;
+//     border-radius: 20px;
+//     color: white;
+// }
+
+.hello-world {
+    position: absolute;
+    top: 140px;
+
+    /* Grundmaße (Höhe fix; Breite animiert via Angular) */
+    height: 30px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Damit die Border (absolute) korrekt sitzt */
+    position: absolute;
+}
+
+/* Die „fahrende“ Border */
+.hello-world .border {
+    position: absolute;
+    inset: 0;
+    /* füllt den Pill */
+    border: 2px solid #fff;
+    border-radius: inherit;
+    transform-origin: left center;
+    /* von links nach rechts ausfahren */
+}
+
+/* Text-Layer */
+.hello-world .label {
+    position: relative;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0 12px;
+    /* Innenabstand */
+    pointer-events: none;
+    /* kein Hover-Flicker */
+}
+
+/* Beide Texte übereinander stapeln */
+.hello-world .label.base,
+.hello-world .label.alt {
+    position: absolute;
+}
+
+.polaroid-frame {
+    position: absolute;
+    right: 80px;
+    bottom: 18px;
+    transform: rotate(8deg);
+    transform-origin: center center;
+}
+
+.get-in-touch-btn {
+    position: absolute;
+    right: 0;
+    top: 150px;
+}

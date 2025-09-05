@@ -41,6 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .language-line {
@@ -97,16 +98,16 @@
 
 .visible {
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
 
 .language-mark {
     position: absolute;
     transform: scaleX(0);
     transform-origin: left;
-    opacity: 0;
+    opacity: 1;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: -1;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -114,7 +115,7 @@
 .de-language-wrapper:hover .de-language-mark {
     transform: scaleX(1);
     opacity: 1;
-    z-index: 0;
+    z-index: 1;
 }
 
 .logo-wrapper .logo {
@@ -140,9 +141,4 @@
 
 .logo-wrapper:hover .logo-yellow {
     opacity: 1;
-}
-
-.landingpage-bgr {
-    width: 100vw;
-    height: 95vh;
 }

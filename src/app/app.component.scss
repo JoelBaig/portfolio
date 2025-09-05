@@ -3,17 +3,8 @@
 
 :host {
     display: flex;
-    min-height: 100dvh;
+    min-height: 100vh;
     flex-direction: column;
-}
-
-.navbar-main {
-    width: 100%;
-    position: absolute;
-}
-
-.header-main {
-    @include elementSize($w: 100vw, $h: 100vh, $mw: none);
 }
 
 .page-content {
