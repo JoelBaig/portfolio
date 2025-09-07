@@ -60,50 +60,31 @@ span {
     right: 0;
 }
 
-// .hello-world {
-//     position: absolute;
-//     top: 140px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 30px;
-//     width: 120px;
-//     border: 1px solid;
-//     border-color: whhite;
-//     border-radius: 20px;
-//     color: white;
-// }
 .hello-world {
     position: absolute;
     top: 140px;
     left: 0;
-
     height: 30px;
     border-radius: 999px;
     overflow: hidden;
     cursor: pointer;
-
-    /* Border statisch oben */
     border: 1px solid #fff;
-
 }
 
 .hello-world .fill {
     position: absolute;
-    inset: 0;                 /* füllt die komplette Pill */
+    inset: 0;
     background: #3355ff;
     z-index: 0;
     transform-origin: left center;
-    transform: scaleX(0);     /* Start: unsichtbar (0 Breite) */
-    transition: transform 420ms cubic-bezier(.22,.7,.2,1);
-  }
-  
-  /* Hover: füllt auf volle Breite */
-  .hello-world:hover .fill {
-    transform: scaleX(1);
-  }
+    transform: scaleX(0);
+    transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
+}
 
-/* Texte */
+.hello-world:hover .fill {
+    transform: scaleX(1);
+}
+
 .hello-world .label {
     position: absolute;
     color: #fff;
@@ -112,27 +93,29 @@ span {
     line-height: 1;
     white-space: nowrap;
     z-index: 1;
-    /* über der Füllung */
     pointer-events: none;
 }
 
-/* Start: Hello world links */
 .hello-world .label.base {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* Hover: Joel Baig mittig */
 .hello-world .label.alt {
     left: 75px;
     top: 50%;
     transform: translateY(-50%);
-    transition: opacity 200ms ease-in; /* weiches Einblenden von Joel Baig */
-    
+    transition: opacity 200ms ease-in;
 }
 
-.polaroid-frame {
+.get-in-touch-btn {
+    position: absolute;
+    right: 0;
+    top: 150px;
+}
+
+.polaroid-con {
     position: absolute;
     right: 80px;
     bottom: 18px;
@@ -140,8 +123,15 @@ span {
     transform-origin: center center;
 }
 
-.get-in-touch-btn {
+.polaroid-frame {
+    z-index: 1;
+    position: relative;
+}
+
+.polaroid-img {
     position: absolute;
-    right: 0;
-    top: 150px;
+    top: 14px;
+    right: 12px;
+    width: 180px;
+    height: 200px;
 }
