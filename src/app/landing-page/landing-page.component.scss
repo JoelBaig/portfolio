@@ -26,25 +26,22 @@
 }
 
 .main-content {
-    width: 40vw;
+    width: 50vw;
     height: 50vh;
     position: absolute;
     top: 200px;
-    background-color: red;
 }
 
 .main-content-top {
     position: relative;
     width: 100%;
     height: 50%;
-    background-color: blue;
     position: relative;
 }
 
 .main-content-bottom {
     width: 100%;
     height: 50%;
-    background-color: green;
     position: relative;
 }
 
@@ -76,50 +73,63 @@ span {
 //     border-radius: 20px;
 //     color: white;
 // }
-
 .hello-world {
     position: absolute;
     top: 140px;
+    left: 0;
 
-    /* Grundmaße (Höhe fix; Breite animiert via Angular) */
     height: 30px;
     border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
 
-    /* Damit die Border (absolute) korrekt sitzt */
-    position: absolute;
+    /* Border statisch oben */
+    border: 1px solid #fff;
+
 }
 
-/* Die „fahrende“ Border */
-.hello-world .border {
+.hello-world .fill {
     position: absolute;
-    inset: 0;
-    /* füllt den Pill */
-    border: 2px solid #fff;
-    border-radius: inherit;
+    inset: 0;                 /* füllt die komplette Pill */
+    background: #3355ff;
+    z-index: 0;
     transform-origin: left center;
-    /* von links nach rechts ausfahren */
-}
+    transform: scaleX(0);     /* Start: unsichtbar (0 Breite) */
+    transition: transform 420ms cubic-bezier(.22,.7,.2,1);
+  }
+  
+  /* Hover: füllt auf volle Breite */
+  .hello-world:hover .fill {
+    transform: scaleX(1);
+  }
 
-/* Text-Layer */
+/* Texte */
 .hello-world .label {
-    position: relative;
+    position: absolute;
     color: #fff;
+    font-weight: 200;
     font-size: 18px;
-    font-weight: 400;
     line-height: 1;
-    padding: 0 12px;
-    /* Innenabstand */
+    white-space: nowrap;
+    z-index: 1;
+    /* über der Füllung */
     pointer-events: none;
-    /* kein Hover-Flicker */
 }
 
-/* Beide Texte übereinander stapeln */
-.hello-world .label.base,
+/* Start: Hello world links */
+.hello-world .label.base {
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hover: Joel Baig mittig */
 .hello-world .label.alt {
-    position: absolute;
+    left: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 200ms ease-in; /* weiches Einblenden von Joel Baig */
+    
 }
 
 .polaroid-frame {
