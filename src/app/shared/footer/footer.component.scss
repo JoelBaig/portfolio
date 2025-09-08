@@ -1,10 +1,10 @@
 @import '../../../mixin.scss';
 @import '../../../keyframes.scss';
 
-:root {
-    --t-in: 0.5s;
-    --t-out: 0.55s;
-}
+// :root {
+//     --t-in: 0.5s;
+//     --t-out: 0.55s;
+// }
 
 .footer-main {
     color: white;
@@ -155,10 +155,10 @@ li {
 
 /* Rotation synchron & linear */
 .nav-main .nav-link .label .icon-wrap.on .icon {
-  animation: spinCW var(--t-in, .5s) linear both;
+  animation: spinCW var(--t-in, 0.5s) linear both;
 }
 .nav-main .nav-link .label .icon-wrap:not(.on) .icon {
-  animation: spinCCW var(--t-out, .55s) linear both;
+  animation: spinCCW var(--t-out, 0.5s) linear both;
 }
 
 @keyframes slideIn {

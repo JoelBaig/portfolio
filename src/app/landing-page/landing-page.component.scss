@@ -60,54 +60,54 @@ span {
     right: 0;
 }
 
-.hello-world {
-    position: absolute;
-    top: 140px;
-    left: 0;
-    height: 30px;
-    border-radius: 999px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #fff;
-}
+// .hello-world {
+//     position: absolute;
+//     top: 140px;
+//     left: 0;
+//     height: 30px;
+//     border-radius: 999px;
+//     overflow: visible;
+//     cursor: pointer;
+//     border: 1px solid #fff;
+// }
 
-.hello-world .fill {
-    position: absolute;
-    inset: 0;
-    background: #3355ff;
-    z-index: 0;
-    transform-origin: left center;
-    transform: scaleX(0);
-    transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
-}
+// .hello-world .fill {
+//     position: absolute;
+//     inset: 0;
+//     background: #3355ff;
+//     z-index: 0;
+//     transform-origin: left center;
+//     transform: scaleX(0);
+//     transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
+// }
 
-.hello-world:hover .fill {
-    transform: scaleX(1);
-}
+// .hello-world:hover .fill {
+//     transform: scaleX(1);
+// }
 
-.hello-world .label {
-    position: absolute;
-    color: #fff;
-    font-weight: 200;
-    font-size: 18px;
-    line-height: 1;
-    white-space: nowrap;
-    z-index: 1;
-    pointer-events: none;
-}
+// .hello-world .label {
+//     position: absolute;
+//     color: #fff;
+//     font-weight: 200;
+//     font-size: 18px;
+//     line-height: 1;
+//     white-space: nowrap;
+//     z-index: 1;
+//     pointer-events: none;
+// }
 
-.hello-world .label.base {
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+// .hello-world .label.base {
+//     left: 12px;
+//     top: 50%;
+//     transform: translateY(-50%);
+// }
 
-.hello-world .label.alt {
-    left: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity 200ms ease-in;
-}
+// .hello-world .label.alt {
+//     left: 75px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     transition: opacity 200ms ease-in;
+// }
 
 .get-in-touch-btn {
     position: absolute;
@@ -134,4 +134,164 @@ span {
     right: 12px;
     width: 180px;
     height: 200px;
+}
+
+.hello-world {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    height: 30px;
+    border-radius: 999px;
+    cursor: pointer;
+
+    /* Rahmen am äußeren Container bleibt */
+    border: 1px solid #fff;
+
+    /* Wichtig: außen darf überstehen (Icon), innen clippen wir gleich */
+    overflow: visible;
+
+    /* Variablen fürs Icon */
+    --icon-size: 22px;
+    --icon-gap-end: 8px;
+}
+
+/* Clip-Wrapper hält Füllung und Text IN der runden Form */
+.hello-world .pill-clip {
+    position: relative;
+    inset: 0;
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    /* hier wird sauber abgeschnitten */
+}
+
+/* Füllung (liegt unter dem Text) */
+.hello-world .fill {
+    position: absolute;
+    inset: 0;
+    background: #3355ff;
+    z-index: 0;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
+}
+
+/* beim Hover die Füllung ausfahren */
+.hello-world:hover .fill {
+    transform: scaleX(1);
+}
+
+/* Texte */
+.hello-world .label {
+    position: absolute;
+    color: #fff;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1;
+    white-space: nowrap;
+    z-index: 1;
+    /* über der Füllung */
+    pointer-events: none;
+}
+
+.hello-world .label.base {
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hello-world .label.alt {
+    left: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 200ms ease-in;
+}
+
+/* Hand-Icon bleibt unverändert – es sitzt ÜBER der Pill */
+.hello-world .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: translate(-50%, -120%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    /* über allem */
+    will-change: left, transform, opacity;
+}
+
+.hello-world .icon-wrap.on {
+    animation: slideIn 0.5s linear both;
+}
+
+.hello-world .icon-wrap:not(.on) {
+    animation: slideOut 0.55s linear both;
+}
+
+.hello-world .icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.hello-world .icon-wrap.on .icon {
+    animation: spinCW 0.5s linear both;
+}
+
+.hello-world .icon-wrap:not(.on) .icon {
+    animation: spinCCW 0.55s linear both;
+}
+
+/* Keyframes für das Icon (wie gehabt) */
+@keyframes slideIn {
+    0% {
+        left: 50%;
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
+
+    100% {
+        left: calc(100% - (var(--icon-size)/2) - var(--icon-gap-end));
+        transform: translate(0, -120%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        left: calc(100% - (var(--icon-size)/2) - var(--icon-gap-end));
+        transform: translate(0, -120%);
+        opacity: 1;
+    }
+
+    100% {
+        left: 50%;
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
+}
+
+@keyframes spinCW {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes spinCCW {
+    from {
+        transform: rotate(1turn);
+    }
+
+    to {
+        transform: rotate(0turn);
+    }
 }
