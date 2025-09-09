@@ -60,55 +60,6 @@ span {
     right: 0;
 }
 
-// .hello-world {
-//     position: absolute;
-//     top: 140px;
-//     left: 0;
-//     height: 30px;
-//     border-radius: 999px;
-//     overflow: visible;
-//     cursor: pointer;
-//     border: 1px solid #fff;
-// }
-
-// .hello-world .fill {
-//     position: absolute;
-//     inset: 0;
-//     background: #3355ff;
-//     z-index: 0;
-//     transform-origin: left center;
-//     transform: scaleX(0);
-//     transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
-// }
-
-// .hello-world:hover .fill {
-//     transform: scaleX(1);
-// }
-
-// .hello-world .label {
-//     position: absolute;
-//     color: #fff;
-//     font-weight: 200;
-//     font-size: 18px;
-//     line-height: 1;
-//     white-space: nowrap;
-//     z-index: 1;
-//     pointer-events: none;
-// }
-
-// .hello-world .label.base {
-//     left: 12px;
-//     top: 50%;
-//     transform: translateY(-50%);
-// }
-
-// .hello-world .label.alt {
-//     left: 75px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     transition: opacity 200ms ease-in;
-// }
-
 .get-in-touch-btn {
     position: absolute;
     right: 0;
@@ -140,22 +91,15 @@ span {
     position: absolute;
     top: 140px;
     left: 0;
-    height: 30px;
+    height: 40px;
     border-radius: 999px;
     cursor: pointer;
-
-    /* Rahmen am äußeren Container bleibt */
     border: 1px solid #fff;
-
-    /* Wichtig: außen darf überstehen (Icon), innen clippen wir gleich */
     overflow: visible;
-
-    /* Variablen fürs Icon */
-    --icon-size: 22px;
+    --icon-size: 36px;
     --icon-gap-end: 8px;
 }
 
-/* Clip-Wrapper hält Füllung und Text IN der runden Form */
 .hello-world .pill-clip {
     position: relative;
     inset: 0;
@@ -163,10 +107,8 @@ span {
     height: 100%;
     border-radius: inherit;
     overflow: hidden;
-    /* hier wird sauber abgeschnitten */
 }
 
-/* Füllung (liegt unter dem Text) */
 .hello-world .fill {
     position: absolute;
     inset: 0;
@@ -177,12 +119,10 @@ span {
     transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
 }
 
-/* beim Hover die Füllung ausfahren */
 .hello-world:hover .fill {
     transform: scaleX(1);
 }
 
-/* Texte */
 .hello-world .label {
     position: absolute;
     color: #fff;
@@ -191,7 +131,6 @@ span {
     line-height: 1;
     white-space: nowrap;
     z-index: 1;
-    /* über der Füllung */
     pointer-events: none;
 }
 
@@ -208,7 +147,6 @@ span {
     transition: opacity 200ms ease-in;
 }
 
-/* Hand-Icon bleibt unverändert – es sitzt ÜBER der Pill */
 .hello-world .icon-wrap {
     position: absolute;
     top: 0;
@@ -219,8 +157,6 @@ span {
     opacity: 0;
     pointer-events: none;
     z-index: 5;
-    /* über allem */
-    will-change: left, transform, opacity;
 }
 
 .hello-world .icon-wrap.on {
@@ -232,8 +168,8 @@ span {
 }
 
 .hello-world .icon {
-    width: 100%;
-    height: 100%;
+    width: 36px;
+    height: 36px;
     display: block;
     transform-origin: 50% 50%;
     will-change: transform;
@@ -247,7 +183,6 @@ span {
     animation: spinCCW 0.55s linear both;
 }
 
-/* Keyframes für das Icon (wie gehabt) */
 @keyframes slideIn {
     0% {
         left: 50%;
@@ -294,4 +229,35 @@ span {
     to {
         transform: rotate(0turn);
     }
+}
+
+.contact-icons {
+    position: absolute;
+    bottom: 150px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &:hover {
+            background-color: #3355ff;
+            cursor: pointer;
+        }
+    }
+}
+
+.smiley {
+    color: red;
+    position: absolute;
 }

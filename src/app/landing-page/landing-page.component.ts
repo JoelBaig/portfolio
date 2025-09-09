@@ -12,7 +12,7 @@ import { AppBtnComponent } from "../app-btn/app-btn.component";
   styleUrl: './landing-page.component.scss',
   animations: [
     trigger('container', [
-      state('off', style({ width: '120px' })),
+      state('off', style({ width: '116px' })),
       state('on', style({ width: '220px' })),
       transition('off => on', animate('360ms cubic-bezier(.22,.7,.2,1)')),
       transition('on  => off', animate('300ms cubic-bezier(.22,.7,.2,1)')),
@@ -48,4 +48,15 @@ import { AppBtnComponent } from "../app-btn/app-btn.component";
 })
 export class LandingPageComponent {
   hover = false;
+
+  hasInteracted = false;
+
+  onEnter() {
+    this.hover = true;
+    this.hasInteracted = true; // ab jetzt dürfen wir animieren
+  }
+
+  onLeave() {
+    this.hover = false;
+  }
 }

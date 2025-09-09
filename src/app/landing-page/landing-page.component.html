@@ -9,28 +9,27 @@
         <div class="main-content-top">
             <span class="text-top">Frontend</span>
 
-            <div class="hello-world"
-            [@container]="hover ? 'on' : 'off'"
-            (mouseenter)="hover = true"
-            (mouseleave)="hover = false">
-       
-         <!-- rollendes/rotierendes Icon (außerhalb der Clip-Fläche) -->
-         <span class="icon-wrap" [class.on]="hover">
-           <img class="icon" src="./assets/img/header/waving_hand.png" alt="wave">
-         </span>
-       
-         <!-- Clip-Fläche: hält Füllung + Text innerhalb der runden Pill -->
-         <div class="pill-clip">
-           <div class="fill"></div>
-       
-           <span class="label base" [style.opacity]="hover ? 0 : 1">Hello world</span>
-           <span class="label alt"  [style.opacity]="hover ? 1 : 0">Joel Baig</span>
-         </div>
-       </div>
+            <div class="hello-world" [@container]="hover ? 'on' : 'off'" (mouseenter)="hover = true"
+                (mouseleave)="hover = false">
+
+                <span class="icon-wrap" [class.on]="hover">
+                    <img class="icon" src="./assets/img/header/waving_hand.png" alt="wave">
+                </span>
+
+                <div class="pill-clip">
+                    <div class="fill"></div>
+
+                    <span class="label base" [style.opacity]="hover ? 0 : 1">Hello world</span>
+                    <span class="label alt" [style.opacity]="hover ? 1 : 0">Joel Baig</span>
+                </div>
+            </div>
 
             <div class="polaroid-con">
                 <img class="polaroid-img" src="./assets/joel.png" alt="joel_baig">
                 <img class="polaroid-frame" src="./assets/img/header/polaroid_frame.png" alt="polaroid_frame">
+                <div class="smiley">
+                        :D
+                </div>
             </div>
         </div>
 
@@ -43,5 +42,17 @@
                 [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
             </app-app-btn>
         </div>
+    </div>
+
+    <div class="contact-icons">
+        <a href="">
+            <img src="./assets/img/header/linkedin_default.png" alt="linkedin">
+        </a>
+        <a href="">
+            <img src="./assets/img/header/github_default.png" alt="github">
+        </a>
+        <a href="">
+            <img src="./assets/img/header/email_default.png" alt="email">
+        </a>
     </div>
 </div>
