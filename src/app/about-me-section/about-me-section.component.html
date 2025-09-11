@@ -25,7 +25,7 @@
                 [lineAlign]="'flex-start'">
             </app-app-headline>
 
-            <app-app-btn class="lets-talk-btn" [text]="'Let´s talk'" [visible]="true" [width]="'140px'"
+            <app-app-btn (click)="scrollToSection('contact')" class="lets-talk-btn" [text]="'Let´s talk'" [visible]="true" [width]="'140px'"
                 [height]="'45px'" [defaultImg]="'./assets/img/header/app_btn/black_btn.png'"
                 [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" [color]="'black'" [hoverColor]="'white'">
             </app-app-btn>

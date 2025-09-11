@@ -1,3 +1,6 @@
+@import './../../../mixin.scss';
+@import './../../../keyframes.scss';
+
 .logo-lang-con {
     position: absolute;
     top: 40px;
@@ -64,26 +67,6 @@
 
 .dot-animate-left {
     animation: dot-slide-left 0.15s ease-in-out forwards;
-}
-
-@keyframes dot-slide-right {
-    0% {
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        transform: translate(calc(80% - 0px), -50%);
-    }
-}
-
-@keyframes dot-slide-left {
-    0% {
-        transform: translate(calc(50% - 0px), -50%);
-    }
-
-    100% {
-        transform: translate(-50%, -50%);
-    }
 }
 
 .language-pos {

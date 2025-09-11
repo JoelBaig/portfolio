@@ -236,35 +236,3 @@ p {
         object-fit: contain;
     }
 }
-
-@keyframes ovalOrbit {
-    0% {
-      transform: translate(0, 0) rotate(0deg) scale(1);
-      opacity: 1;
-    }
-  
-    40% {
-      transform: translate(0, 0) rotate(0deg) scale(1);
-      opacity: 1;
-    }
-  
-    50% {
-      transform: translate(50px, 30px) rotate(180deg) scale(0);
-      opacity: 0;
-    }
-  
-    60% {
-      transform: translate(50px, 30px) rotate(180deg) scale(0);
-      opacity: 0;
-    }
-  
-    70% {
-      transform: translate(0, 0) rotate(0deg) scale(1);
-      opacity: 1;
-    }
-  
-    100% {
-      transform: translate(0, 0) rotate(0deg) scale(1);
-      opacity: 1;
-    }
-  }

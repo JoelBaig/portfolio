@@ -1,4 +1,5 @@
 @import './../../mixin.scss';
+@import './../../keyframes.scss';
 
 .nav-pos {
     @include dFlex($f: flex, $c: space-between, $ai: center);
@@ -64,16 +65,4 @@ li {
 .nav-about-me .nav-link:hover .hover-bg {
     transform: scaleY(1);
     opacity: 1;
-}
-
-@keyframes slideInFromLeftZoom {
-    0% {
-        opacity: 0;
-        transform: translateX(-40px) scale(0.8);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-    }
 }

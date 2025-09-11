@@ -128,7 +128,6 @@
 .single-project-con {
   position: relative;
   top: 150px;
-  // height: 600px;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -185,42 +184,6 @@
   animation: linePulse 6.4s infinite;
   transform-origin: left;
   display: block;
-}
-
-@keyframes linePulse {
-  0% {
-    width: 0%;
-  }
-
-  4% {
-    width: 100%;
-  }
-
-  82% {
-    width: 100%;
-  }
-
-  86% {
-    width: 0%;
-  }
-
-  100% {
-    width: 0%;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-32px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
 }
 
 .d-none {

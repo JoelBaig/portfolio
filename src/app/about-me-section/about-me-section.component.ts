@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 
@@ -14,6 +14,8 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
   styleUrl: './about-me-section.component.scss'
 })
 export class AboutMeSectionComponent {
+  activeSection: string | null = null;
+
   imageBlocks = [
     {
       src: 'assets/img/header/about_me/Ripped_paper_yellow.png',
@@ -67,6 +69,36 @@ export class AboutMeSectionComponent {
       case 1: return 'rotate(0deg)';
       case 2: return 'rotate(4deg)';
       default: return 'rotate(0deg)';
+    }
+  }
+
+  scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.activeSection = sectionId;
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    const sections = ['about-me', 'skills', 'projects', 'contact'];
+    let found = false;
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          this.activeSection = id;
+          found = true;
+          break;
+        }
+      }
+    }
+
+    if (!found) {
+      this.activeSection = null;
     }
   }
 }

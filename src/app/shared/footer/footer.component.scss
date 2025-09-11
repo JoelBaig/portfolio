@@ -1,11 +1,6 @@
 @import '../../../mixin.scss';
 @import '../../../keyframes.scss';
 
-// :root {
-//     --t-in: 0.5s;
-//     --t-out: 0.55s;
-// }
-
 .footer-main {
     color: white;
     height: 100px;
@@ -71,18 +66,6 @@ li {
     transform: translate(-50%, -50%) !important;
 }
 
-@keyframes drawImageLR {
-    from {
-        -webkit-mask-size: 0% 100%;
-        mask-size: 0% 100%;
-    }
-
-    to {
-        -webkit-mask-size: 100% 100%;
-        mask-size: 100% 100%;
-    }
-}
-
 .nav-link {
     position: relative;
     display: inline-flex;
@@ -138,8 +121,8 @@ li {
 
 .nav-main .nav-link .label .icon-wrap.on {
     opacity: 1;
-    animation: slideIn var(--t-in, .5s) linear both; /* linear */
-  }
+    animation: slideIn var(--t-in, .5s) linear both;
+}
 
 .nav-main .nav-link .label .icon-wrap:not(.on) {
     animation: slideOut .9s ease both;
@@ -153,58 +136,10 @@ li {
     will-change: transform;
 }
 
-/* Rotation synchron & linear */
 .nav-main .nav-link .label .icon-wrap.on .icon {
-  animation: spinCW var(--t-in, 0.5s) linear both;
+    animation: spinCW var(--t-in, 0.5s) linear both;
 }
+
 .nav-main .nav-link .label .icon-wrap:not(.on) .icon {
-  animation: spinCCW var(--t-out, 0.5s) linear both;
-}
-
-@keyframes slideIn {
-    0% {
-        left: 50%;
-        transform: translate(-50%, -120%);
-        opacity: 0;
-    }
-
-    100% {
-        left: var(--icon-end-left, calc(100% + var(--gap-end) + (var(--icon-size) / 2)));
-        transform: translate(0, -120%);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOut {
-    0% {
-        left: var(--icon-end-left, calc(100% + var(--gap-end) + (var(--icon-size) / 2)));
-        transform: translate(0, -120%);
-        opacity: 1;
-    }
-
-    100% {
-        left: 50%;
-        transform: translate(-50%, -120%);
-        opacity: 0;
-    }
-}
-
-@keyframes spinCW {
-    from {
-        transform: rotate(0turn);
-    }
-
-    to {
-        transform: rotate(1turn);
-    }
-}
-
-@keyframes spinCCW {
-    from {
-        transform: rotate(1turn);
-    }
-
-    to {
-        transform: rotate(0turn);
-    }
+    animation: spinCCW var(--t-out, 0.5s) linear both;
 }

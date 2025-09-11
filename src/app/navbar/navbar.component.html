@@ -1,32 +1,37 @@
 <div class="nav-pos">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li class="nav-about-me">
+        <a class="nav-link"
+           (click)="scrollToSection('about-me')">
+          About me
+          <img src="assets/img/header/B.2.png" alt="about" class="hover-bg" />
+        </a>
+      </li>
 
-    <nav class="navbar">
-        <ul class="nav-links">
-              <li class="nav-about-me">
-                <a routerLink="/about" class="nav-link">
-                  About me
-                  <img src="assets/img/header/B.2.png" alt="about" class="hover-bg" />
-                </a>
-              </li>
-              <li class="nav-skills">
-                <a routerLink="/skills" class="nav-link">
-                  Skills
-                  <img src="assets/img/header/B.1.png" alt="skills" class="hover-bg" />
-                </a>
-              </li>
-              <li class="nav-projects">
-                <a routerLink="/projects" class="nav-link">
-                  Projects
-                  <img src="assets/img/header/B.4.png" alt="projects" class="hover-bg" />
-                </a>
-              </li>
-              <li class="nav-contact">
-                <a routerLink="/contact" class="nav-link">
-                  Contact
-                  <img src="assets/img/header/B.3.png" alt="contact" class="hover-bg" />
-                </a>
-              </li>
-        </ul>
-    </nav>
-   
+      <li class="nav-skills">
+        <a class="nav-link"
+           (click)="scrollToSection('skills')">
+          Skills
+          <img src="assets/img/header/B.1.png" alt="skills" class="hover-bg" />
+        </a>
+      </li>
+
+      <li class="nav-projects">
+        <a class="nav-link"
+           (click)="scrollToSection('projects')">
+          Projects
+          <img src="assets/img/header/B.4.png" alt="projects" class="hover-bg" />
+        </a>
+      </li>
+
+      <li class="nav-contact">
+        <a class="nav-link"
+           (click)="scrollToSection('contact')">
+          Contact
+          <img src="assets/img/header/B.3.png" alt="contact" class="hover-bg" />
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

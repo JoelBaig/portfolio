@@ -1,3 +1,6 @@
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
 .section-header {
     width: 100%;
 
@@ -80,70 +83,3 @@
     position: static;
     display: block;
   }
-
-@keyframes maskLine {
-    0% {
-        mask-size: 0% 100%;
-    }
-
-    4% {
-        mask-size: 100% 100%;
-    }
-
-    82% {
-        mask-size: 100% 100%;
-    }
-
-    86% {
-        mask-size: 0% 100%;
-    }
-
-    100% {
-        mask-size: 0% 100%;
-    }
-}
-
-@keyframes maskLineRtl {
-    0% {
-      mask-size: 0% 100%;
-      mask-position: right center;
-    }
-    4% {
-      mask-size: 100% 100%;
-      mask-position: right center;
-    }
-    82% {
-      mask-size: 100% 100%;
-      mask-position: right center;
-    }
-    86% {
-      mask-size: 0% 100%;
-      mask-position: right center;
-    }
-    100% {
-      mask-size: 0% 100%;
-      mask-position: right center;
-    }
-  }
-
-@keyframes drawCircle {
-    0% {
-        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-    }
-
-    4% {
-        mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
-    }
-
-    82% {
-        mask-image: conic-gradient(black 0deg, black 360deg, transparent 360deg);
-    }
-
-    86% {
-        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-    }
-
-    100% {
-        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-    }
-}
