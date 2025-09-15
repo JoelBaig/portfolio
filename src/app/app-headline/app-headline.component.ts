@@ -14,6 +14,9 @@ import { Component, Input } from '@angular/core';
 export class AppHeadlineComponent {
   @Input() title: string = 'Section Title';
   @Input() subtitle: string = '';
+  @Input() subtitlePosition: string = 'above';
+  @Input() subtitleOffset: number = 10;
+  @Input() infoOffset: number = 16;
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
   @Input() animateLine: boolean = false;

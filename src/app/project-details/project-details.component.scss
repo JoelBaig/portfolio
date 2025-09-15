@@ -8,11 +8,13 @@
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    z-index: 1000;
 }
 
 .panel-bgr {
     width: 100vw;
     height: 100vh;
+    background-color: rgb(28, 28, 28);
 }
 
 .panel {
@@ -21,6 +23,9 @@
     width: 70vw;
     height: 100vh;
     overflow-y: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .back-btn {
@@ -30,9 +35,23 @@
 }
 
 .single-project-headline {
-    width: 50%;
+    width: 40%;
     position: absolute;
-    top: 0;
+    top: 270px;
     left: 0;
     color: black;
+}
+
+.description {
+
+}
+
+.implementation-details {
+    
+}
+
+p {
+    color: black;
+    width: 70%;
+    font-size: 20px;
 }
