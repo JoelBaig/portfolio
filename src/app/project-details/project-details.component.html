@@ -1,0 +1,13 @@
+<div class="project-details" (click)="onClose()">
+    <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
+
+    <div class="panel" (click)="$event.stopPropagation()">
+        <button class="back-btn" (click)="onClose()">⬅ Back</button>
+
+        <app-app-headline class="single-project-headline" [subtitle]="'MY CRAFT'" [title]="'PROJECTS'"
+            [infoText]="'Feel free to explore my projects and try things out! I focus on building responsive, user-friendly experiences with clean and efficient code.'"
+            [lineImage]="'./assets/img/header/projects/yellow_line.png'" [animateLine]="true"
+            [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'">
+        </app-app-headline>
+    </div>
+</div>

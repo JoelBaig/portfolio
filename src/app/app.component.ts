@@ -47,6 +47,7 @@ import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-th
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FooterComponent } from "./shared/footer/footer.component";
 import { LanguageService } from './core/language-service';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -62,6 +63,7 @@ import { LanguageService } from './core/language-service';
     ContactFormComponent,
     FooterComponent,
     FormsModule,
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

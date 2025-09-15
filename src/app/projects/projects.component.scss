@@ -8,6 +8,12 @@
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  position: relative;
+}
+
+.project-details {
+  position: absolute;
+  top: 0;
 }
 
 .first-row {
