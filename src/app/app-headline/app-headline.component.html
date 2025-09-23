@@ -59,110 +59,182 @@
 
 
 <div class="section-header" [ngClass]="'align-' + textAlign">
+
   <!-- ============================= -->
-  <!-- FALL A: Linie über dem Title -->
+  <!-- FALL A: Linie ÜBER dem Title -->
   <!-- ============================= -->
   <ng-container *ngIf="lineAboveTitle; else notLineAbove">
-    <!-- A1) Linie links neben Subtitle NUR WENN Subtitle über dem Title gewünscht -->
-    <ng-container *ngIf="lineLeftOfSubtitle && subtitlePosition === 'above'; else lineAboveGeneric">
-      <div class="subtitle-row">
-        <div class="line-wrapper" [style.marginBottom.px]="lineMarginBottom">
-          <img *ngIf="lineImage" [src]="lineImage" alt="line image" [style.width.px]="lineWidth" [ngClass]="{
-              'animated-line': animateLine,
-              'horizontal-mask': maskDirection === 'horizontal',
-              'horizontal-mask-rtl': maskDirection === 'rtl',
-              'circular-mask': maskDirection === 'circular'
-            }" />
-        </div>
 
-        <h3 class="section-subtitle" [style.marginBottom.px]="subtitleOffset">
-          {{ subtitle }}
-        </h3>
-      </div>
+    <!-- Linie über dem Title -->
+    <div class="line-wrapper" [style.marginBottom.px]="lineMarginBottom">
+      <img *ngIf="lineImage"
+           [src]="lineImage" alt="line image"
+           [style.width.px]="lineWidth"
+           [ngClass]="{
+             'animated-line': animateLine,
+             'horizontal-mask': maskDirection === 'horizontal',
+             'horizontal-mask-rtl': maskDirection === 'rtl',
+             'circular-mask': maskDirection === 'circular'
+           }" />
+    </div>
 
-      <h1>{{ title }}</h1>
-
-      <!-- Wenn Subtitle unter dem Title gewünscht, trotz lineLeftOfSubtitle -->
-      <ng-container *ngIf="subtitlePosition === 'above'">
-        <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
-          {{ subtitle }}
-        </h3>
-      </ng-container>
-    </ng-container>
-
-    <!-- A2) Standard: Linie über dem Title (nicht neben Subtitle) -->
-    <ng-template #lineAboveGeneric>
-      <!-- Subtitle über/unter Title steuerbar -->
-      <ng-container *ngIf="subtitlePosition === 'above'">
-        <h3 class="section-subtitle" [style.marginBottom.px]="subtitleOffset">
-          {{ subtitle }}
-        </h3>
-      </ng-container>
-
-      <!-- Linie über dem Title -->
-      <div class="line-wrapper" [style.marginBottom.px]="lineMarginBottom">
-        <img *ngIf="lineImage" [src]="lineImage" alt="line image" [style.width.px]="lineWidth" [ngClass]="{
-            'animated-line': animateLine,
-            'horizontal-mask': maskDirection === 'horizontal',
-            'horizontal-mask-rtl': maskDirection === 'rtl',
-            'circular-mask': maskDirection === 'circular'
-          }" />
-      </div>
-
-      <h1>{{ title }}</h1>
-
-      <ng-container *ngIf="subtitlePosition === 'below'">
-        <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
-          {{ subtitle }}
-        </h3>
-      </ng-container>
-    </ng-template>
-  </ng-container>
-
-  <!-- ============================================ -->
-  <!-- FALL B: Linie nicht über dem Title (default) -->
-  <!-- ============================================ -->
-  <ng-template #notLineAbove>
-    <!-- Subtitle über/unter Title steuerbar -->
+    <!-- Subtitle (falls über dem Title gewünscht) -->
     <ng-container *ngIf="subtitlePosition === 'above'">
       <h3 class="section-subtitle" [style.marginBottom.px]="subtitleOffset">
         {{ subtitle }}
       </h3>
     </ng-container>
 
+    <!-- Title -->
     <h1>{{ title }}</h1>
 
+    <!-- Subtitle (falls unter dem Title gewünscht) -->
     <ng-container *ngIf="subtitlePosition === 'below'">
       <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
         {{ subtitle }}
       </h3>
     </ng-container>
 
-    <!-- Linie unter dem Title (nur, wenn NICHT unter Info-Text gewünscht) -->
-    <div class="line-wrapper" *ngIf="!lineUnderInfoText" [style.display]="'flex'" [style.width]="'100%'"
-      [style.marginBottom.px]="lineMarginBottom" [style.justifyContent]="lineAlign">
-      <img *ngIf="lineImage" [src]="lineImage" alt="line image" [style.width.px]="lineWidth" [ngClass]="{
-          'animated-line': animateLine,
-          'horizontal-mask': maskDirection === 'horizontal',
-          'horizontal-mask-rtl': maskDirection === 'rtl',
-          'circular-mask': maskDirection === 'circular'
-        }" />
+    <!-- Info-Text -->
+    <p class="section-info-text" [style.marginTop.px]="infoOffset">
+      {{ infoText }}
+    </p>
+
+    <!-- Optionale Linie unter dem Info-Text -->
+    <div class="line-wrapper"
+         *ngIf="lineUnderInfoText"
+         [style.display]="'flex'"
+         [style.width]="'100%'"
+         [style.marginTop.px]="lineMarginBottom"
+         [style.justifyContent]="lineAlign">
+      <img *ngIf="lineImage"
+           [src]="lineImage" alt="line image"
+           [style.width.px]="lineWidth"
+           [ngClass]="{
+             'animated-line': animateLine,
+             'horizontal-mask': maskDirection === 'horizontal',
+             'horizontal-mask-rtl': maskDirection === 'rtl',
+             'circular-mask': maskDirection === 'circular'
+           }" />
     </div>
+  </ng-container>
+
+  <!-- ============================================ -->
+  <!-- FALL B: Linie NICHT über dem Title (default) -->
+  <!-- ============================================ -->
+  <ng-template #notLineAbove>
+
+    <!-- Variante B1: Subtitle ZWINGEND unter der Linie (nur wenn explizit gewünscht) -->
+    <ng-container *ngIf="subtitleUnderLine; else variantB2">
+      <!-- Title -->
+      <h1>{{ title }}</h1>
+
+      <!-- Linie direkt unter dem Title (nur wenn NICHT unter Info-Text gewünscht) -->
+      <div class="line-wrapper"
+           *ngIf="!lineUnderInfoText"
+           [style.display]="'flex'"
+           [style.width]="'100%'"
+           [style.marginBottom.px]="lineMarginBottom"
+           [style.justifyContent]="lineAlign">
+        <img *ngIf="lineImage"
+             [src]="lineImage" alt="line image"
+             [style.width.px]="lineWidth"
+             [ngClass]="{
+               'animated-line': animateLine,
+               'horizontal-mask': maskDirection === 'horizontal',
+               'horizontal-mask-rtl': maskDirection === 'rtl',
+               'circular-mask': maskDirection === 'circular'
+             }" />
+      </div>
+
+      <!-- Subtitle immer UNTER der Linie -->
+      <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
+        {{ subtitle }}
+      </h3>
+
+      <!-- Info-Text -->
+      <p class="section-info-text" [style.marginTop.px]="infoOffset">
+        {{ infoText }}
+      </p>
+
+      <!-- Optionale Linie unter dem Info-Text -->
+      <div class="line-wrapper"
+           *ngIf="lineUnderInfoText"
+           [style.display]="'flex'"
+           [style.width]="'100%'"
+           [style.marginTop.px]="lineMarginBottom"
+           [style.justifyContent]="lineAlign">
+        <img *ngIf="lineImage"
+             [src]="lineImage" alt="line image"
+             [style.width.px]="lineWidth"
+             [ngClass]="{
+               'animated-line': animateLine,
+               'horizontal-mask': maskDirection === 'horizontal',
+               'horizontal-mask-rtl': maskDirection === 'rtl',
+               'circular-mask': maskDirection === 'circular'
+             }" />
+      </div>
+    </ng-container>
+
+    <!-- Variante B2: Standard-Verhalten wie zuvor (Subtitle über/unter Title, Linie separat) -->
+    <ng-template #variantB2>
+      <!-- Subtitle (falls über dem Title gewünscht) -->
+      <ng-container *ngIf="subtitlePosition === 'above'">
+        <h3 class="section-subtitle" [style.marginBottom.px]="subtitleOffset">
+          {{ subtitle }}
+        </h3>
+      </ng-container>
+
+      <!-- Title -->
+      <h1>{{ title }}</h1>
+
+      <!-- Subtitle (falls unter dem Title gewünscht) -->
+      <ng-container *ngIf="subtitlePosition === 'below'">
+        <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
+          {{ subtitle }}
+        </h3>
+      </ng-container>
+
+      <!-- Linie unter dem Title (nur, wenn NICHT unter Info-Text gewünscht) -->
+      <div class="line-wrapper"
+           *ngIf="!lineUnderInfoText"
+           [style.display]="'flex'"
+           [style.width]="'100%'"
+           [style.marginBottom.px]="lineMarginBottom"
+           [style.justifyContent]="lineAlign">
+        <img *ngIf="lineImage"
+             [src]="lineImage" alt="line image"
+             [style.width.px]="lineWidth"
+             [ngClass]="{
+               'animated-line': animateLine,
+               'horizontal-mask': maskDirection === 'horizontal',
+               'horizontal-mask-rtl': maskDirection === 'rtl',
+               'circular-mask': maskDirection === 'circular'
+             }" />
+      </div>
+
+      <!-- Info-Text -->
+      <p class="section-info-text" [style.marginTop.px]="infoOffset">
+        {{ infoText }}
+      </p>
+
+      <!-- Optionale Linie unter dem Info-Text -->
+      <div class="line-wrapper"
+           *ngIf="lineUnderInfoText"
+           [style.display]="'flex'"
+           [style.width]="'100%'"
+           [style.marginTop.px]="lineMarginBottom"
+           [style.justifyContent]="lineAlign">
+        <img *ngIf="lineImage"
+             [src]="lineImage" alt="line image"
+             [style.width.px]="lineWidth"
+             [ngClass]="{
+               'animated-line': animateLine,
+               'horizontal-mask': maskDirection === 'horizontal',
+               'horizontal-mask-rtl': maskDirection === 'rtl',
+               'circular-mask': maskDirection === 'circular'
+             }" />
+      </div>
+    </ng-template>
   </ng-template>
-
-  <!-- Info-Text (Abstand vom Title gesteuert über infoOffset) -->
-  <p class="section-info-text" [style.marginTop.px]="infoOffset">
-    {{ infoText }}
-  </p>
-
-  <!-- Linie unter dem Info-Text -->
-  <div class="line-wrapper" *ngIf="lineUnderInfoText" [style.display]="'flex'" [style.width]="'100%'"
-    [style.marginTop.px]="lineMarginBottom" [style.justifyContent]="lineAlign">
-    <img *ngIf="lineImage" [src]="lineImage" alt="line image" [style.width.px]="lineWidth" [ngClass]="{
-        'animated-line': animateLine,
-        'horizontal-mask': maskDirection === 'horizontal',
-        'horizontal-mask-rtl': maskDirection === 'rtl',
-        'circular-mask': maskDirection === 'circular'
-      }" />
-  </div>
 </div>

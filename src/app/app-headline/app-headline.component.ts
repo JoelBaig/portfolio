@@ -16,6 +16,7 @@ export class AppHeadlineComponent {
   @Input() subtitle: string = '';
   @Input() subtitlePosition: string = 'above';
   @Input() subtitleOffset: number = 10;
+  @Input() subtitleUnderLine: boolean = false;
   @Input() infoOffset: number = 16;
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
