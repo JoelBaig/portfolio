@@ -15,4 +15,10 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+.lock-scroll {
+    position: fixed;     /* verhindert Scrollen, ohne die Seite springen zu lassen */
+    overflow: hidden;
+    width: 100%;
   }

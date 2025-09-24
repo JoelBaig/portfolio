@@ -99,7 +99,9 @@
 // }
 
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Renderer2 } from '@angular/core';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgIf } from '@angular/common';
 
@@ -120,7 +122,8 @@ type Project = {
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
 })
-export class ProjectDetailsComponent {
+
+export class ProjectDetailsComponent implements OnInit, OnDestroy {
   @Input() projectId!: string;
   @Output() close = new EventEmitter<void>();
 
@@ -128,7 +131,7 @@ export class ProjectDetailsComponent {
     {
       id: 'join',
       title: 'Join',
-      subtitle:'Description', 
+      subtitle: 'Description',
       description:
         'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users an categories.',
       details:
@@ -139,7 +142,7 @@ export class ProjectDetailsComponent {
     {
       id: 'el-pollo-loco',
       title: 'El Pollo Loco',
-      subtitle:'Description', 
+      subtitle: 'Description',
       description:
         'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.',
       details:
@@ -150,7 +153,7 @@ export class ProjectDetailsComponent {
     {
       id: 'da-bubble',
       title: 'DABubble',
-      subtitle:'Description', 
+      subtitle: 'Description',
       description:
         'This App is a Slack Clone App. It revolutionizes team communication and collaboration...',
       details:
@@ -159,6 +162,27 @@ export class ProjectDetailsComponent {
       alt: 'dabubble_project',
     },
   ];
+
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private doc: Document
+  ) { }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onEsc(e: KeyboardEvent) {
+    e.preventDefault();
+    this.onClose();
+  }
+
+  ngOnInit() {
+    this.renderer.addClass(this.doc.body, 'no-scroll');
+    this.renderer.addClass(this.doc.documentElement, 'no-scroll'); 
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeClass(this.doc.body, 'no-scroll');
+    this.renderer.removeClass(this.doc.documentElement, 'no-scroll');
+  }
 
   get selectedProject(): Project | undefined {
     return this.projectDetails.find(p => p.id === this.projectId);

@@ -12,7 +12,10 @@
     </div>
 </div> -->
 
-<div class="project-details" (click)="onClose()">
+
+
+
+<!-- <div class="project-details" (click)="onClose()">
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
 
     <div class="panel" (click)="$event.stopPropagation()">
@@ -41,4 +44,46 @@
             </div>
         </ng-container>
     </div>
-</div>
+</div> -->
+
+
+<!-- project-details.component.html -->
+<div class="overlay" (click)="onClose()">
+    <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
+  
+    <div class="panel" (click)="$event.stopPropagation()">
+      <ng-container *ngIf="selectedProject as project">
+        <div class="wrapper-left">
+          <button class="back-btn" type="button" (click)="onClose(); $event.stopPropagation()">⬅ Back</button>
+  
+          <div>
+            <app-app-headline
+              class="single-project-headline"
+              [title]="project.title"
+              [infoText]="project.description"
+              [lineImage]="'./assets/img/header/projects/yellow_line.png'"
+              [animateLine]="true"
+              [maskDirection]="'horizontal'"
+              [lineWidth]="315"
+              [lineAlign]="'flex-start'"
+              [subtitle]="project.subtitle"
+              [subtitlePosition]="'below'"
+              [subtitleOffset]="16">
+            </app-app-headline>
+  
+            <h1 class="description">Hallo</h1>
+          </div>
+  
+          <div>
+            <h1 class="implementation-details">Hallo</h1>
+            <p class="details">{{ project.details }}</p>
+          </div>
+        </div>
+  
+        <div class="wrapper-right">
+          <img class="detail-img" [src]="project.image" [alt]="project.alt" />
+          <button (click)="nextProject()">Next ➡</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
