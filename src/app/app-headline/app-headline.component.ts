@@ -17,6 +17,9 @@ export class AppHeadlineComponent {
   @Input() subtitlePosition: string = 'above';
   @Input() subtitleOffset: number = 10;
   @Input() subtitleUnderLine: boolean = false;
+  @Input() subtitleSize = '20px';
+  @Input() subtitleWeight = 'normal';
+  @Input() subtitleTag: 'h1' | 'h2' | 'h3' = 'h3';
   @Input() infoOffset: number = 16;
   @Input() infoText: string = '';
   @Input() lineImage: string = '';
