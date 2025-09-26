@@ -104,6 +104,9 @@ import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, Host
 import { DOCUMENT } from '@angular/common';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgIf } from '@angular/common';
+import { HeaderComponent } from "../shared/header/header.component";
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 type Project = {
   id: string;
@@ -118,7 +121,13 @@ type Project = {
 @Component({
   selector: 'app-project-details',
   standalone: true,
-  imports: [AppHeadlineComponent, NgIf],
+  imports: [
+    AppHeadlineComponent,
+     NgIf,
+      HeaderComponent,
+      NavbarComponent,
+      FooterComponent
+    ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
 })

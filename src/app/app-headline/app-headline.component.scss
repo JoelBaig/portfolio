@@ -83,3 +83,34 @@
     position: static;
     display: block;
   }
+
+/* Titel + Linie: Linie folgt exakt der H1-Breite */
+.title-fit {
+    display: inline-grid;
+    grid-template-columns: max-content; /* Spaltenbreite = Breite des Titels */
+    grid-auto-rows: auto;
+  }
+  
+  .title-fit .title {
+    grid-row: 1;
+    grid-column: 1;
+    display: inline-block; /* saubere intrinsic width */
+    margin: 0;
+    white-space: nowrap;
+    /* optional: verhindern, dass der Titel umbrechen darf,
+       wenn du wirklich 1:1 Breite willst:
+       white-space: nowrap;
+    */
+  }
+  
+  .title-fit .line-wrapper {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;      /* nimmt exakt die Titelbreite aus der Grid-Spalte */
+  }
+  
+  .title-fit .line {
+    display: block;
+    width: 100%;      /* Linie füllt die Spaltenbreite (also Titelbreite) */
+    height: auto;
+  }

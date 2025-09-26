@@ -1,4 +1,7 @@
-<div class="overlay" (click)="onClose()">
+<div class="overlay">
+    <app-header class="header-project-details" (click)="$event.stopPropagation()"></app-header>
+    <app-navbar class="header-project-details"></app-navbar>
+
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
 
     <div class="panel" (click)="$event.stopPropagation()">
@@ -13,8 +16,6 @@
                         [subtitle]="project.subtitle" [subtitlePosition]="'below'" [subtitleOffset]="16"
                         [subtitleUnderLine]="true" [subtitleTag]="'h2'">
                     </app-app-headline>
-
-                    <!-- <h1 class="description">Hallo</h1> -->
                 </div>
 
                 <div>

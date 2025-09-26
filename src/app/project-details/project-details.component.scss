@@ -11,7 +11,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 10000;
+    z-index: 100;
     overflow: hidden;
     touch-action: none;
 }
@@ -23,6 +23,7 @@
     height: 100%;
     object-fit: cover;
     background-color: #1c1c1c;
+    z-index: 0;
 }
 
 .panel {
@@ -83,3 +84,18 @@ h1 {
         width: 100%;
     }
 }
+
+/* HEADER ganz oben */
+.header-project-details {
+    position: absolute;   /* innerhalb des Overlays positionieren */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;           /* über Panel & Hintergrund */
+    pointer-events: auto; /* Header soll klickbar sein */
+  }
+
+  .details {
+    width: auto;
+    height: auto;
+  }
