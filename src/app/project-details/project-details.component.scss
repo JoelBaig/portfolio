@@ -85,17 +85,39 @@ h1 {
     }
 }
 
-/* HEADER ganz oben */
 .header-project-details {
-    position: absolute;   /* innerhalb des Overlays positionieren */
+    position: absolute;  
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;           /* über Panel & Hintergrund */
-    pointer-events: auto; /* Header soll klickbar sein */
+    z-index: 2;          
+    pointer-events: auto; 
   }
 
   .details {
     width: auto;
     height: auto;
+  }
+
+  /* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
+.navbar {
+    position: fixed; /* oder was du nutzt */
+    top: 0; left: 0; right: 0;
+    background: transparent;
+    z-index: 2000;
+    isolation: isolate;      /* eigener Stacking-Context, verhindert Nebenwirkungen */
+  }
+  
+  /* Alle Texte/Icons der Navbar auf Weiß setzen und per difference „anpassen“ */
+  .navbar,
+  .navbar * {
+    color: #fff;                 /* Basisfarbe */
+    mix-blend-mode: difference;  /* macht aus Weiß auf Weiß → Schwarz, auf Schwarz → Weiß */
+  }
+  
+  /* Falls du SVG-Icons/Bilder hast, hilft zusätzlich invert (optional) */
+  .navbar svg,
+  .navbar img {
+    filter: invert(1);
+    mix-blend-mode: difference;
   }
