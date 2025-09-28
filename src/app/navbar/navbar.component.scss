@@ -1,68 +1,182 @@
+// @import './../../mixin.scss';
+// @import './../../keyframes.scss';
+
+// .nav-pos {
+//   @include dFlex($f: flex, $c: space-between, $ai: center);
+// }
+
+// .navbar {
+//   @include elementSize($w: 100vw, $h: 100px, $mw: none);
+//   margin-left: 100px;
+//   margin-right: 100px;
+
+//   /* wichtig: transparent halten, damit Text mit dem ECHTEN Hintergrund blendet */
+//   background: transparent;
+//   /* eigener Stacking-Context – vermeidet Seiteneffekte */
+//   isolation: isolate;
+// }
+
+// .nav-links {
+//   @include dFlex($f: flex, $c: space-between, $ai: center);
+//   height: 100px;
+//   font-weight: 700;
+//   color: #F8F9FA;
+//   list-style: none;
+//   margin: 0;
+// }
+
+// li {
+//   @include elementSize($w: 100%, $h: 100%);
+//   @include dFlex($f: flex, $c: center, $ai: center);
+// }
+
+// .nav-link {
+//   position: relative;
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 0.5rem;
+//   padding: 8px 16px;
+//   font-weight: bold;
+//   cursor: pointer;
+
+//   /* Nur der TEXT passt sich dem Hintergrund an */
+//   .nav-text {
+//     color: #fff;                   /* Basisfarbe */
+//     mix-blend-mode: difference;    /* auf hell → dunkel, auf dunkel → hell */
+//   }
+
+//   /* Hover-Bild NICHT blenden, Farbwerte bleiben original */
+//   .hover-bg {
+//     position: absolute;
+//     top: 0; left: 0;
+//     width: 100%; height: 100%;
+//     object-fit: contain;
+//     transform: scaleX(0);
+//     transform-origin: left;
+//     opacity: 0;
+//     transition: transform 0.15s ease, opacity 0.15s ease;
+//     z-index: -1;
+//     pointer-events: none;
+//     mix-blend-mode: normal !important;  /* wichtig */
+//     filter: none !important;
+//   }
+
+//   &:hover .hover-bg {
+//     transform: scaleX(1);
+//     opacity: 1;
+//     z-index: 0;
+//   }
+// }
+
+// /* spezielle About-me-Animation (wie gehabt) */
+// .nav-about-me .hover-bg {
+//   transform: scaleY(0);
+//   transform-origin: top;
+//   opacity: 0;
+//   transition: transform 0.3s ease, opacity 0.3s ease;
+// }
+// .nav-about-me .nav-link:hover .hover-bg {
+//   transform: scaleY(1);
+//   opacity: 1;
+// }
+
+
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
 .nav-pos {
-    @include dFlex($f: flex, $c: space-between, $ai: center);
+  @include dFlex($f: flex, $c: space-between, $ai: center);
 }
 
 .navbar {
-    @include elementSize($w: 100vw, $h: 100px, $mw: none);
-    margin-left: 100px;
-    margin-right: 100px;
+  @include elementSize($w: 100vw, $h: 100px, $mw: none);
+  margin-left: 100px;
+  margin-right: 100px;
+
+  /* transparent lassen, damit der Text mit dem echten BG blendet */
+  background: transparent;
+  isolation: isolate; /* eigener Stacking-Context → weniger Seiteneffekte */
 }
 
 .nav-links {
-    @include dFlex($f: flex, $c: space-between, $ai: center);
-    height: 100px;
-    font-weight: 700;
-    color: #F8F9FA;
-    list-style: none;
-    margin: 0;
+  @include dFlex($f: flex, $c: space-between, $ai: center);
+  height: 100px;
+  font-weight: 700;
+  list-style: none;
+  margin: 0;
 }
 
 li {
-    @include elementSize($w: 100%, $h: 100%);
-    @include dFlex($f: flex, $c: center, $ai: center);
+  @include elementSize($w: 100%, $h: 100%);
+  @include dFlex($f: flex, $c: center, $ai: center);
 }
 
 .nav-link {
-    position: relative;
-    display: inline-block;
-    padding: 8px 16px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
 
-    .hover-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transform: scaleX(0);
-        transform-origin: left;
-        opacity: 0;
-        transition: transform 0.15s ease, opacity 0.15s ease;
-        z-index: -1;
-        pointer-events: none;
-    }
+  /* ======== AUTO-KONTRAST NUR FÜR TEXT ======== */
+  .nav-text {
+    color: #fff;                   /* Basisfarbe */
+    mix-blend-mode: difference;    /* auf hell → dunkel, auf dunkel → hell */
+  }
 
-    &:hover .hover-bg {
-        transform: scaleX(1);
-        opacity: 1;
-        z-index: 0;
-    }
-}
-
-.nav-about-me .hover-bg {
-    transform: scaleY(0);
-    transform-origin: top;
+  /* ======== HOVER-BILD BEHÄLT ORIGINALFARBE ======== */
+  .hover-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    transform: scaleX(0);
+    transform-origin: left;
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    z-index: -1;
+    pointer-events: none;
+
+    /* ganz wichtig: NICHT blenden/umfärben */
+    mix-blend-mode: normal !important;
+    filter: none !important;
+  }
+
+  &:hover .hover-bg {
+    transform: scaleX(1);
+    opacity: 1;
+    z-index: 0;
+  }
 }
 
+/* spezielle About-me-Animation (wie gehabt) */
+.nav-about-me .hover-bg {
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 .nav-about-me .nav-link:hover .hover-bg {
-    transform: scaleY(1);
-    opacity: 1;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* ======== SCHUTZREGELN: Medien & Lines NICHT BLENDEN ======== */
+.navbar img,
+.navbar svg,
+.navbar video,
+.navbar canvas,
+.navbar .hover-bg,
+.navbar .animated-line,
+.navbar .line {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+/* Optional: falls du irgendwo Text OHNE Blending erzwingen willst */
+.navbar .no-blend {
+  mix-blend-mode: normal !important;
+  color: inherit !important;
 }
