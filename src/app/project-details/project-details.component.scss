@@ -1,6 +1,6 @@
 :host ::ng-deep .section-subtitle {
     font-size: 34px;
-  }
+}
 
 .overlay {
     position: fixed;
@@ -86,38 +86,69 @@ h1 {
 }
 
 .header-project-details {
-    position: absolute;  
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;          
-    pointer-events: auto; 
-  }
+    z-index: 2;
+    pointer-events: auto;
+}
 
-  .details {
+.details {
     width: auto;
     height: auto;
-  }
+}
 
-  /* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
-.navbar {
-    position: fixed; /* oder was du nutzt */
-    top: 0; left: 0; right: 0;
-    background: transparent;
-    z-index: 2000;
-    isolation: isolate;      /* eigener Stacking-Context, verhindert Nebenwirkungen */
-  }
-  
-  /* Alle Texte/Icons der Navbar auf Weiß setzen und per difference „anpassen“ */
-  .navbar,
-  .navbar * {
-    color: #fff;                 /* Basisfarbe */
-    mix-blend-mode: difference;  /* macht aus Weiß auf Weiß → Schwarz, auf Schwarz → Weiß */
-  }
-  
-  /* Falls du SVG-Icons/Bilder hast, hilft zusätzlich invert (optional) */
-  .navbar svg,
-  .navbar img {
-    filter: invert(1);
-    mix-blend-mode: difference;
-  }
+// /* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
+// .navbar {
+//     position: fixed;
+//     /* oder was du nutzt */
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     background: transparent;
+//     z-index: 2000;
+//     isolation: isolate;
+//     /* eigener Stacking-Context, verhindert Nebenwirkungen */
+// }
+
+// /* Alle Texte/Icons der Navbar auf Weiß setzen und per difference „anpassen“ */
+// .navbar,
+// .navbar * {
+//     color: #fff;
+//     /* Basisfarbe */
+//     mix-blend-mode: difference;
+//     /* macht aus Weiß auf Weiß → Schwarz, auf Schwarz → Weiß */
+// }
+
+// /* Falls du SVG-Icons/Bilder hast, hilft zusätzlich invert (optional) */
+// .navbar svg,
+// .navbar img {
+//     filter: invert(1);
+//     mix-blend-mode: difference;
+// }
+
+.single-project-headline .line-wrapper img,
+.single-project-headline .animated-line,
+.single-project-headline .line {
+    mix-blend-mode: normal !important;
+    filter: none !important;
+}
+
+/* Höhe deiner Navbar ~100px → gib dem Inhalt oben Luft */
+.panel {
+  padding-top: 120px; /* 100px Navbar + etwas Puffer */
+}
+
+/* Sticky-Headline darf nicht unter die Navbar rutschen */
+.single-project-headline {
+  position: sticky;
+  top: 120px; /* gleiche Höhe wie padding-top */
+}
+
+.single-project-headline .line-wrapper img,
+.single-project-headline .animated-line,
+.single-project-headline .line {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
