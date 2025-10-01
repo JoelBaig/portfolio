@@ -97,10 +97,13 @@ span {
     z-index: 0;
     transform-origin: left center;
     transform: scaleX(0);
+}
+
+.hello-world.has-interacted .fill {
     transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
 }
 
-.hello-world:hover .fill {
+.hello-world.has-interacted:hover .fill {
     transform: scaleX(1);
 }
 
@@ -140,11 +143,11 @@ span {
     z-index: 5;
 }
 
-.hello-world .icon-wrap.on {
+.hello-world.has-interacted .icon-wrap.on {
     animation: slideInHand 0.5s linear both;
 }
 
-.hello-world .icon-wrap:not(.on) {
+.hello-world.has-interacted .icon-wrap:not(.on) {
     animation: slideOutHand 0.55s linear both;
 }
 

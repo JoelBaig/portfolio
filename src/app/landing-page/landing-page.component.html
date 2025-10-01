@@ -21,8 +21,8 @@
         <div class="main-content-top">
             <span class="text-top">Frontend</span>
 
-            <div class="hello-world" [@container]="hover ? 'on' : 'off'" (mouseenter)="hover = true"
-                (mouseleave)="hover = false">
+      <div class="hello-world" [class.has-interacted]="hasInteracted" [@container]="hover ? 'on' : 'off'" (mouseenter)="onEnter()"
+        (mouseleave)="onLeave()">
 
                 <span class="icon-wrap" [class.on]="hover">
                     <img class="icon" src="./assets/img/header/waving_hand.png" alt="wave">
