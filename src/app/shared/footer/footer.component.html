@@ -9,10 +9,10 @@
           </a>
         </li>
 
-          <li class="nav-main" [class.has-interacted]="hasInteracted">
+       <li class="nav-main" [class.has-interacted]="hasInteracted">
           <a routerLink="/skills"
              class="nav-link"
-             (mouseenter)="over = 'github'"
+         (mouseenter)="over = 'github'; hasInteracted = true"
              (mouseleave)="over = null">
             <span class="label">
               GitHub
@@ -23,10 +23,10 @@
           </a>
         </li>
   
-        <li class="nav-main">
+     <li class="nav-main" [class.has-interacted]="hasInteracted">
           <a routerLink="/projects"
              class="nav-link"
-             (mouseenter)="over = 'linkedin'"
+       (mouseenter)="over = 'linkedin'; hasInteracted = true"
              (mouseleave)="over = null">
             <span class="label">
               LinkedIn
@@ -37,10 +37,10 @@
           </a>
         </li>
 
-        <li class="nav-main">
+     <li class="nav-main" [class.has-interacted]="hasInteracted">
           <a routerLink="/contact"
              class="nav-link"
-             (mouseenter)="over = 'email'"
+       (mouseenter)="over = 'email'; hasInteracted = true"
              (mouseleave)="over = null">
             <span class="label">
               Email

@@ -119,12 +119,24 @@ li {
     will-change: left, transform, opacity;
 }
 
-.nav-main .nav-link .label .icon-wrap.on {
+.nav-main .nav-link .label .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: translate(-50%, -120%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: left, transform, opacity;
+}
+
+.nav-main.has-interacted .nav-link:hover .label .icon-wrap.on {
     opacity: 1;
     animation: slideIn var(--t-in, .5s) linear both;
 }
 
-.nav-main .nav-link .label .icon-wrap:not(.on) {
+.nav-main.has-interacted .nav-link:hover .label .icon-wrap:not(.on) {
     animation: slideOut .9s ease both;
 }
 
@@ -136,11 +148,11 @@ li {
     will-change: transform;
 }
 
-.nav-main .nav-link .label .icon-wrap.on .icon {
+.nav-main.has-interacted .nav-link .label .icon-wrap.on .icon {
     animation: spinCW var(--t-in, 0.5s) linear both;
 }
 
-.nav-main .nav-link .label .icon-wrap:not(.on) .icon {
+.nav-main.has-interacted .nav-link .label .icon-wrap:not(.on) .icon {
     animation: spinCCW var(--t-out, 0.5s) linear both;
 }
 
