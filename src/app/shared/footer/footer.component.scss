@@ -143,3 +143,7 @@ li {
 .nav-main .nav-link .label .icon-wrap:not(.on) .icon {
     animation: spinCCW var(--t-out, 0.5s) linear both;
 }
+
+.nav-main.has-interacted .fill {
+    transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
+}

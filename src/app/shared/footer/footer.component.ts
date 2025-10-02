@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   over: 'github' | 'linkedin' | 'email' | null = null;
+    hasInteracted = false;
 }

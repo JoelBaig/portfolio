@@ -9,7 +9,7 @@
           </a>
         </li>
 
-          <li class="nav-main">
+          <li class="nav-main" [class.has-interacted]="hasInteracted">
           <a routerLink="/skills"
              class="nav-link"
              (mouseenter)="over = 'github'"
