@@ -1,55 +1,50 @@
 <div class="footer-main">
-    <nav class="navbar">
-      <ul class="nav-links">
+  <nav class="navbar">
+    <ul class="nav-links">
 
-        <li class="nav-about-me">
-          <a routerLink="/about" class="nav-link legal-link">
-            Legal Notice
-            <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
-          </a>
-        </li>
+      <li class="nav-about-me">
+        <a routerLink="/about" class="nav-link legal-link">
+          Legal Notice
+          <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
+        </a>
+      </li>
 
-       <li class="nav-main" [class.has-interacted]="hasInteracted">
-          <a routerLink="/skills"
-             class="nav-link"
-         (mouseenter)="over = 'github'; hasInteracted = true"
-             (mouseleave)="over = null">
-            <span class="label">
-              GitHub
-              <span class="icon-wrap" [class.on]="over==='github'">
-                <img class="icon" src="./assets/img/header/filled_github.png" alt="">
-              </span>
+      <li class="nav-main" [class.has-interacted]="hasInteracted">
+        <a href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer" routerLink="/skills"
+          class="nav-link" (mouseenter)="over = 'github'; hasInteracted = true" (mouseleave)="over = null">
+          <span class="label">
+            GitHub
+            <span class="icon-wrap" [class.on]="over==='github'">
+              <img class="icon" src="./assets/img/header/filled_github.png" alt="">
             </span>
-          </a>
-        </li>
-  
-     <li class="nav-main" [class.has-interacted]="hasInteracted">
-          <a routerLink="/projects"
-             class="nav-link"
-       (mouseenter)="over = 'linkedin'; hasInteracted = true"
-             (mouseleave)="over = null">
-            <span class="label">
-              LinkedIn
-              <span class="icon-wrap" [class.on]="over==='linkedin'">
-                <img class="icon" src="./assets/img/header/filled_linkedin.png" alt="">
-              </span>
-            </span>
-          </a>
-        </li>
+          </span>
+        </a>
+      </li>
 
-     <li class="nav-main" [class.has-interacted]="hasInteracted">
-          <a routerLink="/contact"
-             class="nav-link"
-       (mouseenter)="over = 'email'; hasInteracted = true"
-             (mouseleave)="over = null">
-            <span class="label">
-              Email
-              <span class="icon-wrap" [class.on]="over==='email'">
-                <img class="icon" src="./assets/img/header/filled_mail.png" alt="">
-              </span>
+      <li class="nav-main" [class.has-interacted]="hasInteracted">
+        <a href="https://www.linkedin.com/in/joe-undefined-51ab56305/" target="_blank" rel="noopener noreferrer"
+          routerLink="/projects" class="nav-link" (mouseenter)="over = 'linkedin'; hasInteracted = true"
+          (mouseleave)="over = null">
+          <span class="label">
+            LinkedIn
+            <span class="icon-wrap" [class.on]="over==='linkedin'">
+              <img class="icon" src="./assets/img/header/filled_linkedin.png" alt="">
             </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-main" [class.has-interacted]="hasInteracted">
+        <a routerLink="/contact" class="nav-link" (mouseenter)="over = 'email'; hasInteracted = true"
+          (mouseleave)="over = null">
+          <span class="label">
+            Email
+            <span class="icon-wrap" [class.on]="over==='email'">
+              <img class="icon" src="./assets/img/header/filled_mail.png" alt="">
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
