@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, HostListener, DOCUMENT } from '@angular/core';
+
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgIf } from '@angular/common';
 import { HeaderComponent } from "../shared/header/header.component";
