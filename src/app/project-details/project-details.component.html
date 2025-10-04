@@ -7,6 +7,7 @@
     <div class="panel" (click)="$event.stopPropagation()">
         <ng-container *ngIf="selectedProject as project">
             <div class="wrapper-left">
+
                 <button class="back-btn" type="button" (click)="onClose(); $event.stopPropagation()">⬅ Back</button>
 
                 <div>

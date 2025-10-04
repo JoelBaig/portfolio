@@ -1,5 +1,6 @@
 :host ::ng-deep .section-subtitle {
     font-size: 34px;
+    font-weight: 600;
   }
 
 .overlay {
@@ -98,6 +99,10 @@ h1 {
     width: auto;
     height: auto;
   }
+
+.detail-img {
+    border-radius: 20px;
+}
 
   /* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
 .navbar {
