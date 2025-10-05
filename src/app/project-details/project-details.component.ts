@@ -24,7 +24,6 @@ type Project = {
     NgIf,
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
