@@ -4,7 +4,6 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgIf } from '@angular/common';
 import { HeaderComponent } from "../shared/header/header.component";
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../shared/footer/footer.component';
 
 type Project = {
   id: string;
