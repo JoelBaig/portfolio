@@ -1,9 +1,8 @@
 import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, HostListener, DOCUMENT } from '@angular/core';
-
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
-import { NgIf } from '@angular/common';
 import { HeaderComponent } from "../shared/header/header.component";
 import { NavbarComponent } from '../navbar/navbar.component';
+import { NgForOf, NgIf } from '@angular/common';
 
 type Project = {
   id: string;
@@ -13,6 +12,8 @@ type Project = {
   details: string;
   image: string;
   alt: string;
+  used_technologies: { name: string; icon: string }[];
+  duration: string;
 };
 
 @Component({
@@ -20,9 +21,10 @@ type Project = {
   standalone: true,
   imports: [
     AppHeadlineComponent,
-    NgIf,
     HeaderComponent,
     NavbarComponent,
+    NgIf,
+    NgForOf
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
@@ -52,7 +54,14 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
         'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users an categories.',
       details:
         'The project was developed in a team of three ... user interfaces.',
-      image: './assets/img/header/projects/laptop2.png',
+      image: './assets/img/header/projects/join1.png',
+      used_technologies: [
+        { name: 'HTML', icon: './assets/img/header/skills/html.png' },
+        { name: 'CSS', icon: './assets/img/header/skills/css.png' },
+        { name: 'JAVASCRIPT', icon: './assets/img/header/skills/js.png' },
+        { name: 'FIREBASE', icon: './assets/img/header/skills/firebase.png' },
+      ],
+      duration: '5 weeks',
       alt: 'join_project',
     },
     {
@@ -64,6 +73,12 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       details:
         'The game was built to strengthen my understanding of object-oriented programming ... mechanics from scratch.',
       image: './assets/img/header/projects/elpolloloco1.png',
+      used_technologies: [
+        { name: 'HTML', icon: './assets/img/header/skills/html.png' },
+        { name: 'CSS', icon: './assets/img/header/skills/css.png' },
+        { name: 'JAVASCRIPT', icon: './assets/img/header/skills/js.png' },
+      ],
+      duration: '3 weeks',
       alt: 'game_project',
     },
     {
@@ -75,6 +90,13 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       details:
         'Built in a group of three ... modern web application development.',
       image: './assets/img/header/projects/dabubble1.png',
+      used_technologies: [
+        { name: 'HTML', icon: './assets/img/header/skills/html.png' },
+        { name: 'CSS', icon: './assets/img/header/skills/css.png' },
+        { name: 'ANGULAR', icon: './assets/img/header/skills/angular.png' },
+        { name: 'TYPESCRIPT', icon: './assets/img/header/skills/ts.png' },
+      ],
+      duration: '4 weeks',
       alt: 'dabubble_project',
     },
   ];
@@ -119,5 +141,31 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
   onClose() {
     this.close.emit();
+  }
+
+ // Klick in der Navbar behandeln: Links schließen das Overlay, andere Bereiche nicht
+  onNavbarClick(e: MouseEvent): void {
+    const target = e.target as HTMLElement | null;
+    // akzeptiere <a>, Buttons mit data-nav oder role="link" etc.
+    const linkElem = target?.closest('a, [data-nav], [role="link"], button') as HTMLElement | null;
+
+    if (linkElem) {
+      const href = (linkElem as HTMLAnchorElement).getAttribute?.('href') ?? '';
+      const dataNav = linkElem.getAttribute?.('data-nav') ?? '';
+      const text = (linkElem.textContent ?? '').trim();
+
+      // erlaubte Ziele (anpassen bei anderen Bezeichnungen)
+      const allowedRegex = /(about|skills|projects|contact)/i;
+      const isAllowed = allowedRegex.test(href) || allowedRegex.test(dataNav) || allowedRegex.test(text);
+
+      if (isAllowed) {
+        // Link -> Overlay schließen, Event weiterlaufen lassen (Router/Anchor soll funktionieren)
+        this.onClose();
+        return;
+      }
+    }
+
+    // Klick in Navbar außerhalb der Links -> nicht weiterpropagieren
+    e.stopPropagation();
   }
 }

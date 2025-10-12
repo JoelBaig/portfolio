@@ -1,6 +1,6 @@
+<app-navbar class="header-project-details navbar" (click)="onNavbarClick($event)"></app-navbar>
 <div class="overlay">
-    <app-header class="header-project-details" (click)="$event.stopPropagation()"></app-header>
-    <app-navbar class="header-project-details navbar"></app-navbar>
+    <app-header class="header-project-details"></app-header>
 
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
 
@@ -26,6 +26,18 @@
                     <h1 class="implementation-details">Hallo</h1>
                     <p class="details">{{ project.details }}</p>
                 </div>
+
+                <div class="duration-con">
+                    <h2>Duration:</h2>
+                    <p>{{project.duration}}</p>
+                </div>
+
+                <ul class="tech-list" *ngIf="project.used_technologies?.length">
+                    <li class="tech-item" *ngFor="let tech of project.used_technologies">
+                        <img class="tech-icon" [src]="tech.icon" [alt]="tech.name + ' icon'" />
+                        <span class="tech-name">{{ tech.name }}</span>
+                    </li>
+                </ul>
             </div>
 
             <div class="wrapper-right">
@@ -34,7 +46,7 @@
         </ng-container>
     </div>
 
-        <div class="next-project-btn-con" (click)="nextProject()">
+    <div class="next-project-btn-con" (click)="nextProject()">
         <button>Next Project</button>
         <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
     </div>
