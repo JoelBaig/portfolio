@@ -8,7 +8,9 @@
         <ng-container *ngIf="selectedProject as project">
             <div class="wrapper-left">
 
-                <button class="back-btn" type="button" (click)="onClose(); $event.stopPropagation()">⬅ Back</button>
+                <div class="back-btn-con">
+                    <button class="back-btn" type="button" (click)="onClose(); $event.stopPropagation()">Go Back</button>
+                </div>
 
                 <div>
                     <app-app-headline class="single-project-headline" [title]="project.title"
@@ -27,7 +29,10 @@
 
             <div class="wrapper-right">
                 <img class="detail-img" [src]="project.image" [alt]="project.alt" />
-                <button (click)="nextProject()">Next ➡</button>
+                <div class="next-project-btn-con">
+                    <button (click)="nextProject()">Next ➡</button>
+                    <img src="" alt="">
+                </div>
             </div>
         </ng-container>
     </div>
