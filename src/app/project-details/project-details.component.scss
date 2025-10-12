@@ -1,7 +1,7 @@
 :host ::ng-deep .section-subtitle {
     font-size: 34px;
     font-weight: 600;
-  }
+}
 
 .overlay {
     position: fixed;
@@ -87,42 +87,93 @@ h1 {
 }
 
 .header-project-details {
-    position: absolute;  
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;          
-    pointer-events: auto; 
-  }
+    z-index: 2;
+    pointer-events: auto;
+}
 
-  .details {
+.details {
     width: auto;
     height: auto;
-  }
+}
 
 .detail-img {
     border-radius: 20px;
 }
 
-  /* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
+/* Navbar-Container transparent halten, damit Blending mit dem echten Hintergrund passiert */
 .navbar {
-    position: fixed; /* oder was du nutzt */
-    top: 0; left: 0; right: 0;
+    position: fixed;
+    /* oder was du nutzt */
+    top: 0;
+    left: 0;
+    right: 0;
     background: transparent;
     z-index: 2000;
-    isolation: isolate;      /* eigener Stacking-Context, verhindert Nebenwirkungen */
-  }
-  
-  /* Alle Texte/Icons der Navbar auf Weiß setzen und per difference „anpassen“ */
-  .navbar,
-  .navbar * {
-    color: #fff;                 /* Basisfarbe */
-    mix-blend-mode: difference;  /* macht aus Weiß auf Weiß → Schwarz, auf Schwarz → Weiß */
-  }
-  
+    isolation: isolate;
+    /* eigener Stacking-Context, verhindert Nebenwirkungen */
+}
+
+/* Alle Texte/Icons der Navbar auf Weiß setzen und per difference „anpassen“ */
+.navbar,
+.navbar * {
+    color: #fff;
+    /* Basisfarbe */
+    mix-blend-mode: difference;
+    /* macht aus Weiß auf Weiß → Schwarz, auf Schwarz → Weiß */
+}
+
 //   /* Falls du SVG-Icons/Bilder hast, hilft zusätzlich invert (optional) */
 //   .navbar svg,
 //   .navbar img {
 //     filter: invert(1);
 //     mix-blend-mode: difference;
 //   }
+
+.back-btn-con {
+    position: relative;
+    top: -500px;
+    width: 120px;
+    cursor: pointer;
+
+    >button {
+        width: 100px;
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    >img {
+        position: absolute;
+        top: 15px;
+        left: -20px;
+    }
+}
+
+.next-project-btn-con {
+    position: relative;
+    top: 500px;
+    width: 120px;
+    cursor: pointer;
+
+    >button {
+        width: 130px;
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    >img {
+        position: absolute;
+        right: -35px;
+        top: 0px;
+    }
+}

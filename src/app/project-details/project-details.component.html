@@ -4,14 +4,15 @@
 
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
 
+    <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
+        <button class="back-btn" type="button">Go
+            Back</button>
+        <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
+    </div>
+
     <div class="panel" (click)="$event.stopPropagation()">
         <ng-container *ngIf="selectedProject as project">
             <div class="wrapper-left">
-
-                <div class="back-btn-con">
-                    <button class="back-btn" type="button" (click)="onClose(); $event.stopPropagation()">Go Back</button>
-                </div>
-
                 <div>
                     <app-app-headline class="single-project-headline" [title]="project.title"
                         [infoText]="project.description" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
@@ -29,11 +30,12 @@
 
             <div class="wrapper-right">
                 <img class="detail-img" [src]="project.image" [alt]="project.alt" />
-                <div class="next-project-btn-con">
-                    <button (click)="nextProject()">Next ➡</button>
-                    <img src="" alt="">
-                </div>
             </div>
         </ng-container>
+    </div>
+
+        <div class="next-project-btn-con" (click)="nextProject()">
+        <button>Next Project</button>
+        <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
     </div>
 </div>
