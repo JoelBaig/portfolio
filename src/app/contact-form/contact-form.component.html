@@ -62,6 +62,11 @@
                         (blur)="messagePlaceholder = 'Ask me here...'" required></textarea>
                     @if (!message.valid && message.touched) {
                     }
+
+                    <div class="error" *ngIf="message.invalid && message.touched">
+                        <span *ngIf="message.errors?.['required']">Please enter a message.</span>
+                        <span *ngIf="message.errors?.['minlength']">Message must be at least 4 characters.</span>
+                    </div>
                 </div>
 
                 <div class="form-line-4"></div>

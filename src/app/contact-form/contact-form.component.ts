@@ -44,12 +44,17 @@ export class ContactFormComponent {
   // Zum Trocken-Üben (keine Mail schicken, nur Konsole)
   mailTest = false; // auf true setzen, wenn du NUR testen willst
 
-  onSubmit(form: NgForm) {
-    if (!form.valid) return;
+  onSubmit(contactForm: NgForm) {
+    // if (!form.valid) return;
+
+        contactForm.form.markAllAsTouched();
+            if (!this.accepted || contactForm.invalid) 
+      return;
+    
 
     if (this.mailTest) {
       console.log('TEST MODE – wird NICHT gesendet:', this.contactData);
-      form.resetForm();
+      contactForm.resetForm();
       return;
     }
 
@@ -59,7 +64,7 @@ export class ContactFormComponent {
     }).subscribe({
       next: (res: string) => {
         console.log('Server sagt:', res);
-        form.resetForm();
+        contactForm.resetForm();
       },
       error: (err) => {
         console.error('Fehler beim Senden:', err);
