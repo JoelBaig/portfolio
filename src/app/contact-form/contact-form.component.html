@@ -36,20 +36,31 @@
             <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
                 <div class="name-field">
                     <label for="name">What´s your name?</label>
-                    <input [(ngModel)]="contactData.contactName" type="text" id="name" name="name"
-                        [placeholder]="namePlaceholder"
+                    <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name"
+                        [attr.placeholder]="(submitted && name?.invalid) ? 'Please enter your name' : namePlaceholder"
+                        [class.error-placeholder]="submitted && name?.invalid"
                         (focus)="namePlaceholder = 'Oops! it seems your name is missing'"
                         (blur)="namePlaceholder = 'Your name goes here'" required />
+                    <div class="error" *ngIf="submitted && name.invalid">
+                        <span *ngIf="name.errors?.['required']">Please enter your name.</span>
+                    </div>
                 </div>
 
                 <div class="form-line-2"></div>
 
-                <div class="email-field">
-                    <label for="email">What´s your email?</label>
-                    <input [(ngModel)]="contactData.email" type="email" id="email" name="email"
-                        [placeholder]="emailPlaceholder" (focus)="emailPlaceholder = 'Hoppla! your email is required'"
-                        (blur)="emailPlaceholder = 'youremail@email.com'" required
-                        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
+                <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email"
+                    [attr.placeholder]="(submitted && email?.invalid) ? 'Please enter your email' : emailPlaceholder"
+                    [class.error-placeholder]="submitted && email?.invalid"
+                    (focus)="emailPlaceholder = 'Hoppla! your email is required'"
+                    (blur)="emailPlaceholder = 'youremail@email.com'" required
+                    pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$" />
+
+                <!-- Zeigt spezifische Fehler an -->
+                <div class="error" *ngIf="submitted && email.invalid">
+                    <span *ngIf="email.errors?.['required']">Please enter your email.</span>
+                    <span *ngIf="email.errors?.['pattern'] || email.errors?.['email']">Please enter a valid email
+                        address (e.g.
+                        name@domain.com).</span>
                 </div>
 
                 <div class="form-line-3"></div>
@@ -57,13 +68,13 @@
                 <div class="help-field">
                     <label for="message">How can I help you?</label>
                     <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message"
-                        name="message" rows="5" [placeholder]="messagePlaceholder"
+                        name="message" rows="5"
+                        [attr.placeholder]="(submitted && message?.invalid) ? 'Please enter a message' : messagePlaceholder"
+                        [class.error-placeholder]="submitted && message?.invalid"
                         (focus)="messagePlaceholder = 'Hello Joel, I am interested in...'"
                         (blur)="messagePlaceholder = 'Ask me here...'" required></textarea>
-                    @if (!message.valid && message.touched) {
-                    }
 
-                    <div class="error" *ngIf="message.invalid && message.touched">
+                    <div class="error" *ngIf="submitted && message.invalid">
                         <span *ngIf="message.errors?.['required']">Please enter a message.</span>
                         <span *ngIf="message.errors?.['minlength']">Message must be at least 4 characters.</span>
                     </div>
@@ -91,7 +102,9 @@
                     Please accept the privacy policy.
                 </div>
 
-                <app-app-btn class="send-button" [text]="'Send'" [color]="'white'" [hoverColor]="'white'"
+                <button #realSubmit type="submit" style="display:none"></button>
+
+                <app-app-btn (click)="realSubmit.click()" class="send-button" [text]="'Send'" [color]="'white'" [hoverColor]="'white'"
                     [visible]="true" [width]="'180px'" [height]="'45px'"
                     [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
                     [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" [ngClass]="{'btn-disabled': !accepted}">

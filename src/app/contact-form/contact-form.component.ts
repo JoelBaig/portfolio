@@ -16,8 +16,8 @@ import { FooterComponent } from "../shared/footer/footer.component";
     AppBtnComponent,
     NgIf,
     FooterComponent,
-   FooterComponent
-],
+    FooterComponent
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
@@ -37,6 +37,7 @@ export class ContactFormComponent {
 
   accepted = false;
   hovered = false;
+  submitted = false;
 
   // Endpunkt: deine Domain mit der PHP-Datei
   endPoint = 'https://joelbaig.com/sendMail.php';
@@ -46,11 +47,14 @@ export class ContactFormComponent {
 
   onSubmit(contactForm: NgForm) {
     // if (!form.valid) return;
+    this.submitted = true;
 
-        contactForm.form.markAllAsTouched();
-            if (!this.accepted || contactForm.invalid) 
+    contactForm.form.markAllAsTouched();
+
+    if (!this.accepted || contactForm.invalid) {
       return;
-    
+    }
+
 
     if (this.mailTest) {
       console.log('TEST MODE – wird NICHT gesendet:', this.contactData);

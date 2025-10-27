@@ -60,13 +60,17 @@ label {
     flex-direction: column;
 }
 
+input {
+    width: 300px;
+}
+
 input,
 textarea {
     background-color: transparent;
     border: none;
     color: white;
     font-size: 17px;
-    font-family: inherit;  
+    font-family: inherit;
     height: 25px;
     resize: none;
     outline: none;
@@ -74,11 +78,11 @@ textarea {
     &::placeholder {
         color: white;
         opacity: 1;
-    font-family: inherit;  
+        font-family: inherit;
     }
 
     &:focus::placeholder {
-        color: red;
+        color: #e47b57;
     }
 }
 
@@ -197,8 +201,8 @@ textarea {
 }
 
 .checkbox-img.checked {
-width: 18px;
-height: 18px;
+    width: 18px;
+    height: 18px;
 }
 
 .checkbox-img.unchecked {
@@ -212,9 +216,7 @@ height: 18px;
     top: -120px;
 }
 
-.orange-sticker {
-
-}
+.orange-sticker {}
 
 .sticker-text {
     position: relative;
@@ -240,32 +242,32 @@ height: 18px;
     display: inline-block;
     margin-top: 1320px;
     cursor: pointer;
-  
+
     .logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 0.3s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease-in-out;
     }
-  
+
     .logo-blue {
-      z-index: 1;
-      opacity: 1;
+        z-index: 1;
+        opacity: 1;
     }
-  
+
     .logo-yellow {
-      z-index: 2;
-      opacity: 0;
+        z-index: 2;
+        opacity: 0;
     }
-  
+
     &:hover .logo-blue {
-      opacity: 0;
+        opacity: 0;
     }
-  
+
     &:hover .logo-yellow {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 .logo {
     position: absolute;
@@ -274,4 +276,32 @@ height: 18px;
 .my-name {
     position: relative;
     top: 55px;
+}
+
+.error-placeholder::placeholder {
+    color: #e47b57;
+    opacity: 1;
+}
+
+/* vendor Prefixes für bessere Browser-Kompatibilität */
+.error-placeholder::-webkit-input-placeholder {
+    color: #e47b57;
+    opacity: 1;
+}
+
+.error-placeholder:-ms-input-placeholder {
+    color: #e47b57;
+    opacity: 1;
+}
+
+.error-placeholder::-ms-input-placeholder {
+    color: #e47b57;
+    opacity: 1;
+}
+
+input.error-placeholder+.error,
+textarea.error-placeholder+.error,
+input.error-placeholder~.error,
+textarea.error-placeholder~.error {
+    display: none;
 }
