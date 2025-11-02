@@ -41,6 +41,8 @@
 }
 
 label {
+    display: flex;
+    flex-direction: column;
     color: white;
     font-size: 26px;
 }
@@ -278,12 +280,15 @@ textarea {
     top: 55px;
 }
 
+.error {
+    color: #e47b57;
+}
+
 .error-placeholder::placeholder {
     color: #e47b57;
     opacity: 1;
 }
 
-/* vendor Prefixes für bessere Browser-Kompatibilität */
 .error-placeholder::-webkit-input-placeholder {
     color: #e47b57;
     opacity: 1;
@@ -297,11 +302,4 @@ textarea {
 .error-placeholder::-ms-input-placeholder {
     color: #e47b57;
     opacity: 1;
-}
-
-input.error-placeholder+.error,
-textarea.error-placeholder+.error,
-input.error-placeholder~.error,
-textarea.error-placeholder~.error {
-    display: none;
 }

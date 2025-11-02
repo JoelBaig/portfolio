@@ -1,30 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NgClass, NgIf, NgStyle } from '@angular/common';
+import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
-import { FooterComponent } from "../shared/footer/footer.component";
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
   imports: [
     FormsModule,
-    AppHeadlineComponent,
     NgClass,
-    AppBtnComponent,
     NgIf,
+    AppHeadlineComponent,
+    AppBtnComponent,
     FooterComponent,
-    FooterComponent
-  ],
+    NgStyle
+],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
   private http = inject(HttpClient);
 
-  // Das passt zu deinen [(ngModel)]-Bindings im Template
   contactData = {
     contactName: '',
     email: '',
@@ -39,26 +38,19 @@ export class ContactFormComponent {
   hovered = false;
   submitted = false;
 
-  // Endpunkt: deine Domain mit der PHP-Datei
   endPoint = 'https://joelbaig.com/sendMail.php';
 
-  // Zum Trocken-Üben (keine Mail schicken, nur Konsole)
-  mailTest = false; // auf true setzen, wenn du NUR testen willst
+  submitForm(contactForm: NgForm) {
+    this.submitted = true;
+    contactForm.form.markAllAsTouched();
+    this.onSubmit(contactForm);
+  }
 
   onSubmit(contactForm: NgForm) {
-    // if (!form.valid) return;
     this.submitted = true;
-
     contactForm.form.markAllAsTouched();
 
     if (!this.accepted || contactForm.invalid) {
-      return;
-    }
-
-
-    if (this.mailTest) {
-      console.log('TEST MODE – wird NICHT gesendet:', this.contactData);
-      contactForm.resetForm();
       return;
     }
 
@@ -69,6 +61,12 @@ export class ContactFormComponent {
       next: (res: string) => {
         console.log('Server sagt:', res);
         contactForm.resetForm();
+        this.submitted = false;
+        this.accepted = false;
+        this.hovered = false;
+        this.namePlaceholder = 'Your name goes here';
+        this.emailPlaceholder = 'youremail@email.com';
+        this.messagePlaceholder = 'Ask me here...';
       },
       error: (err) => {
         console.error('Fehler beim Senden:', err);
@@ -77,8 +75,7 @@ export class ContactFormComponent {
   }
 
   toggleCheckbox(event: Event) {
-    event.preventDefault(); // Verhindert unnötige Nebeneffekte
+    event.preventDefault();
     this.accepted = !this.accepted;
   }
-
 }
