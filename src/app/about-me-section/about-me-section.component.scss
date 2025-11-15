@@ -3,6 +3,7 @@
 
 .about-me-wrapper {
   width: 100%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,11 +11,10 @@
 
 .about-me-main {
   @include dFlex($f: flex, $c: center, $ai: center);
-  @include elementSize($w: 80%, $h: 70vh, $mw: none);
+  @include elementSize($w: 55vw, $h: 70vh, $mw: none);
   gap: 100px;
   position: relative;
   top: -50px;
-  width: 1500px;
 }
 
 .image-overlap {
