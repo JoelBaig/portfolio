@@ -1,0 +1,52 @@
+<div class="overlay">
+    <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
+
+    <app-navbar variant="overlay" class="header-project-details navbar" (click)="onNavbarClick($event)"></app-navbar>
+
+    <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
+        <button class="back-btn" type="button">Go
+            Back</button>
+        <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
+    </div>
+
+    <div class="panel" (click)="$event.stopPropagation()">
+        <ng-container *ngIf="selectedProject as project">
+            <div class="wrapper-left">
+                <div>
+                    <app-app-headline class="single-project-headline" [title]="project.title"
+                        [infoText]="project.description" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
+                        [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'"
+                        [subtitle]="project.subtitle" [subtitlePosition]="'below'" [subtitleOffset]="16"
+                        [subtitleUnderLine]="true" [subtitleTag]="'h2'">
+                    </app-app-headline>
+                </div>
+
+                <div>
+                    <h1 class="implementation-details">Hallo</h1>
+                    <p class="details">{{ project.details }}</p>
+                </div>
+
+                <div class="duration-con">
+                    <h2>Duration:</h2>
+                    <p>{{project.duration}}</p>
+                </div>
+
+                <ul class="tech-list" *ngIf="project.used_technologies?.length">
+                    <li class="tech-item" *ngFor="let tech of project.used_technologies">
+                        <img class="tech-icon" [src]="tech.icon" [alt]="tech.name + ' icon'" />
+                        <span class="tech-name">{{ tech.name }}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="wrapper-right">
+                <img class="detail-img" [src]="project.image" [alt]="project.alt" />
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="next-project-btn-con" (click)="nextProject()">
+        <button>Next Project</button>
+        <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
+    </div>
+</div>

@@ -1,0 +1,208 @@
+@import '../../../mixin.scss';
+@import '../../../keyframes.scss';
+
+.footer-main {
+    color: white;
+    height: 100px;
+    width: 100%;
+    position: relative;
+    // top: -50px;
+}
+
+.nav-pos {
+    @include dFlex($f: flex, $c: c, $ai: center);
+    width: 100%;
+    position: relative;
+    left: -50px;
+}
+
+.navbar {
+    @include elementSize($w: 100%, $h: 100px, $mw: none);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-links {
+    @include dFlex($f: flex, $c: space-between, $ai: center);
+    height: 100px;
+    width: 55vw;
+    font-weight: 700;
+    color: #F8F9FA;
+    padding: 0;
+}
+
+li {
+    @include dFlex($f: flex, $c: center, $ai: center);
+}
+
+.legal-link {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+}
+
+.legal-link .hover-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%) !important;
+    object-fit: contain;
+    padding-top: 10px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .25s ease;
+    -webkit-mask-image: linear-gradient(to right, #000 0 0);
+    -webkit-mask-size: 0% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: left center;
+    mask-image: linear-gradient(to right, #000 0 0);
+    mask-size: 0% 100%;
+    mask-repeat: no-repeat;
+    mask-position: left center;
+}
+
+.legal-link:hover .hover-bg {
+    opacity: 1;
+    animation: drawImageLR .8s ease forwards;
+    transform: translate(-50%, -50%) !important;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-link .label {
+    position: relative;
+    display: inline-block;
+    padding: 8px 17px;
+    line-height: 1.4;
+    --icon-size: 22px;
+    --gap-end: -26px;
+    --reserve: calc(var(--icon-size) + var(--gap-end));
+    padding-right: calc(16px + var(--reserve));
+    overflow: visible;
+}
+
+.nav-link:not(.legal-link) .label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: var(--reserve);
+    border-radius: 20px;
+    background: #3355ff;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: -1;
+}
+
+.nav-link:not(.legal-link):hover .label::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-main .nav-link .label .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: translate(-50%, -120%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: left, transform, opacity;
+}
+
+.nav-main .nav-link .label .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: translate(-50%, -120%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: left, transform, opacity;
+}
+
+.nav-main.has-interacted .nav-link:hover .label .icon-wrap.on {
+    opacity: 1;
+    animation: slideIn var(--t-in, .5s) linear both;
+}
+
+.nav-main.has-interacted .nav-link:hover .label .icon-wrap:not(.on) {
+    animation: slideOut .9s ease both;
+}
+
+.nav-main .nav-link .label .icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.nav-main.has-interacted .nav-link .label .icon-wrap.on .icon {
+    animation: spinCW var(--t-in, 0.5s) linear both;
+}
+
+.nav-main.has-interacted .nav-link .label .icon-wrap:not(.on) .icon {
+    animation: spinCCW var(--t-out, 0.5s) linear both;
+}
+
+.nav-main.has-interacted .fill {
+    transition: transform 420ms cubic-bezier(.22, .7, .2, 1);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-wrapper {
+    position: absolute;
+    top: -55px;
+    display: inline-block;
+    cursor: pointer;
+
+    .logo {
+        position: absolute;
+        top: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .logo-blue {
+        opacity: 1;
+    }
+
+    .logo-yellow {
+        opacity: 0;
+    }
+
+    &:hover .logo-blue {
+        opacity: 0;
+    }
+
+    &:hover .logo-yellow {
+        opacity: 1;
+    }
+
+    .my-name {
+        position: relative;
+        bottom: -55px;
+        left: 0;
+        font-size: 17px;
+        color: white;
+    }
+}

@@ -1,0 +1,58 @@
+<div class="my-skills-con">
+    <img src="./assets/img/header/skills/background.png" alt="">
+
+    <div class="wrapper-main">
+        <div class="wrapper-top">
+            <div class="skill-headline">
+                <div class="headline-wrapper">
+                    <p>MY STACK</p>
+                    <h1>Skill set</h1>
+                    <img [ngClass]="{ 'animate-oval': animateOval }" class="orange-circle"
+                        src="./assets/img/header/skills/orange_line.png" alt="">
+                </div>
+            </div>
+            <div class="skill-introduction">
+                <div class="skill-intro-wrapper">
+                    <p>Over the past months, I’ve been building up this stack of skills — here’s what I’m confident
+                        working with.</p>
+                    <img src="./assets/img/header/skills/skills_paper.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-bottom">
+            <div class="skill-set">
+                <div class="skills">
+                    <div class="single-skill-con" *ngFor="let skill of skillsTop"
+                        (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
+                        <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
+                            alt="{{ skill.name }}" />
+                        <p>{{ skill.name }}</p>
+                    </div>
+                </div>
+                <div class="skills">
+                    <div class="skills">
+                        <div class="single-skill-con" *ngFor="let skill of skillsBottom"
+                            (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
+                            <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
+                                alt="{{ skill.name }}" />
+                            <p>{{ skill.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sticker-con" [ngClass]="{ 'no-pointer': isOpen }">
+                <img [src]="currentSticker" (click)="animateSticker()" alt="Sticker" />
+
+                <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
+                    <p class="sticker-text">Also, I´m interested in diving into:</p>
+                    <div class="sticker-skills">
+                        <div class="sticker-skills">
+                            <img *ngFor="let s of stickerSkills" [src]="s.src" [alt]="s.name" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

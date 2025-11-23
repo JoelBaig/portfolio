@@ -1,0 +1,239 @@
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
+.my-skills-con {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include elementSize($w: 100vw, $h: 80vh);
+
+    >img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.wrapper-main {
+    position: absolute;
+    width: 55vw;
+    height: 55%;
+}
+
+.wrapper-top {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+h1 {
+    font-size: 64px;
+    position: relative;
+}
+
+.orange-circle {
+    height: 70px;
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: ovalOrbit 3s ease-in-out infinite;
+}
+
+p {
+    font-size: 20px;
+}
+
+.skill-headline {
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.headline-wrapper {
+    position: relative;
+    display: inline-block;
+
+    h1 {
+        position: relative;
+        top: 35px;
+        z-index: 2;
+        color: white;
+    }
+
+    .orange-circle {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: 1;
+    }
+}
+
+.headline-wrapper>p {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 1;
+}
+
+.skill-introduction {
+    width: 63%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .skill-intro-wrapper {
+        position: relative;
+        left: 50px;
+        width: 100%;
+        max-width: 650px;
+        aspect-ratio: 4 / 1;
+    }
+
+    .skill-intro-wrapper>img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .skill-intro-wrapper>p {
+        position: absolute;
+        top: 21%;
+        left: 5%;
+        right: 5%;
+        bottom: 20%;
+        width: 80%;
+        font-size: 20px;
+        color: black;
+        z-index: 2;
+    }
+}
+
+.wrapper-bottom {
+    width: 92%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-set {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    gap: 30px;
+}
+
+.single-skill-con {
+    width: 100px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.single-skill-con>p {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.single-skill-con img {
+    filter: grayscale(100%);
+    transition: filter 0.15s ease, transform 0.15s ease;
+    transform-origin: bottom right;
+}
+
+.single-skill-con:hover img {
+    filter: grayscale(0%);
+    transform: scale(0.8);
+}
+
+.sticker-con {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 180px;
+
+    >img {
+        height: 200px;
+        width: 200px;
+        transform: rotate(10deg);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        top: -12px;
+    }
+}
+
+.sticker-con>img {
+    transition: transform 0.3s ease, opacity 0.15s ease;
+}
+
+.sticker-con.no-pointer {
+    pointer-events: none;
+}
+
+.sticker-reveal {
+    position: absolute;
+    top: 40px;
+    width: 180px;
+    height: 170px;
+    padding: 10px;
+    text-align: center;
+    transform: rotate(10deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.sticker-text {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.sticker-skills {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+}

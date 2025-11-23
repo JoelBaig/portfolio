@@ -1,0 +1,27 @@
+@import './../mixin.scss';
+@import './../keyframes.scss';
+
+:host {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+        overflow-x: hidden !important;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+.page-content {
+    flex: 1 0 auto;
+        overflow-x: hidden !important;
+}
+
+.site-footer {
+    z-index: 1;
+}
+
+.lp {
+    display: flex;
+    justify-content: center;
+}

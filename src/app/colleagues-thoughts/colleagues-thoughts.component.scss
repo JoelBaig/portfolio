@@ -1,0 +1,135 @@
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
+.colleagues-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 250px;
+  position: relative;
+  top: 100px;
+}
+
+.colleagues-main {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+}
+
+.colleagues-headline {
+  position: relative;
+  top: -10px;
+  right: 180px;
+  width: 50vw;
+}
+
+.feedback-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 300px;
+  position: relative;
+  top: 120px;
+
+  >img {
+    width: 400px;
+    height: 250px;
+  }
+}
+
+.image-overlap {
+  @include dFlex($f: flex, $c: center, $ai: center, $fd: none);
+}
+
+.card-bottom div {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.linkedin-icon {
+  display: block;
+}
+
+.single-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 1;
+}
+
+.image-text {
+  position: absolute;
+  width: 85%;
+  color: black;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 200;
+  margin: 40px;
+  z-index: 2;
+}
+
+.card-bottom {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.card-bottom.is-hovered .name-main,
+.card-bottom.is-hovered .name-main h3 {
+  color: white !important;
+}
+
+.name-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  >h3 {
+    margin: 0;
+  }
+}
+
+.linkedin-icon-wrapper {
+  position: relative;
+  right: 50px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.linkedin-icon-wrapper .linkedin-icon {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.15s ease;
+}
+
+.linkedin-icon-wrapper .hover-icon {
+  opacity: 0;
+}
+
+.linkedin-icon-wrapper .default-icon {
+  opacity: 1;
+}
+
+.linkedin-icon-wrapper:hover .hover-icon {
+  opacity: 1;
+}
+
+.linkedin-icon-wrapper:hover .default-icon {
+  opacity: 0;
+}

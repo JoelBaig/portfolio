@@ -1,0 +1,12 @@
+@mixin dFlex($f: flex, $c: center, $ai: none, $fd: none) {
+    display: $f;
+    justify-content: $c;
+    align-items: $ai;
+    flex-direction: $fd;
+}
+
+@mixin elementSize($w: none, $h: none, $mw: none) {
+    width: $w;
+    height: $h;
+    max-width: $mw;
+}

@@ -1,0 +1,80 @@
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
+.about-me-wrapper {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me-main {
+  @include dFlex($f: flex, $c: center, $ai: center);
+  @include elementSize($w: 55vw, $h: 70vh, $mw: none);
+  gap: 100px;
+  position: relative;
+  top: -50px;
+}
+
+.image-overlap {
+  @include dFlex($f: flex, $c: center, $ai: center, $fd: column);
+}
+
+h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.about-me {
+  position: relative;
+  top: 30px;
+}
+
+.about-me-txt {
+  position: relative;
+  top: 30px;
+}
+
+.image-overlap>div {
+  position: relative;
+  display: inline-block;
+}
+
+.image-text {
+  @include dFlex($f: flex, $c: center, $ai: center);
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.4;
+  transform-origin: center;
+  gap: 16px;
+}
+
+.lets-talk-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 50px;
+  position: relative;
+  right: 0;
+}
+
+.line-animation-wrapper {
+  overflow: hidden;
+  width: 300px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.animated-line {
+  height: 20px;
+  width: 0%;
+  animation: linePulse 6.4s infinite;
+  transform-origin: left;
+}

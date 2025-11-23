@@ -1,0 +1,57 @@
+<div class="projects-main">
+    <app-project-details *ngIf="openProject" class="project-details" [projectId]="openProject"
+        (close)="closeProjectDetails()">
+    </app-project-details>
+
+    <div class="first-row">
+        <app-app-headline class="single-project-con intro" [subtitle]="'MY CRAFT'" [title]="'PROJECTS'"
+            [infoText]="'Feel free to explore my projects and try things out! I focus on building responsive, user-friendly experiences with clean and efficient code.'"
+            [lineImage]="'./assets/img/header/projects/yellow_line.png'" [animateLine]="true"
+            [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'">
+        </app-app-headline>
+
+        <div class="single-project-con">
+            <img class="feautured-project-sticker" src="./assets/img/header/projects/sticker_projects.png" alt="feautured project image"/>
+            <div class="project-img-wrapper" (mouseenter)="hoveredProject = projects[0].title"
+                (mouseleave)="hoveredProject = null">
+
+                <img class="project-img floating-img" [src]="projects[0].image" [alt]="projects[0].alt" />
+
+                <div class="button-overlay-notebook">
+                    <app-app-btn class="img-button" (click)="openProjectDetails(projects[0].id)"
+                        [class.btn-visible]="hoveredProject === projects[0].title"
+                        [class.btn-hidden]="hoveredProject !== projects[0].title" [text]="'Project details'"
+                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+                        [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+                    </app-app-btn>
+                </div>
+            </div>
+            <h2>{{ projects[0].title }}</h2>
+            <p class="project-info-txt">{{ projects[0].description }}</p>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="single-project-con" *ngFor="let project of projects.slice(1)">
+            <div class="project-img-wrapper" (mouseenter)="hoveredProject = project.title"
+                (mouseleave)="hoveredProject = null">
+
+                <img class="project-img" [src]="project.image" [alt]="project.alt" />
+
+                <div class="button-overlay">
+                    <app-app-btn class="img-button" (click)="openProjectDetails(project.id)"
+                        [class.btn-visible]="hoveredProject === project.title"
+                        [class.btn-hidden]="hoveredProject !== project.title" [text]="'Project details'"
+                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+                        [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+                    </app-app-btn>
+                </div>
+            </div>
+
+            <h2>{{ project.title }}</h2>
+            <p class="project-info-txt">{{ project.description }}</p>
+        </div>
+    </div>
+</div>

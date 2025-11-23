@@ -1,0 +1,51 @@
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
+.img-button {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: 200px;
+  transition: transform 0.08s ease;
+
+  &:hover {
+    transform: translate(2px, 2px);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-img {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    opacity: 0;
+  }
+
+  &:hover .hover-img {
+    opacity: 1;
+  }
+
+  &:hover .default-img {
+    opacity: 0;
+  } 
+
+  .btn-text {
+    position: relative;
+    top: -36px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 200;
+    z-index: 2;
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: color 0.3s ease;
+  }
+}

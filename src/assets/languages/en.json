@@ -1,0 +1,19 @@
+{
+    "LANDING": {
+      "TEXT_TOP": "Frontend",
+      "HELLO_WORLD": "Hello world",
+      "ALT_NAME": "Joel Baig",
+      "DEVELOPER": "DEVELOPER",
+      "CTA": "Get in touch",
+      "ALT": {
+        "BACKGROUND": "background header",
+        "LINKEDIN": "LinkedIn",
+        "GITHUB": "GitHub",
+        "EMAIL": "Email",
+        "WAVE": "waving hand",
+        "POLAROID_FRAME": "polaroid frame",
+        "PORTRAIT": "portrait of Joel Baig",
+        "LANGUAGE_SWITCH": "language switch"
+      }
+    }
+  }

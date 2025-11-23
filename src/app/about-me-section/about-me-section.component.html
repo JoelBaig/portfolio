@@ -1,0 +1,34 @@
+<div class="about-me-wrapper">
+
+    <div class="about-me-main">
+        <div class="image-overlap">
+            <div *ngFor="let block of imageBlocks; let i = index" [ngStyle]="{
+          'margin-bottom.px': i === 2 ? -90 : -70,
+          'z-index': i === 0 ? 30 : i === 1 ? 20 : 10
+        }" style="position: relative;">
+
+                <img [src]="block.src" alt="about-image">
+
+                <div class="image-text" [ngStyle]="getTextStyle(i)">
+                    <img [src]="block.icon" alt="icon" class="text-icon">
+                    {{ block.text }}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about-me">
+            <app-app-headline [subtitle]="'WHO´S JOEL?'" [title]="'ABOUT ME'"
+                [infoText]="'Hey there, I´m Joel. I love programming because every challenge helps me grow and sharpen my problem-solving skills. It pushes me to think creatively and stay persistent, even when things get tough. I’m inspired by the endless possibilities of building something from nothing—just by writing code. Improving my coding skills gives me a sense of progress and purpose. It’s both a passion and a tool to shape the future.'"
+                [lineImage]="'./assets/img/header/about_me/blue_line.png'" [animateLine]="true"
+                [maskDirection]="'horizontal'" [lineWidth]="340"
+                [lineAlign]="'flex-start'">
+            </app-app-headline>
+
+            <app-app-btn (click)="scrollToSection('contact')" class="lets-talk-btn" [text]="'Let´s talk'" [visible]="true" [width]="'140px'"
+                [height]="'45px'" [defaultImg]="'./assets/img/header/app_btn/black_btn.png'"
+                [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" [color]="'black'" [hoverColor]="'white'">
+            </app-app-btn>
+        </div>
+    </div>
+</div>

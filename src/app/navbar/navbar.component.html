@@ -1,0 +1,137 @@
+<!-- 
+<header>
+<div class="logo-lang-con">
+        <div class="logo-wrapper">
+            <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
+            <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
+        </div>
+
+        <div class="language-wrapper">
+            <div class="en-language-wrapper" (click)="selectLanguage('en')">
+                <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
+                    src="/assets/img/header/en_red.png" alt="english-language">
+                <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png"
+                    alt="language-mark">
+                <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white"
+                    src="/assets/img/header/en_white.png" alt="english-language">
+            </div>
+
+            <div class="language-switch-wrapper">
+                <img class="language-line" src="/assets/img/header/language_line.png" alt="language-switch">
+                <img [ngClass]="dotAnimationClass" class="language-dot" src="/assets/img/header/language_dot.png"
+                    alt="language-switch">
+            </div>
+
+            <div class="de-language-wrapper" (click)="selectLanguage('de')">
+                <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white"
+                    src="/assets/img/header/de_white.png" alt="german-language">
+                <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png"
+                    alt="language-mark">
+                <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red"
+                    src="/assets/img/header/de_red.png" alt="german-language">
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="nav-pos" [ngClass]="'navbar--' + variant">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li class="nav-about-me">
+        <a class="nav-link" (click)="scrollToSection('about-me')">
+          <span class="nav-text">About me</span>
+          <img src="assets/img/header/B.2.png" alt="about" class="hover-bg" />
+        </a>
+      </li>
+
+      <li class="nav-skills">
+        <a class="nav-link" (click)="scrollToSection('skills')">
+          <span class="nav-text">Skills</span>
+          <img src="assets/img/header/B.1.png" alt="skills" class="hover-bg" />
+        </a>
+      </li>
+
+      <li class="nav-projects">
+        <a class="nav-link" (click)="scrollToSection('projects')">
+          <span class="nav-text">Projects</span>
+          <img src="assets/img/header/B.4.png" alt="projects" class="hover-bg" />
+        </a>
+      </li>
+
+      <li class="nav-contact">
+        <a class="nav-link" (click)="scrollToSection('contact')">
+          <span class="nav-text">Contact</span>
+          <img src="assets/img/header/B.3.png" alt="contact" class="hover-bg" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div> -->
+
+
+
+<nav class="navbar" [ngClass]="'navbar--' + variant">
+
+  <!-- LEFT: LOGO -->
+  <div class="navbar-left">
+    <div class="logo-wrapper">
+      <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
+      <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
+    </div>
+  </div>
+
+  <!-- CENTER: NAV LINKS -->
+  <div class="navbar-center">
+    <ul class="nav-links">
+      <li class="nav-about-me">
+        <a class="nav-link" (click)="scrollToSection('about-me')">
+          <span class="nav-text">About me</span>
+          <img src="assets/img/header/B.2.png" class="hover-bg" />
+        </a>
+      </li>
+      <li class="nav-skills">
+        <a class="nav-link" (click)="scrollToSection('skills')">
+          <span class="nav-text">Skills</span>
+          <img src="assets/img/header/B.1.png" class="hover-bg" />
+        </a>
+      </li>
+      <li class="nav-projects">
+        <a class="nav-link" (click)="scrollToSection('projects')">
+          <span class="nav-text">Projects</span>
+          <img src="assets/img/header/B.4.png" class="hover-bg" />
+        </a>
+      </li>
+      <li class="nav-contact">
+        <a class="nav-link" (click)="scrollToSection('contact')">
+          <span class="nav-text">Contact</span>
+          <img src="assets/img/header/B.3.png" class="hover-bg" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- RIGHT: LANGUAGE SWITCH -->
+  <div class="navbar-right">
+    <div class="language-wrapper">
+      <div class="en-language-wrapper" (click)="selectLanguage('en')">
+        <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red" src="/assets/img/header/en_red.png">
+        <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png">
+        <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white" src="/assets/img/header/en_white.png">
+      </div>
+
+      <div class="language-switch-wrapper">
+        <img class="language-line" src="/assets/img/header/language_line.png">
+        <img [ngClass]="dotAnimationClass" class="language-dot" src="/assets/img/header/language_dot.png">
+      </div>
+
+      <div class="de-language-wrapper" (click)="selectLanguage('de')">
+        <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white" src="/assets/img/header/de_white.png">
+        <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png">
+        <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red" src="/assets/img/header/de_red.png">
+      </div>
+    </div>
+  </div>
+
+</nav>
