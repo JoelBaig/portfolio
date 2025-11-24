@@ -10,20 +10,15 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   over: 'github' | 'linkedin' | 'email' | null = null;
-    hasInteracted = false;
-
-      overlay: string | null = null;
-
-  // 1. State für das Overlay
+  hasInteracted = false;
+  overlay: string | null = null;
   isLegalNoticeOpen = false;
 
-  // 2. Öffnen
   openLegalNotice(event: MouseEvent) {
-    event.preventDefault(); // verhindert, dass der Link irgendwas navigiert
+    event.preventDefault();
     this.isLegalNoticeOpen = true;
   }
 
-  // 3. Schließen
   closeLegalNotice() {
     this.isLegalNoticeOpen = false;
   }
