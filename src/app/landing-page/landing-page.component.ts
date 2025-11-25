@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-// import { HeaderComponent } from "../shared/header/header.component";
 import { NavbarComponent } from "../navbar/navbar.component";
 import { AppBtnComponent } from "../app-btn/app-btn.component";
 import { CommonModule } from '@angular/common';
@@ -10,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-landing-page',
   standalone: true,
   imports: [
-    // HeaderComponent,
     NavbarComponent,
     AppBtnComponent,
     CommonModule,
@@ -60,6 +58,9 @@ export class LandingPageComponent {
   hoverImg = false;
   hasInteracted = false;
   activeSection: string | null = null;
+
+  frontendText = 'Frontend';
+  developerText = 'Developer';
 
   onEnter() {
     this.hover = true;

@@ -55,10 +55,13 @@ span {
 
 .text-top {
     bottom: 0;
+    display: flex;
 }
 
 .text-bottom {
     right: 0;
+    display: flex;
+
 }
 
 .get-in-touch-btn {
@@ -236,4 +239,20 @@ span {
     &:hover .smiley {
         content: ":D";
     }
+}
+
+.letter {
+    /* Fügt eine fließende Änderung für die "Text-Transformation" hinzu, 
+       die wir später per JS steuern */
+    transition: text-transform 0.3s ease; 
+    /* Fügt eine subtile Farbe/Skalierung für den "smooth" Effekt hinzu, 
+       was oft angenehmer aussieht als nur der Textwechsel */
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    padding: 0 2px;
+}
+
+.letter:hover {
+    color: blue;
+    transform: scale(1.1); /* Optional: macht den Buchstaben beim Hovern größer */
 }

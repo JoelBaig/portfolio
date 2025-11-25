@@ -18,7 +18,7 @@
   </div>
 
     <div class="main-content-top">
-      <span class="text-top">Frontend</span>
+      <span id="headlineFrontend" class="text-top">Frontend</span>
 
       <div class="hello-world" [class.has-interacted]="hasInteracted" [@container]="hover ? 'on' : 'off'"
         (mouseenter)="onEnter()" (mouseleave)="onLeave()">
@@ -45,7 +45,7 @@
       </div>
 
       <div class="main-content-bottom">
-        <span class="text-bottom">DEVELOPER</span>
+        <span id="headlineDeveloper" class="text-bottom">DEVELOPER</span>
 
         <app-app-btn (click)="scrollToSection('contact')" class="get-in-touch-btn" [text]="'Get in touch'"
           [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
