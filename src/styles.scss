@@ -18,7 +18,19 @@ html {
 }
 
 .lock-scroll {
-    position: fixed;     /* verhindert Scrollen, ohne die Seite springen zu lassen */
+    position: fixed;
     overflow: hidden;
     width: 100%;
-  }
+}
+
+.letter {
+    display: inline-block;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    position: static;
+}
+
+.letter:hover {
+    color: #f7c719;
+}

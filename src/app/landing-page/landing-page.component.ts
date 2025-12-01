@@ -62,43 +62,47 @@ export class LandingPageComponent {
   frontendText = "Frontend";
   developerText = 'Developer';
 
- ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     this.setupHoverLetters('headlineFrontend');
     this.setupHoverLetters('headlineDeveloper');
   }
 
- private setupHoverLetters(elementId: string): void {
+  private setupHoverLetters(elementId: string): void {
     const container = document.getElementById(elementId);
     if (!container) return;
 
-    const word = container.textContent ?? '';
+    // Text holen und äußere Leerzeichen entfernen
+    const word = (container.textContent ?? '').trim();
     container.textContent = '';
 
     word.split('').forEach((char: string) => {
+      // 1. Whitespace & Co. NICHT in einen span packen
+      if (char === ' ' || char === '\n' || char === '\r' || char === '\t') {
+        container.appendChild(document.createTextNode(char));
+        return;
+      }
+
       const span = document.createElement('span');
       span.textContent = char;
       span.classList.add('letter');
 
-      span.addEventListener('mouseenter', () => {
-        const currentChar = span.textContent ?? '';
-        if (!currentChar) return;
+      // Originalzeichen merken
+      span.dataset['originalChar'] = char;
 
-        if (currentChar === currentChar.toUpperCase()) {
-          span.textContent = currentChar.toLowerCase();
-        } else {
-          span.textContent = currentChar.toUpperCase();
-        }
+      span.addEventListener('mouseenter', () => {
+        const original = span.dataset['originalChar'] ?? '';
+        if (!original) return;
+
+        const isUpper = original === original.toUpperCase();
+        span.textContent = isUpper ? original.toLowerCase() : original.toUpperCase();
       });
 
       span.addEventListener('mouseleave', () => {
-        const currentChar = span.textContent ?? '';
-        if (!currentChar) return;
+        const original = span.dataset['originalChar'] ?? '';
+        if (!original) return;
 
-        if (currentChar === currentChar.toUpperCase()) {
-          span.textContent = currentChar.toLowerCase();
-        } else {
-          span.textContent = currentChar.toUpperCase();
-        }
+        // Immer zurück zum Original
+        span.textContent = original;
       });
 
       container.appendChild(span);
