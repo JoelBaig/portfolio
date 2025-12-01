@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
     AppBtnComponent,
     CommonModule,
     TranslateModule,
-],
+  ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
   animations: [
@@ -59,8 +59,51 @@ export class LandingPageComponent {
   hasInteracted = false;
   activeSection: string | null = null;
 
-  frontendText = 'Frontend';
+  frontendText = "Frontend";
   developerText = 'Developer';
+
+ ngAfterViewInit(): void {
+    this.setupHoverLetters('headlineFrontend');
+    this.setupHoverLetters('headlineDeveloper');
+  }
+
+ private setupHoverLetters(elementId: string): void {
+    const container = document.getElementById(elementId);
+    if (!container) return;
+
+    const word = container.textContent ?? '';
+    container.textContent = '';
+
+    word.split('').forEach((char: string) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.classList.add('letter');
+
+      span.addEventListener('mouseenter', () => {
+        const currentChar = span.textContent ?? '';
+        if (!currentChar) return;
+
+        if (currentChar === currentChar.toUpperCase()) {
+          span.textContent = currentChar.toLowerCase();
+        } else {
+          span.textContent = currentChar.toUpperCase();
+        }
+      });
+
+      span.addEventListener('mouseleave', () => {
+        const currentChar = span.textContent ?? '';
+        if (!currentChar) return;
+
+        if (currentChar === currentChar.toUpperCase()) {
+          span.textContent = currentChar.toLowerCase();
+        } else {
+          span.textContent = currentChar.toUpperCase();
+        }
+      });
+
+      container.appendChild(span);
+    });
+  }
 
   onEnter() {
     this.hover = true;
