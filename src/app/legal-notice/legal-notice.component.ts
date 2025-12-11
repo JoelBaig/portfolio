@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
-import { PrivacyPolicyComponent } from '../privacy-policy/privacy-policy.component';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
   imports: [
-    PrivacyPolicyComponent
+    CommonModule,
   ],
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss'
 })
 export class LegalNoticeComponent {
 
-openPrivacyPolicy() {
-    window.open('/privacy-policy', '_blank');
+  @Output() close = new EventEmitter<void>();
+
+  onBackdropClick(event: MouseEvent) {
+    this.close.emit();
   }
-}
+} 
