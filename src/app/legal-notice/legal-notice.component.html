@@ -1,8 +1,7 @@
-<app-navbar variant="default" class="navbar-main"></app-navbar>
-
 <div class="modal-backdrop" (click)="onBackdropClick($event)">
     <div class="modal-panel" (click)="$event.stopPropagation()">
-        <button class="close" aria-label="Close" (click)="close.emit()">✕</button>
+            <app-navbar variant="default" class="navbar-main nav-legal-notice"></app-navbar>
+
         <div class="content">
             <h1>Legal Notice</h1>
 
@@ -28,7 +27,8 @@
             <h3>Scope and ownership of the product</h3>
             <p>
                 Portfolio has been developed as part of a student group project in a web development bootcamp at the
-                Developer Akademie GmbH. It has an educational purpose and is not intended for extensive personal &
+                Developer Akademie GmbH. It has an educati
+                onal purpose and is not intended for extensive personal &
                 business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any
                 other aspect of quality regarding this Product.
                 The design of Portfolio is owned by the Developer Akademie GmbH. Unauthorized use, reproduction,
