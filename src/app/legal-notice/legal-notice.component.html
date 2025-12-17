@@ -1,15 +1,15 @@
-<div class="modal-backdrop" (click)="onBackdropClick($event)">
+<div class="modal-backdrop" (click)="onBackdropClick()">
     <div class="modal-panel" (click)="$event.stopPropagation()">
-            <app-navbar variant="default" class="navbar-main nav-legal-notice"></app-navbar>
-
+        <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.png" alt="">
+        <app-navbar variant="default" class="navbar-main nav-legal-notice" (navClick)="close.emit()"></app-navbar>
         <div class="content">
             <h1>Legal Notice</h1>
 
             <h2>Imprint</h2>
 
             <p>
-                · Joel Baig
-                · Hansestraße 92
+                · Joel Baig<br>
+                · Hansestraße 92<br>
                 · 48282 Emsdetten
             </p>
 
@@ -18,7 +18,9 @@
 
             <h3>Acceptance of terms</h3>
             <p>
-                By accessing and using Portfolio (Product), you acknowledge and agree to the following terms and
+                By accessing and using <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a>
+                (Product), you acknowledge and agree to the following
+                terms and
                 conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time
                 to time. We, the listed students, may update or change the terms and conditions from time to time
                 without notice.
@@ -26,47 +28,70 @@
 
             <h3>Scope and ownership of the product</h3>
             <p>
-                Portfolio has been developed as part of a student group project in a web development bootcamp at the
-                Developer Akademie GmbH. It has an educati
+                <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> has been developed as part of
+                a student group project in a web development
+                bootcamp at the
+                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer"> Developer Akademie
+                    GmbH </a>. It has an educational purpose and is not intended for extensive
+                personal &
                 onal purpose and is not intended for extensive personal &
                 business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any
                 other aspect of quality regarding this Product.
-                The design of Portfolio is owned by the Developer Akademie GmbH. Unauthorized use, reproduction,
+                The design of <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> is owned by the
+                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">Developer Akademie
+                    GmbH</a>.
+                Unauthorized use,
+                reproduction,
                 modification, distribution, or replication of the design is strictly prohibited.
             </p>
 
             <h3>Proprietary rights</h3>
             <p>
-                Aside from the design owned by Developer Akademie GmbH, we, the listed students, retain all proprietary
-                rights in Portfolio, including any associated copyrighted material, trademarks, and other proprietary
+                Aside from the design owned by <a href="https://developerakademie.com" target="_blank"
+                    rel="noopener noreferrer">Developer Akademie GmbH</a>, we, the listed students, retain
+                all proprietary
+                rights in <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a>, including any
+                associated copyrighted material, trademarks, and other
+                proprietary
                 information.
             </p>
 
             <h3>Use of the product</h3>
             <p>
-                Portfolio is intended to be used for lawful purposes only, in accordance with all applicable laws and
-                regulations. Any use of Portfolio for illegal activities, or to harass, harm, threaten, or intimidate
+                <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> is intended to be used for
+                lawful purposes only, in accordance with all
+                applicable laws and
+                regulations. Any use of <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> for
+                illegal activities, or to harass, harm, threaten,
+                or intimidate
                 another person, is strictly prohibited. You are solely responsible for your interactions with other
-                users of Portfolio.
+                users of <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a>.
             </p>
 
             <h3>Disclaimer of warranties and limitation of liability</h3>
             <p>
-                Portfolio is provided "as is" without warranty of any kind, whether express or implied, including but
+                <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> is provided "as is" without
+                warranty of any kind, whether express or implied,
+                including but
                 not limited to the implied warranties of merchantability, fitness for a particular purpose, and
-                non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for any
+                non-infringement. In no event will we, the listed students, or the <a
+                    href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">Developer Akademie
+                    GmbH</a>, be liable for any
                 direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to,
                 damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been
                 advised of the possibility of such damages, arising out of or in connection with the use or performance
-                of Portfolio.
+                of <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a>.
             </p>
 
             <h3>Indemnity</h3>
             <p>
-                You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and
+                You agree to indemnify, defend and hold harmless us, the listed students, the <a
+                    href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">Developer Akademie
+                    GmbH</a>, and
                 our affiliates, partners, officers, directors, agents, and employees, from and against any claim,
                 demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to
-                your use of Portfolio and/or your breach of this Legal Notice.
+                your use of <a href="#" (click)="$event.preventDefault(); close.emit()">Portfolio</a> and/or your breach
+                of this Legal Notice.
                 For any questions or notices, please contact us at [Contact Email].
                 Date: July 26, 2025
             </p>

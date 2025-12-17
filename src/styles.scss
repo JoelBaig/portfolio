@@ -34,3 +34,7 @@ html {
 .letter:hover {
     color: #f7c719;
 }
+
+body.modal-open {
+  overflow: hidden;
+}

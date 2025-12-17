@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +12,8 @@ import { Component, HostListener, Input } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  @Output() navClick = new EventEmitter<void>();
+
   isHovered = {
     about: false,
     skills: false,
@@ -24,6 +26,10 @@ export class NavbarComponent {
 
   @Input() variant: 'default' | 'overlay' = 'default';
 
+  emitNavClick() {
+    this.navClick.emit();
+  }
+
   selectLanguage(lang: 'en' | 'de') {
     if (lang === this.selectedLanguage) return;
 
@@ -34,6 +40,8 @@ export class NavbarComponent {
   }
 
   scrollToSection(sectionId: string) {
+    this.navClick.emit();
+
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 
@@ -13,10 +13,17 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrl: './legal-notice.component.scss'
 })
 export class LegalNoticeComponent {
-
   @Output() close = new EventEmitter<void>();
 
-  onBackdropClick(event: MouseEvent) {
+  ngOnInit(): void {
+    document.body.classList.add('modal-open');
+  }
+
+  ngOnDestroy(): void {
+    document.body.classList.remove('modal-open');
+  }
+
+  onBackdropClick() {
     this.close.emit();
   }
-} 
+}
