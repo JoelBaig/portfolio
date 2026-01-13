@@ -20,6 +20,8 @@
   </section>
 
   <section id="contact">
-    <app-contact-form></app-contact-form>
+    <app-contact-form (legalNoticeClick)="openLegalNotice()"></app-contact-form>
   </section>
+
+  <app-legal-notice *ngIf="isLegalNoticeOpen" (close)="closeLegalNotice()"></app-legal-notice>
 </main>

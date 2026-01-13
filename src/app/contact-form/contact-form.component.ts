@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, EventEmitter, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf, } from '@angular/common';
@@ -22,6 +22,12 @@ import { FooterComponent } from '../shared/footer/footer.component';
 })
 export class ContactFormComponent {
   private http = inject(HttpClient);
+
+  @Output() legalNoticeClick = new EventEmitter<void>();
+
+  onLegalNoticeClick() {
+    this.legalNoticeClick.emit();
+  }
 
   contactData = {
     contactName: '',

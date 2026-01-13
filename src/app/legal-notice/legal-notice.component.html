@@ -1,4 +1,4 @@
-<div class="modal-backdrop" (click)="onBackdropClick()">
+<div class="modal-backdrop" (click)="onBackdropClick($event)">
     <div class="modal-panel" (click)="$event.stopPropagation()">
         <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.png" alt="">
         <app-navbar variant="default" class="navbar-main nav-legal-notice" (navClick)="close.emit()"></app-navbar>
@@ -95,7 +95,6 @@
                 For any questions or notices, please contact us at [Contact Email].
                 Date: July 26, 2025
             </p>
-
-
         </div>
     </div>
+</div>
