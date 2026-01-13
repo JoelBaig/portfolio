@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
-// import { FooterComponent } from '../shared/footer/footer.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'app-legal-notice',
@@ -9,7 +9,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
   imports: [
     CommonModule,
     NavbarComponent,
-    // FooterComponent
+    FooterComponent,
   ],
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss'
@@ -25,10 +25,10 @@ export class LegalNoticeComponent {
     document.body.classList.remove('modal-open');
   }
 
-onBackdropClick(event: MouseEvent) {
-  // schließt nur, wenn direkt auf den Backdrop geklickt wurde (nicht auf Kinder)
-  if (event.target === event.currentTarget) {
-    this.close.emit();
+  onBackdropClick(event: MouseEvent) {
+    // schließt nur, wenn direkt auf den Backdrop geklickt wurde (nicht auf Kinder)
+    if (event.target === event.currentTarget) {
+      this.close.emit();
+    }
   }
-}
 }

@@ -1,4 +1,4 @@
-<div class="footer-main">
+<div class="footer-main" [class.light]="theme === 'light'" [class.dark]="theme === 'dark'">
   <nav class="navbar">
     <ul class="nav-links">
       <div class="logo-wrapper">
@@ -6,7 +6,7 @@
         <img class="logo logo-yellow" src="./assets/img/header/logo_yellow.png" alt="">
         <div class="my-name">© Joel Baig 2025</div>
       </div>
-      <li class="nav-about-me">
+      <li class="nav-about-me" >
         <a (click)="openLegalNotice($event)" class="nav-link legal-link">
           Legal Notice
           <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
@@ -39,7 +39,7 @@
       </li>
 
       <li class="nav-main" [class.has-interacted]="hasInteracted">
-        <a routerLink="/contact" class="nav-link" (mouseenter)="over = 'email'; hasInteracted = true"
+        <a href="mailto:ibaig@web.de" class="nav-link" (mouseenter)="over = 'email'; hasInteracted = true"
           (mouseleave)="over = null">
           <span class="label">
             Email

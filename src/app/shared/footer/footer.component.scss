@@ -206,3 +206,27 @@ a {
         color: white;
     }
 }
+
+.footer-main {
+    --footer-text: #fff;
+    --footer-muted: #F8F9FA;
+
+    color: var(--footer-text);
+}
+
+.footer-main.light {
+    --footer-text: #111;
+    --footer-muted: #111;
+}
+
+.nav-links {
+    color: var(--footer-muted);
+}
+
+.nav-link {
+    color: var(--footer-text);
+}
+
+.logo-wrapper .my-name {
+    color: var(--footer-text);
+}
