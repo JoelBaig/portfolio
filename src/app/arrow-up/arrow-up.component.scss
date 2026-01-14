@@ -1,31 +1,32 @@
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+}
+
 .arrow-up-con {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 1000;
-  cursor: pointer;
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
 
-  /* ✨ Magie */
-  mix-blend-mode: difference;
+    transition:
+        opacity 140ms ease,
+        transform 180ms cubic-bezier(.16, 1, .3, 1);
+}
 
-  animation: fadeInUp 220ms ease;
+.arrow-up-con.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .arrow-up-img {
-  width: 44px;
-  height: 44px;
-
-  /* Ausgangsfarbe = weiß (wird automatisch invertiert) */
-  filter: brightness(0) invert(1);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    width: 44px;
+    height: 44px;
+    display: block;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(79%) saturate(2573%) hue-rotate(215deg) brightness(101%) contrast(101%);
 }

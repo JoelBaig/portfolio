@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { ArrowUpComponent } from '../arrow-up/arrow-up.component';
 
 @Component({
   selector: 'app-legal-notice',
@@ -10,6 +11,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     CommonModule,
     NavbarComponent,
     FooterComponent,
+    ArrowUpComponent
   ],
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss'

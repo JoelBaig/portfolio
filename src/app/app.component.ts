@@ -4,10 +4,10 @@ import { MySkillsComponent } from './my-skills/my-skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
 import { ContactFormComponent } from './contact-form/contact-form.component';
-// import { FormsModule } from '@angular/forms';
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { CommonModule } from '@angular/common';
+import { ArrowUpComponent } from './arrow-up/arrow-up.component';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +20,9 @@ import { CommonModule } from '@angular/common';
     ProjectsComponent,
     ColleaguesThoughtsComponent,
     ContactFormComponent,
-    // FormsModule,
     LandingPageComponent,
-    LegalNoticeComponent
+    LegalNoticeComponent,
+    ArrowUpComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
