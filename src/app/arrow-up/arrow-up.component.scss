@@ -1,0 +1,31 @@
+.arrow-up-con {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  cursor: pointer;
+
+  /* ✨ Magie */
+  mix-blend-mode: difference;
+
+  animation: fadeInUp 220ms ease;
+}
+
+.arrow-up-img {
+  width: 44px;
+  height: 44px;
+
+  /* Ausgangsfarbe = weiß (wird automatisch invertiert) */
+  filter: brightness(0) invert(1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

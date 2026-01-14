@@ -4,6 +4,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { AppBtnComponent } from "../app-btn/app-btn.component";
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ArrowUpComponent } from '../arrow-up/arrow-up.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
     AppBtnComponent,
     CommonModule,
     TranslateModule,
+    ArrowUpComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
