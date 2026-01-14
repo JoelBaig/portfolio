@@ -6,7 +6,7 @@
         <img class="logo logo-yellow" src="./assets/img/header/logo_yellow.png" alt="">
         <div class="my-name">© Joel Baig 2025</div>
       </div>
-      <li class="nav-about-me" >
+      <li class="nav-about-me">
         <a (click)="openLegalNotice($event)" class="nav-link legal-link">
           Legal Notice
           <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
@@ -17,10 +17,12 @@
         <a href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer" routerLink="/skills"
           class="nav-link" (mouseenter)="over = 'github'; hasInteracted = true" (mouseleave)="over = null">
           <span class="label">
-            GitHub
-            <span class="icon-wrap" [class.on]="over==='github'">
-              <img class="icon" src="./assets/img/header/filled_github.png" alt="">
+            <span class="text">
+              GitHub
             </span>
+            <span class="icon-wrap" [class.on]="over==='github'">
+            </span>
+            <img class="icon" src="./assets/img/header/filled_github.png" alt="">
           </span>
         </a>
       </li>

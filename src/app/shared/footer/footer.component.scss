@@ -27,7 +27,7 @@
 .nav-links {
     @include dFlex($f: flex, $c: space-between, $ai: center);
     height: 100px;
-    width: 55vw;
+    width: 90vw;
     font-weight: 700;
     color: #F8F9FA;
     padding: 0;
@@ -229,4 +229,12 @@ a {
 
 .logo-wrapper .my-name {
     color: var(--footer-text);
+}
+
+.footer-main.light .nav-main .icon {
+  filter: brightness(0);
+}
+
+.text {
+    
 }
