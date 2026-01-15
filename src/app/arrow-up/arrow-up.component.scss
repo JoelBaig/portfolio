@@ -30,3 +30,17 @@
     display: block;
     filter: brightness(0) saturate(100%) invert(29%) sepia(79%) saturate(2573%) hue-rotate(215deg) brightness(101%) contrast(101%);
 }
+
+.arrow-up-con:not(.show) .arrow-up-img {
+  animation: none !important;
+}
+
+.arrow-up-con.show .arrow-up-img {
+  animation: float-soft 3s ease-in-out infinite;
+}
+
+@keyframes float-soft {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); } 
+  100% { transform: translateY(0); }
+}
