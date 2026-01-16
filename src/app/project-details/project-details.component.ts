@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, Host
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule, NgForOf, NgIf } from '@angular/common';
+import { AppBtnComponent } from '../app-btn/app-btn.component';
 
 type Project = {
   id: string;
@@ -23,6 +24,7 @@ type Project = {
     CommonModule,
     AppHeadlineComponent,
     NavbarComponent,
+    AppBtnComponent,
     NgIf,
     NgForOf,
   ],
@@ -147,31 +149,22 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     this.close.emit();
   }
 
-  // Klick in der Navbar behandeln: Links schließen das Overlay, andere Bereiche nicht
   onNavbarClick(e: MouseEvent): void {
     const target = e.target as HTMLElement | null;
-    // akzeptiere <a>, Buttons mit data-nav oder role="link" etc.
     const linkElem = target?.closest('a, [data-nav], [role="link"], button') as HTMLElement | null;
 
     if (linkElem) {
       const href = (linkElem as HTMLAnchorElement).getAttribute?.('href') ?? '';
       const dataNav = linkElem.getAttribute?.('data-nav') ?? '';
       const text = (linkElem.textContent ?? '').trim();
-
-      // erlaubte Ziele (anpassen bei anderen Bezeichnungen)
       const allowedRegex = /(about|skills|projects|contact)/i;
       const isAllowed = allowedRegex.test(href) || allowedRegex.test(dataNav) || allowedRegex.test(text);
 
       if (isAllowed) {
-        // Link -> Overlay schließen, Event weiterlaufen lassen (Router/Anchor soll funktionieren)
         this.onClose();
         return;
       }
     }
-
-    // Klick in Navbar außerhalb der Links -> nicht weiterpropagieren
     e.stopPropagation();
   }
-
-
 }

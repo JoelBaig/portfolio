@@ -213,6 +213,15 @@ h2 {
     }
 }
 
+.bottom-btns-con {
+    position: absolute;
+    top: 830px;
+    right: 170px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
 @media (max-width: 900px) {
     .panel {
         flex-direction: column;
