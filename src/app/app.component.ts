@@ -31,7 +31,22 @@ export class AppComponent {
   title = 'portfolio-temp';
 
   isLegalNoticeOpen = false;
+  isProjectsOpen = false;
 
-  openLegalNotice() { this.isLegalNoticeOpen = true; }
-  closeLegalNotice() { this.isLegalNoticeOpen = false; }
+  openProjects() {
+    this.isProjectsOpen = true;
+  }
+
+  closeProjects() {
+    this.isProjectsOpen = false;
+  }
+
+  openLegalNotice() {
+    this.isLegalNoticeOpen = true;
+  }
+
+  closeLegalNotice() {
+    this.isLegalNoticeOpen = false;
+  }
 }
+

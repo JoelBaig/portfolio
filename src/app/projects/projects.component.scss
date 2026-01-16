@@ -1,3 +1,202 @@
+// @import './../../mixin.scss';
+// @import './../../keyframes.scss';
+
+// .projects-main {
+//   height: 100vh;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 40px;
+//   align-items: center;
+//   position: relative;
+// }
+
+// .first-row {
+//   position: relative;
+//   gap: 100px;
+//   display: flex;
+//   justify-content: space-between;
+//   width: 55vw;
+// }
+
+// .wrapper {
+//   position: relative;
+//   gap: 100px;
+//   display: flex;
+//   justify-content: space-between;
+//   width: 55vw;
+// }
+
+// .project-img-wrapper {
+//   position: relative;
+//   width: 100%;
+//   height: auto;
+//   overflow: hidden;
+//   border-radius: 20px;
+
+//   .project-img {
+//     width: 100%;
+//     transition: transform 0.6s ease, filter 0.6s ease;
+//     cursor: pointer;
+//   }
+
+//   img.project-img {
+//     width: 100%;
+//     transition: transform 0.6s ease, filter 0.6s ease;
+//     transform-origin: center center;
+//     display: block;
+//     cursor: pointer;
+//   }
+
+//   img.floating-img {
+//     animation: float 3s ease-in-out infinite;
+//     padding-top: 22px;
+//     transform: translateY(0px);
+//     transition: transform 0.5s ease, filter 0.5s ease;
+//   }
+
+//   .project-img-wrapper:hover img.floating-img {
+//     animation-play-state: paused;
+//     transform: scale(1.08);
+//     filter: brightness(1.05);
+//   }
+
+//   &:hover img.floating-img {
+//     animation: none;
+//     transform: scale(1.08);
+//     filter: brightness(1.05);
+//   }
+
+//   img.project-img:hover {
+//     transform: scale(1.08);
+//     filter: brightness(1.05);
+//   }
+
+//   &:hover img.project-img {
+//     transform: scale(1.08);
+//     filter: brightness(1.05);
+//   }
+
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 50%;
+//     pointer-events: none;
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+//     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+//   }
+
+//   &:hover::after {
+//     opacity: 1;
+//   }
+
+//   .button-overlay,
+//   .button-overlay-notebook {
+//     position: absolute;
+//     top: 350px;
+//     right: -40px;
+//     transform: translate(-50%, -50%);
+//     pointer-events: none;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     z-index: 1;
+//   }
+
+//   .button-overlay-notebook {
+//     top: 310px;
+//   }
+
+//   .img-button {
+//     pointer-events: auto;
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+//   }
+
+//   .btn-visible {
+//     opacity: 1;
+//   }
+
+//   .btn-hidden {
+//     opacity: 0;
+//   }
+// }
+
+// .single-project-con {
+//   position: relative;
+//   top: 150px;
+//   width: 600px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: start;
+
+//   >h1 {
+//     width: 80%;
+//     text-align: start;
+//     margin-top: 10px;
+//     font-size: 65px;
+//   }
+
+//   >h3 {
+//     width: 80%;
+//     text-align: start;
+//     margin-bottom: 0;
+//   }
+
+//   >h2 {
+//     width: 100%;
+//     margin-bottom: 0;
+//   }
+// }
+
+// .headline-my-craft {
+//   font-weight: 400;
+// }
+
+// .headline-info-txt {
+//   width: 80%;
+//   position: relative;
+//   top: -15px;
+// }
+
+// .project-info-txt {
+//   width: 100%;
+//   height: 50px;
+// }
+
+// .line-wrapper {
+//   width: 43%;
+//   position: relative;
+//   top: -45px;
+//   left: -110px;
+//   height: 20px;
+//   overflow: hidden;
+// }
+
+// .animated-line {
+//   height: 20px;
+//   width: 0%;
+//   animation: linePulse 6.4s infinite;
+//   transform-origin: left;
+//   display: block;
+// }
+
+// .d-none {
+//   display: none;
+// }
+
+// .feautured-project-sticker {
+//   position: absolute;
+//   left: 0;
+//   z-index: 1;
+// }
+
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
@@ -11,22 +210,51 @@
   position: relative;
 }
 
-.first-row {
-  position: relative;
-  gap: 100px;
-  display: flex;
-  justify-content: space-between;
-  width: 55vw;
-}
-
+.first-row,
 .wrapper {
   position: relative;
-  gap: 100px;
   display: flex;
   justify-content: space-between;
+  gap: 100px;
   width: 55vw;
 }
 
+/* ---------- Project Card ---------- */
+.single-project-con {
+  position: relative;
+  top: 150px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+
+  > h1 {
+    width: 80%;
+    text-align: start;
+    margin-top: 10px;
+    font-size: 65px;
+  }
+
+  > h3 {
+    width: 80%;
+    text-align: start;
+    margin-bottom: 0;
+  }
+
+  > h2 {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.project-info-txt {
+  width: 100%;
+  height: 50px;
+}
+
+/* ---------- Image Wrapper (responsiv + Button unten rechts) ---------- */
 .project-img-wrapper {
   position: relative;
   width: 100%;
@@ -34,54 +262,40 @@
   overflow: hidden;
   border-radius: 20px;
 
-  .project-img {
-    width: 100%;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    cursor: pointer;
-  }
-
+  /* Project image (alle gleich behandeln) */
   img.project-img {
     width: 100%;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    transform-origin: center center;
     display: block;
     cursor: pointer;
+    transform-origin: center center;
+    transition: transform 0.6s ease, filter 0.6s ease;
   }
 
+  /* Floating Laptop (dein Featured-Projekt) */
   img.floating-img {
-    animation: float 3s ease-in-out infinite;
     padding-top: 22px;
-    transform: translateY(0px);
+    animation: float 3s ease-in-out infinite;
+    transform: translateY(0);
     transition: transform 0.5s ease, filter 0.5s ease;
   }
 
-  .project-img-wrapper:hover img.floating-img {
-    animation-play-state: paused;
-    transform: scale(1.08);
-    filter: brightness(1.05);
-  }
-
-  &:hover img.floating-img {
-    animation: none;
-    transform: scale(1.08);
-    filter: brightness(1.05);
-  }
-
-  img.project-img:hover {
-    transform: scale(1.08);
-    filter: brightness(1.05);
-  }
-
+  /* Hover Zoom + Brightness */
   &:hover img.project-img {
     transform: scale(1.08);
     filter: brightness(1.05);
   }
 
+  /* Beim Hover Floating stoppen (damit es nicht "kämpft") */
+  &:hover img.floating-img {
+    animation-play-state: paused;
+  }
+
+  /* Gradient Overlay unten */
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 50%;
     pointer-events: none;
@@ -94,21 +308,17 @@
     opacity: 1;
   }
 
+  /* ✅ Button Overlay: immer unten rechts, unabhängig von Skalierung */
   .button-overlay,
   .button-overlay-notebook {
     position: absolute;
-    top: 350px;
-    right: -40px;
-    transform: translate(-50%, -50%);
+    right: 16px;
+    bottom: 16px;
     pointer-events: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-
-  .button-overlay-notebook {
-    top: 310px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    z-index: 2;
   }
 
   .img-button {
@@ -126,35 +336,7 @@
   }
 }
 
-.single-project-con {
-  position: relative;
-  top: 150px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: start;
-
-  >h1 {
-    width: 80%;
-    text-align: start;
-    margin-top: 10px;
-    font-size: 65px;
-  }
-
-  >h3 {
-    width: 80%;
-    text-align: start;
-    margin-bottom: 0;
-  }
-
-  >h2 {
-    width: 100%;
-    margin-bottom: 0;
-  }
-}
-
+/* ---------- Headline Styles (wie bei dir) ---------- */
 .headline-my-craft {
   font-weight: 400;
 }
@@ -163,11 +345,6 @@
   width: 80%;
   position: relative;
   top: -15px;
-}
-
-.project-info-txt {
-  width: 100%;
-  height: 50px;
 }
 
 .line-wrapper {
@@ -191,6 +368,7 @@
   display: none;
 }
 
+/* Featured Sticker */
 .feautured-project-sticker {
   position: absolute;
   left: 0;

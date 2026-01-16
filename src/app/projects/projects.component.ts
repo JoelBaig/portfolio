@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
@@ -7,11 +7,19 @@ import { ProjectDetailsComponent } from '../project-details/project-details.comp
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NgFor, NgIf, AppBtnComponent, AppHeadlineComponent, ProjectDetailsComponent],
+  imports: [
+    NgFor,
+    NgIf,
+    AppBtnComponent,
+    AppHeadlineComponent,
+    ProjectDetailsComponent,
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
+  @Output() projectModalOpenChange = new EventEmitter<boolean>();
+
   hoveredProject: string | null = null;
   openProject: string | null = null;
 
@@ -44,9 +52,11 @@ export class ProjectsComponent {
 
   openProjectDetails(projectId: string) {
     this.openProject = projectId;
+    this.projectModalOpenChange.emit(true); 
   }
 
   closeProjectDetails() {
     this.openProject = null;
+    this.projectModalOpenChange.emit(false); 
   }
 }

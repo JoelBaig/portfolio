@@ -10,6 +10,7 @@ type Project = {
   description: string;
   details: string;
   image: string;
+  sticker: string;
   alt: string;
   used_technologies: { name: string; icon: string }[];
   duration: string;
@@ -53,6 +54,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       details:
         'The project was developed in a team of three ... user interfaces.',
       image: './assets/img/header/projects/join1.png',
+      sticker: './assets/project_details/sticker_blue.png',
       used_technologies: [
         { name: 'HTML', icon: './assets/img/header/skills/html.png' },
         { name: 'CSS', icon: './assets/img/header/skills/css.png' },
@@ -71,6 +73,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       details:
         'The game was built to strengthen my understanding of object-oriented programming ... mechanics from scratch.',
       image: './assets/img/header/projects/elpolloloco1.png',
+      sticker: './assets/project_details/sticker_yellow.png',
       used_technologies: [
         { name: 'HTML', icon: './assets/img/header/skills/html.png' },
         { name: 'CSS', icon: './assets/img/header/skills/css.png' },
@@ -88,6 +91,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       details:
         'Built in a group of three ... modern web application development.',
       image: './assets/img/header/projects/dabubble1.png',
+      sticker: './assets/project_details/sticker_yellow.png',
       used_technologies: [
         { name: 'HTML', icon: './assets/img/header/skills/html.png' },
         { name: 'CSS', icon: './assets/img/header/skills/css.png' },
@@ -142,7 +146,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     this.close.emit();
   }
 
- // Klick in der Navbar behandeln: Links schließen das Overlay, andere Bereiche nicht
+  // Klick in der Navbar behandeln: Links schließen das Overlay, andere Bereiche nicht
   onNavbarClick(e: MouseEvent): void {
     const target = e.target as HTMLElement | null;
     // akzeptiere <a>, Buttons mit data-nav oder role="link" etc.

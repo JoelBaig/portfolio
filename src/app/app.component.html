@@ -12,7 +12,7 @@
   </section>
 
   <section id="projects">
-    <app-projects></app-projects>
+    <app-projects (projectModalOpenChange)="isProjectsOpen = $event"></app-projects>
   </section>
 
   <section id="colleagues">
@@ -27,4 +27,4 @@
 </main>
 
 
-<app-arrow-up [disabled]="isLegalNoticeOpen"></app-arrow-up>
+<app-arrow-up [disabled]="isLegalNoticeOpen || isProjectsOpen"></app-arrow-up>

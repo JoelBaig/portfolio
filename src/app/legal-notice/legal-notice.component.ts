@@ -1,8 +1,7 @@
-import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
-import { ArrowUpComponent } from '../arrow-up/arrow-up.component';
 
 @Component({
   selector: 'app-legal-notice',
@@ -11,7 +10,6 @@ import { ArrowUpComponent } from '../arrow-up/arrow-up.component';
     CommonModule,
     NavbarComponent,
     FooterComponent,
-    ArrowUpComponent
   ],
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss'
@@ -28,7 +26,6 @@ export class LegalNoticeComponent {
   }
 
   onBackdropClick(event: MouseEvent) {
-    // schließt nur, wenn direkt auf den Backdrop geklickt wurde (nicht auf Kinder)
     if (event.target === event.currentTarget) {
       this.close.emit();
     }

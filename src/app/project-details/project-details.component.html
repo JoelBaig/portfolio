@@ -41,6 +41,26 @@
 
             <div class="wrapper-right">
                 <img class="detail-img" [src]="project.image" [alt]="project.alt" />
+                <div>
+                    <img class="sticker-img" *ngIf="project.sticker" [src]="project.sticker" alt="project_sticker" />
+                    <div>
+                        <svg class="sticker-text" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <path id="circlePath" d="M150,150
+                             m -118,0
+                             a 118,118 0 1,1 236,0
+                             a 118,118 0 1,1 -236,0" />
+                            </defs>
+
+                            <text class="circle-text">
+                                <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
+                                    Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;
+                                </textPath>
+                            </text>
+                        </svg>
+                        <img class="logo-sticker" src="./assets/contact_form/logo_black.png" alt="logo_sticker">
+                    </div>
+                </div>
             </div>
         </ng-container>
     </div>
