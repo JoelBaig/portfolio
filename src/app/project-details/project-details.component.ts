@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, HostListener, DOCUMENT } from '@angular/core';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { NgForOf, NgIf } from '@angular/common';
+import { CommonModule, NgForOf, NgIf } from '@angular/common';
 
 type Project = {
   id: string;
@@ -20,10 +20,11 @@ type Project = {
   selector: 'app-project-details',
   standalone: true,
   imports: [
+    CommonModule,
     AppHeadlineComponent,
     NavbarComponent,
     NgIf,
-    NgForOf
+    NgForOf,
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
@@ -171,4 +172,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     // Klick in Navbar außerhalb der Links -> nicht weiterpropagieren
     e.stopPropagation();
   }
+
+
 }

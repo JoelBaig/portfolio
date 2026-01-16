@@ -43,7 +43,7 @@
                 <img class="detail-img" [src]="project.image" [alt]="project.alt" />
                 <div>
                     <img class="sticker-img" *ngIf="project.sticker" [src]="project.sticker" alt="project_sticker" />
-                    <div>
+                    <div *ngIf="project.id !== 'join'">
                         <svg class="sticker-text" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <path id="circlePath" d="M150,150
