@@ -15,6 +15,8 @@ type Project = {
   alt: string;
   used_technologies: { name: string; icon: string }[];
   duration: string;
+  githubUrl?: string;
+  liveUrl?: string;
 };
 
 @Component({
@@ -84,6 +86,8 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       ],
       duration: '3 weeks',
       alt: 'game_project',
+      githubUrl: 'https://github.com/JoelBaig/epl_',
+      liveUrl: 'https://joel-baig.developerakademie.net/epl_/'
     },
     {
       id: 'da-bubble',
@@ -166,5 +170,10 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       }
     }
     e.stopPropagation();
+  }
+
+  openExternal(url?: string) {
+    if (!url) return;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }
