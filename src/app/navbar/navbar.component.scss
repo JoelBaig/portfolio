@@ -1,10 +1,6 @@
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
-/* -------------------------------------------------------
-   NAVBAR LAYOUT – Logo | Navlinks | Language Switch
-------------------------------------------------------- */
-
 .navbar {
     position: absolute;
     top: 0;
@@ -29,10 +25,6 @@
     flex: 1;
     justify-content: center;
 }
-
-/* -------------------------------------------------------
-   NAVIGATION LINKS
-------------------------------------------------------- */
 
 .nav-links {
     width: 100%;
@@ -83,7 +75,6 @@
     }
 }
 
-/* Spezial-Effekt nur für "About me" */
 .nav-about-me .hover-bg {
     transform: scaleY(0);
     transform-origin: top;
@@ -92,10 +83,6 @@
 .nav-about-me:hover .hover-bg {
     transform: scaleY(1);
 }
-
-/* -------------------------------------------------------
-   VARIANTEN (default + overlay)
-------------------------------------------------------- */
 
 .navbar--default {
     mix-blend-mode: normal;
@@ -110,17 +97,22 @@
 }
 
 .navbar--overlay {
-    mix-blend-mode: difference;
-
-    .nav-text {
-        color: white;
-        /* wichtig für difference */
-    }
+  mix-blend-mode: difference;
+  isolation: auto; /* isolate kann den Effekt blocken */
 }
 
-/* -------------------------------------------------------
-   LOGO (links)
-------------------------------------------------------- */
+.navbar--overlay .nav-text {
+  color: #fff; /* Ausgang weiß, difference invertiert */
+}
+
+.navbar--overlay .hover-bg {
+  mix-blend-mode: normal;
+}
+
+.logo-wrapper,
+.language-wrapper {
+    mix-blend-mode: normal;
+}
 
 .logo-wrapper {
     position: relative;
@@ -154,10 +146,6 @@
     opacity: 1;
 }
 
-/* -------------------------------------------------------
-   LANGUAGE SWITCH (rechts)
-------------------------------------------------------- */
-
 .language-wrapper {
     display: flex;
     align-items: center;
@@ -172,7 +160,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-        cursor: pointer;
+    cursor: pointer;
 }
 
 .language-switch-wrapper {
@@ -193,7 +181,6 @@
     transition: transform 0.15s ease-in-out;
 }
 
-/* Animations */
 .dot-animate-right {
     animation: dot-slide-right 0.15s forwards;
 }
@@ -201,8 +188,6 @@
 .dot-animate-left {
     animation: dot-slide-left 0.15s forwards;
 }
-
-/* Flags */
 
 .language-pos {
     position: absolute;
@@ -230,18 +215,14 @@
     transform: scaleX(1);
 }
 
-.language-wrapper,
-.language-wrapper *,
-.language-switch-wrapper,
-.en-language-wrapper,
-.de-language-wrapper {
-    mix-blend-mode: normal !important;
-    isolation: isolate !important;
+.language-wrapper {
+  mix-blend-mode: normal !important;
+  isolation: isolate;
 }
 
-/* -------------------------------------------------------
-   RESPONSIVE
-------------------------------------------------------- */
+.language-wrapper * {
+  mix-blend-mode: normal !important;
+}
 
 @media (max-width: 900px) {
     .navbar {

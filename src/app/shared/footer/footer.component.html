@@ -1,4 +1,3 @@
-<!-- footer.component.html -->
 <div class="footer-main" [class.light]="theme === 'light'" [class.dark]="theme === 'dark'">
   <nav class="navbar">
     <ul class="nav-links">
@@ -8,7 +7,6 @@
         <div class="my-name">© Joel Baig 2025</div>
       </div>
 
-      <!-- Legal Notice Link (optional) -->
       <li class="nav-about-me" *ngIf="showLegalLink">
         <a (click)="openLegalNotice($event)" class="nav-link legal-link">
           Legal Notice
@@ -16,7 +14,6 @@
         </a>
       </li>
 
-      <!-- GitHub -->
       <li class="nav-main" [class.has-interacted]="hasInteracted">
         <a href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer"
            class="nav-link"
@@ -31,7 +28,6 @@
         </a>
       </li>
 
-      <!-- LinkedIn -->
       <li class="nav-main" [class.has-interacted]="hasInteracted">
         <a href="https://www.linkedin.com/in/joe-undefined-51ab56305/" target="_blank" rel="noopener noreferrer"
            class="nav-link"
@@ -46,7 +42,6 @@
         </a> 
       </li>
 
-      <!-- Email -->
       <li class="nav-main" [class.has-interacted]="hasInteracted">
         <a href="mailto:ibaig@web.de"
            class="nav-link"
