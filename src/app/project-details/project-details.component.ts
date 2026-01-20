@@ -68,6 +68,8 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       ],
       duration: '5 weeks',
       alt: 'join_project',
+      githubUrl: 'https://github.com/mahapiri/join',
+      liveUrl: 'https://join.joelbaig.com/'
     },
     {
       id: 'el-pollo-loco',
@@ -87,7 +89,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       duration: '3 weeks',
       alt: 'game_project',
       githubUrl: 'https://github.com/JoelBaig/epl_',
-      liveUrl: 'https://joel-baig.developerakademie.net/epl_/'
+      liveUrl: 'https://elpolloloco.joelbaig.com/'
     },
     {
       id: 'da-bubble',
