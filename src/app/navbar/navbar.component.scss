@@ -97,21 +97,11 @@
 }
 
 .navbar--overlay {
-  mix-blend-mode: difference;
-  isolation: auto; /* isolate kann den Effekt blocken */
-}
+    mix-blend-mode: difference;
 
-.navbar--overlay .nav-text {
-  color: #fff; /* Ausgang weiß, difference invertiert */
-}
-
-.navbar--overlay .hover-bg {
-  mix-blend-mode: normal;
-}
-
-.logo-wrapper,
-.language-wrapper {
-    mix-blend-mode: normal;
+    .nav-text {
+        color: white;
+    }
 }
 
 .logo-wrapper {
@@ -160,7 +150,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 .language-switch-wrapper {
@@ -215,13 +205,13 @@
     transform: scaleX(1);
 }
 
-.language-wrapper {
-  mix-blend-mode: normal !important;
-  isolation: isolate;
-}
-
-.language-wrapper * {
-  mix-blend-mode: normal !important;
+.language-wrapper,
+.language-wrapper *,
+.language-switch-wrapper,
+.en-language-wrapper,
+.de-language-wrapper {
+    mix-blend-mode: normal !important;
+    isolation: isolate !important;
 }
 
 @media (max-width: 900px) {

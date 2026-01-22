@@ -85,7 +85,7 @@
     <h1 class="title">{{ title }}</h1>
 
     @if (!lineUnderInfoText) {
-    <div class="line-wrapper" [style.marginBottom.px]="lineMarginBottom" [style.justifyContent]="lineAlign">
+<div class="line-wrapper line-wrapper--title" [style.marginBottom.px]="lineMarginBottom">
       @if (lineImage) {
       <img class="line" [src]="lineImage" alt="line image" [ngClass]="{
                   'animated-line': animateLine,

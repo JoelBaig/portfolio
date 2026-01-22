@@ -3,6 +3,10 @@
     font-weight: 600;
 }
 
+:host ::ng-deep app-navbar.pd-navbar .nav-about-me .nav-text,
+:host ::ng-deep app-navbar.pd-navbar .nav-skills .nav-text {
+  color: #000 !important;
+}
 .overlay {
     position: fixed;
     inset: 0;
@@ -24,7 +28,6 @@
     right: 0;
     top: 120px;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
     z-index: 1;
     pointer-events: none;
 }
