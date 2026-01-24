@@ -82,17 +82,21 @@
 
   <!-- Title + Line als gemeinsamer Shrink-to-fit-Block -->
   <div class="title-fit">
-    <h1 class="title">{{ title }}</h1>
+<h1 #titleElement class="title">{{ title }}</h1>
 
     @if (!lineUnderInfoText) {
 <div class="line-wrapper line-wrapper--title" [style.marginBottom.px]="lineMarginBottom">
       @if (lineImage) {
-      <img class="line" [src]="lineImage" alt="line image" [ngClass]="{
-                  'animated-line': animateLine,
-                  'horizontal-mask': maskDirection === 'horizontal',
-                  'horizontal-mask-rtl': maskDirection === 'rtl',
-                  'circular-mask': maskDirection === 'circular'
-                }" />
+    <img class="line"
+     [src]="lineImage"
+     alt="line image"
+     [style.width.px]="lineMatchTitle ? titleWidthPx : lineWidth"
+     [ngClass]="{
+       'animated-line': animateLine,
+       'horizontal-mask': maskDirection === 'horizontal',
+       'horizontal-mask-rtl': maskDirection === 'rtl',
+       'circular-mask': maskDirection === 'circular'
+     }" />
       }
     </div>
     }
@@ -130,7 +134,7 @@
   }
 
   <!-- Title -->
-  <h1>{{ title }}</h1>
+<h1 #titleElement class="title">{{ title }}</h1>
 
   <!-- Subtitle (falls unter dem Title gewünscht) -->
   @if (subtitlePosition === 'below') {
@@ -142,12 +146,16 @@
   <div class="line-wrapper" [style.display]="'flex'" [style.width]="'100%'" [style.marginBottom.px]="lineMarginBottom"
     [style.justifyContent]="lineAlign">
     @if (lineImage) {
-    <img [src]="lineImage" alt="line image" [style.width.px]="lineWidth" [ngClass]="{
-                'animated-line': animateLine,
-                'horizontal-mask': maskDirection === 'horizontal',
-                'horizontal-mask-rtl': maskDirection === 'rtl',
-                'circular-mask': maskDirection === 'circular'
-              }" />
+    <img class="line"
+     [src]="lineImage"
+     alt="line image"
+     [style.width.px]="lineMatchTitle ? titleWidthPx : lineWidth"
+     [ngClass]="{
+       'animated-line': animateLine,
+       'horizontal-mask': maskDirection === 'horizontal',
+       'horizontal-mask-rtl': maskDirection === 'rtl',
+       'circular-mask': maskDirection === 'circular'
+     }" />
     }
   </div>
   }

@@ -110,5 +110,10 @@
   width: 100%;         /* 100% der title-fit-Breite = Titelbreite */
 }
 
-.title-fit { outline: 2px solid red; }
-.title-fit .line-wrapper--title { outline: 2px solid lime; }
+/* Linie immer gleich dick */
+.section-header .line-wrapper img.line {
+  height: 18px;        /* <- hier Dicke einstellen */
+  width: 100%;
+  object-fit: fill;    /* füllt Breite, Höhe bleibt fix */
+  display: block;
+}

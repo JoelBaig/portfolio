@@ -1,7 +1,8 @@
 <div class="overlay">
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.png" alt="">
 
-    <app-navbar variant="overlay" class="header-project-details navbar pd-navbar" (click)="onNavbarClick($event)"></app-navbar>
+    <app-navbar variant="overlay" class="header-project-details navbar pd-navbar"
+        (click)="onNavbarClick($event)"></app-navbar>
 
     <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
         <button class="back-btn" type="button">Go
@@ -17,7 +18,7 @@
                         [infoText]="project.description" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
                         [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'"
                         [subtitle]="project.subtitle" [subtitlePosition]="'below'" [subtitleOffset]="16"
-                        [subtitleUnderLine]="true" [subtitleTag]="'h2'">
+                        [subtitleUnderLine]="true" [lineMatchTitle]="true" [subtitleTag]="'h2'">
                     </app-app-headline>
                 </div>
 
