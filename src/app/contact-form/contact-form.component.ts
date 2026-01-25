@@ -42,6 +42,7 @@ export class ContactFormComponent {
   accepted = false;
   hovered = false;
   submitted = false;
+  sending = false;
 
   endPoint = 'https://joelbaig.com/sendMail.php';
 
@@ -55,16 +56,16 @@ export class ContactFormComponent {
     this.submitted = true;
     contactForm.form.markAllAsTouched();
 
-    if (!this.accepted || contactForm.invalid) {
-      return;
-    }
+    if (this.sending || !this.accepted || contactForm.invalid) return;
+
+    this.sending = true;
 
     this.http.post(this.endPoint, this.contactData, {
       headers: { 'Content-Type': 'application/json' },
       responseType: 'text'
     }).subscribe({
       next: (res: string) => {
-        console.log('Server sagt:', res);
+        this.sending = false;
         contactForm.resetForm();
         this.submitted = false;
         this.accepted = false;
@@ -74,7 +75,7 @@ export class ContactFormComponent {
         this.messagePlaceholder = 'Ask me here...';
       },
       error: (err) => {
-        console.error('Fehler beim Senden:', err);
+        this.sending = false;
       }
     });
   }

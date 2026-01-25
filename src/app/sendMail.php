@@ -1,134 +1,107 @@
 <?php
+declare(strict_types=1);
 
-// switch ($_SERVER['REQUEST_METHOD']) {
-//     case ("OPTIONS"): //Allow preflighting to take place.
-//         header("Access-Control-Allow-Origin: *");
-//         header("Access-Control-Allow-Methods: POST");
-//         header("Access-Control-Allow-Headers: content-type");
-//         exit;
-//         case("POST"): //Send the email;
-//             header("Access-Control-Allow-Origin: *");
-//             // Payload is not send to $_POST Variable,
-//             // is send to php:input as a text
-//             $json = file_get_contents('php://input');
-//             //parse the Payload from text format to Object
-//             $params = json_decode($json);
-    
-//             $email = $params->email;
-//             $name = $params->name;
-//             $message = $params->message;
-    
-//             $recipient = 'joelb93@outlook.de';  
-//             $subject = "Contact From <$email>";
-//             $message = "From:" . $name . "<br>" . $message ;
-    
-//             $headers   = array();
-//             $headers[] = 'MIME-Version: 1.0';
-//             $headers[] = 'Content-type: text/html; charset=utf-8';
+header('Content-Type: text/plain; charset=utf-8');
 
-//             // Additional headers
-//             $headers[] = "From: noreply@mywebsite.com";
-
-//             mail($recipient, $subject, $message, implode("\r\n", $headers));
-//             break;
-//         default: //Reject any non POST or OPTIONS requests.
-//             header("Allow: POST", true, 405);
-//             exit;
-//     } 
-
-<?php
-// === CORS: Erlaube Anfragen NUR von deinen Seiten (in Dev etwas offener) ===
+// ===== CORS (nur deine Domain erlauben) =====
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $allowedOrigins = [
-  'https://joelbaig.com',          // deine Live-Domain
-  'http://localhost:4200',         // Angular Dev
-  'http://localhost:4201',         // Angular Dev anderer Port
-  // Beispiel für VS Code Tunnel (ersetzen, wenn du ihn nutzt):
-  // 'https://DEIN-TUNNEL-ID-4201.euw.devtunnels.ms',
+  'https://joelbaig.com',
+  'https://www.joelbaig.com',
+  'http://localhost:4200',
 ];
 
-if (in_array($origin, $allowedOrigins, true)) {
+if ($origin && in_array($origin, $allowedOrigins, true)) {
   header("Access-Control-Allow-Origin: $origin");
-  header("Vary: Origin");
-} else {
-  // Optional: in Dev alles erlauben (auskommentiert lassen, wenn du strikt sein willst)
-  // header("Access-Control-Allow-Origin: *");
-  // header("Vary: Origin");
+  header('Vary: Origin');
 }
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 
-// Preflight für Browser (bei POST mit JSON)
+// Preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-  header("Access-Control-Allow-Methods: POST, OPTIONS");
-  header("Access-Control-Allow-Headers: Content-Type");
   http_response_code(204);
   exit;
 }
 
 // Nur POST erlauben
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  header("Allow: POST, OPTIONS", true, 405);
-  echo 'Method Not Allowed';
+  header('Allow: POST, OPTIONS', true, 405);
+  echo "Method Not Allowed";
   exit;
 }
 
-// Rohdaten lesen (JSON vom Frontend)
+// ===== JSON lesen =====
 $raw = file_get_contents('php://input');
-$params = json_decode($raw, true);
+$data = json_decode($raw ?? '', true);
 
-if (!$params) {
+if (!is_array($data)) {
   http_response_code(400);
-  echo 'Bad JSON';
+  echo "Bad JSON";
   exit;
 }
 
-// Felder aus Angular (müssen zum Frontend passen!)
-$name    = trim($params['contactName'] ?? '');
-$email   = trim($params['email'] ?? '');
-$message = trim($params['message'] ?? '');
+// ===== Felder (passen zu Angular) =====
+$name = trim((string) ($data['contactName'] ?? ''));
+$email = trim((string) ($data['email'] ?? ''));
+$message = trim((string) ($data['message'] ?? ''));
 
-// Einfache Validierung
-if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  http_response_code(400);
-  echo 'Validation failed';
+// Honeypot optional (wenn du es im Frontend ergänzt)
+$honeypot = trim((string) ($data['website'] ?? ''));
+if ($honeypot !== '') {
+  // Bots "erfolgreich" antworten lassen
+  http_response_code(200);
+  echo "OK";
   exit;
 }
 
-// Empfänger (DEINE Mailadresse)
-$to = 'joelb93@outlook.de'; // <— HIER deine Zieladresse eintragen
+// ===== Validierung =====
+if ($name === '' || $message === '') {
+  http_response_code(400);
+  echo "Missing fields";
+  exit;
+}
 
-// Betreff (mit UTF-8 sicher)
-$subject = "Kontaktformular von {$name} <{$email}>";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  http_response_code(400);
+  echo "Invalid email";
+  exit;
+}
 
-// WICHTIG: Absender sollte zu deiner Domain passen (SPF/DMARC)
-$fromAddr = 'noreply@joelbaig.com'; // <— Diese Adresse idealerweise im All-inkl-Postfach anlegen
+// Begrenzen
+if (mb_strlen($name) > 120)
+  $name = mb_substr($name, 0, 120);
+if (mb_strlen($email) > 200)
+  $email = mb_substr($email, 0, 200);
+if (mb_strlen($message) > 5000)
+  $message = mb_substr($message, 0, 5000);
+
+// ===== Mail =====
+$to = 'joelb93@outlook.de';
+$subject = "Portfolio Kontaktformular";
+
+// WICHTIG: From muss Domain sein (All-Inkl/DMARC)
+$subject = "Neue Portfolio Anfrage";
+$fromAddr = 'contact@joelbaig.com';
 $fromName = 'Portfolio Kontakt';
 
-// HTML-Mailtext
-$body = '<html><body>'
-      . '<h2>Neue Kontaktanfrage</h2>'
-      . '<p><strong>Name:</strong> ' . htmlspecialchars($name) . '</p>'
-      . '<p><strong>E-Mail:</strong> ' . htmlspecialchars($email) . '</p>'
-      . '<p><strong>Nachricht:</strong><br>' . nl2br(htmlspecialchars($message)) . '</p>'
-      . '</body></html>';
+$body =
+  "Name: {$name}\n" .
+  "Email: {$email}\n\n" .
+  "Message:\n{$message}\n";
 
-// Header korrekt aufbauen
-$headers   = [];
+$headers = [];
 $headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-type: text/html; charset=UTF-8';
+$headers[] = 'Content-Type: text/plain; charset=UTF-8';
 $headers[] = 'From: ' . sprintf('"%s" <%s>', $fromName, $fromAddr);
-// Wenn du der Person direkt antworten willst:
 $headers[] = 'Reply-To: ' . $email;
-$headers[] = 'X-Mailer: PHP/' . phpversion();
 
-// Mail senden
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-$ok = @mail($to, $encodedSubject, $body, implode("\r\n", $headers));
+$ok = mail($to, $subject, $body, implode("\r\n", $headers));
 
-// Antwort an das Frontend
-if ($ok) {
-  http_response_code(200);
-  echo 'OK';
-} else {
+if (!$ok) {
   http_response_code(500);
-  echo 'Mail failed';
+  echo "Mail failed";
+  exit;
 }
+
+echo "OK";
