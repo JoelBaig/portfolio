@@ -167,24 +167,30 @@ export class ContactFormComponent {
 
   private showToast(status: 'success' | 'error', duration = 3000) {
     this.sendStatus = status;
-    this.toastVisible = true;
+    this.toastVisible = false;
 
-    this.toastVisibleTimeout(duration);
-    this.toastInactiveTimeout(duration);
+    this.scheduleSlideIn();
+    this.scheduleSlideOut(duration);
+    this.scheduleIdle(duration + 300);
   }
 
-  toastVisibleTimeout(duration: number) {
-    setTimeout(() => {
-      this.toastVisible = false;
-    }, duration);
+  private scheduleSlideIn() {
+    requestAnimationFrame(() => (
+      this.toastVisible = true
+    ));
   }
 
-  toastInactiveTimeout(duration: number) {
-    setTimeout(() => {
-      this.sendStatus = 'idle';
-    }, duration + 300);
+  private scheduleSlideOut(delay: number) {
+    setTimeout(() => (
+      this.toastVisible = false),
+      delay);
   }
 
+  private scheduleIdle(delay: number) {
+    setTimeout(() => (
+      this.sendStatus = 'idle'),
+      delay);
+  }
 
   toggleCheckbox(event: Event) {
     event.preventDefault();
