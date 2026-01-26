@@ -99,6 +99,8 @@
                 Date: January 13, 2026
             </p>
         </div>
-        <app-footer [theme]="'light'" class="legal-notice-footer" [showLegalLink]="true"></app-footer>
+        <app-footer [theme]="'light'" class="legal-notice-footer" [showLegalLink]="true"
+            (legalNoticeClick)="close.emit()" (emailClick)="close.emit()">
+        </app-footer>
     </div>
 </div>

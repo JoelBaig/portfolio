@@ -15,10 +15,8 @@
       </li>
 
       <li class="nav-main" [class.has-interacted]="hasInteracted">
-        <a href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer"
-           class="nav-link"
-           (mouseenter)="over = 'github'; hasInteracted = true"
-           (mouseleave)="over = null">
+        <a href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer" class="nav-link"
+          (mouseenter)="over = 'github'; hasInteracted = true" (mouseleave)="over = null">
           <span class="label">
             <span class="text">GitHub</span>
             <span class="icon-wrap" [class.on]="over==='github'">
@@ -29,24 +27,20 @@
       </li>
 
       <li class="nav-main" [class.has-interacted]="hasInteracted">
-        <a href="https://www.linkedin.com/in/joe-undefined-51ab56305/" target="_blank" rel="noopener noreferrer"
-           class="nav-link"
-           (mouseenter)="over = 'linkedin'; hasInteracted = true"
-           (mouseleave)="over = null">
+        <a href="https://www.linkedin.com/in/joel-baig-51ab56305/" target="_blank" rel="noopener noreferrer"
+          class="nav-link" (mouseenter)="over = 'linkedin'; hasInteracted = true" (mouseleave)="over = null">
           <span class="label">
             <span class="text">LinkedIn</span>
             <span class="icon-wrap" [class.on]="over==='linkedin'">
               <img class="icon" src="./assets/img/header/filled_linkedin.png" alt="">
             </span>
           </span>
-        </a> 
+        </a>
       </li>
 
       <li class="nav-main" [class.has-interacted]="hasInteracted">
-        <a href="mailto:ibaig@web.de"
-           class="nav-link"
-           (mouseenter)="over = 'email'; hasInteracted = true"
-           (mouseleave)="over = null">
+        <a (click)="onEmailClick()" class="nav-link" (mouseenter)="over = 'email'; hasInteracted = true"
+          (mouseleave)="over = null">
           <span class="label">
             <span class="text">Email</span>
             <span class="icon-wrap" [class.on]="over==='email'">
