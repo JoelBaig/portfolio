@@ -83,7 +83,7 @@ $subject = "Portfolio Kontaktformular";
 // WICHTIG: From muss Domain sein (All-Inkl/DMARC)
 $subject = "Neue Portfolio Anfrage";
 $fromAddr = 'contact@joelbaig.com';
-$fromName = 'Portfolio Kontakt';
+$fromName = 'Joel Baig Portfolio';
 
 $body =
   "Name: {$name}\n" .
