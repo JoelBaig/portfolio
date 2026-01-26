@@ -1,0 +1,12 @@
+{
+    "NAV": {
+        "ABOUT": "About me",
+        "SKILLS": "Skills",
+        "PROJECTS": "Projects",
+        "CONTACT": "Contact"
+    },
+    "ABOUT_ME": {
+        "SUBTITLE": "WHO'S JOEL?",
+        "TITLE": "About me"
+    }
+}

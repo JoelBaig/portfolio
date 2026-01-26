@@ -1,5 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,7 @@ import { Component, HostListener, Input, Output, EventEmitter } from '@angular/c
   imports: [
     CommonModule,
     NgClass,
+    TranslateModule
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
@@ -14,17 +16,17 @@ import { Component, HostListener, Input, Output, EventEmitter } from '@angular/c
 export class NavbarComponent {
   @Output() navClick = new EventEmitter<void>();
 
-  isHovered = {
-    about: false,
-    skills: false,
-    projects: false,
-    contact: false
-  };
   activeSection: string | null = null;
   selectedLanguage: 'en' | 'de' = 'en';
   dotAnimationClass = '';
 
   @Input() variant: 'default' | 'overlay' = 'default';
+
+  constructor(private translate: TranslateService) {
+    const saved = (localStorage.getItem('lang') as 'en' | 'de') || 'de';
+    this.selectedLanguage = saved;
+    this.translate.use(saved);
+  }
 
   emitNavClick() {
     this.navClick.emit();
@@ -33,10 +35,11 @@ export class NavbarComponent {
   selectLanguage(lang: 'en' | 'de') {
     if (lang === this.selectedLanguage) return;
 
-    this.dotAnimationClass =
-      lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
+    this.dotAnimationClass = lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
 
     this.selectedLanguage = lang;
+    localStorage.setItem('lang', lang);
+    this.translate.use(lang);
   }
 
   scrollToSection(sectionId: string) {
@@ -52,30 +55,16 @@ export class NavbarComponent {
   @HostListener('window:scroll', [])
   onScroll() {
     const sections = ['about-me', 'skills', 'projects', 'contact'];
-    let found = false;
-
     for (const id of sections) {
       const el = document.getElementById(id);
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
-          this.activeSection = id;
-          found = true;
-          break;
-        }
+      if (!el) continue;
+
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        this.activeSection = id;
+        return;
       }
     }
-
-    if (!found) {
-      this.activeSection = null;
-    }
-  }
-
-  triggerLinkHoverEffect(link: keyof typeof this.isHovered) {
-    this.isHovered[link] = true;
-  }
-
-  removeLinkHoverEffect(link: keyof typeof this.isHovered) {
-    this.isHovered[link] = false;
+    this.activeSection = null;
   }
 }
