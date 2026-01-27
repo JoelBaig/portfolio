@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-skills',
@@ -9,6 +10,7 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
     NgIf,
     NgClass,
     NgFor,
+    TranslateModule
   ],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'

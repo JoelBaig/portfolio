@@ -7,6 +7,21 @@
     },
     "ABOUT_ME": {
         "SUBTITLE": "WER IST JOEL?",
-        "TITLE": "ÜBER MICH"
-        }
+        "TITLE": "ÜBER MICH",
+        "DESCRIPTION": "Hey, ich bin Joel. Ich liebe Programmieren, weil jede Herausforderung mir hilft zu wachsen und meine Problemlösungsfähigkeiten zu schärfen. Es fordert mich heraus, kreativ zu denken und beharrlich zu bleiben, auch wenn es schwierig wird. Ich bin inspiriert von den endlosen Möglichkeiten, etwas aus dem Nichts zu erschaffen – nur durch das Schreiben von Code. Meine Programmierfähigkeiten zu verbessern gibt mir ein Gefühl von Fortschritt und Zweck. Es ist sowohl eine Leidenschaft als auch ein Werkzeug, um die Zukunft zu gestalten."
+    },
+    "SKILLS": {
+        "INTRODUCTION": "Hier sind einige der Technologien und Werkzeuge, mit denen ich vertraut bin:",
+        "SUBTITLE": "MEIN STACK",
+        "TITLE": "Skill set",
+        "PULLSTICKER": "Ich interessiere mich auch für:"
+    },
+    "PROJECTS": {
+        "INTRODUCTION": "Schau dir gerne meine Projekte an und probiere sie aus. Mein Fokus liegt auf responsiven, benutzerfreundlichen Anwendungen mit sauberem und effizientem Code.",
+        "SUBTITLE": "MEINE EXPERTISE",
+        "TITLE": "PROJEKTE",
+        "JOIN": "Task-Manager nach dem Kanban-Prinzip. Aufgaben erstellen, organisieren und per Drag-and-drop verwalten sowie Benutzer und Kategorien zuweisen.",
+        "EPL": "Jump-and-Run-Spiel auf Basis objektorientierter Programmierung. Hilf Pepe, Münzen und Tabasco-Salsa zu sammeln, um gegen die verrückte Henne zu kämpfen.",
+        "DABUBBLE": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch eine intuitive Benutzeroberfläche, Echtzeit-Nachrichten und eine strukturierte Kanalorganisation."
     }
+}

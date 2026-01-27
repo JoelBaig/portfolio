@@ -4,14 +4,14 @@
     </app-project-details>
 
     <div class="first-row">
-        <app-app-headline class="single-project-con intro" [subtitle]="'MY CRAFT'" [title]="'PROJECTS'"
-            [infoText]="'Feel free to explore my projects and try things out! I focus on building responsive, user-friendly experiences with clean and efficient code.'"
-            [lineImage]="'./assets/img/header/projects/yellow_line.png'" [animateLine]="true"
-            [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'">
+        <app-app-headline class="single-project-con intro" [subtitle]="'PROJECTS.SUBTITLE'" [title]="'PROJECTS.TITLE'"
+            [infoText]="'PROJECTS.INTRODUCTION'" [lineImage]="'./assets/img/header/projects/yellow_line.png'"
+            [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'">
         </app-app-headline>
 
         <div class="single-project-con">
-            <img class="feautured-project-sticker" src="./assets/img/header/projects/sticker_projects.png" alt="feautured project image"/>
+            <img class="feautured-project-sticker" src="./assets/img/header/projects/sticker_projects.png"
+                alt="feautured project image" />
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = projects[0].title"
                 (mouseleave)="hoveredProject = null">
 
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <h2>{{ projects[0].title }}</h2>
-            <p class="project-info-txt">{{ projects[0].description }}</p>
+            <p class="project-info-txt">{{ projects[0].description | translate }}</p>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
             </div>
 
             <h2>{{ project.title }}</h2>
-            <p class="project-info-txt">{{ project.description }}</p>
+            <p class="project-info-txt">{{ project.description | translate}}</p>
         </div>
     </div>
 </div>
