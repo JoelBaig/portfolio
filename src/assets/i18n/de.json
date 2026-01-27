@@ -23,5 +23,9 @@
         "JOIN": "Task-Manager nach dem Kanban-Prinzip. Aufgaben erstellen, organisieren und per Drag-and-drop verwalten sowie Benutzer und Kategorien zuweisen.",
         "EPL": "Jump-and-Run-Spiel auf Basis objektorientierter Programmierung. Hilf Pepe, Münzen und Tabasco-Salsa zu sammeln, um gegen die verrückte Henne zu kämpfen.",
         "DABUBBLE": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch eine intuitive Benutzeroberfläche, Echtzeit-Nachrichten und eine strukturierte Kanalorganisation."
+    },
+    "PROJECT_DETAILS": {
+        "SUBTITLE": "Beschreibung",
+        "SECOND_SUBTITLE": "Implementierungsdetails"
     }
 }

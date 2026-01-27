@@ -17,13 +17,13 @@
                     <app-app-headline class="single-project-headline" [title]="project.title"
                         [infoText]="project.description" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
                         [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="315" [lineAlign]="'flex-start'"
-                        [subtitle]="project.subtitle" [subtitlePosition]="'below'" [subtitleOffset]="16"
+                        [subtitle]="'PROJECT_DETAILS.SUBTITLE'" [subtitlePosition]="'below'" [subtitleOffset]="16"
                         [subtitleUnderLine]="true" [lineMatchTitle]="true" [subtitleTag]="'h2'">
                     </app-app-headline>
                 </div>
 
                 <div>
-                    <h1 class="implementation-details">Implementation Details</h1>
+                    <h1 class="implementation-details">{{ 'PROJECT_DETAILS.SECOND_SUBTITLE' | translate}}</h1>
                     <p class="details">{{ project.details }}</p>
                 </div>
 

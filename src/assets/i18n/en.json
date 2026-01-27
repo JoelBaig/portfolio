@@ -11,7 +11,7 @@
         "DESCRIPTION": "Hey there, I´m Joel. I love programming because every challenge helps me grow and sharpen my problem-solving skills. It pushes me to think creatively and stay persistent, even when things get tough. I’m inspired by the endless possibilities of building something from nothing—just by writing code. Improving my coding skills gives me a sense of progress and purpose. It’s both a passion and a tool to shape the future."
     },
     "SKILLS": {
-    "INTRODUCTION": "Here are some of the technologies and tools I'm familiar with:",
+        "INTRODUCTION": "Here are some of the technologies and tools I'm familiar with:",
         "SUBTITLE": "MY STACK",
         "TITLE": "Skill set",
         "PULLSTICKER": "Also, I´m interested in diving into:"
@@ -23,5 +23,9 @@
         "JOIN": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users an categories.",
         "EPL": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
         "DABUBBLE": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization."
+    },
+    "PROJECT_DETAILS": {
+        "SUBTITLE": "Description",
+        "SECOND_SUBTITLE": "Implementation Details"
     }
 }

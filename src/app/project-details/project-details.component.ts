@@ -3,6 +3,7 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule, NgForOf, NgIf } from '@angular/common';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 type Project = {
   id: string;
@@ -29,6 +30,7 @@ type Project = {
     AppBtnComponent,
     NgIf,
     NgForOf,
+    TranslateModule
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss'
@@ -54,8 +56,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       id: 'join',
       title: 'Join',
       subtitle: 'Description',
-      description:
-        'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users an categories.',
+      description: 'PROJECTS.JOIN',
       details:
         'The project was developed in a team of three ... user interfaces.',
       image: './assets/img/header/projects/join1.png',
@@ -75,8 +76,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       id: 'el-pollo-loco',
       title: 'El Pollo Loco',
       subtitle: 'Description',
-      description:
-        'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.',
+      description: 'PROJECTS.EPL',
       details:
         'The game was built to strengthen my understanding of object-oriented programming ... mechanics from scratch.',
       image: './assets/img/header/projects/elpolloloco1.png',
@@ -95,8 +95,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       id: 'da-bubble',
       title: 'DABubble',
       subtitle: 'Description',
-      description:
-        'This App is a Slack Clone App. It revolutionizes team communication and collaboration...',
+      description: 'PROJECTS.DABUBBLE',
       details:
         'Built in a group of three ... modern web application development.',
       image: './assets/img/header/projects/dabubble1.png',
