@@ -3,11 +3,10 @@
 
     <div class="contact-wrapper">
         <div class="contact-headline-con">
-            <app-app-headline class="contact-headline" [subtitle]="'CONTACT ME'" [title]="'Ready to work together?'"
+            <app-app-headline class="contact-headline" [subtitle]="'CONTACT.SUBTITLE'" [title]="'CONTACT.TITLE'"
                 [lineImage]="'./assets/contact_form/yellow_arrow_contact.png'" [animateLine]="true" [textAlign]="'left'"
-                [lineWidth]="300" [lineMarginBottom]="30"
-                [infoText]="'I’m passionate about creating clean, efficient, and user-friendly digital solutions. With a strong foundation inmodern web technologies and a constant drive to learn, I bring both technical expertise and creative problem-solving to every project. I’m excited to contribute to innovative teams and turn ideas into impactful results.'"
-                [lineAlign]="'flex-end'" [lineUnderInfoText]="true">
+                [lineWidth]="300" [lineMarginBottom]="30" [infoText]="'CONTACT.INFO_TXT'" [lineAlign]="'flex-end'"
+                [lineUnderInfoText]="true">
             </app-app-headline>
         </div>
 
@@ -35,38 +34,35 @@
 
             <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
                 <div class="name-field">
-                    <label for="name">What´s your name?</label>
+                    <label for="name">{{'CONTACT.NAME_FIELD' | translate}}</label>
                     <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name"
-                        [attr.placeholder]="(submitted && name?.invalid) ? 'Oops! it seems your name is missing' : namePlaceholder"
-                        [class.error-placeholder]="submitted && name?.invalid"
-                        (blur)="namePlaceholder = 'Your name goes here'" required />
+                        [attr.placeholder]="submitted && name?.invalid? ('CONTACT.NAME_ERROR' | translate): ('CONTACT.NAME_PLACEHOLDER' | translate)"
+                        [class.error-placeholder]="submitted && name?.invalid" required />
                 </div>
 
                 <div class="form-line-2"></div>
 
                 <div class="email-field">
-                    <label for="email">What´s your email?</label>
+                    <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
 
                     <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email"
-                        [attr.placeholder]="(submitted && email?.invalid && email?.errors?.['required']) ? 'Your email is required' : emailPlaceholder"
-                        [class.error-placeholder]="submitted && email?.invalid && email?.errors?.['required']"
-                        (blur)="emailPlaceholder = 'youremail@email.com'" required
+                        [attr.placeholder]="submitted && email?.invalid && email?.errors?.['required']? ('CONTACT.EMAIL_ERROR' | translate): ('CONTACT.EMAIL_PLACEHOLDER' | translate)"
+                        [class.error-placeholder]="submitted && email?.invalid" required
                         pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$" />
 
                     <div class="error" *ngIf="submitted && email?.invalid && !email?.errors?.['required']">
-                        Please enter a valid email.
+                        {{ 'CONTACT.EMAIL_ERROR' | translate }}
                     </div>
                 </div>
-
                 <div class="form-line-3"></div>
 
                 <div class="help-field">
-                    <label for="message">How can I help you?</label>
+                    <label for="message">{{ 'CONTACT.HELP_FIELD' | translate }}</label>
+
                     <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message"
                         name="message" rows="5"
-                        [attr.placeholder]="(submitted && message?.invalid) ? 'Hello Joel, I am interested in...' : messagePlaceholder"
-                        [class.error-placeholder]="submitted && message?.invalid"
-                        (blur)="messagePlaceholder = 'Ask me here...'" required></textarea>
+                        [attr.placeholder]="submitted && message?.invalid? ('CONTACT.HELP_ERROR' | translate): ('CONTACT.HELP_PLACEHOLDER' | translate)"
+                        [class.error-placeholder]="submitted && message?.invalid" required></textarea>
                 </div>
 
                 <div class="form-line-4"></div>
@@ -82,17 +78,16 @@
                             src="./assets/contact_form/property_unchecked_hover.png" alt="Checkbox hover" />
                     </div>
                     <div>
-                        <span class="privacy-policy-text">I´ve read the privacy police and agree to the processing of my
-                            data as outlined.</span>
+                        <span class="privacy-policy-text">{{'CONTACT.PRIVACY_TXT' | translate}}</span>
                     </div>
                 </div>
 
                 <div class="privacy-hint" *ngIf="!accepted">
-                    Please accept the privacy policy.
+                    {{'CONTACT.PRIVACY_HINT' | translate}}
                 </div>
 
-                <app-app-btn class="send-button" [text]="'Send'" [color]="'white'" [hoverColor]="'white'"
-                    [visible]="true" [width]="'180px'" [height]="'45px'"
+                <app-app-btn class="send-button" [text]="'CONTACT.SEND_BTN' | translate" [color]="'white'"
+                    [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
                     [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
                     [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" [ngClass]="{'btn-disabled': !accepted}">
                 </app-app-btn>
@@ -100,11 +95,11 @@
         </div>
     </div>
     <div class="toast success" *ngIf="sendStatus === 'success'" [class.hide]="!toastVisible">
-        <span>✓ Message sent successfully</span>
+        <span>{{'CONTACT.TOAST_SUCCESS' | translate}}</span>
     </div>
 
     <div class="toast error" *ngIf="sendStatus === 'error'" [class.hide]="!toastVisible">
-        <span>✕ Something went wrong. Please try again.</span>
+        <span>{{'CONTACT.TOAST_ERROR' | translate}}</span>
     </div>
 </div>
 

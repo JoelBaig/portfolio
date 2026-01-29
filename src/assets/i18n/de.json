@@ -40,9 +40,28 @@
     "COLLEAGUES": {
         "SUBTITLE": "IN IHREN WORTEN:",
         "TITLE": "Feedback von Kollegen",
-        "CARD_TXT_1": "„Die Zusammenarbeit mit Joel war super unkompliziert. Er hat immer den Überblick behalten und Dinge klar kommuniziert. Gerade wenn es stressig wurde, war er ruhig, hilfsbereit und lösungsorientiert – das hat dem ganzen Team echt geholfen.“",
-        "CARD_TXT_2": "„Joel arbeitet sehr sauber und denkt stark aus Nutzerperspektive. Wenn jemand Fragen hatte oder festhing, war er sofort da und hat geholfen. Man merkt, dass er Spaß an Frontend-Entwicklung hat und gern Verantwortung übernimmt.“",
-        "CARD_TXT_3": "„Joel war im Projekt sehr zuverlässig und engagiert. Er hat seine Aufgaben selbstständig erledigt und trotzdem immer im Team gedacht. Die Zusammenarbeit war angenehm und produktiv – genau so, wie man es sich wünscht.“",
+        "CARD_TXT_1": "Die Zusammenarbeit mit Joel war super unkompliziert. Er hat immer den Überblick behalten und Dinge klar kommuniziert. Gerade wenn es stressig wurde, war er ruhig, hilfsbereit und lösungsorientiert – das hat dem ganzen Team echt geholfen.",
+        "CARD_TXT_2": "Joel arbeitet sehr sauber und denkt stark aus Nutzerperspektive. Wenn jemand Fragen hatte oder festhing, war er sofort da und hat geholfen. Man merkt, dass er Spaß an Frontend-Entwicklung hat und gern Verantwortung übernimmt.",
+        "CARD_TXT_3": "Joel war im Projekt sehr zuverlässig und engagiert. Er hat seine Aufgaben selbstständig erledigt und trotzdem immer im Team gedacht. Die Zusammenarbeit war angenehm und produktiv – genau so, wie man es sich wünscht.",
         "JOB": "Frontend-Entwickler"
+    },
+    "CONTACT": {
+        "SUBTITLE": "Kontaktiere mich",
+        "TITLE": "Bereit, gemeinsam zu arbeiten?",
+        "INFO_TXT": "Ich begeistere mich für die Entwicklung sauberer, effizienter und benutzerfreundlicher digitaler Lösungen. Mit einer soliden Basis in modernen Webtechnologien und einem stetigen Lernwillen bringe ich sowohl technisches Know-how als auch kreatives Problemlösungsdenken in jedes Projekt ein. Besonders motiviert mich die Zusammenarbeit in innovativen Teams, um Ideen in wirkungsvolle Ergebnisse umzusetzen.",
+        "NAME_FIELD": "Wie lautet dein Name?",
+        "NAME_ERROR": "Ups! Dein Name fehlt noch.",
+        "NAME_PLACEHOLDER": "Hier deinen Namen eingeben",
+        "EMAIL_FIELD": "Wie lautet deine email?",
+        "EMAIL_ERROR": "Bitte gib eine gültige email ein",
+        "EMAIL_PLACEHOLDER": "deineemail@email.com",
+        "HELP_FIELD": "Wie kann ich dir helfen?",
+        "HELP_ERROR": "Hallo Joel, ich interessiere mich für...",
+        "HELP_PLACEHOLDER": "Frag mich hier...",
+        "PRIVACY_TXT": "Ich habe die Datenschutzerklärung gelesen und bin mit der Verarbeitung meiner Daten einverstanden.",
+        "PRIVACY_HINT": "Bitte akzeptiere die Datenschutzerklärung.",
+        "SEND_BTN": "Senden",
+        "TOAST_SUCCESS": "✓ Nachricht wurde erfolgreich gesendet.",
+        "TOAST_ERROR": "✕ Da ist etwas schiefgelaufen. Bitte versuche es noch einmal."
     }
 }

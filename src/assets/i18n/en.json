@@ -40,9 +40,28 @@
     "COLLEAGUES": {
         "SUBTITLE": "IN THEIR WORD´S:",
         "TITLE": "Colleague´s Thoughts",
-        "CARD_TXT_1": "“Working with Joel was very straightforward and enjoyable. He always kept a clear overview and communicated things in a simple, effective way. Especially during stressful moments, he stayed calm, helpful, and solution-focused – which really benefited the whole team.”",
-        "CARD_TXT_2": "“Joel works very cleanly and always keeps the user in mind. Whenever someone got stuck or had a question, he was quick to help. You can tell that he genuinely enjoys frontend development and isn’t afraid to take responsibility.”",
-        "CARD_TXT_3": "“Joel was reliable and highly committed throughout the project. He handled his tasks independently while still thinking as part of the team. The collaboration was smooth and productive – exactly what you want in a team member.”",
+        "CARD_TXT_1": "Working with Joel was very straightforward and enjoyable. He always kept a clear overview and communicated things in a simple, effective way. Especially during stressful moments, he stayed calm, helpful, and solution-focused – which really benefited the whole team.",
+        "CARD_TXT_2": "Joel works very cleanly and always keeps the user in mind. Whenever someone got stuck or had a question, he was quick to help. You can tell that he genuinely enjoys frontend development and isn’t afraid to take responsibility.",
+        "CARD_TXT_3": "Joel was reliable and highly committed throughout the project. He handled his tasks independently while still thinking as part of the team. The collaboration was smooth and productive – exactly what you want in a team member.",
         "JOB": "Frontend Developer"
+    },
+    "CONTACT": {
+        "SUBTITLE": "CONTACT ME",
+        "TITLE": "Ready to work together?",
+        "INFO_TXT": "I’m passionate about creating clean, efficient, and user-friendly digital solutions. With a strong foundation inmodern web technologies and a constant drive to learn, I bring both technical expertise and creative problem-solving to every project. I’m excited to contribute to innovative teams and turn ideas into impactful results.",
+        "NAME_FIELD": "What´s your name?",
+        "NAME_ERROR": "Oops! it seems your name is missing",
+        "NAME_PLACEHOLDER": "Your name goes here",
+        "EMAIL_FIELD": "What´s your email?",
+        "EMAIL_ERROR": "Please enter a valid email.",
+        "EMAIL_PLACEHOLDER": "youremail@email.com",
+        "HELP_FIELD": "How can I help you?",
+        "HELP_ERROR": "Hello Joel, I am interested in...",
+        "HELP_PLACEHOLDER": "Ask me here...",
+        "PRIVACY_TXT": "I´ve read the privacy police and agree to the processing of my data as outlined.",
+        "PRIVACY_HINT": "Please accept the privacy policy.",
+        "SEND_BTN": "Send",
+        "TOAST_SUCCESS": "✓ Message sent successfully",
+        "TOAST_ERROR": "✕ Something went wrong. Please try again."
     }
 }
