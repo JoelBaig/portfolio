@@ -26,6 +26,15 @@
     },
     "PROJECT_DETAILS": {
         "SUBTITLE": "Description",
-        "SECOND_SUBTITLE": "Implementation Details"
+        "SECOND_SUBTITLE": "Implementation Details",
+        "IMPLEMENT_TXT_JOIN": "The project was developed in a team of three. I focused on building interactive user interfaces, implementing task logic, and ensuring a clean, maintainable code structure.",
+        "IMPLEMENT_TXT_EPL": "The game was built to strengthen my understanding of object-oriented programming. Core game mechanics, collision logic, and animations were implemented entirely from scratch.",
+        "IMPLEMENT_TXT_DABUBBLE": "Built in a group of three, this project focused on modern web application development, real-time communication features, and collaborative teamwork in an agile environment.",
+        "DURATION": "Duration:",
+        "DURATION_TIME_JOIN": "5 weeks",
+        "DURATION_TIME_EPL": "3 weeks",
+        "DURATION_TIME_DABUBBLE": "4 weeks",
+        "GO_BACK_BTN": "Go back",
+        "NEXT_PROJECT_BTN": "Next project"
     }
 }

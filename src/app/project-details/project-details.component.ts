@@ -58,7 +58,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       subtitle: 'Description',
       description: 'PROJECTS.JOIN',
       details:
-        'The project was developed in a team of three ... user interfaces.',
+        'PROJECT_DETAILS.IMPLEMENT_TXT_JOIN',
       image: './assets/img/header/projects/join1.png',
       sticker: './assets/project_details/sticker_blue.png',
       used_technologies: [
@@ -67,7 +67,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
         { name: 'JAVASCRIPT', icon: './assets/img/header/skills/js.png' },
         { name: 'FIREBASE', icon: './assets/img/header/skills/firebase.png' },
       ],
-      duration: '5 weeks',
+      duration: 'PROJECT_DETAILS.DURATION_TIME_JOIN',
       alt: 'join_project',
       githubUrl: 'https://github.com/mahapiri/join',
       liveUrl: 'https://join.joelbaig.com/'
@@ -78,7 +78,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       subtitle: 'Description',
       description: 'PROJECTS.EPL',
       details:
-        'The game was built to strengthen my understanding of object-oriented programming ... mechanics from scratch.',
+        'PROJECT_DETAILS.IMPLEMENT_TXT_EPL',
       image: './assets/img/header/projects/elpolloloco1.png',
       sticker: './assets/project_details/sticker_yellow.png',
       used_technologies: [
@@ -86,7 +86,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
         { name: 'CSS', icon: './assets/img/header/skills/css.png' },
         { name: 'JAVASCRIPT', icon: './assets/img/header/skills/js.png' },
       ],
-      duration: '3 weeks',
+      duration: 'PROJECT_DETAILS.DURATION_TIME_EPL',
       alt: 'game_project',
       githubUrl: 'https://github.com/JoelBaig/epl_',
       liveUrl: 'https://elpolloloco.joelbaig.com/'
@@ -97,7 +97,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       subtitle: 'Description',
       description: 'PROJECTS.DABUBBLE',
       details:
-        'Built in a group of three ... modern web application development.',
+        'PROJECT_DETAILS.IMPLEMENT_TXT_DABUBBLE',
       image: './assets/img/header/projects/dabubble1.png',
       sticker: './assets/project_details/sticker_yellow.png',
       used_technologies: [
@@ -106,7 +106,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
         { name: 'ANGULAR', icon: './assets/img/header/skills/angular.png' },
         { name: 'TYPESCRIPT', icon: './assets/img/header/skills/ts.png' },
       ],
-      duration: '4 weeks',
+      duration: 'PROJECT_DETAILS.DURATION_TIME_DABUBBLE',
       alt: 'dabubble_project',
     },
   ];

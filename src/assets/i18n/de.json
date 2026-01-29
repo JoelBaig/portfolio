@@ -26,6 +26,15 @@
     },
     "PROJECT_DETAILS": {
         "SUBTITLE": "Beschreibung",
-        "SECOND_SUBTITLE": "Implementierungsdetails"
+        "SECOND_SUBTITLE": "Implementierungsdetails",
+        "IMPLEMENT_TXT_JOIN": "Das Projekt wurde in einem dreiköpfigen Team entwickelt. Mein Fokus lag auf der Umsetzung interaktiver Benutzeroberflächen, der Aufgabenlogik sowie der sauberen Strukturierung des Codes für eine skalierbare und wartbare Anwendung.",
+        "IMPLEMENT_TXT_EPL": "Das Spiel wurde entwickelt, um mein Verständnis objektorientierter Programmierung zu vertiefen. Zentrale Spielmechaniken, Kollisionslogik und Animationen wurden vollständig von Grund auf umgesetzt.",
+        "IMPLEMENT_TXT_DABUBBLE": "Das Projekt wurde in einem dreiköpfigen Team umgesetzt. Der Schwerpunkt lag auf der Entwicklung moderner Webanwendungen, der Integration von Echtzeit-Kommunikation sowie der Zusammenarbeit in einem agilen Entwicklungsprozess.",
+        "DURATION": "Dauer:",
+        "DURATION_TIME_JOIN": "5 Wochen",
+        "DURATION_TIME_EPL": "3 Wochen",
+        "DURATION_TIME_DABUBBLE": "4 Wochen",
+        "GO_BACK_BTN": "Zurück",
+        "NEXT_PROJECT_BTN": "Nächstes Projekt"
     }
 }

@@ -5,8 +5,7 @@
         (click)="onNavbarClick($event)"></app-navbar>
 
     <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
-        <button class="back-btn" type="button">Go
-            Back</button>
+        <button class="back-btn" type="button">{{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}</button>
         <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
     </div>
 
@@ -24,12 +23,12 @@
 
                 <div>
                     <h1 class="implementation-details">{{ 'PROJECT_DETAILS.SECOND_SUBTITLE' | translate}}</h1>
-                    <p class="details">{{ project.details }}</p>
+                    <p class="details">{{ project.details | translate }}</p>
                 </div>
 
                 <div class="duration-con">
-                    <h2>Duration:</h2>
-                    <p>{{project.duration}}</p>
+                    <h2>{{ 'PROJECT_DETAILS.DURATION' | translate }}</h2>
+                    <p>{{ project.duration | translate }}</p>
                 </div>
 
                 <ul class="tech-list" *ngIf="project.used_technologies?.length">
@@ -83,7 +82,7 @@
     </div>
 
     <div class="next-project-btn-con" (click)="nextProject()">
-        <button>Next Project</button>
+        <button>{{ 'PROJECT_DETAILS.NEXT_PROJECT_BTN' | translate }}</button>
         <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
     </div>
 </div>
