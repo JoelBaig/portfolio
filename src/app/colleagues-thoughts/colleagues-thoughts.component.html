@@ -1,7 +1,7 @@
 <div class="colleagues-wrapper">
   <div class="colleagues-inner">
     <div class="colleagues-main">
-      <app-app-headline class="colleagues-headline" [subtitle]="'IN THEIR WORDS:'" [title]="'Colleague´s Thoughts'"
+      <app-app-headline class="colleagues-headline" [subtitle]="'COLLEAGUES.SUBTITLE'" [title]="'COLLEAGUES.TITLE'"
         [lineImage]="'./assets/img/header/colleagues_thoughts/blue_arrow.png'" [animateLine]="true"
         [maskDirection]="'rtl'" [textAlign]="'right'" [lineAboveTitle]="true" [lineLeftOfSubtitle]="true"
         [lineWidth]="100" [lineMarginBottom]="-20" [lineAlign]="'flex-end'">
@@ -18,12 +18,12 @@
             [style.opacity]="hoveredIndex === i ? 1 : 0" />
 
           <div class="image-text" [style.transform]="getTextRotation(i)">
-            {{ card.text }}
+            {{ card.text | translate}}
 
             <div class="card-bottom" [class.is-hovered]="hoveredIndex === i">
               <div class="name-main">
                 <h3 class="card-name">{{ card.name }}</h3>
-                <div>{{ card.job }}</div>
+                <div>{{ 'COLLEAGUES.JOB' | translate }}</div>
               </div>
 
               <div class="linkedin-icon-wrapper" (click)="openLinkedIn(card)">
@@ -32,8 +32,8 @@
               </div>
             </div>
           </div>
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

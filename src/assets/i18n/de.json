@@ -36,5 +36,13 @@
         "DURATION_TIME_DABUBBLE": "4 Wochen",
         "GO_BACK_BTN": "Zurück",
         "NEXT_PROJECT_BTN": "Nächstes Projekt"
+    },
+    "COLLEAGUES": {
+        "SUBTITLE": "IN IHREN WORTEN:",
+        "TITLE": "Feedback von Kollegen",
+        "CARD_TXT_1": "„Die Zusammenarbeit mit Joel war super unkompliziert. Er hat immer den Überblick behalten und Dinge klar kommuniziert. Gerade wenn es stressig wurde, war er ruhig, hilfsbereit und lösungsorientiert – das hat dem ganzen Team echt geholfen.“",
+        "CARD_TXT_2": "„Joel arbeitet sehr sauber und denkt stark aus Nutzerperspektive. Wenn jemand Fragen hatte oder festhing, war er sofort da und hat geholfen. Man merkt, dass er Spaß an Frontend-Entwicklung hat und gern Verantwortung übernimmt.“",
+        "CARD_TXT_3": "„Joel war im Projekt sehr zuverlässig und engagiert. Er hat seine Aufgaben selbstständig erledigt und trotzdem immer im Team gedacht. Die Zusammenarbeit war angenehm und produktiv – genau so, wie man es sich wünscht.“",
+        "JOB": "Frontend-Entwickler"
     }
 }

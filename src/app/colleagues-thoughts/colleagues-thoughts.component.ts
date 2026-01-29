@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-colleagues-thoughts',
   imports: [
     AppHeadlineComponent,
     CommonModule,
+    TranslateModule
   ],
   templateUrl: './colleagues-thoughts.component.html',
   styleUrl: './colleagues-thoughts.component.scss'
@@ -18,8 +20,8 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'Tobias Lange',
+      text: 'COLLEAGUES.CARD_TXT_1',
+      name: 'Lukas Brenner',
       job: 'Frontend Developer'
     },
     {
@@ -27,8 +29,8 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'Maria Schäfer',
+      text: 'COLLEAGUES.CARD_TXT_2',
+      name: 'Sophia Hartmann',
       job: 'Frontend Developer'
     },
     {
@@ -36,8 +38,8 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      name: 'David Braun',
+      text: 'COLLEAGUES.CARD_TXT_3',
+      name: 'Jan Köhler',
       job: 'Frontend Developer'
     }
   ];
@@ -46,13 +48,13 @@ export class ColleaguesThoughtsComponent {
 
   getCardStyle(index: number): { [key: string]: string } {
     switch (index) {
-      case 0: 
+      case 0:
         return {
           top: '30%',
           left: '75%',
-          transform: 'translate(-50%, -50%) rotate(5deg)' 
+          transform: 'translate(-50%, -50%) rotate(5deg)'
         };
-      case 1: 
+      case 1:
         return {
           top: '55%',
           left: '50%',
