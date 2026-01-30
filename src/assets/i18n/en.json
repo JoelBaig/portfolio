@@ -5,10 +5,17 @@
         "PROJECTS": "Projects",
         "CONTACT": "Contact"
     },
+    "LANDING_PAGE": {
+        "FRONTEND": "Frontend",
+        "DEVELOPER": "Developer",
+        "HELLO_WORLD": "Hello world",
+        "GET_IN_TOUCH_BTN": "Get in touch"
+    },
     "ABOUT_ME": {
         "SUBTITLE": "WHO'S JOEL?",
         "TITLE": "About me",
-        "DESCRIPTION": "Hey there, I´m Joel. I love programming because every challenge helps me grow and sharpen my problem-solving skills. It pushes me to think creatively and stay persistent, even when things get tough. I’m inspired by the endless possibilities of building something from nothing—just by writing code. Improving my coding skills gives me a sense of progress and purpose. It’s both a passion and a tool to shape the future."
+        "DESCRIPTION": "Hey there, I´m Joel. I love programming because every challenge helps me grow and sharpen my problem-solving skills. It pushes me to think creatively and stay persistent, even when things get tough. I’m inspired by the endless possibilities of building something from nothing—just by writing code. Improving my coding skills gives me a sense of progress and purpose. It’s both a passion and a tool to shape the future.",
+        "LETS_TALK_BTN": "Let´s talk"
     },
     "SKILLS": {
         "INTRODUCTION": "Here are some of the technologies and tools I'm familiar with:",
@@ -22,7 +29,8 @@
         "TITLE": "PROJECTS",
         "JOIN": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users an categories.",
         "EPL": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
-        "DABUBBLE": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization."
+        "DABUBBLE": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+        "PROJECT_DETAILS_BTN": "Project details"
     },
     "PROJECT_DETAILS": {
         "SUBTITLE": "Description",
@@ -63,5 +71,38 @@
         "SEND_BTN": "Send",
         "TOAST_SUCCESS": "✓ Message sent successfully",
         "TOAST_ERROR": "✕ Something went wrong. Please try again."
+    },
+    "FOOTER": {
+        "LEGAL_NOTICE": "Legal Notice"
+    },
+    "LEGAL": {
+        "TITLE": "Legal Notice",
+        "IMPRINT_TITLE": "Imprint",
+        "IMPRINT_TEXT": "Joel Baig\nHansestraße 92\n48282 Emsdetten",
+        "PROJECT_TITLE": "Project",
+        "PROJECT_TEXT": "Exploring the board\nEmail: ibaig@web.de",
+        "PORTFOLIO_LINK": "Portfolio",
+        "DEV_AKADEMIE": "Developer Akademie GmbH",
+        "TERMS_TITLE": "Acceptance of terms",
+        "TERMS_TEXT_1": "By accessing and using ",
+        "TERMS_TEXT_2": " (Product), you acknowledge and agree to the following terms and conditions. We may update or change these terms from time to time without notice.",
+        "SCOPE_TITLE": "Scope and ownership of the product",
+        "SCOPE_TEXT_1": " has been developed as part of a student group project in a web development bootcamp at the ",
+        "SCOPE_TEXT_2": " It has an educational purpose and is not intended for extensive personal or business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this product. The design of ",
+        "SCOPE_TEXT_3": " is owned by the ",
+        "SCOPE_TEXT_4": " Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.",
+        "RIGHTS_TITLE": "Proprietary rights",
+        "RIGHTS_TEXT_1": "Aside from the design owned by ",
+        "RIGHTS_TEXT_2": " we, the listed students, retain all proprietary rights in ",
+        "USE_TITLE": "Use of the product",
+        "USE_TEXT": " is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of this product.",
+        "DISCLAIMER_TITLE": "Disclaimer of warranties and limitation of liability",
+        "DISCLAIMER_TEXT_1": " is provided \"as is\" without warranty of any kind, whether express or implied. In no event will we, the listed students, or the ",
+        "DISCLAIMER_TEXT_2": " be liable for any direct, indirect, incidental, special, consequential, or exemplary damages arising out of or in connection with the use or performance of this product.",
+        "INDEMNITY_TITLE": "Indemnity",
+        "INDEMNITY_TEXT_1": "You agree to indemnify, defend, and hold harmless us, the listed students, the ",
+        "INDEMNITY_TEXT_2": " and our affiliates, partners, officers, directors, agents, and employees from any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of ",
+        "QUESTIONS_TEXT": "For any questions or notices, please contact us at",
+        "DATE_TEXT": "Date: January 13, 2026"
     }
 }

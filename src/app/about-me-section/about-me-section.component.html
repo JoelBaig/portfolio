@@ -19,14 +19,13 @@
 
         <div class="about-me">
             <app-app-headline [subtitle]="'ABOUT_ME.SUBTITLE'" [title]="'ABOUT_ME.TITLE'"
-                [infoText]="'ABOUT_ME.DESCRIPTION'"
-                [lineImage]="'./assets/img/header/about_me/blue_line.png'" [animateLine]="true"
-                [maskDirection]="'horizontal'" [lineWidth]="340"
-                [lineAlign]="'flex-start'">
+                [infoText]="'ABOUT_ME.DESCRIPTION'" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
+                [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="340" [lineAlign]="'flex-start'">
             </app-app-headline>
 
-            <app-app-btn (click)="scrollToSection('contact')" class="lets-talk-btn" [text]="'Let´s talk'" [visible]="true" [width]="'140px'"
-                [height]="'45px'" [defaultImg]="'./assets/img/header/app_btn/black_btn.png'"
+            <app-app-btn (click)="scrollToSection('contact')" class="lets-talk-btn"
+                [text]="'ABOUT_ME.LETS_TALK_BTN' | translate" [visible]="true" [width]="'170px'" [height]="'45px'"
+                [defaultImg]="'./assets/img/header/app_btn/black_btn.png'"
                 [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" [color]="'black'" [hoverColor]="'white'">
             </app-app-btn>
         </div>

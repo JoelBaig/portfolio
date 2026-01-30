@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-skills',
   standalone: true,
-  imports: [
-    NgIf,
-    NgClass,
-    NgFor,
-    TranslateModule
-  ],
+  imports: [NgIf, NgClass, NgFor, TranslateModule],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
 })
@@ -37,63 +31,102 @@ export class MySkillsComponent {
     { src: './assets/img/header/skills/sticker_vuejs.png', name: 'Vue.js' }
   ];
 
-  stickerStyles: any = {
-    transform: 'rotate(10deg) scale(1)',
-    opacity: 1,
-    transition: 'transform 0.3s ease, opacity 0.3s ease'
-  };
-
   hoveredSkill: string | null = null;
   animateOval = true;
-
-  stickers = [
-    'assets/img/header/skills/sticker.png',
-    'assets/img/header/skills/sticker_hover.png',
-    'assets/img/header/skills/sticker_open.png'
-  ];
-
-  stickerIndex = 0;
   isOpen = false;
-  isAnimating = false;
+  private dragging = false;
+  private startX = 0;
+  private startY = 0;
 
-  get currentSticker(): string {
-    return this.stickers[this.stickerIndex];
+  peelProgress = 0;
+
+  private readonly peelDistance = 220;
+  private readonly openThreshold = 0.85;
+
+  topStickerSrc = 'assets/img/header/skills/sticker.png';
+  peelClipPath = this.calcClipPath(0);
+
+  onTopHover(hovered: boolean) {
+    if (this.isOpen || this.dragging) return;
+    this.topStickerSrc = hovered
+      ? 'assets/img/header/skills/sticker_hover.png'
+      : 'assets/img/header/skills/sticker.png';
   }
 
-  animateSticker(): void {
-    if (this.isAnimating) return;
+  onPeelStart(e: PointerEvent) {
+    if (this.isOpen) return;
+    this.dragging = true;
+    this.startX = e.clientX;
+    this.startY = e.clientY;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    this.topStickerSrc = 'assets/img/header/skills/sticker_hover.png';
 
-    if (this.isOpen) {
-      this.stickerIndex = 0;
-      this.isOpen = false;
+    e.preventDefault();
+  }
+
+  onPeelMove(e: PointerEvent) {
+    if (!this.dragging || this.isOpen) return;
+    const dx = e.clientX - this.startX;
+    const dy = e.clientY - this.startY;
+    const pullX = Math.max(0, -dx);
+    const pullY = Math.max(0, dy);
+    const pull = Math.sqrt(pullX * pullX + pullY * pullY);
+
+    this.peelProgress = Math.min(1, pull / this.peelDistance);
+    this.peelClipPath = this.calcClipPath(this.peelProgress);
+
+    e.preventDefault();
+  }
+
+  onPeelEnd(_e: PointerEvent) {
+    if (!this.dragging) return;
+    this.dragging = false;
+
+    if (this.peelProgress >= this.openThreshold) {
+      this.openSticker();
       return;
     }
 
-    this.isAnimating = true;
-    this.stickerIndex = 1;
-
-    setTimeout(() => {
-      this.stickerIndex = 2;
-      this.isAnimating = false;
-      this.isOpen = true;
-    }, 60);
+    this.peelProgress = 0;
+    this.peelClipPath = this.calcClipPath(0);
+    this.topStickerSrc = 'assets/img/header/skills/sticker.png';
   }
-  
-  resetSticker(): void {
-    this.stickerStyles = {
-      ...this.stickerStyles,
-      transform: 'rotate(-60deg) scale(0.1)',
-      opacity: 0.1
-    };
 
-    setTimeout(() => {
-      this.stickerIndex = 0;
-      this.isOpen = false;
-      this.stickerStyles = {
-        ...this.stickerStyles,
-        transform: 'rotate(10deg) scale(1)',
-        opacity: 1
-      };
-    }, 300);
+  onPeelCancel() {
+    if (!this.dragging) return;
+    this.dragging = false;
+
+    this.peelProgress = 0;
+    this.peelClipPath = this.calcClipPath(0);
+    this.topStickerSrc = 'assets/img/header/skills/sticker.png';
+  }
+
+  private openSticker() {
+    this.isOpen = true;
+    this.peelProgress = 1;
+    this.peelClipPath = this.calcClipPath(1);
+  }
+
+  resetSticker() {
+    this.isOpen = false;
+    this.peelProgress = 0;
+    this.peelClipPath = this.calcClipPath(0);
+    this.topStickerSrc = 'assets/img/header/skills/sticker.png';
+  }
+
+  private calcClipPath(progress: number): string {
+    const overshoot = 100;
+    const p = progress * (100 + overshoot);
+
+    const x = 100 - p;
+    const y = p;
+
+    return `polygon(
+    0% 0%,
+    ${x}% 0%,
+    100% ${y}%,
+    100% 100%,
+    0% 100%
+  )`;
   }
 }

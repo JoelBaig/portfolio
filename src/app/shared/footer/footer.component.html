@@ -9,7 +9,7 @@
 
       <li class="nav-about-me" *ngIf="showLegalLink">
         <a (click)="openLegalNotice($event)" class="nav-link legal-link">
-          Legal Notice
+          {{'FOOTER.LEGAL_NOTICE' | translate}}
           <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
         </a>
       </li>

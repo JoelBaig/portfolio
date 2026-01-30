@@ -10,7 +10,6 @@
     isolation: isolate;
 }
 
-/* Hintergrund-Image IMMER hinter den Inhalt */
 .my-skills-con>img {
     position: absolute;
     inset: 0;
@@ -191,11 +190,13 @@ p {
     align-items: center;
     position: relative;
     left: 180px;
+    transform: rotate(10deg);
+    transform-origin: center;
 
     >img {
         height: 200px;
         width: 200px;
-        transform: rotate(10deg);
+        transform: rotate(0deg);
         transition: transform 0.3s ease;
         cursor: pointer;
         position: relative;
@@ -218,7 +219,7 @@ p {
     height: 170px;
     padding: 10px;
     text-align: center;
-    transform: rotate(10deg);
+    transform: rotate(0deg);
     transition: transform 0.3s ease;
     cursor: pointer;
     pointer-events: auto;
@@ -240,4 +241,49 @@ p {
         height: 60px;
         object-fit: contain;
     }
+}
+
+.sticker-stack {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.sticker-base {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.sticker-top {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    touch-action: none;
+    cursor: grab;
+    transform-origin: top right;
+    will-change: transform, clip-path, opacity;
+    transition:
+        transform 140ms ease-out,
+        clip-path 140ms ease-out,
+        opacity 140ms ease-out;
+}
+
+.sticker-top.dragging {
+    transition: none;
+    cursor: grabbing;
+}
+
+.sticker-top.peeled {
+    transform: translate(-140%, 140%);
+    opacity: 0;
+    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
+    pointer-events: none;
 }

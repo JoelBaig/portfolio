@@ -20,8 +20,9 @@
                 <div class="button-overlay-notebook">
                     <app-app-btn class="img-button" (click)="openProjectDetails(projects[0].id)"
                         [class.btn-visible]="hoveredProject === projects[0].title"
-                        [class.btn-hidden]="hoveredProject !== projects[0].title" [text]="'Project details'"
-                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [class.btn-hidden]="hoveredProject !== projects[0].title"
+                        [text]="'PROJECTS.PROJECT_DETAILS_BTN' | translate" [color]="'white'" [hoverColor]="'white'"
+                        [visible]="true" [width]="'180px'" [height]="'45px'"
                         [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
                         [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
                     </app-app-btn>
@@ -42,8 +43,9 @@
                 <div class="button-overlay">
                     <app-app-btn class="img-button" (click)="openProjectDetails(project.id)"
                         [class.btn-visible]="hoveredProject === project.title"
-                        [class.btn-hidden]="hoveredProject !== project.title" [text]="'Project details'"
-                        [color]="'white'" [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+                        [class.btn-hidden]="hoveredProject !== project.title"
+                        [text]="'PROJECTS.PROJECT_DETAILS_BTN' | translate" [color]="'white'" [hoverColor]="'white'"
+                        [visible]="true" [width]="'180px'" [height]="'45px'"
                         [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
                         [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
                     </app-app-btn>

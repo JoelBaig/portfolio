@@ -2,13 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-me-section',
   imports: [
     CommonModule,
     AppBtnComponent,
-    AppHeadlineComponent
+    AppHeadlineComponent,
+    TranslateModule
   ],
   templateUrl: './about-me-section.component.html',
   styleUrl: './about-me-section.component.scss'

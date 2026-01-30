@@ -41,7 +41,11 @@
                 </div>
             </div>
             <div class="sticker-con" [ngClass]="{ 'no-pointer': isOpen }">
-                <img [src]="currentSticker" (click)="animateSticker()" alt="Sticker" />
+                <div class="sticker-stack" (pointerdown)="onPeelStart($event)" (pointermove)="onPeelMove($event)"
+                    (pointerup)="onPeelEnd($event)" (pointercancel)="onPeelCancel()" (pointerleave)="onPeelCancel()">
+                    <img class="sticker-base" src="assets/img/header/skills/sticker_open.png" alt="Sticker base" />
+                    <img class="sticker-top" [src]="topStickerSrc" [style.clipPath]="peelClipPath" alt="Sticker top" />
+                </div>
 
                 <div class="sticker-reveal" *ngIf="isOpen" (click)="resetSticker()">
                     <p class="sticker-text">{{'SKILLS.PULLSTICKER' | translate}}</p>

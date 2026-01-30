@@ -122,17 +122,20 @@
     pointer-events: none;
 }
 
-.hello-world .label.base {
-    left: 13px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+.hello-world .label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-.hello-world .label.alt {
-    left: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity 200ms ease-in;
+  color: #fff;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1;
+  white-space: nowrap;
+
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hello-world .icon-wrap {

@@ -5,10 +5,17 @@
         "PROJECTS": "Projekte",
         "CONTACT": "Kontakt"
     },
+    "LANDING_PAGE": {
+        "FRONTEND": "Frontend",
+        "DEVELOPER": "Entwickler",
+        "HELLO_WORLD": "Hallo Welt",
+        "GET_IN_TOUCH_BTN": "Schreib mir"
+    },
     "ABOUT_ME": {
         "SUBTITLE": "WER IST JOEL?",
         "TITLE": "ÜBER MICH",
-        "DESCRIPTION": "Hey, ich bin Joel. Ich liebe Programmieren, weil jede Herausforderung mir hilft zu wachsen und meine Problemlösungsfähigkeiten zu schärfen. Es fordert mich heraus, kreativ zu denken und beharrlich zu bleiben, auch wenn es schwierig wird. Ich bin inspiriert von den endlosen Möglichkeiten, etwas aus dem Nichts zu erschaffen – nur durch das Schreiben von Code. Meine Programmierfähigkeiten zu verbessern gibt mir ein Gefühl von Fortschritt und Zweck. Es ist sowohl eine Leidenschaft als auch ein Werkzeug, um die Zukunft zu gestalten."
+        "DESCRIPTION": "Hey, ich bin Joel. Ich liebe Programmieren, weil jede Herausforderung mir hilft zu wachsen und meine Problemlösungsfähigkeiten zu schärfen. Es fordert mich heraus, kreativ zu denken und beharrlich zu bleiben, auch wenn es schwierig wird. Ich bin inspiriert von den endlosen Möglichkeiten, etwas aus dem Nichts zu erschaffen – nur durch das Schreiben von Code. Meine Programmierfähigkeiten zu verbessern gibt mir ein Gefühl von Fortschritt und Zweck. Es ist sowohl eine Leidenschaft als auch ein Werkzeug, um die Zukunft zu gestalten.",
+        "LETS_TALK_BTN": "Lass uns reden"
     },
     "SKILLS": {
         "INTRODUCTION": "Hier sind einige der Technologien und Werkzeuge, mit denen ich vertraut bin:",
@@ -22,7 +29,8 @@
         "TITLE": "PROJEKTE",
         "JOIN": "Task-Manager nach dem Kanban-Prinzip. Aufgaben erstellen, organisieren und per Drag-and-drop verwalten sowie Benutzer und Kategorien zuweisen.",
         "EPL": "Jump-and-Run-Spiel auf Basis objektorientierter Programmierung. Hilf Pepe, Münzen und Tabasco-Salsa zu sammeln, um gegen die verrückte Henne zu kämpfen.",
-        "DABUBBLE": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch eine intuitive Benutzeroberfläche, Echtzeit-Nachrichten und eine strukturierte Kanalorganisation."
+        "DABUBBLE": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch eine intuitive Benutzeroberfläche, Echtzeit-Nachrichten und eine strukturierte Kanalorganisation.",
+        "PROJECT_DETAILS_BTN": "Projekt Details"
     },
     "PROJECT_DETAILS": {
         "SUBTITLE": "Beschreibung",
@@ -63,5 +71,38 @@
         "SEND_BTN": "Senden",
         "TOAST_SUCCESS": "✓ Nachricht wurde erfolgreich gesendet.",
         "TOAST_ERROR": "✕ Da ist etwas schiefgelaufen. Bitte versuche es noch einmal."
+    },
+    "FOOTER": {
+        "LEGAL_NOTICE": "Impressum"
+    },
+    "LEGAL": {
+        "TITLE": "Impressum",
+        "IMPRINT_TITLE": "Anbieter",
+        "IMPRINT_TEXT": "Joel Baig\nHansestraße 92\n48282 Emsdetten",
+        "PROJECT_TITLE": "Kontakt",
+        "PROJECT_TEXT": "Exploring the board\nE-Mail: ibaig@web.de",
+        "PORTFOLIO_LINK": "Portfolio",
+        "DEV_AKADEMIE": "Developer Akademie GmbH",
+        "TERMS_TITLE": "Nutzungsbedingungen",
+        "TERMS_TEXT_1": "Durch den Zugriff auf und die Nutzung von ",
+        "TERMS_TEXT_2": " erklärst du dich mit den folgenden Bedingungen einverstanden. Diese Hinweise können jederzeit ohne vorherige Ankündigung angepasst oder aktualisiert werden.",
+        "SCOPE_TITLE": "Zweck und Eigentum des Produkts",
+        "SCOPE_TEXT_1": " wurde im Rahmen eines studentischen Gruppenprojekts im Web-Development-Bootcamp der ",
+        "SCOPE_TEXT_2": " entwickelt. Das Portfolio dient ausschließlich zu Lern- und Präsentationszwecken und ist nicht für eine umfangreiche private oder geschäftliche Nutzung vorgesehen. Daher kann keine Gewähr für dauerhafte Verfügbarkeit, Fehlerfreiheit oder inhaltliche Richtigkeit übernommen werden. Das Design von ",
+        "SCOPE_TEXT_3": " ist Eigentum der ",
+        "SCOPE_TEXT_4": " Eine unerlaubte Nutzung, Vervielfältigung, Veränderung oder Weitergabe des Designs ist nicht gestattet.",
+        "RIGHTS_TITLE": "Urheber- und Schutzrechte",
+        "RIGHTS_TEXT_1": "Abgesehen vom Design, das der ",
+        "RIGHTS_TEXT_2": " gehört, behalten wir (die aufgeführten Studierenden) alle Rechte an eigenen Inhalten, Quellcodes und Materialien innerhalb des ",
+        "USE_TITLE": "Zulässige Nutzung",
+        "USE_TEXT": " darf ausschließlich im Rahmen geltender Gesetze genutzt werden. Eine Verwendung für rechtswidrige Zwecke oder zur Belästigung, Schädigung, Bedrohung oder Einschüchterung anderer Personen ist untersagt. Für sämtliche Interaktionen mit dem Portfolio bist du selbst verantwortlich.",
+        "DISCLAIMER_TITLE": "Haftungsausschluss",
+        "DISCLAIMER_TEXT_1": " wird ohne Gewährleistung jeglicher Art bereitgestellt. Weder wir (die aufgeführten Studierenden) noch die ",
+        "DISCLAIMER_TEXT_2": " haften für direkte oder indirekte Schäden, die aus der Nutzung oder Nichtverfügbarkeit dieses Portfolios entstehen.",
+        "INDEMNITY_TITLE": "Freistellung",
+        "INDEMNITY_TEXT_1": "Du erklärst dich damit einverstanden, uns (die aufgeführten Studierenden), die ",
+        "INDEMNITY_TEXT_2": " sowie deren Partner, Organe und Mitarbeitende von sämtlichen Ansprüchen, Schäden oder Kosten (einschließlich angemessener Anwaltskosten) freizustellen, die aus deiner Nutzung des ",
+        "QUESTIONS_TEXT": "Bei Fragen oder Hinweisen erreichst du mich unter",
+        "DATE_TEXT": "Stand: 13. Januar 2026"
     }
 }

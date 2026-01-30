@@ -23,7 +23,9 @@
     <app-contact-form (legalNoticeClick)="openLegalNotice()"></app-contact-form>
   </section>
 
-  <app-legal-notice *ngIf="isLegalNoticeOpen" (close)="closeLegalNotice()"></app-legal-notice>
+  <app-legal-notice *ngIf="isLegalNoticeOpen" (close)="closeLegalNotice()"
+    (emailClick)="closeLegalNoticeAndScrollToContact()">
+  </app-legal-notice>
 </main>
 
 

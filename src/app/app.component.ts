@@ -48,5 +48,14 @@ export class AppComponent {
   closeLegalNotice() {
     this.isLegalNoticeOpen = false;
   }
+
+  closeLegalNoticeAndScrollToContact() {
+    this.isLegalNoticeOpen = false;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
 }
 
