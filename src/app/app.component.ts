@@ -22,7 +22,7 @@ import { ArrowUpComponent } from './arrow-up/arrow-up.component';
     ContactFormComponent,
     LandingPageComponent,
     LegalNoticeComponent,
-    ArrowUpComponent
+    ArrowUpComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

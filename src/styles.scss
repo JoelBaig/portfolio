@@ -5,34 +5,34 @@
 @import "./keyframes.scss";
 
 body {
-    margin: 0;
-    font-family: 'Bricolage Grotesque', sans-serif;
+  margin: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .d-none {
-    display: none;
+  display: none;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .lock-scroll {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
 }
 
 .letter {
-    display: inline-block;
-    line-height: 1;
-    cursor: pointer;
-    color: inherit;
-    position: static;
+  display: inline-block;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  position: static;
 }
 
 .letter:hover {
-    color: #f7c719;
+  color: #f7c719;
 }
 
 body.modal-open {
@@ -64,4 +64,15 @@ body.modal-open {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.55);
+}
+
+:root {
+  --container: min(1100px, 92vw);
+  --pad: 16px;
+}
+
+.layout-container {
+  width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--pad);
 }

@@ -123,19 +123,19 @@
 }
 
 .hello-world .label {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
-  color: #fff;
-  font-weight: 200;
-  font-size: 18px;
-  line-height: 1;
-  white-space: nowrap;
+    color: #fff;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1;
+    white-space: nowrap;
 
-  z-index: 1;
-  pointer-events: none;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hello-world .icon-wrap {
@@ -244,4 +244,17 @@
     &:hover .smiley {
         content: ":D";
     }
+}
+
+.wrapper-main,
+.contact-wrapper,
+.main-content {
+    width: var(--container);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+}
+
+.text-top,
+.text-bottom {
+    font-size: clamp(56px, 9vw, 120px);
 }

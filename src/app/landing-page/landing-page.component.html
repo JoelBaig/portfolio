@@ -1,76 +1,9 @@
-<!-- <app-navbar variant="default" class="navbar-main"></app-navbar>
-
-<div class="landing-page-main-con">
-  <img class="landingpage-bgr" src="./assets/img/header/background_header.png" alt="">
-
-  <div class="main-content">
-    <div class="contact-icons">
-      <a class="social-icons" href="https://www.linkedin.com/in/joel-baig-51ab56305/" target="_blank"
-        rel="noopener noreferrer">
-        <img src="./assets/img/header/linkedin_default.png" alt="linkedin">
-      </a>
-
-      <a class="social-icons" href="https://github.com/JoelBaig" target="_blank" rel="noopener noreferrer">
-        <img src="./assets/img/header/github_default.png" alt="github">
-      </a>
-
-      <div class="social-icons" (click)="scrollToSection('contact')">
-        <img src="./assets/img/header/email_default.png" alt="email">
-      </div>
-    </div>
-
-    <div class="main-content-top">
-      <span id="headlineFrontend" class="text-top">
-        {{ 'LANDING_PAGE.FRONTEND' | translate }}
-      </span>
-
-      <div class="hello-world" [class.has-interacted]="hasInteracted" [@container]="hover ? 'on' : 'off'"
-        (mouseenter)="onEnter()" (mouseleave)="onLeave()">
-
-        <span class="icon-wrap" [class.on]="hover">
-          <img class="icon" src="./assets/img/header/waving_hand.png" alt="wave">
-        </span>
-
-        <div class="pill-clip">
-          <div class="fill"></div>
-
-          <span class="label base" [style.opacity]="hover ? 0 : 1">{{ 'LANDING_PAGE.HELLO_WORLD' | translate }}</span>
-          <span class="label alt" [style.opacity]="hover ? 1 : 0">Joel Baig</span>
-        </div>
-      </div>
-
-      <div class="polaroid-con" (mouseenter)="hoverImg = true" (mouseleave)="hoverImg = false">
-        <img class="polaroid-img" src="./assets/joel4.png" alt="joel_baig">
-        <img class="polaroid-frame" src="./assets/img/header/polaroid_frame.png" alt="polaroid_frame">
-        <div class="smiley">
-          Joel {{ hoverImg ? ':D' : ':)' }}
-        </div>
-      </div>
-
-      <div class="main-content-bottom">
-
-        <span id="headlineDeveloper" class="text-bottom">
-          {{ 'LANDING_PAGE.DEVELOPER' | translate }}
-        </span>
-
-        <app-app-btn (click)="scrollToSection('contact')" class="get-in-touch-btn"
-          [text]="'LANDING_PAGE.GET_IN_TOUCH_BTN' | translate" [color]="'white'" [hoverColor]="'white'" [visible]="true"
-          [width]="'180px'" [height]="'45px'" [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
-          [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
-        </app-app-btn>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
 <app-navbar variant="default" class="navbar-main"></app-navbar>
 
 <div class="landing-page-main-con">
   <img class="landingpage-bgr" src="./assets/img/header/background_header.png" alt="">
 
-  <div class="main-content">
+  <div class="main-content layout-container">
     <div class="contact-icons">
       <a class="social-icons" href="https://www.linkedin.com/in/joel-baig-51ab56305/" target="_blank"
         rel="noopener noreferrer">
@@ -87,7 +20,6 @@
     </div>
 
     <div class="main-content-top">
-      <!-- wird in TS gerendert -->
       <span id="headlineFrontend" class="text-top"></span>
 
       <div class="hello-world" [class.has-interacted]="hasInteracted" [@container]="hover ? 'on' : 'off'"
@@ -116,7 +48,6 @@
       </div>
 
       <div class="main-content-bottom">
-        <!-- wird in TS gerendert -->
         <span id="headlineDeveloper" class="text-bottom"></span>
 
         <app-app-btn (click)="scrollToSection('contact')" class="get-in-touch-btn"

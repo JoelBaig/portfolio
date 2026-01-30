@@ -1,7 +1,7 @@
 <div class="contact-con-main">
     <img src="./assets/contact_form/bgr_contact.png" alt="">
 
-    <div class="contact-wrapper">
+    <div class="contact-wrapper layout-container">
         <div class="contact-headline-con">
             <app-app-headline class="contact-headline" [subtitle]="'CONTACT.SUBTITLE'" [title]="'CONTACT.TITLE'"
                 [lineImage]="'./assets/contact_form/yellow_arrow_contact.png'" [animateLine]="true" [textAlign]="'left'"
@@ -101,6 +101,6 @@
     <div class="toast error" *ngIf="sendStatus === 'error'" [class.hide]="!toastVisible">
         <span>{{'CONTACT.TOAST_ERROR' | translate}}</span>
     </div>
+    
+    <app-footer class="site-footer" [theme]="'dark'" (legalNoticeClick)="onLegalNoticeClick()"></app-footer>
 </div>
-
-<app-footer class="site-footer" [theme]="'dark'" (legalNoticeClick)="onLegalNoticeClick()"></app-footer>
