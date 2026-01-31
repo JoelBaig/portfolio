@@ -33,12 +33,18 @@ export class NavbarComponent {
   }
 
   selectLanguage(lang: 'en' | 'de') {
-  if (lang === this.selectedLanguage) return;
+    if (lang === this.selectedLanguage) return;
 
-  this.dotAnimationClass = lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
-  this.selectedLanguage = lang;
-  this.translate.use(lang);
-}
+    this.dotAnimationClass = lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
+    this.selectedLanguage = lang;
+    this.translate.use(lang);
+  }
+
+  ngOnInit() {
+    this.selectedLanguage = 'en';
+    this.dotAnimationClass = '';
+    this.translate.use('en');
+  }
 
   scrollToSection(sectionId: string) {
     this.navClick.emit();

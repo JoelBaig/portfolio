@@ -51,7 +51,7 @@ export class ColleaguesThoughtsComponent {
       case 0:
         return {
           top: '30%',
-          left: '75%',
+          left: '72%',
           transform: 'translate(-50%, -50%) rotate(5deg)'
         };
       case 1:
@@ -63,7 +63,7 @@ export class ColleaguesThoughtsComponent {
       case 2:
         return {
           top: '30%',
-          left: '25%',
+          left: '29%',
           transform: 'translate(-50%, -50%) rotate(-5deg)'
         };
       default:

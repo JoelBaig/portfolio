@@ -1,52 +1,69 @@
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
+/* =========================
+   CONTACT SECTION LAYOUT
+========================= */
+
 .contact-con-main {
-  position: relative;
-  width: 100vw;
-  height: 70vh;          
-  display: flex;
-  justify-content: center;
-  color: white;
-  overflow: hidden;
-top: 100px;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    /* ✅ NEU */
+    align-items: center;
+    /* ✅ NEU */
+    justify-content: flex-start;
+    /* ✅ NEU */
+    color: white;
+    overflow: hidden;
 }
 
-/* ✅ Background immer full + cover */
-.contact-con-main > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-//   height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.contact-wrapper {
+.contact-con-main>img {
     position: absolute;
-    top: 100px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    /* ✅ NEU: Abriss oben bleibt sichtbar */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Wrapper: normal im Flow (nicht absolute) */
+.contact-wrapper {
+    max-width: 1440px;
+    position: relative;
+    top: 150px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 55vw;
+    align-items: flex-start;
+    gap: 60px;
+    width: 80vw;
 }
 
+/* Linke Spalte */
 .contact-headline-con {
-    width: 100%;
+    width: 50vw;
 }
 
 .contact-headline {
-    width: 40%;
-    position: absolute;
+    width: 100%;
+    position: relative;
 }
 
+/* Rechte Spalte (Form) */
 .contact-con {
-    width: 30vw;
-    position: absolute;
-    top: 200px;
-    right: 0;
+    width: min(520px, 100%);
+    position: relative;
+    top: 120px;
 }
+
+/* =========================
+   FORM ELEMENTS
+========================= */
 
 label {
     display: flex;
@@ -55,23 +72,11 @@ label {
     font-size: 26px;
 }
 
-.name-field {
-    display: flex;
-    flex-direction: column;
-}
-
-.email-field {
-    display: flex;
-    flex-direction: column;
-}
-
+.name-field,
+.email-field,
 .help-field {
     display: flex;
     flex-direction: column;
-}
-
-input {
-    width: 300px;
 }
 
 input,
@@ -81,9 +86,8 @@ textarea {
     color: white;
     font-size: 17px;
     font-family: inherit;
-    height: 25px;
-    resize: none;
     outline: none;
+    resize: none;
 
     &::placeholder {
         color: white;
@@ -96,24 +100,38 @@ textarea {
     }
 }
 
-.form-line-1 {
-    width: 30vw;
+/* Input sizes */
+input {
+    width: 300px;
+    height: 25px;
+}
+
+textarea {
+    width: 100%;
+    height: 20px;
+}
+
+/* Lines */
+.form-line-1,
+.form-line-2,
+.form-line-3,
+.form-line-4 {
+    width: 100%;
     height: 1px;
+    margin: 10px 0;
+}
+
+.form-line-1 {
     background-color: transparent;
-    margin-bottom: 10px;
-    margin-top: 10px;
 }
 
 .form-line-2,
 .form-line-3,
 .form-line-4 {
-    width: 30vw;
-    height: 1px;
     background-color: yellow;
-    margin-bottom: 10px;
-    margin-top: 10px;
 }
 
+/* Hover interaction like before */
 .name-field:hover+.form-line-2,
 .name-field:focus-within+.form-line-2 {
     background-color: blue;
@@ -168,37 +186,15 @@ textarea {
     cursor: pointer;
 }
 
-.checkbox-img {
-    cursor: pointer;
-}
-
-.privacy-policy-text {
-    font-size: 14px;
-}
-
-.send-button {
-    position: absolute;
-    right: 0;
-    bottom: -150px;
-}
-
-.btn-disabled {
-    pointer-events: none;
-    filter: grayscale(1) brightness(0.8);
-    opacity: 0.6;
-}
-
+/* Checkbox */
 .checkbox-con {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.privacy-hint {
-    font-size: 12px;
-    color: #e47b57;
-    position: absolute;
-    bottom: -30px;
+.checkbox-img {
+    cursor: pointer;
 }
 
 .checkbox-hover-img {
@@ -210,26 +206,71 @@ textarea {
     pointer-events: none;
 }
 
-.checkbox-img.checked {
-    width: 18px;
-    height: 18px;
-}
-
+.checkbox-img.checked,
 .checkbox-img.unchecked {
     width: 18px;
     height: 18px;
 }
 
+/* Privacy */
+.privacy-policy-text {
+    font-size: 14px;
+}
+
+.privacy-hint {
+    font-size: 12px;
+    color: #e47b57;
+    margin-top: 8px;
+}
+
+/* Errors */
+.error {
+    color: #e47b57;
+    margin-top: 6px;
+}
+
+.error-placeholder::placeholder,
+.error-placeholder::-webkit-input-placeholder,
+.error-placeholder:-ms-input-placeholder,
+.error-placeholder::-ms-input-placeholder {
+    color: #e47b57;
+    opacity: 1;
+}
+
+/* Send Button */
+.send-button {
+    display: inline-block;
+    align-self: flex-end;
+    margin-top: 24px;
+}
+
+.btn-disabled {
+    pointer-events: none;
+    filter: grayscale(1) brightness(0.8);
+    opacity: 0.6;
+}
+
+/* =========================
+   STICKER (positions as before, but safe)
+========================= */
+
 .sticker-con {
     position: absolute;
     right: 10px;
     top: -120px;
+    pointer-events: none;
+    /* rein optisch */
+}
+
+.orange-sticker {
+    pointer-events: none;
 }
 
 .sticker-text {
     position: relative;
     top: -173px;
     right: -2px;
+    pointer-events: none;
 }
 
 .circle-text {
@@ -243,117 +284,98 @@ textarea {
     position: absolute;
     top: 50px;
     left: 55px;
+    pointer-events: none;
 }
 
-.logo-wrapper {
-    position: absolute;
-    display: inline-block;
-    margin-top: 1320px;
-    cursor: pointer;
-
-    .logo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .logo-blue {
-        z-index: 1;
-        opacity: 1;
-    }
-
-    .logo-yellow {
-        z-index: 2;
-        opacity: 0;
-    }
-
-    &:hover .logo-blue {
-        opacity: 0;
-    }
-
-    &:hover .logo-yellow {
-        opacity: 1;
-    }
-}
-
-.logo {
-    position: absolute;
-}
-
-.my-name {
-    position: relative;
-    top: 55px;
-}
-
-.error {
-    color: #e47b57;
-}
-
-.error-placeholder::placeholder {
-    color: #e47b57;
-    opacity: 1;
-}
-
-.error-placeholder::-webkit-input-placeholder {
-    color: #e47b57;
-    opacity: 1;
-}
-
-.error-placeholder:-ms-input-placeholder {
-    color: #e47b57;
-    opacity: 1;
-}
-
-.error-placeholder::-ms-input-placeholder {
-    color: #e47b57;
-    opacity: 1;
-}
+/* =========================
+   TOAST
+========================= */
 
 .toast {
-  position: fixed;
-  bottom: 40px;
-  right: 90px;
-  padding: 16px 24px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  z-index: 9999;
-  backdrop-filter: blur(8px);
+    position: fixed;
+    bottom: 40px;
+    right: 90px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
 
-  /* ✅ Startzustand = "unten + unsichtbar" */
-  opacity: 0;
-  transform: translateY(20px);
-
-  /* ✅ Smooth rein UND raus */
-  transition: transform 300ms ease, opacity 300ms ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 300ms ease, opacity 300ms ease;
 }
 
-/* ✅ Sichtbar-Zustand */
 .toast:not(.hide) {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* ✅ Hide-Zustand (geht wieder runter) */
 .toast.hide {
-  opacity: 0;
-  transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .toast.success {
-  background: rgba(80, 200, 120, 0.15);
-  color: #50c878;
-  border: 1px solid rgba(80, 200, 120, 0.4);
+    background: rgba(80, 200, 120, 0.15);
+    color: #50c878;
+    border: 1px solid rgba(80, 200, 120, 0.4);
 }
 
 .toast.error {
-  background: rgba(255, 90, 90, 0.15);
-  color: #ff5a5a;
-  border: 1px solid rgba(255, 90, 90, 0.4);
+    background: rgba(255, 90, 90, 0.15);
+    color: #ff5a5a;
+    border: 1px solid rgba(255, 90, 90, 0.4);
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .site-footer {
+    max-width: 1440px;
+    width: 80vw;
     position: relative;
-    bottom: -800px;
+    top: 350px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1043px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .sticker-con {
+        display: none;
+        /* optional: Sticker auf kleineren Screens aus */
+    }
+
+    .toast {
+        right: 16px;
+        left: 16px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    label {
+        font-size: 20px;
+    }
+
+    input,
+    textarea {
+        font-size: 16px;
+    }
 }

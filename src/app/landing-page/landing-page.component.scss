@@ -2,6 +2,7 @@
 @import './../../keyframes.scss';
 
 .navbar-main {
+    max-width: 1440px;
     width: 90vw;
     position: absolute;
     z-index: 1;
@@ -14,22 +15,25 @@
 
 .landingpage-bgr {
     width: 100vw;
-    height: 95vh;
+    height: 70vh;
+    min-width: 100vw;
 }
 
 .landing-page-main-con {
+    max-width: 1440px;
     width: 100%;
-    height: 100%;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main-content {
-    width: 55vw;
+    max-width: 1440px;
+    width: 800px;
     height: 50vh;
     position: absolute;
-    top: 200px;
+    top: 0px;
 }
 
 .main-content-top {
@@ -176,7 +180,8 @@
 
 .contact-icons {
     position: relative;
-    top: 700px;
+    top: 650px;
+    left: -320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -213,7 +218,7 @@
 
 .polaroid-con {
     position: absolute;
-    right: 80px;
+    right: 0px;
     bottom: 18px;
     transform: rotate(8deg);
     transform-origin: center center;
@@ -249,7 +254,7 @@
 .wrapper-main,
 .contact-wrapper,
 .main-content {
-    width: var(--container);
+    // width: var(--container);
     margin: 0 auto;
     padding-inline: var(--pad);
 }

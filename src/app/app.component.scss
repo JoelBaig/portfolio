@@ -18,11 +18,15 @@ body {
 }
 
 .site-footer {
-    z-index: 1;
-    width: 90vw;
+    width: 100%;
 }
 
 .lp {
+    display: flex;
+    justify-content: center;
+}
+
+.my-skills {
     display: flex;
     justify-content: center;
 }

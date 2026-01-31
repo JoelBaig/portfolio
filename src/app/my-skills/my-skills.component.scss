@@ -20,8 +20,9 @@
 }
 
 .wrapper-main {
+    max-width: 1440px;
     position: absolute;
-    width: 55vw;
+    width: 80vw;
     height: 55%;
     z-index: 1;
 }
@@ -189,7 +190,7 @@ p {
     justify-content: flex-end;
     align-items: center;
     position: relative;
-    left: 180px;
+    left: 160px;
     transform: rotate(10deg);
     transform-origin: center;
 
@@ -214,7 +215,7 @@ p {
 
 .sticker-reveal {
     position: absolute;
-    top: 40px;
+    top: 60px;
     width: 180px;
     height: 170px;
     padding: 10px;

@@ -3,7 +3,6 @@
 
 .projects-main {
   height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -17,7 +16,8 @@
   display: flex;
   justify-content: space-between;
   gap: 100px;
-  width: 55vw;
+  width: 80vw;
+  max-width: 1440px;
 }
 
 /* ---------- Project Card ---------- */
@@ -61,7 +61,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 32px;
 
   /* Project image (alle gleich behandeln) */
   img.project-img {

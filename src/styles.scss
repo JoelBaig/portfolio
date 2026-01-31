@@ -13,9 +13,9 @@ body {
   display: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+// html {
+//   scroll-behavior: smooth;
+// }
 
 .lock-scroll {
   position: fixed;
@@ -67,7 +67,8 @@ body.modal-open {
 }
 
 :root {
-  --container: min(1100px, 92vw);
+  /* Content niemals breiter als 1440px, auf kleineren Screens 92vw */
+  --container: min(1440px, 92vw);
   --pad: 16px;
 }
 
