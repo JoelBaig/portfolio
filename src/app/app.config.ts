@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { provideHttpClient, HttpClient } from '@angular/common/http';
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'de',
+        defaultLanguage: 'en',
         useDefaultLang: true,
         loader: {
           provide: TranslateLoader,
@@ -34,4 +34,12 @@ export const appConfig: ApplicationConfig = {
     ),
   ]
 };
+
+provideRouter(
+  routes,
+  withInMemoryScrolling({
+    scrollPositionRestoration: 'top',
+    anchorScrolling: 'enabled',
+  })
+)
 

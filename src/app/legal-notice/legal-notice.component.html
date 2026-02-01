@@ -1,102 +1,43 @@
-<div class="modal-backdrop" (click)="onBackdropClick($event)">
-    <div class="modal-panel" (click)="$event.stopPropagation()">
-        <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.png" alt="">
+<div class="legal-page">
+    <app-navbar class="nav-legal-notice" variant="default"></app-navbar>
 
-        <app-navbar variant="default" class="navbar-main nav-legal-notice" (navClick)="close.emit()">
-        </app-navbar>
+    <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.png" alt="" />
 
-        <div class="content">
-            <h1>{{ 'LEGAL.TITLE' | translate }}</h1>
+    <main class="content">
+        <h1>{{ 'LEGAL.TITLE' | translate }}</h1>
 
-            <h2>{{ 'LEGAL.IMPRINT_TITLE' | translate }}</h2>
-            <p class="preline">{{ 'LEGAL.IMPRINT_TEXT' | translate }}</p>
+        <h2>{{ 'LEGAL.IMPRINT_TITLE' | translate }}</h2>
+        <p class="preline">{{ 'LEGAL.IMPRINT_TEXT' | translate }}</p>
 
-            <h3>{{ 'LEGAL.PROJECT_TITLE' | translate }}</h3>
-            <p class="preline">{{ 'LEGAL.PROJECT_TEXT' | translate }}</p>
+        <h3>{{ 'LEGAL.PROJECT_TITLE' | translate }}</h3>
+        <p class="preline">{{ 'LEGAL.PROJECT_TEXT' | translate }}</p>
 
-            <h3>{{ 'LEGAL.TERMS_TITLE' | translate }}</h3>
-            <p>
-                {{ 'LEGAL.TERMS_TEXT_1' | translate }}
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>
-                {{ 'LEGAL.TERMS_TEXT_2' | translate }}
-            </p>
+        <h3>{{ 'LEGAL.TERMS_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.TERMS_TEXT_1' | translate }}</p>
 
-            <h3>{{ 'LEGAL.SCOPE_TITLE' | translate }}</h3>
-            <p>
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>
-                {{ 'LEGAL.SCOPE_TEXT_1' | translate }}
-                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">
-                    {{ 'LEGAL.DEV_AKADEMIE' | translate }}
-                </a>.
-                {{ 'LEGAL.SCOPE_TEXT_2' | translate }}
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>
-                {{ 'LEGAL.SCOPE_TEXT_3' | translate }}
-                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">
-                    {{ 'LEGAL.DEV_AKADEMIE' | translate }}
-                </a>.
-                {{ 'LEGAL.SCOPE_TEXT_4' | translate }}
-            </p>
+        <h3>{{ 'LEGAL.SCOPE_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.SCOPE_TEXT_1' | translate }}</p>
 
-            <h3>{{ 'LEGAL.RIGHTS_TITLE' | translate }}</h3>
-            <p>
-                {{ 'LEGAL.RIGHTS_TEXT_1' | translate }}
-                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">
-                    {{ 'LEGAL.DEV_AKADEMIE' | translate }}
-                </a>,
-                {{ 'LEGAL.RIGHTS_TEXT_2' | translate }}
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>.
-            </p>
+        <h3>{{ 'LEGAL.RIGHTS_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.RIGHTS_TEXT_1' | translate }}</p>
 
-            <h3>{{ 'LEGAL.USE_TITLE' | translate }}</h3>
-            <p>
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>
-                {{ 'LEGAL.USE_TEXT' | translate }}
-            </p>
+        <h3>{{ 'LEGAL.USE_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.USE_TEXT' | translate }}</p>
 
-            <h3>{{ 'LEGAL.DISCLAIMER_TITLE' | translate }}</h3>
-            <p>
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>
-                {{ 'LEGAL.DISCLAIMER_TEXT_1' | translate }}
-                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">
-                    {{ 'LEGAL.DEV_AKADEMIE' | translate }}
-                </a>,
-                {{ 'LEGAL.DISCLAIMER_TEXT_2' | translate }}
-            </p>
+        <h3>{{ 'LEGAL.DISCLAIMER_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.DISCLAIMER_TEXT_1' | translate }}</p>
 
-            <h3>{{ 'LEGAL.INDEMNITY_TITLE' | translate }}</h3>
-            <p>
-                {{ 'LEGAL.INDEMNITY_TEXT_1' | translate }}
-                <a href="https://developerakademie.com" target="_blank" rel="noopener noreferrer">
-                    {{ 'LEGAL.DEV_AKADEMIE' | translate }}
-                </a>,
-                {{ 'LEGAL.INDEMNITY_TEXT_2' | translate }}
-                <a href="#" (click)="$event.preventDefault(); close.emit()">
-                    {{ 'LEGAL.PORTFOLIO_LINK' | translate }}
-                </a>.
-            </p>
+        <h3>{{ 'LEGAL.INDEMNITY_TITLE' | translate }}</h3>
+        <p>{{ 'LEGAL.INDEMNITY_TEXT_1' | translate }}</p>
 
-            <p class="preline">
-                {{ 'LEGAL.QUESTIONS_TEXT' | translate }}
-                <a href="#" (click)="$event.preventDefault(); onEmailClick()">ibaig@web.de</a>.
-                <br><br>
-                {{ 'LEGAL.DATE_TEXT' | translate }}
-            </p>
-        </div>
-
-        <app-footer [theme]="'light'" class="legal-notice-footer" [showLegalLink]="true"
-            (legalNoticeClick)="close.emit()" (emailClick)="close.emit()">
-        </app-footer>
-    </div>
+        <p class="preline">
+            {{ 'LEGAL.QUESTIONS_TEXT' | translate }}
+            <a href="mailto:ibaig@web.de">ibaig@web.de</a>
+            <br /><br />
+            {{ 'LEGAL.DATE_TEXT' | translate }}
+        </p>
+            <app-footer class="legal-notice-footer-pos" [theme]="'light'" [legalAsClose]="true" (legalNoticeClick)="closeToHomeTop()"
+        (emailClick)="closeToContact()">
+    </app-footer>
+    </main>
 </div>

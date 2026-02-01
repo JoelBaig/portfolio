@@ -11,25 +11,25 @@
     <ul class="nav-links">
       <li class="nav-about-me">
         <a class="nav-link" (click)="scrollToSection('about-me')">
-           <span class="nav-text">{{ 'NAV.ABOUT' | translate }}</span>
+          <span class="nav-text">{{ 'NAV.ABOUT' | translate }}</span>
           <img src="assets/img/header/B.2.png" class="hover-bg" />
         </a>
       </li>
       <li class="nav-skills">
         <a class="nav-link" (click)="scrollToSection('skills')">
-           <span class="nav-text">{{ 'NAV.SKILLS' | translate }}</span>
+          <span class="nav-text">{{ 'NAV.SKILLS' | translate }}</span>
           <img src="assets/img/header/B.1.png" class="hover-bg" />
         </a>
       </li>
       <li class="nav-projects">
         <a class="nav-link" (click)="scrollToSection('projects')">
-           <span class="nav-text">{{ 'NAV.PROJECTS' | translate }}</span>
+          <span class="nav-text">{{ 'NAV.PROJECTS' | translate }}</span>
           <img src="assets/img/header/B.4.png" class="hover-bg" />
         </a>
       </li>
       <li class="nav-contact">
         <a class="nav-link" (click)="scrollToSection('contact')">
-           <span class="nav-text">{{ 'NAV.CONTACT' | translate }}</span>
+          <span class="nav-text">{{ 'NAV.CONTACT' | translate }}</span>
           <img src="assets/img/header/B.3.png" class="hover-bg" />
         </a>
       </li>
@@ -39,9 +39,11 @@
   <div class="navbar-right">
     <div class="language-wrapper">
       <div class="en-language-wrapper" (click)="selectLanguage('en')">
-        <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red" src="/assets/img/header/en_red.png">
+        <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
+          src="/assets/img/header/en_red.png">
         <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png">
-        <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white" src="/assets/img/header/en_white.png">
+        <img [ngClass]="{'visible': selectedLanguage !== 'en'}" class="language-pos en-language-white"
+          src="/assets/img/header/en_white.png">
       </div>
 
       <div class="language-switch-wrapper">
@@ -50,9 +52,11 @@
       </div>
 
       <div class="de-language-wrapper" (click)="selectLanguage('de')">
-        <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white" src="/assets/img/header/de_white.png">
+        <img [ngClass]="{'visible': selectedLanguage !=='de'}" class="language-pos de-language-white"
+          src="/assets/img/header/de_white.png">
         <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png">
-        <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red" src="/assets/img/header/de_red.png">
+        <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red"
+          src="/assets/img/header/de_red.png">
       </div>
     </div>
   </div>

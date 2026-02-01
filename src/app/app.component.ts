@@ -1,61 +1,20 @@
-import { Component } from '@angular/core';
-import { AboutMeSectionComponent } from "./about-me-section/about-me-section.component";
-import { MySkillsComponent } from './my-skills/my-skills.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ColleaguesThoughtsComponent } from "./colleagues-thoughts/colleagues-thoughts.component";
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { LandingPageComponent } from "./landing-page/landing-page.component";
-import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
-import { CommonModule } from '@angular/common';
-import { ArrowUpComponent } from './arrow-up/arrow-up.component';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    LandingPageComponent,
-    AboutMeSectionComponent,
-    MySkillsComponent,
-    ProjectsComponent,
-    ColleaguesThoughtsComponent,
-    ContactFormComponent,
-    LandingPageComponent,
-    LegalNoticeComponent,
-    ArrowUpComponent,
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'portfolio-temp';
+  private translate = inject(TranslateService);
 
-  isLegalNoticeOpen = false;
-  isProjectsOpen = false;
-
-  openProjects() {
-    this.isProjectsOpen = true;
-  }
-
-  closeProjects() {
-    this.isProjectsOpen = false;
-  }
-
-  openLegalNotice() {
-    this.isLegalNoticeOpen = true;
-  }
-
-  closeLegalNotice() {
-    this.isLegalNoticeOpen = false;
-  }
-
-  closeLegalNoticeAndScrollToContact() {
-    this.isLegalNoticeOpen = false;
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+  constructor() {
+    localStorage.removeItem('lang');
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
   }
 }
-

@@ -13,10 +13,6 @@ body {
   display: none;
 }
 
-// html {
-//   scroll-behavior: smooth;
-// }
-
 .lock-scroll {
   position: fixed;
   overflow: hidden;
@@ -39,13 +35,11 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.35) transparent;
 }
 
-/* Webkit */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -67,7 +61,6 @@ body.modal-open {
 }
 
 :root {
-  /* Content niemals breiter als 1440px, auf kleineren Screens 92vw */
   --container: min(1440px, 92vw);
   --pad: 16px;
 }

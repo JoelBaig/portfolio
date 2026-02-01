@@ -1,35 +1,39 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Component, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [
-    CommonModule,
-    NgClass,
-    TranslateModule
-  ],
+  imports: [CommonModule, NgClass, TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   @Output() navClick = new EventEmitter<void>();
+  @Input() variant: 'default' | 'overlay' = 'default';
 
   activeSection: string | null = null;
   selectedLanguage: 'en' | 'de' = 'en';
   dotAnimationClass = '';
 
-  @Input() variant: 'default' | 'overlay' = 'default';
+  private langSub?: Subscription;
 
-  constructor(private translate: TranslateService) {
-    const saved = (localStorage.getItem('lang') as 'en' | 'de') || 'de';
-    this.selectedLanguage = saved;
-    this.translate.use(saved);
+  constructor(private translate: TranslateService) { }
+
+  ngOnInit() {
+    this.selectedLanguage = (this.translate.currentLang as 'en' | 'de') ?? 'en';
+    this.setDotPositionInstant(this.selectedLanguage);
+    this.langSub = this.translate.onLangChange.subscribe((e: LangChangeEvent) => {
+      const lang = (e.lang as 'en' | 'de') ?? 'en';
+      this.selectedLanguage = lang;
+      this.setDotPositionInstant(lang);
+    });
   }
 
-  emitNavClick() {
-    this.navClick.emit();
+  ngOnDestroy() {
+    this.langSub?.unsubscribe();
   }
 
   selectLanguage(lang: 'en' | 'de') {
@@ -37,23 +41,24 @@ export class NavbarComponent {
 
     this.dotAnimationClass = lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
     this.selectedLanguage = lang;
-    this.translate.use(lang);
+
+    if (this.translate.currentLang !== lang) {
+      this.translate.use(lang);
+    }
   }
 
-  ngOnInit() {
-    this.selectedLanguage = 'en';
-    this.dotAnimationClass = '';
-    this.translate.use('en');
+  private setDotPositionInstant(lang: 'en' | 'de') {
+    this.dotAnimationClass = lang === 'de' ? 'dot-right' : 'dot-left';
+  }
+
+  emitNavClick() {
+    this.navClick.emit();
   }
 
   scrollToSection(sectionId: string) {
     this.navClick.emit();
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      this.activeSection = sectionId;
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.activeSection = sectionId;
   }
 
   @HostListener('window:scroll', [])
@@ -62,7 +67,6 @@ export class NavbarComponent {
     for (const id of sections) {
       const el = document.getElementById(id);
       if (!el) continue;
-
       const rect = el.getBoundingClientRect();
       if (rect.top <= 150 && rect.bottom >= 150) {
         this.activeSection = id;

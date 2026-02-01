@@ -150,7 +150,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-        cursor: pointer;
+    cursor: pointer;
 }
 
 .language-switch-wrapper {
@@ -166,9 +166,17 @@
 .language-dot {
     position: absolute;
     top: 50%;
-    left: 15%;
     transform: translate(-50%, -50%);
-    transition: transform 0.15s ease-in-out;
+    transition: left 0.15s ease-in-out;
+    will-change: left, transform;
+}
+
+.dot-left {
+    left: 15%;
+}
+
+.dot-right {
+    left: 85%;
 }
 
 .dot-animate-right {

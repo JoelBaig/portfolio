@@ -1,8 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, inject, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-legal-notice',
@@ -16,27 +17,28 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss'
 })
-export class LegalNoticeComponent {
-  @Output() close = new EventEmitter<void>();
-  @Output() emailClick = new EventEmitter<void>();
+export class LegalNoticeComponent implements AfterViewInit {
+  private router = inject(Router);
 
-  activeSection: string | null = null;
-
-  ngOnInit(): void {
-    document.body.classList.add('modal-open');
+  closeToHomeTop() {
+    this.router.navigateByUrl('/').then(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      });
+    });
   }
 
-  ngOnDestroy(): void {
-    document.body.classList.remove('modal-open');
+  closeToContact() {
+    this.router.navigateByUrl('/#contact').then(() => {
+      requestAnimationFrame(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
-  onBackdropClick(event: MouseEvent) {
-    if (event.target === event.currentTarget) {
-      this.close.emit();
-    }
-  }
-
-  onEmailClick() {
-    this.emailClick.emit();
+  ngAfterViewInit(): void {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
   }
 }

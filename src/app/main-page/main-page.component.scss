@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden !important;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+.page-content {
+    flex: 1 0 auto;
+    overflow-x: hidden !important;
+}
+
+.site-footer {
+    width: 100%;
+}
+
+.lp {
+    display: flex;
+    justify-content: center;
+}
+
+.my-skills {
+    display: flex;
+    justify-content: center;
+}
