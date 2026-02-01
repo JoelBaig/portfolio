@@ -71,9 +71,15 @@
 }
 
 .wrapper-right {
-    position: relative;
-    right: 50px;
+  position: relative;
+  right: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* Buttons rechts unter Bild */
+  gap: 18px;              /* ✅ Abstand Bild → Buttons konstant */
 }
+
 
 .single-project-headline {
     width: 40%;
@@ -119,8 +125,6 @@ h2 {
     z-index: 2002;
     width: 100%;
     max-width: 1440px;
-    padding-inline: clamp(16px, 4vw, 48px);
-    box-sizing: border-box;
 }
 
 .back-btn-con {
@@ -240,13 +244,21 @@ h2 {
     }
 }
 
+// .bottom-btns-con {
+//     position: absolute;
+//     top: 500px;
+//     right: 50px;
+//     display: flex;
+//     justify-content: space-between;
+//     width: 400px;
+// }
+
+/* Buttons sind jetzt NICHT mehr absolut */
 .bottom-btns-con {
-    position: absolute;
-    top: 500px;
-    right: 50px;
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
+  position: static;       /* ✅ wichtig */
+  display: flex;
+  gap: 16px;
+  width: auto;            /* ✅ nicht fix 400px, sonst bricht’s */
 }
 
 @media (max-width: 900px) {
@@ -265,4 +277,14 @@ h2 {
     p {
         width: 100%;
     }
+
+      .bottom-btns-con {
+    position: sticky;   /* bleibt sichtbar beim Scrollen im Panel */
+    bottom: 20px;
+    right: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 16px;
+  }
 }
