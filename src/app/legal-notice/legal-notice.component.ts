@@ -41,4 +41,9 @@ export class LegalNoticeComponent implements AfterViewInit {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     });
   }
+
+  onEmailLinkClick(event: MouseEvent) {
+    event.preventDefault();
+    this.closeToContact();
+  }
 }

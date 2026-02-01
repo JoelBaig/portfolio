@@ -71,13 +71,13 @@
 }
 
 .wrapper-right {
-  position: relative;
-  right: 50px;
+    position: relative;
+    right: 50px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;  /* Buttons rechts unter Bild */
-  gap: 18px;              /* ✅ Abstand Bild → Buttons konstant */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
 }
 
 
@@ -183,14 +183,14 @@ h2 {
 
 .sticker-img {
     position: relative;
-    top: -265px;
-    right: -487px;
+    top: -364px;
+    right: -49px;
 }
 
 .sticker-text {
     position: absolute;
-    top: 103px;
-    right: -50px;
+    top: 102px;
+    right: -51px;
     height: 190px;
     width: 122px;
 }
@@ -244,21 +244,11 @@ h2 {
     }
 }
 
-// .bottom-btns-con {
-//     position: absolute;
-//     top: 500px;
-//     right: 50px;
-//     display: flex;
-//     justify-content: space-between;
-//     width: 400px;
-// }
-
-/* Buttons sind jetzt NICHT mehr absolut */
 .bottom-btns-con {
-  position: static;       /* ✅ wichtig */
-  display: flex;
-  gap: 16px;
-  width: auto;            /* ✅ nicht fix 400px, sonst bricht’s */
+    position: static;
+    display: flex;
+    gap: 16px;
+    width: auto;
 }
 
 @media (max-width: 900px) {
@@ -278,13 +268,13 @@ h2 {
         width: 100%;
     }
 
-      .bottom-btns-con {
-    position: sticky;   /* bleibt sichtbar beim Scrollen im Panel */
-    bottom: 20px;
-    right: 0;
-    width: 100%;
-    justify-content: center;
-    gap: 16px;
-    padding: 0 16px;
-  }
+    .bottom-btns-con {
+        position: sticky;
+        bottom: 20px;
+        right: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        padding: 0 16px;
+    }
 }

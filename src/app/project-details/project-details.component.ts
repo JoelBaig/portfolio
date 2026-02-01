@@ -108,6 +108,8 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       ],
       duration: 'PROJECT_DETAILS.DURATION_TIME_DABUBBLE',
       alt: 'dabubble_project',
+      githubUrl: 'https://github.com/JoelBaig/epl_',
+      liveUrl: 'https://elpolloloco.joelbaig.com/'
     },
   ];
 
