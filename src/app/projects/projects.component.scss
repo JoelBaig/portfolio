@@ -20,7 +20,6 @@
   max-width: 1440px;
 }
 
-/* ---------- Project Card ---------- */
 .single-project-con {
   position: relative;
   top: 150px;
@@ -31,20 +30,20 @@
   align-items: center;
   text-align: start;
 
-  > h1 {
+  >h1 {
     width: 80%;
     text-align: start;
     margin-top: 10px;
     font-size: 65px;
   }
 
-  > h3 {
+  >h3 {
     width: 80%;
     text-align: start;
     margin-bottom: 0;
   }
 
-  > h2 {
+  >h2 {
     width: 100%;
     margin-bottom: 0;
   }
@@ -52,10 +51,10 @@
 
 .project-info-txt {
   width: 100%;
-  height: 50px;
+  height: auto;
+  font-size: 20px;
 }
 
-/* ---------- Image Wrapper (responsiv + Button unten rechts) ---------- */
 .project-img-wrapper {
   position: relative;
   width: 100%;
@@ -63,7 +62,6 @@
   overflow: hidden;
   border-radius: 32px;
 
-  /* Project image (alle gleich behandeln) */
   img.project-img {
     width: 100%;
     display: block;
@@ -72,7 +70,6 @@
     transition: transform 0.6s ease, filter 0.6s ease;
   }
 
-  /* Floating Laptop (dein Featured-Projekt) */
   img.floating-img {
     padding-top: 22px;
     animation: float 3s ease-in-out infinite;
@@ -80,18 +77,15 @@
     transition: transform 0.5s ease, filter 0.5s ease;
   }
 
-  /* Hover Zoom + Brightness */
   &:hover img.project-img {
     transform: scale(1.08);
     filter: brightness(1.05);
   }
 
-  /* Beim Hover Floating stoppen (damit es nicht "kämpft") */
   &:hover img.floating-img {
     animation-play-state: paused;
   }
 
-  /* Gradient Overlay unten */
   &::after {
     content: '';
     position: absolute;
@@ -109,7 +103,6 @@
     opacity: 1;
   }
 
-  /* ✅ Button Overlay: immer unten rechts, unabhängig von Skalierung */
   .button-overlay,
   .button-overlay-notebook {
     position: absolute;
@@ -137,7 +130,6 @@
   }
 }
 
-/* ---------- Headline Styles (wie bei dir) ---------- */
 .headline-my-craft {
   font-weight: 400;
 }
@@ -169,7 +161,6 @@
   display: none;
 }
 
-/* Featured Sticker */
 .feautured-project-sticker {
   position: absolute;
   left: 0;

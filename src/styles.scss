@@ -19,6 +19,10 @@ body {
   width: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .letter {
   display: inline-block;
   line-height: 1;

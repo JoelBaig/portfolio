@@ -1,4 +1,4 @@
-<nav class="navbar" [ngClass]="'navbar--' + variant">
+<!-- <nav class="navbar" [ngClass]="'navbar--' + variant">
 
   <div class="navbar-left">
     <div class="logo-wrapper">
@@ -58,6 +58,90 @@
         <img [ngClass]="{'visible': selectedLanguage === 'de'}" class="language-pos de-language-red"
           src="/assets/img/header/de_red.png">
       </div>
+    </div>
+  </div>
+
+</nav> -->
+
+
+
+<nav class="navbar" [ngClass]="'navbar--' + variant">
+
+  <div class="navbar-left">
+    <div class="logo-wrapper">
+      <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
+      <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
+    </div>
+  </div>
+
+  <div class="navbar-center">
+    <ul class="nav-links">
+  <li class="nav-about-me">
+    <a class="nav-link" [routerLink]="['/']" fragment="about-me" (click)="emitNavClick()">
+      <span class="nav-text">{{ 'NAV.ABOUT' | translate }}</span>
+      <img src="assets/img/header/B.2.png" class="hover-bg" />
+    </a>
+  </li>
+
+  <li class="nav-skills">
+    <a class="nav-link" [routerLink]="['/']" fragment="skills" (click)="emitNavClick()">
+      <span class="nav-text">{{ 'NAV.SKILLS' | translate }}</span>
+      <img src="assets/img/header/B.1.png" class="hover-bg" />
+    </a>
+  </li>
+
+  <li class="nav-projects">
+    <a class="nav-link" [routerLink]="['/']" fragment="projects" (click)="emitNavClick()">
+      <span class="nav-text">{{ 'NAV.PROJECTS' | translate }}</span>
+      <img src="assets/img/header/B.4.png" class="hover-bg" />
+    </a>
+  </li>
+
+  <li class="nav-contact">
+    <a class="nav-link" [routerLink]="['/']" fragment="contact" (click)="emitNavClick()">
+      <span class="nav-text">{{ 'NAV.CONTACT' | translate }}</span>
+      <img src="assets/img/header/B.3.png" class="hover-bg" />
+    </a>
+  </li>
+</ul>
+  </div>
+
+  <div class="navbar-right">
+    <div class="language-wrapper">
+
+      <div class="en-language-wrapper" (click)="selectLanguage('en')">
+        <img [ngClass]="{'visible': selectedLanguage === 'en'}"
+             class="language-pos en-language-red"
+             src="/assets/img/header/en_red.png">
+
+        <img class="language-pos en-language-mark language-mark"
+             src="/assets/img/header/en_toggle.png">
+
+        <img [ngClass]="{'visible': selectedLanguage !== 'en'}"
+             class="language-pos en-language-white"
+             src="/assets/img/header/en_white.png">
+      </div>
+
+      <div class="language-switch-wrapper">
+        <img class="language-line" src="/assets/img/header/language_line.png">
+        <img class="language-dot"
+             [ngClass]="dotClass"
+             src="/assets/img/header/language_dot.png">
+      </div>
+
+      <div class="de-language-wrapper" (click)="selectLanguage('de')">
+        <img [ngClass]="{'visible': selectedLanguage !== 'de'}"
+             class="language-pos de-language-white"
+             src="/assets/img/header/de_white.png">
+
+        <img class="language-pos de-language-mark language-mark"
+             src="/assets/img/header/de_toggle.png">
+
+        <img [ngClass]="{'visible': selectedLanguage === 'de'}"
+             class="language-pos de-language-red"
+             src="/assets/img/header/de_red.png">
+      </div>
+
     </div>
   </div>
 

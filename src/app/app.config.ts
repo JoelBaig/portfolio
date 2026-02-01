@@ -8,7 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 class AssetsTranslateLoader implements TranslateLoader {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getTranslation(lang: string): Observable<any> {
     return this.http.get(`/assets/i18n/${lang}.json`);
   }
@@ -17,7 +17,16 @@ class AssetsTranslateLoader implements TranslateLoader {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+
+    // ✅ AnchorScrolling + ScrollRestoration
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
+      })
+    ),
+
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
     provideAnimations(),
@@ -32,14 +41,5 @@ export const appConfig: ApplicationConfig = {
         },
       })
     ),
-  ]
+  ],
 };
-
-provideRouter(
-  routes,
-  withInMemoryScrolling({
-    scrollPositionRestoration: 'top',
-    anchorScrolling: 'enabled',
-  })
-)
-

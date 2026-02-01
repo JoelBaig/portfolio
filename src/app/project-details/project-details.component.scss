@@ -5,8 +5,9 @@
 
 :host ::ng-deep app-navbar.pd-navbar .nav-about-me .nav-text,
 :host ::ng-deep app-navbar.pd-navbar .nav-skills .nav-text {
-  color: #000 !important;
+    color: #000 !important;
 }
+
 .overlay {
     position: fixed;
     inset: 0;
@@ -54,6 +55,7 @@
 .panel {
     position: relative;
     color: white;
+    max-width: 1440px;
     width: 100vw;
     max-height: 90vh;
     display: flex;
@@ -65,8 +67,7 @@
 
 .wrapper-left {
     position: relative;
-    left: 50px;
-    width: 30vw;
+    width: 20vw;
 }
 
 .wrapper-right {
@@ -110,21 +111,22 @@ h2 {
     border-radius: 20px;
 }
 
-.navbar {
+:host ::ng-deep app-navbar.pd-navbar .navbar {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2002;
-    isolation: unset;
-    margin-left: 94px;
-    margin-right: 76px;
+    width: 100%;
+    max-width: 1440px;
+    padding-inline: clamp(16px, 4vw, 48px);
+    box-sizing: border-box;
 }
 
 .back-btn-con {
     position: relative;
     top: -440px;
-    left: 120px;
+    left: 147px;
     width: 130px;
     cursor: pointer;
 
@@ -150,7 +152,7 @@ h2 {
 .next-project-btn-con {
     position: relative;
     top: 500px;
-    right: 120px;
+    right: 167px;
     width: 120px;
     cursor: pointer;
 

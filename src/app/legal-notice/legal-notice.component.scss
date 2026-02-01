@@ -49,6 +49,8 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center bottom;
 }
 
 h1 {

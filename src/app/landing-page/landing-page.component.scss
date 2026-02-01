@@ -17,6 +17,8 @@
     width: 100vw;
     height: 70vh;
     min-width: 100vw;
+    object-fit: cover;
+    object-position: bottom;
 }
 
 .landing-page-main-con {
@@ -254,7 +256,6 @@
 .wrapper-main,
 .contact-wrapper,
 .main-content {
-    // width: var(--container);
     margin: 0 auto;
     padding-inline: var(--pad);
 }
