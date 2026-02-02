@@ -28,6 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .main-content {
@@ -35,7 +36,7 @@
     width: 800px;
     height: 50vh;
     position: absolute;
-    top: 0px;
+    top: 150px;
 }
 
 .main-content-top {
@@ -180,29 +181,59 @@
     animation: spinCCW 0.55s linear both;
 }
 
+// .contact-icons {
+//     position: relative;
+//     top: 650px;
+//     left: -320px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     gap: 6px;
+
+//     .social-icons {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: 42px;
+//         height: 42px;
+//         border-radius: 50%;
+//         overflow: hidden;
+
+//         &:hover {
+//             background-color: #3355ff;
+//             cursor: pointer;
+//         }
+//     }
+// }
+
+
 .contact-icons {
-    position: relative;
-    top: 650px;
-    left: -320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
+  position: absolute;              /* ✅ am Viewport */
+left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
 
-    .social-icons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-        &:hover {
-            background-color: #3355ff;
-            cursor: pointer;
-        }
-    }
+  z-index: 20;                  /* über Background */
+}
+
+.contact-icons .social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #3355ff;
+    cursor: pointer;
+  }
 }
 
 .polaroid-frame {

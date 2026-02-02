@@ -2,44 +2,41 @@
 @import './../../keyframes.scss';
 
 .about-me-wrapper {
-  max-width: 1440px;
+  min-height: 60vh;
   width: 100%;
-  margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .about-me-main {
-  @include dFlex($f: flex, $c: center, $ai: center);
-  @include elementSize($h: 70vh, $mw: none);
-  gap: 100px;
-  position: relative;
-  top: -50px;
-  padding-left: 100px;
-  padding-right: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(30px, 5vw, 100px);
+  padding-inline: clamp(16px, 4vw, 100px);
 }
 
-.image-overlap {
-  @include dFlex($f: flex, $c: center, $ai: center, $fd: column);
-}
-
-h1 {
-  font-size: 64px;
-  margin: 0;
-}
-
+/* ✅ ganz wichtig */
+.image-overlap,
 .about-me {
-  position: relative;
-  top: 30px;
+  min-width: 0;
 }
 
-.about-me-txt {
-  position: relative;
-  top: 30px;
+/* Bilder dürfen schrumpfen */
+.image-overlap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-.image-overlap>div {
+/* Text darf umbrechen */
+:host ::ng-deep app-app-headline p,
+:host ::ng-deep app-app-headline .headline-info-txt {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.image-overlap > div {
   position: relative;
   display: inline-block;
 }
@@ -54,31 +51,56 @@ h1 {
   font-size: 24px;
   font-weight: 200;
   line-height: 1.4;
-
   transform-origin: center;
   gap: 16px;
 }
 
 .lets-talk-btn {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
-  right: 0;
-  top: 40px;
+  justify-content: flex-end;
+  margin-top: 40px;
 }
 
-.line-animation-wrapper {
-  overflow: hidden;
-  width: 300px;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
+.image-overlap {
+  flex: 0 0 480px;   /* Basisbreite */
+  max-width: 520px;
 }
 
-.animated-line {
-  height: 20px;
-  width: 0%;
-  animation: linePulse 6.4s infinite;
-  transform-origin: left;
+@media (max-width: 1070px) {
+  .image-overlap {
+    flex: 0 0 420px; /* ✅ wird kleiner, damit Text Platz hat */
+  }
+}
+
+
+/* ✅ BREAKPOINT: untereinander statt nebeneinander */
+@media (max-width: 900px) {
+  .about-me-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+    padding-block: 90px;
+  }
+
+  .image-overlap {
+    order: 2; /* optional: erst Text, dann Bilder */
+  }
+
+  .about-me {
+    order: 1;
+  }
+
+  .lets-talk-btn {
+    justify-content: flex-start;
+  }
+
+  .image-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-text {
+    font-size: 16px;
+  }
 }
