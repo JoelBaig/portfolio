@@ -1,87 +1,371 @@
+// @import './../../mixin.scss';
+// @import './../../keyframes.scss';
+
+// .my-skills-con {
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     @include elementSize($w: 100vw, $h: 80vh);
+//     isolation: isolate;
+// }
+
+// .my-skills-con>img {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: -1;
+//     pointer-events: none;
+//     object-fit: cover;
+//     object-position: bottom;
+// }
+
+// .wrapper-main {
+//     max-width: 1440px;
+//     position: absolute;
+//     width: 80vw;
+//     height: 55%;
+//     z-index: 1;
+// }
+
+// .wrapper-top {
+//     width: 100%;
+//     height: 50%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: flex;
+// }
+
+// h1 {
+//     font-size: 64px;
+//     position: relative;
+// }
+
+// .orange-circle {
+//     height: 70px;
+//     width: 250px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+//     animation: ovalOrbit 3s ease-in-out infinite;
+// }
+
+// p {
+//     font-size: 20px;
+// }
+
+// .skill-headline {
+//     width: 250px;
+//     height: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     padding-right: 20px;
+// }
+
+// .headline-wrapper {
+//     position: relative;
+//     display: inline-block;
+
+//     h1 {
+//         position: relative;
+//         top: 35px;
+//         z-index: 2;
+//         color: white;
+//     }
+
+//     .orange-circle {
+//         position: absolute;
+//         top: 80px;
+//         left: 0;
+//         z-index: 1;
+//     }
+// }
+
+// .headline-wrapper>p {
+//     color: white;
+//     font-size: 20px;
+//     position: absolute;
+//     right: 0;
+//     top: 20px;
+//     z-index: 1;
+// }
+
+// .skill-introduction {
+//     width: 63%;
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     .skill-intro-wrapper {
+//         position: relative;
+//         left: 50px;
+//         width: 100%;
+//         max-width: 650px;
+//         aspect-ratio: 4 / 1;
+//     }
+
+//     .skill-intro-wrapper>img {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: contain;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//     }
+
+//     .skill-intro-wrapper>p {
+//         position: absolute;
+//         top: 21%;
+//         left: 5%;
+//         right: 5%;
+//         bottom: 20%;
+//         width: 80%;
+//         font-size: 20px;
+//         color: black;
+//         z-index: 2;
+//     }
+// }
+
+// .wrapper-bottom {
+//     width: 92%;
+//     height: 50%;
+//     position: absolute;
+//     bottom: 0;
+//     right: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .skill-set {
+//     width: 50%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .skills {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 130px;
+//     gap: 30px;
+// }
+
+// .single-skill-con {
+//     width: 100px;
+//     height: 120px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: flex-start;
+//     cursor: pointer;
+// }
+
+// .single-skill-con>p {
+//     position: static;
+//     margin-top: 10px;
+//     text-align: center;
+//     color: white;
+// }
+
+// .single-skill-con img {
+//     filter: grayscale(100%);
+//     transition: filter 0.15s ease, transform 0.15s ease;
+//     transform-origin: bottom right;
+// }
+
+// .single-skill-con:hover img {
+//     filter: grayscale(0%);
+//     transform: scale(0.8);
+// }
+
+// .sticker-con {
+//     height: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     position: relative;
+//     left: 160px;
+//     transform: rotate(10deg);
+//     transform-origin: center;
+
+//     >img {
+//         height: 200px;
+//         width: 200px;
+//         transform: rotate(0deg);
+//         transition: transform 0.3s ease;
+//         cursor: pointer;
+//         position: relative;
+//         top: -12px;
+//     }
+// }
+
+// .sticker-con>img {
+//     transition: transform 0.3s ease, opacity 0.15s ease;
+// }
+
+// .sticker-con.no-pointer {
+//     pointer-events: none;
+// }
+
+// .sticker-reveal {
+//     position: absolute;
+//     top: 60px;
+//     width: 180px;
+//     height: 170px;
+//     padding: 10px;
+//     text-align: center;
+//     transform: rotate(0deg);
+//     transition: transform 0.3s ease;
+//     cursor: pointer;
+//     pointer-events: auto;
+// }
+
+// .sticker-text {
+//     font-size: 16px;
+//     color: white;
+//     margin-bottom: 8px;
+// }
+
+// .sticker-skills {
+//     display: flex;
+//     justify-content: center;
+//     gap: 6px;
+
+//     img {
+//         width: 60px;
+//         height: 60px;
+//         object-fit: contain;
+//     }
+// }
+
+// .sticker-stack {
+//     position: relative;
+//     width: 200px;
+//     height: 200px;
+// }
+
+// .sticker-base {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//     user-select: none;
+//     pointer-events: none;
+// }
+
+// .sticker-top {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//     user-select: none;
+//     touch-action: none;
+//     cursor: grab;
+//     transform-origin: top right;
+//     will-change: transform, clip-path, opacity;
+//     transition:
+//         transform 140ms ease-out,
+//         clip-path 140ms ease-out,
+//         opacity 140ms ease-out;
+// }
+
+// .sticker-top.dragging {
+//     transition: none;
+//     cursor: grabbing;
+// }
+
+// .sticker-top.peeled {
+//     transform: translate(-140%, 140%);
+//     opacity: 0;
+//     clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
+//     pointer-events: none;
+// }
+
+
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
+/* =========================
+   SECTION WRAPPER + BACKGROUND
+========================= */
+
 .my-skills-con {
     position: relative;
+    width: 100%;
+    min-height: 80vh;
+    /* ✅ darf wachsen, nicht "brechen" */
     display: flex;
+    min-width: 100vw;
     justify-content: center;
     align-items: center;
-    @include elementSize($w: 100vw, $h: 80vh);
     isolation: isolate;
+    overflow: hidden;
 }
 
+/* Hintergrund immer voll, ohne Layout zu beeinflussen */
 .my-skills-con>img {
     position: absolute;
     inset: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     z-index: -1;
     pointer-events: none;
+
     object-fit: cover;
     object-position: bottom;
 }
 
+/* =========================
+   MAIN CONTAINER (1440 centered)
+========================= */
+
 .wrapper-main {
+    position: relative;
+    /* ✅ nicht absolute */
+    width: 100%;
     max-width: 1440px;
-    position: absolute;
-    width: 80vw;
-    height: 55%;
+    margin: 0 auto;
+    padding-inline: var(--pad);
+    padding-block: 60px;
+    /* ✅ Luft oben/unten */
     z-index: 1;
 }
+
+/* =========================
+   TOP ROW
+========================= */
 
 .wrapper-top {
     width: 100%;
-    height: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-h1 {
-    font-size: 64px;
-    position: relative;
-}
-
-.orange-circle {
-    height: 70px;
-    width: 250px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    animation: ovalOrbit 3s ease-in-out infinite;
-}
-
-p {
-    font-size: 20px;
-}
-
+/* Headline block links */
 .skill-headline {
-    width: 250px;
-    height: 100%;
+    width: 260px;
+    /* war ~250px */
+    flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
-    padding-right: 20px;
 }
 
 .headline-wrapper {
     position: relative;
+    top: -50px;
     display: inline-block;
-
-    h1 {
-        position: relative;
-        top: 35px;
-        z-index: 2;
-        color: white;
-    }
-
-    .orange-circle {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        z-index: 1;
-    }
 }
 
 .headline-wrapper>p {
@@ -90,59 +374,80 @@ p {
     position: absolute;
     right: 0;
     top: 20px;
+    z-index: 2;
+}
+
+.headline-wrapper h1 {
+    position: relative;
+    top: 35px;
+    z-index: 3;
+    color: white;
+    font-size: 64px;
+    margin: 0;
+}
+
+.orange-circle {
+    height: 70px;
+    width: 250px;
+    position: absolute;
+    top: 35px;
+    left: 0;
     z-index: 1;
+    animation: ovalOrbit 3s ease-in-out infinite;
 }
 
+/* Intro rechts */
 .skill-introduction {
-    width: 63%;
-    height: 100%;
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-
-    .skill-intro-wrapper {
-        position: relative;
-        left: 50px;
-        width: 100%;
-        max-width: 650px;
-        aspect-ratio: 4 / 1;
-    }
-
-    .skill-intro-wrapper>img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .skill-intro-wrapper>p {
-        position: absolute;
-        top: 21%;
-        left: 5%;
-        right: 5%;
-        bottom: 20%;
-        width: 80%;
-        font-size: 20px;
-        color: black;
-        z-index: 2;
-    }
+    align-items: center;
 }
+
+.skill-introduction .skill-intro-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    aspect-ratio: 4 / 1;
+}
+
+.skill-introduction .skill-intro-wrapper>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    inset: 0;
+}
+
+.skill-introduction .skill-intro-wrapper>p {
+    position: absolute;
+    top: 29%;
+    left: 5%;
+    right: 5%;
+    bottom: 20%;
+    width: 80%;
+    font-size: 20px;
+    color: black;
+    z-index: 2;
+    margin: 0;
+}
+
+/* =========================
+   BOTTOM ROW
+========================= */
 
 .wrapper-bottom {
-    width: 92%;
-    height: 50%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    margin-top: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
+/* Skills grid */
 .skill-set {
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,8 +459,10 @@ p {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 130px;
     gap: 30px;
+    flex-wrap: wrap;
+    /* ✅ wichtig! bricht sauber um */
+    margin-top: 14px;
 }
 
 .single-skill-con {
@@ -169,10 +476,11 @@ p {
 }
 
 .single-skill-con>p {
-    position: static;
     margin-top: 10px;
     text-align: center;
     color: white;
+    font-size: 16px;
+    /* ✅ konsistent */
 }
 
 .single-skill-con img {
@@ -186,66 +494,21 @@ p {
     transform: scale(0.8);
 }
 
+/* =========================
+   STICKER AREA
+========================= */
+
 .sticker-con {
-    height: 100%;
+    flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    position: relative;
-    left: 160px;
+
     transform: rotate(10deg);
     transform-origin: center;
-
-    >img {
-        height: 200px;
-        width: 200px;
-        transform: rotate(0deg);
-        transition: transform 0.3s ease;
-        cursor: pointer;
-        position: relative;
-        top: -12px;
-    }
 }
 
-.sticker-con>img {
-    transition: transform 0.3s ease, opacity 0.15s ease;
-}
-
-.sticker-con.no-pointer {
-    pointer-events: none;
-}
-
-.sticker-reveal {
-    position: absolute;
-    top: 60px;
-    width: 180px;
-    height: 170px;
-    padding: 10px;
-    text-align: center;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.sticker-text {
-    font-size: 16px;
-    color: white;
-    margin-bottom: 8px;
-}
-
-.sticker-skills {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-
-    img {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-    }
-}
-
+/* Stack bleibt 200x200 wie vorher */
 .sticker-stack {
     position: relative;
     width: 200px;
@@ -262,17 +525,21 @@ p {
     pointer-events: none;
 }
 
+/* Oberes Bild (peel) */
 .sticker-top {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     display: block;
+
     user-select: none;
     touch-action: none;
     cursor: grab;
+
     transform-origin: top right;
     will-change: transform, clip-path, opacity;
+
     transition:
         transform 140ms ease-out,
         clip-path 140ms ease-out,
@@ -285,8 +552,123 @@ p {
 }
 
 .sticker-top.peeled {
-    transform: translate(-140%, 140%);
+    transform: translate(-180%, 180%);
+    /* ✅ stärker raus, damit nix unten links bleibt */
     opacity: 0;
     clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
     pointer-events: none;
+}
+
+/* Reveal */
+.sticker-reveal {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    transform: rotate(0deg);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.sticker-text {
+    font-size: 16px;
+    color: white;
+    margin: 0 0 8px 0;
+}
+
+.sticker-skills {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+}
+
+/* Zustand "kein Pointer" */
+.sticker-con.no-pointer {
+    pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* ab Tablet: Top und Bottom untereinander, Sticker nach unten */
+@media (max-width: 900px) {
+    .wrapper-main {
+        padding-block: 50px;
+    }
+
+    .wrapper-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .skill-headline {
+        justify-content: flex-start;
+    }
+
+    .skill-introduction {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .wrapper-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .skill-set {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .skills {
+        justify-content: flex-start;
+    }
+
+    .sticker-con {
+        transform: rotate(10deg);
+        justify-content: flex-start;
+    }
+}
+
+/* Handy: kleinere Typo/Abstände */
+@media (max-width: 600px) {
+    .headline-wrapper h1 {
+        font-size: 46px;
+        top: 26px;
+    }
+
+    .orange-circle {
+        width: 200px;
+        top: 70px;
+    }
+
+    .skill-introduction .skill-intro-wrapper>p {
+        font-size: 16px;
+    }
+
+    .single-skill-con {
+        width: 90px;
+    }
+
+    .skills {
+        gap: 18px;
+    }
+
+    .sticker-stack {
+        width: 170px;
+        height: 170px;
+    }
 }
