@@ -301,6 +301,17 @@ textarea {
     border: 1px solid rgba(255, 90, 90, 0.4);
 }
 
+.send-native-btn {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.send-native-btn:disabled {
+  cursor: not-allowed;
+}
+
 /* =========================
    FOOTER
 ========================= */

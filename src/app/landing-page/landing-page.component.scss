@@ -181,59 +181,31 @@
     animation: spinCCW 0.55s linear both;
 }
 
-// .contact-icons {
-//     position: relative;
-//     top: 650px;
-//     left: -320px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     gap: 6px;
-
-//     .social-icons {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         width: 42px;
-//         height: 42px;
-//         border-radius: 50%;
-//         overflow: hidden;
-
-//         &:hover {
-//             background-color: #3355ff;
-//             cursor: pointer;
-//         }
-//     }
-// }
-
-
 .contact-icons {
-  position: absolute;              /* ✅ am Viewport */
-left: 0px;
-  top: 80%;
-  transform: translateY(-50%);
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  z-index: 20;                  /* über Background */
+    position: absolute;
+    left: 0px;
+    top: 80%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 20;
 }
 
 .contact-icons .social-icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  overflow: hidden;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
 
-  &:hover {
-    background-color: #3355ff;
-    cursor: pointer;
-  }
+    &:hover {
+        background-color: #3355ff;
+        cursor: pointer;
+    }
 }
 
 .polaroid-frame {
