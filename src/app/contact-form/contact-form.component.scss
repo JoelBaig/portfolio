@@ -1,3 +1,389 @@
+// @import './../../mixin.scss';
+// @import './../../keyframes.scss';
+
+// /* =========================
+//    CONTACT SECTION LAYOUT
+// ========================= */
+
+// .contact-con-main {
+//     position: relative;
+//     width: 100%;
+//     min-height: 70vh;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: flex-start;
+//     color: white;
+//     overflow: hidden;
+// }
+
+// /* Background */
+// .contact-con-main>img {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     object-position: top center;
+//     z-index: -1;
+//     pointer-events: none;
+//     object-fit: cover;
+//     object-position: top;
+// }
+
+// /* =========================
+//    MAIN WRAPPER (1440px)
+// ========================= */
+
+// .contact-wrapper {
+//     max-width: 1440px;
+//     width: 80vw;
+//     padding-inline: 16px;
+//     margin: 0 auto;
+//     position: relative;
+//     top: 150px;
+
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: flex-start;
+//     gap: 60px;
+// }
+
+// /* =========================
+//    LEFT COLUMN
+// ========================= */
+
+// .contact-headline-con {
+//     width: 50%;
+// }
+
+// .contact-headline {
+//     width: 100%;
+//     position: relative;
+// }
+
+// /* =========================
+//    RIGHT COLUMN (FORM)
+// ========================= */
+
+// .contact-con {
+//     width: min(520px, 100%);
+//     position: relative;
+//     top: 120px;
+// }
+
+// /* =========================
+//    FORM ELEMENTS
+// ========================= */
+
+// label {
+//     display: flex;
+//     flex-direction: column;
+//     font-size: 26px;
+//     color: white;
+// }
+
+// .name-field,
+// .email-field,
+// .help-field {
+//     display: flex;
+//     flex-direction: column;
+//     padding-left: 20px;
+// }
+
+// input,
+// textarea {
+//     background: transparent;
+//     border: none;
+//     outline: none;
+//     color: white;
+//     font-size: 17px;
+//     font-family: inherit;
+//     resize: none;
+
+//     &::placeholder {
+//         color: white;
+//         opacity: 1;
+//     }
+
+//     &:focus::placeholder {
+//         color: #e47b57;
+//     }
+// }
+
+// input {
+//     width: 300px;
+//     height: 25px;
+// }
+
+// textarea {
+//     width: 100%;
+//     height: 20px;
+// }
+
+// /* =========================
+//    FORM LINES
+// ========================= */
+
+// .form-line-1,
+// .form-line-2,
+// .form-line-3,
+// .form-line-4 {
+//     width: 100%;
+//     height: 1px;
+//     margin: 10px 0;
+// }
+
+// .form-line-1 {
+//     background: transparent;
+// }
+
+// .form-line-2,
+// .form-line-3,
+// .form-line-4 {
+//     background: yellow;
+// }
+
+// /* Hover interactions */
+// .name-field:hover+.form-line-2,
+// .name-field:focus-within+.form-line-2,
+// .email-field:hover+.form-line-3,
+// .email-field:focus-within+.form-line-3,
+// .help-field:hover+.form-line-4,
+// .help-field:focus-within+.form-line-4 {
+//     background: blue;
+// }
+
+// .name-field:hover>label,
+// .name-field:focus-within>label,
+// .email-field:hover>label,
+// .email-field:focus-within>label,
+// .help-field:hover>label,
+// .help-field:focus-within>label {
+//     color: #e47b57;
+// }
+
+// /* =========================
+//    CHECKBOX (FIXED!)
+// ========================= */
+
+// .checkbox-con {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+// }
+
+// .checkbox-icon {
+//     position: relative;
+//     width: 18px;
+//     height: 18px;
+//     display: grid;
+//     place-items: center;
+//     cursor: pointer;
+// }
+
+// .checkbox-img,
+// .checkbox-hover-img {
+//     position: absolute;
+//     inset: 0;
+//     width: 18px;
+//     height: 18px;
+// }
+
+// .checkbox-hover-img {
+//     pointer-events: none;
+// }
+
+// .privacy-policy-text {
+//     font-size: 14px;
+// }
+
+// .privacy-hint {
+//     font-size: 12px;
+//     color: #e47b57;
+//     margin-top: 8px;
+// }
+
+// /* =========================
+//    ERROR STATES
+// ========================= */
+
+// .error {
+//     color: #e47b57;
+//     margin-top: 6px;
+// }
+
+// .error-placeholder::placeholder {
+//     color: #e47b57;
+// }
+
+// /* =========================
+//    SEND BUTTON
+// ========================= */
+
+// .send-button {
+//     align-self: flex-end;
+//     margin-top: 24px;
+//     position: absolute;
+//     top: 300px;
+//     right: 0px;
+// }
+
+// .btn-disabled {
+//     pointer-events: none;
+//     opacity: 0.6;
+//     filter: grayscale(1) brightness(0.8);
+// }
+
+// /* =========================
+//    STICKER (VISUAL ONLY)
+// ========================= */
+
+// .sticker-con {
+//     position: absolute;
+//     right: 10px;
+//     top: -120px;
+//     pointer-events: none;
+// }
+
+// .sticker-text {
+//     position: relative;
+//     top: -173px;
+//     right: -2px;
+// }
+
+// .circle-text {
+//     font-family: 'Bricolage Grotesque', sans-serif;
+//     font-weight: 700;
+//     font-size: 22px;
+//     fill: #111;
+// }
+
+// .logo-sticker {
+//     position: absolute;
+//     top: 50px;
+//     left: 55px;
+// }
+
+// /* =========================
+//    TOAST
+// ========================= */
+
+// .toast {
+//     position: fixed;
+//     bottom: 40px;
+//     right: 90px;
+//     padding: 16px 24px;
+//     border-radius: 12px;
+//     font-size: 16px;
+//     z-index: 9999;
+//     backdrop-filter: blur(8px);
+
+//     opacity: 0;
+//     transform: translateY(20px);
+//     transition: transform 300ms ease, opacity 300ms ease;
+// }
+
+// .toast:not(.hide) {
+//     opacity: 1;
+//     transform: translateY(0);
+// }
+
+// .toast.success {
+//     background: rgba(80, 200, 120, 0.15);
+//     color: #50c878;
+//     border: 1px solid rgba(80, 200, 120, 0.4);
+// }
+
+// .toast.error {
+//     background: rgba(255, 90, 90, 0.15);
+//     color: #ff5a5a;
+//     border: 1px solid rgba(255, 90, 90, 0.4);
+// }
+
+// .send-native-btn {
+//   all: unset;
+//   display: inline-block;
+//   cursor: pointer;
+//   z-index: 5;
+// }
+
+// .send-native-btn:disabled {
+//   cursor: not-allowed;
+// }
+
+// /* =========================
+//    FOOTER
+// ========================= */
+
+// .site-footer {
+//     max-width: 1440px;
+//     width: 100%;
+//     margin-top: 350px;
+// }
+
+// /* ✅ ERROR STATES (Text unter Inputs sichtbar) */
+// .error {
+//   color: #e47b57;
+//   margin-top: 6px;
+//   font-size: 14px;
+//   line-height: 1.2;
+// }
+
+// /* ✅ Placeholder rot, wenn invalid */
+// .error-placeholder::placeholder {
+//   color: #e47b57;
+// }
+
+// .privacy-text-wrap {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .privacy-hint {
+//   margin-top: 6px;
+//   font-size: 12px;
+//   color: #e47b57;
+// }
+
+// /* =========================
+//    RESPONSIVE
+// ========================= */
+
+// @media (max-width: 1043px) {
+//     .contact-wrapper {
+//         flex-direction: column;
+//         gap: 40px;
+//         padding-bottom: 100px;
+//     }
+
+//     input {
+//         width: 100%;
+//     }
+
+//     .sticker-con {
+//         display: none;
+//     }
+
+//     .toast {
+//         right: 16px;
+//         left: 16px;
+//         bottom: 20px;
+//     }
+// }
+
+// @media (max-width: 600px) {
+//     label {
+//         font-size: 20px;
+//     }
+
+//     input,
+//     textarea {
+//         font-size: 16px;
+//     }
+// }
+
+
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
@@ -6,29 +392,27 @@
 ========================= */
 
 .contact-con-main {
-    position: relative;
-    width: 100%;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    color: white;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  overflow: hidden;
 }
 
 /* Background */
-.contact-con-main>img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    z-index: -1;
-    pointer-events: none;
-    object-fit: cover;
-    object-position: top;
+.contact-con-main > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* =========================
@@ -36,17 +420,17 @@
 ========================= */
 
 .contact-wrapper {
-    max-width: 1440px;
-    width: 80vw;
-    padding-inline: 16px;
-    margin: 0 auto;
-    position: relative;
-    top: 150px;
+  max-width: 1440px;
+  width: 80vw;
+  padding-inline: 16px;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
 }
 
 /* =========================
@@ -54,12 +438,12 @@
 ========================= */
 
 .contact-headline-con {
-    width: 50%;
+  width: 50%;
 }
 
 .contact-headline {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 /* =========================
@@ -67,9 +451,9 @@
 ========================= */
 
 .contact-con {
-    width: min(520px, 100%);
-    position: relative;
-    top: 120px;
+  width: min(520px, 100%);
+  position: relative;
+  top: 120px;
 }
 
 /* =========================
@@ -77,48 +461,48 @@
 ========================= */
 
 label {
-    display: flex;
-    flex-direction: column;
-    font-size: 26px;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 26px;
+  color: white;
 }
 
 .name-field,
 .email-field,
 .help-field {
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
 }
 
 input,
 textarea {
-    background: transparent;
-    border: none;
-    outline: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  font-family: inherit;
+  resize: none;
+
+  &::placeholder {
     color: white;
-    font-size: 17px;
-    font-family: inherit;
-    resize: none;
+    opacity: 1;
+  }
 
-    &::placeholder {
-        color: white;
-        opacity: 1;
-    }
-
-    &:focus::placeholder {
-        color: #e47b57;
-    }
+  &:focus::placeholder {
+    color: #e47b57;
+  }
 }
 
 input {
-    width: 300px;
-    height: 25px;
+  width: 300px;
+  height: 25px;
 }
 
 textarea {
-    width: 100%;
-    height: 20px;
+  width: 100%;
+  height: 20px;
 }
 
 /* =========================
@@ -129,92 +513,97 @@ textarea {
 .form-line-2,
 .form-line-3,
 .form-line-4 {
-    width: 100%;
-    height: 1px;
-    margin: 10px 0;
+  width: 100%;
+  height: 1px;
+  margin: 10px 0;
 }
 
 .form-line-1 {
-    background: transparent;
+  background: transparent;
 }
 
 .form-line-2,
 .form-line-3,
 .form-line-4 {
-    background: yellow;
+  background: yellow;
 }
 
 /* Hover interactions */
-.name-field:hover+.form-line-2,
-.name-field:focus-within+.form-line-2,
-.email-field:hover+.form-line-3,
-.email-field:focus-within+.form-line-3,
-.help-field:hover+.form-line-4,
-.help-field:focus-within+.form-line-4 {
-    background: blue;
+.name-field:hover + .form-line-2,
+.name-field:focus-within + .form-line-2,
+.email-field:hover + .form-line-3,
+.email-field:focus-within + .form-line-3,
+.help-field:hover + .form-line-4,
+.help-field:focus-within + .form-line-4 {
+  background: blue;
 }
 
-.name-field:hover>label,
-.name-field:focus-within>label,
-.email-field:hover>label,
-.email-field:focus-within>label,
-.help-field:hover>label,
-.help-field:focus-within>label {
-    color: #e47b57;
+.name-field:hover > label,
+.name-field:focus-within > label,
+.email-field:hover > label,
+.email-field:focus-within > label,
+.help-field:hover > label,
+.help-field:focus-within > label {
+  color: #e47b57;
 }
 
 /* =========================
-   CHECKBOX (FIXED!)
+   ERROR STATES (nur im Input!)
+========================= */
+
+.error-placeholder::placeholder {
+  color: #e47b57;
+}
+
+/* =========================
+   CHECKBOX (nicht mehr versetzt)
 ========================= */
 
 .checkbox-con {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .checkbox-icon {
-    position: relative;
-    width: 18px;
-    height: 18px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 0 0 18px;
+  margin-top: 3px; /* optisch auf Text baseline */
 }
 
 .checkbox-img,
 .checkbox-hover-img {
-    position: absolute;
-    inset: 0;
-    width: 18px;
-    height: 18px;
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
 }
 
 .checkbox-hover-img {
-    pointer-events: none;
+  pointer-events: none;
+}
+
+.privacy-text-wrap {
+  display: flex;
+  flex-direction: column;
 }
 
 .privacy-policy-text {
-    font-size: 14px;
+  font-size: 14px;
+  line-height: 1.25;
 }
 
 .privacy-hint {
-    font-size: 12px;
-    color: #e47b57;
-    margin-top: 8px;
-}
-
-/* =========================
-   ERROR STATES
-========================= */
-
-.error {
-    color: #e47b57;
-    margin-top: 6px;
-}
-
-.error-placeholder::placeholder {
-    color: #e47b57;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #e47b57;
 }
 
 /* =========================
@@ -222,83 +611,17 @@ textarea {
 ========================= */
 
 .send-button {
-    align-self: flex-end;
-    margin-top: 24px;
-    position: absolute;
-    top: 300px;
-    right: 0px;
+  align-self: flex-end;
+  margin-top: 24px;
+  position: absolute;
+  top: 300px;
+  right: 0px;
 }
 
 .btn-disabled {
-    pointer-events: none;
-    opacity: 0.6;
-    filter: grayscale(1) brightness(0.8);
-}
-
-/* =========================
-   STICKER (VISUAL ONLY)
-========================= */
-
-.sticker-con {
-    position: absolute;
-    right: 10px;
-    top: -120px;
-    pointer-events: none;
-}
-
-.sticker-text {
-    position: relative;
-    top: -173px;
-    right: -2px;
-}
-
-.circle-text {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    fill: #111;
-}
-
-.logo-sticker {
-    position: absolute;
-    top: 50px;
-    left: 55px;
-}
-
-/* =========================
-   TOAST
-========================= */
-
-.toast {
-    position: fixed;
-    bottom: 40px;
-    right: 90px;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-size: 16px;
-    z-index: 9999;
-    backdrop-filter: blur(8px);
-
-    opacity: 0;
-    transform: translateY(20px);
-    transition: transform 300ms ease, opacity 300ms ease;
-}
-
-.toast:not(.hide) {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.toast.success {
-    background: rgba(80, 200, 120, 0.15);
-    color: #50c878;
-    border: 1px solid rgba(80, 200, 120, 0.4);
-}
-
-.toast.error {
-    background: rgba(255, 90, 90, 0.15);
-    color: #ff5a5a;
-    border: 1px solid rgba(255, 90, 90, 0.4);
+  pointer-events: none;
+  opacity: 0.6;
+  filter: grayscale(1) brightness(0.8);
 }
 
 .send-native-btn {
@@ -313,13 +636,79 @@ textarea {
 }
 
 /* =========================
+   STICKER (VISUAL ONLY)
+========================= */
+
+.sticker-con {
+  position: absolute;
+  right: 10px;
+  top: -120px;
+  pointer-events: none;
+}
+
+.sticker-text {
+  position: relative;
+  top: -173px;
+  right: -2px;
+}
+
+.circle-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  fill: #111;
+}
+
+.logo-sticker {
+  position: absolute;
+  top: 50px;
+  left: 55px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+  position: fixed;
+  bottom: 40px;
+  right: 90px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.toast:not(.hide) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: rgba(80, 200, 120, 0.15);
+  color: #50c878;
+  border: 1px solid rgba(80, 200, 120, 0.4);
+}
+
+.toast.error {
+  background: rgba(255, 90, 90, 0.15);
+  color: #ff5a5a;
+  border: 1px solid rgba(255, 90, 90, 0.4);
+}
+
+/* =========================
    FOOTER
 ========================= */
 
 .site-footer {
-    max-width: 1440px;
-    width: 100%;
-    margin-top: 350px;
+  max-width: 1440px;
+  width: 100%;
+  margin-top: 350px;
 }
 
 /* =========================
@@ -327,34 +716,34 @@ textarea {
 ========================= */
 
 @media (max-width: 1043px) {
-    .contact-wrapper {
-        flex-direction: column;
-        gap: 40px;
-        padding-bottom: 100px;
-    }
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 100px;
+  }
 
-    input {
-        width: 100%;
-    }
+  input {
+    width: 100%;
+  }
 
-    .sticker-con {
-        display: none;
-    }
+  .sticker-con {
+    display: none;
+  }
 
-    .toast {
-        right: 16px;
-        left: 16px;
-        bottom: 20px;
-    }
+  .toast {
+    right: 16px;
+    left: 16px;
+    bottom: 20px;
+  }
 }
 
 @media (max-width: 600px) {
-    label {
-        font-size: 20px;
-    }
+  label {
+    font-size: 20px;
+  }
 
-    input,
-    textarea {
-        font-size: 16px;
-    }
+  input,
+  textarea {
+    font-size: 16px;
+  }
 }

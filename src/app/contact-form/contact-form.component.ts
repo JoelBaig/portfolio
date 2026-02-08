@@ -34,10 +34,6 @@ export class ContactFormComponent {
     message: '',
   };
 
-  namePlaceholder = 'Your name goes here';
-  emailPlaceholder = 'youremail@email.com';
-  messagePlaceholder = 'Ask me here...';
-
   accepted = false;
   hovered = false;
   submitted = false;
@@ -64,12 +60,10 @@ export class ContactFormComponent {
         this.sending = false;
         this.showToast('success');
         contactForm.resetForm();
+
         this.submitted = false;
         this.accepted = false;
         this.hovered = false;
-        this.namePlaceholder = 'Your name goes here';
-        this.emailPlaceholder = 'youremail@email.com';
-        this.messagePlaceholder = 'Ask me here...';
       },
       error: () => {
         this.sending = false;
@@ -82,27 +76,9 @@ export class ContactFormComponent {
     this.sendStatus = status;
     this.toastVisible = false;
 
-    this.scheduleSlideIn();
-    this.scheduleSlideOut(duration);
-    this.scheduleIdle(duration + 300);
-  }
-
-  private scheduleSlideIn() {
-    requestAnimationFrame(() => (
-      this.toastVisible = true
-    ));
-  }
-
-  private scheduleSlideOut(delay: number) {
-    setTimeout(() => (
-      this.toastVisible = false),
-      delay);
-  }
-
-  private scheduleIdle(delay: number) {
-    setTimeout(() => (
-      this.sendStatus = 'idle'),
-      delay);
+    requestAnimationFrame(() => (this.toastVisible = true));
+    setTimeout(() => (this.toastVisible = false), duration);
+    setTimeout(() => (this.sendStatus = 'idle'), duration + 300);
   }
 
   toggleCheckbox(event: Event) {
