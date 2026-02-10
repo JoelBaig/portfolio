@@ -71,7 +71,7 @@
   }
 
   img.floating-img {
-    padding-top: 22px;
+    padding-top: 35px;
     animation: float 3s ease-in-out infinite;
     transform: translateY(0);
     transition: transform 0.5s ease, filter 0.5s ease;
@@ -165,4 +165,10 @@
   position: absolute;
   left: 0;
   z-index: 1;
+}
+
+@media (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+  .projects-main {
+    top: -150px;
+  }
 }

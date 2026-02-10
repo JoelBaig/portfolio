@@ -267,3 +267,17 @@
 .text-bottom {
     font-size: clamp(56px, 9vw, 120px);
 }
+
+@media (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+  .hello-world {
+    top: 90px;
+  }
+
+  .main-content {
+    top: 120px;
+  }
+
+  .contact-icons {
+    left: 60px;
+  }
+}
