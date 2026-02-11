@@ -24,7 +24,7 @@
   position: relative;
   top: 150px;
   width: 600px;
-  display: flex;
+  // display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -163,8 +163,14 @@
 
 .feautured-project-sticker {
   position: absolute;
+  top: 200px;
   left: 0;
   z-index: 1;
+}
+
+.intro {
+  position: relative;
+  top: 250px;
 }
 
 @media (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
