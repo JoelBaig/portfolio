@@ -33,7 +33,8 @@
 
                 <ul class="tech-list" *ngIf="project.used_technologies?.length">
                     <li class="tech-item" *ngFor="let tech of project.used_technologies">
-                        <img class="tech-icon" [src]="tech.icon" [alt]="tech.name + ' icon'" />
+                        <img class="tech-icon" [src]="tech.icon"
+                         [alt]="tech.name + ' icon'" />
                         <span class="tech-name">{{ tech.name }}</span>
                     </li>
                 </ul>

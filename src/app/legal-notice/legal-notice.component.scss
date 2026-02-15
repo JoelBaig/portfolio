@@ -104,3 +104,9 @@ a {
     position: relative;
     top: 80px;
 }
+
+@media (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+    h1 {
+        top: -150px;
+    }
+}
