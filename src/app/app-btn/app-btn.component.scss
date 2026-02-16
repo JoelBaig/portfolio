@@ -34,11 +34,11 @@
 
   &:hover .default-img {
     opacity: 0;
-  } 
+  }
 
   .btn-text {
     position: relative;
-    top: -38px;
+    top: -36px;
     transform: translate(-50%, -50%);
     font-size: 20px;
     font-weight: 500;
@@ -47,5 +47,12 @@
     white-space: nowrap;
     font-family: inherit;
     transition: color 0.3s ease;
+  }
+}
+
+@media (max-width: 1200px) and (orientation: landscape) {
+  .btn-text {
+    position: relative;
+    top: -38px;
   }
 }
