@@ -22,7 +22,6 @@
     touch-action: none;
 }
 
-/* Optionaler Layer (dein alter ::before) */
 .overlay::before {
     content: "";
     position: absolute;
@@ -44,13 +43,11 @@
     z-index: 0;
 }
 
-/* PANEL */
 .panel {
     position: relative;
     color: white;
     max-width: 1440px;
     width: min(1440px, 92vw);
-    /* ✅ skaliert automatisch */
     max-height: 90vh;
     display: flex;
     justify-content: space-between;
@@ -62,7 +59,6 @@
 .wrapper-left {
     position: relative;
     width: clamp(500px, 20vw, 420px);
-    /* ✅ statt 20vw hart */
 }
 
 .wrapper-right {
@@ -71,9 +67,7 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 18px;
-
     right: 0;
-    /* ✅ nicht mehr "right: 50px" hardcodiert */
 }
 
 .single-project-headline {
@@ -112,7 +106,6 @@ h2 {
     border-radius: 20px;
 }
 
-/* ✅ NAVBAR: keine extra Breakpoints mehr nötig */
 :host ::ng-deep app-navbar.pd-navbar .navbar {
     position: fixed;
     top: 0;
@@ -122,7 +115,6 @@ h2 {
     width: min(1464px, 92vw);
 }
 
-/* ✅ BACK BUTTON: fix an Viewport-Kante, nicht relativ mit negativen tops */
 .back-btn-con {
     position: relative;
     top: -500px;
@@ -151,7 +143,6 @@ h2 {
     }
 }
 
-/* ✅ NEXT BUTTON: fix unten rechts */
 .next-project-btn-con {
     position: relative;
     right: clamp(165px, 2vw, 28px);
@@ -181,7 +172,6 @@ h2 {
     }
 }
 
-/* Sticker */
 .sticker-img {
     position: relative;
     top: -364px;
@@ -210,7 +200,6 @@ h2 {
     height: 50px;
 }
 
-/* Tech list */
 .tech-list {
     list-style: none;
     padding: 0;
@@ -253,7 +242,6 @@ h2 {
     width: auto;
 }
 
-/* ✅ MOBILE / SMALL */
 @media (max-width: 900px) {
     .panel {
         flex-direction: column;
@@ -285,7 +273,6 @@ h2 {
         padding: 0 16px;
     }
 
-    /* Buttons etwas näher ran */
     .back-btn-con {
         top: 90px;
     }
