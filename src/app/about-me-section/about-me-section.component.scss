@@ -73,7 +73,6 @@
 }
 
 
-/* ✅ BREAKPOINT: untereinander statt nebeneinander */
 @media (max-width: 900px) {
   .about-me-main {
     flex-direction: column;
@@ -83,11 +82,17 @@
   }
 
   .image-overlap {
-    order: 2; /* optional: erst Text, dann Bilder */
+    order: 2; 
+    position: relative;
+    left: 50px;
   }
 
   .about-me {
     order: 1;
+    width: 90%;
+    position: relative;
+    left: 50px;
+    right: 50px;
   }
 
   .lets-talk-btn {

@@ -7,7 +7,7 @@
   justify-content: flex-end;
   height: 70vh;
   position: relative;
-  top: 100px;
+  top: 200px;
 }
 
 .colleagues-main {
@@ -136,7 +136,33 @@
 
 @media(max-width: 1400px) and (orientation: landscape) {
   .colleagues-wrapper {
-    height: 85vh;
-    top: 200px;
+    top: 0;
+  }
+}
+
+@media(max-width: 1200px) {
+  .colleagues-wrapper {
+    height: 70vh;
+  }
+
+  .colleagues-headline {
+    position: relative;
+    top: -200px;
+  }
+
+  .feedback-cards {
+    top: 100px;
+  }
+}
+
+@media(max-width: 900px) {
+  .feedback-cards {
+    width: 50vw;
+  }
+
+  @media(max-width: 850px) {
+    .colleagues-headline {
+      top: -300px;
+    }
   }
 }

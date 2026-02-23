@@ -289,6 +289,12 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .headline-wrapper {
+        left: 0;
+    }
+}
+
 @media (max-width: 900px) {
     .wrapper-main {
         padding-block: 50px;
@@ -328,6 +334,16 @@
     .sticker-con {
         transform: rotate(10deg);
         justify-content: flex-start;
+    }
+
+    .headline-wrapper {
+        left: 50px;
+    }
+
+    .sticker-stack {
+        right: 0;
+        left: 50px;
+        top: -20px;
     }
 }
 
