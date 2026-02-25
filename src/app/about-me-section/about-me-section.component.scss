@@ -16,20 +16,17 @@
   padding-inline: clamp(16px, 4vw, 100px);
 }
 
-/* ✅ ganz wichtig */
 .image-overlap,
 .about-me {
   min-width: 0;
 }
 
-/* Bilder dürfen schrumpfen */
 .image-overlap img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Text darf umbrechen */
 :host ::ng-deep app-app-headline p,
 :host ::ng-deep app-app-headline .headline-info-txt {
   overflow-wrap: anywhere;
@@ -62,13 +59,13 @@
 }
 
 .image-overlap {
-  flex: 0 0 480px;   /* Basisbreite */
+  flex: 0 0 480px;  
   max-width: 520px;
 }
 
 @media (max-width: 1070px) {
   .image-overlap {
-    flex: 0 0 420px; /* ✅ wird kleiner, damit Text Platz hat */
+    flex: 0 0 420px; 
   }
 }
 

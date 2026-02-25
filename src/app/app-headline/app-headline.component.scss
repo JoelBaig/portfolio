@@ -2,90 +2,90 @@
 @import './../../keyframes.scss';
 
 .section-header {
-    width: 100%;
+  width: 100%;
 
-    &.align-left {
-        text-align: left;
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 65px;
+    margin: 0;
+  }
+
+  .line-wrapper {
+    margin: 0 0 0 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transform-origin: left center;
+      transition: transform 0.5s ease;
+
+      &.horizontal-mask {
+        mask-image: linear-gradient(to right, black 0%, black 100%);
+        mask-size: 0% 100%;
+        mask-repeat: no-repeat;
+        animation: maskLine 6.4s infinite linear;
+      }
+
+      &.horizontal-mask-rtl {
+        mask-image: linear-gradient(to left, black 0%, black 100%);
+        mask-size: 0% 100%;
+        mask-repeat: no-repeat;
+        animation: maskLineRtl 6.4s infinite linear;
+      }
+
+      &.circular-mask {
+        mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
+        animation: drawCircle 6.4s infinite linear;
+      }
     }
+  }
 
-    &.align-right {
-        text-align: right;
-    }
-
-    &.align-center {
-        text-align: center;
-    }
-
-    h3 {
-        margin-bottom: 10px;
-    }
-
-    h1 {
-        font-size: 65px;
-        margin: 0;
-    }
-
-    .line-wrapper {
-        margin: 0 0 0 0;
-
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            transform-origin: left center;
-            transition: transform 0.5s ease;
-
-            &.horizontal-mask {
-                mask-image: linear-gradient(to right, black 0%, black 100%);
-                mask-size: 0% 100%;
-                mask-repeat: no-repeat;
-                animation: maskLine 6.4s infinite linear;
-            }
-
-            &.horizontal-mask-rtl {
-                mask-image: linear-gradient(to left, black 0%, black 100%);
-                mask-size: 0% 100%;
-                mask-repeat: no-repeat;
-                animation: maskLineRtl 6.4s infinite linear;
-            }
-
-            &.circular-mask {
-                mask-image: conic-gradient(black 0deg, black 0deg, transparent 360deg);
-                animation: drawCircle 6.4s infinite linear;
-            }
-        }
-    }
-
-    p.section-info-text {
-        font-size: 20px;
-        line-height: 1.5;
-    }
+  p.section-info-text {
+    font-size: 20px;
+    line-height: 1.5;
+  }
 }
 
 .section-header .subtitle-row {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: -10px;
-    white-space: nowrap;
-  }
-  
-  .section-header .subtitle-row .line-wrapper {
-    margin: -10; 
-    height: 24px;
-    display: inline-block;
-    vertical-align: middle;
-  }
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: -10px;
+  white-space: nowrap;
+}
 
-  .section-header .subtitle-row .line-wrapper img {
-    position: static;
-    display: block;
-  }
+.section-header .subtitle-row .line-wrapper {
+  margin: -10;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.section-header .subtitle-row .line-wrapper img {
+  position: static;
+  display: block;
+}
 
 .title-fit {
-  display: inline-block;   /* shrink to fit */
-  width: fit-content;      /* extra sicher */
+  display: inline-block;
+  width: fit-content;
 }
 
 .title-fit .title {
@@ -95,7 +95,7 @@
 }
 
 .title-fit .line-wrapper {
-  width: 100%;             /* = Titelbreite */
+  width: 100%;
 }
 
 .title-fit .line-wrapper img {
@@ -104,16 +104,14 @@
   object-fit: contain;
 }
 
-/* ✅ Nur die Line unter dem Title: Container exakt Titelbreite */
 .title-fit .line-wrapper--title {
-  display: block;      /* kein flex */
-  width: 100%;         /* 100% der title-fit-Breite = Titelbreite */
+  display: block;
+  width: 100%;
 }
 
-/* Linie immer gleich dick */
 .section-header .line-wrapper img.line {
-  height: 18px;        /* <- hier Dicke einstellen */
+  height: 18px;
   width: 100%;
-  object-fit: fill;    /* füllt Breite, Höhe bleibt fix */
+  object-fit: fill;
   display: block;
 }
