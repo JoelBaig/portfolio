@@ -162,8 +162,8 @@
 }
 
 .feautured-project-sticker {
-  position: absolute;
-  top: 200px;
+  position: relative;
+  top: 350px;
   left: 0;
   z-index: 1;
 }
@@ -173,8 +173,28 @@
   top: 250px;
 }
 
-@media (max-width: 1200px) and (orientation: landscape) {
+@media (max-width: 1400px) {
+  .feautured-project-sticker {
+    top: 250px;
+  }
+}
+
+@media (max-width: 1200px) {
   .projects-main {
     top: -150px;
+  }
+}
+
+@media (max-width: 900px) {
+  .feautured-project-sticker {
+    top: 150px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .feautured-project-sticker {
+    top: 100px;
+    width: 60px;
   }
 }

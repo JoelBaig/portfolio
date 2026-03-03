@@ -265,7 +265,7 @@
     font-size: clamp(56px, 9vw, 120px);
 }
 
-@media (max-width: 1400px) and (orientation: landscape) {
+@media (max-width: 1400px) {
     .hello-world {
         top: 80px;
     }
@@ -276,6 +276,7 @@
 
     .main-content {
         top: 120px;
+        width: 70%;
     }
 
     .contact-icons {
@@ -284,8 +285,8 @@
     }
 }
 
-@media (max-width: 1400px) {
-    .main-content {
-        width: 70%;
+@media (max-width: 700px) {
+    .polaroid-con {
+        right: -30px;
     }
 }

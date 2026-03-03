@@ -115,3 +115,9 @@
   object-fit: fill;
   display: block;
 }
+
+@media (max-width: 1400px) {
+  h1 {
+    font-size: 40px !important; 
+  }
+}

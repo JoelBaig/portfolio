@@ -134,15 +134,17 @@
   opacity: 0;
 }
 
-@media(max-width: 1400px) and (orientation: landscape) {
+@media(max-width: 1400px) {
   .colleagues-wrapper {
-    top: 0;
+    top: 100px;
+    height: 70vh;
   }
 }
 
 @media(max-width: 1200px) {
   .colleagues-wrapper {
-    height: 70vh;
+    height: 50vh;
+    top: 100px;
   }
 
   .colleagues-headline {
@@ -160,9 +162,22 @@
     width: 50vw;
   }
 
-  @media(max-width: 850px) {
-    .colleagues-headline {
-      top: -300px;
-    }
+  .colleagues-wrapper {
+    height: 30vh;
+    top: 0px;
+  }
+
+  .single-card {
+    width: 450px;
+  }
+
+  .card-bottom {
+    top: 170px;
+  }
+}
+
+@media(max-width: 850px) {
+  .colleagues-headline {
+    top: -300px;
   }
 }
