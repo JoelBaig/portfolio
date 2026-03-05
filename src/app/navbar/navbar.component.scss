@@ -232,4 +232,12 @@
     .nav-links {
         gap: 20px;
     }
+
+    .navbar--overlay {
+        mix-blend-mode: difference;
+
+        .nav-text {
+            color: black;
+        }
+    }
 }
