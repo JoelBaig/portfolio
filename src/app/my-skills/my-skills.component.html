@@ -21,22 +21,12 @@
 
         <div class="wrapper-bottom">
             <div class="skill-set">
-                <div class="skills">
-                    <div class="single-skill-con" *ngFor="let skill of skillsTop"
-                        (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
+                <div class="skills-grid">
+                    <div class="single-skill-con" *ngFor="let skill of skills" (mouseenter)="hoveredSkill = skill.name"
+                        (mouseleave)="hoveredSkill = null">
                         <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
-                            alt="{{ skill.name }}" />
+                            [alt]="skill.name" />
                         <p>{{ skill.name }}</p>
-                    </div>
-                </div>
-                <div class="skills">
-                    <div class="skills">
-                        <div class="single-skill-con" *ngFor="let skill of skillsBottom"
-                            (mouseenter)="hoveredSkill = skill.name" (mouseleave)="hoveredSkill = null">
-                            <img [src]="skill.src" [ngClass]="{ 'skill-animated': hoveredSkill === skill.name }"
-                                alt="{{ skill.name }}" />
-                            <p>{{ skill.name }}</p>
-                        </div>
                     </div>
                 </div>
             </div>

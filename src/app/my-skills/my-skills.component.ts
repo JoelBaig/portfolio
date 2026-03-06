@@ -10,15 +10,12 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './my-skills.component.scss'
 })
 export class MySkillsComponent {
-  skillsTop = [
+  skills = [
     { name: 'HTML', src: './assets/img/header/skills/html.png' },
     { name: 'CSS', src: './assets/img/header/skills/css.png' },
     { name: 'JavaScript', src: './assets/img/header/skills/js.png' },
     { name: 'TypeScript', src: './assets/img/header/skills/ts.png' },
     { name: 'Angular', src: './assets/img/header/skills/angular.png' },
-  ];
-
-  skillsBottom = [
     { name: 'Firebase', src: './assets/img/header/skills/firebase.png' },
     { name: 'Git', src: './assets/img/header/skills/git.png' },
     { name: 'REST-API', src: './assets/img/header/skills/restapi.png' },

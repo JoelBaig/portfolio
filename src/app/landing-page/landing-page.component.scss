@@ -15,7 +15,7 @@
 
 .landingpage-bgr {
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
     min-width: 100vw;
     object-fit: cover;
     object-position: bottom;
@@ -285,8 +285,44 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+    .landing-page-main-con {
+        height: 100vh;
+    }
+
+    .landingpage-bgr {
+        height: 100vh;
+        position: relative;
+        top: -100px;
+    }
+
+    .contact-icons {
+        display: none;
+    }
+
+    .polaroid-img {
+        top: 11px;
+        right: 12px;
+        width: 130px;
+        height: 164px;
+    }
+
     .polaroid-con {
-        right: -30px;
+        top: 200px;
+        right: 45px;
+
+        .smiley {
+            top: 140px;
+            left: 110px;
+        }
+    }
+
+    .polaroid-frame {
+        width: 150px;
+    }
+
+    .hello-world {
+        top: -10px;
+        left: -20px;
     }
 }
