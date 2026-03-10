@@ -199,3 +199,9 @@
     width: 60px;
   }
 }
+
+@media (max-width: 900px) {
+  .intro {
+    top: 100px;
+  }
+}
