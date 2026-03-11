@@ -300,29 +300,39 @@
         display: none;
     }
 
-    .polaroid-img {
-        top: 11px;
-        right: 12px;
-        width: 130px;
-        height: 164px;
+    .hello-world {
+        position: fixed;
+        top: 100px;
+        left: 38px;
+    }
+}
+
+@media (max-width: 430px) {
+    .main-content-top {
+        top: -80px;
+        left: -25px;
     }
 
-    .polaroid-con {
-        top: 200px;
-        right: 45px;
-
-        .smiley {
-            top: 140px;
-            left: 110px;
-        }
+    .main.main-content-bottom {
+        top: 250px;
+        left: 46px;
     }
 
-    .polaroid-frame {
-        width: 150px;
+    .text-bottom {
+        font-size: clamp(70px, 9vw, 120px);
     }
 
     .hello-world {
-        top: -10px;
-        left: -20px;
+        position: sticky;
+        top: 144px;
+        width: 170px;
+    }
+
+    .get-in-touch-btn {
+        top: 100px;
+    }
+
+    .polaroid-con {
+        top: 440px;
     }
 }
