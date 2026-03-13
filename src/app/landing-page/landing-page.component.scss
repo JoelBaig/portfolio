@@ -285,7 +285,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .landing-page-main-con {
         height: 100vh;
     }
@@ -301,9 +301,24 @@
     }
 
     .hello-world {
-        position: fixed;
+        position: relative;
         top: 100px;
-        left: 38px;
+    }
+
+    .polaroid-con {
+        top: 500px;
+    }
+
+    .text-top {
+        top: 150px;
+    }
+
+    .text-bottom {
+        top: -150px;
+    }
+
+    .get-in-touch-btn {
+        top: -55px;
     }
 }
 
@@ -318,8 +333,14 @@
         left: 46px;
     }
 
+    .text-top {
+        top: 180px;
+    }
+
     .text-bottom {
-        font-size: clamp(70px, 9vw, 120px);
+        font-size: clamp(56px, 9vw, 120px);
+        position: relative;
+        top: -125px;
     }
 
     .hello-world {
@@ -329,10 +350,74 @@
     }
 
     .get-in-touch-btn {
-        top: 100px;
+        top: -35px;
     }
 
     .polaroid-con {
         top: 440px;
+    }
+}
+
+@media (max-width: 420px) {
+    .text-top {
+        top: 160px;
+    }
+
+    .text-bottom {
+        top: -155px;
+    }
+
+    .get-in-touch-btn {
+        top: -75px;
+    }
+
+    .polaroid-con {
+        top: 400px;
+    }
+}
+
+@media (max-width: 390px) {
+    .hello-world {
+        left: 0;
+    }
+
+    .text-bottom {
+        top: -160px;
+    }
+
+    .get-in-touch-btn {
+        top: -90px;
+    }
+
+    .polaroid-con {
+        top: 370px;
+    }
+}
+
+@media (max-width: 375px) {
+    .hello-world {
+        top: 82px;
+    }
+
+    .text-top {
+        top: 100px;
+        font-size: clamp(44px, 9vw, 120px);
+    }
+
+    .text-bottom {
+        top: -220px;
+        font-size: clamp(44px, 9vw, 120px);
+    }
+
+    .get-in-touch-btn {
+        top: -160px;
+    }
+
+    .polaroid-con {
+        top: 300px;
+    }
+
+    .landingpage-bgr {
+        top: 0;
     }
 }
