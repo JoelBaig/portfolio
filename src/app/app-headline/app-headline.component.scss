@@ -115,29 +115,3 @@
   object-fit: fill;
   display: block;
 }
-
-@media (max-width: 1400px) {
-  h1 {
-    font-size: 40px !important;
-  }
-}
-
-@media (max-width: 1000px) {
-  h1 {
-    font-size: 30px !important;
-  }
-
-  h3 {
-    font-size: 30px !important;
-  }
-}
-
-@media (max-width: 770px) {
-  .section-header {
-    width: 30vw;
-
-    &.align-left {
-      text-align: left;
-    }
-  }
-}
