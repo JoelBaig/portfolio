@@ -265,6 +265,12 @@
     font-size: clamp(56px, 9vw, 120px);
 }
 
+@media (max-width: 1600px) {
+    .hello-world {
+        top: 50px;
+    } 
+}
+
 @media (max-width: 1400px) {
     .hello-world {
         top: 80px;

@@ -134,6 +134,13 @@
   opacity: 0;
 }
 
+@media(max-width: 1600px) {
+  .colleagues-wrapper {
+    top: 280px;
+    height: 90vh;
+  }
+}
+
 @media(max-width: 1400px) {
   .colleagues-wrapper {
     top: 200px;
