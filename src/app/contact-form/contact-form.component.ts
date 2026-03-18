@@ -44,33 +44,88 @@ export class ContactFormComponent {
 
   endPoint = 'https://joelbaig.com/sendMail.php';
 
+  // onSubmit(contactForm: NgForm) {
+  //   this.submitted = true;
+  //   contactForm.form.markAllAsTouched();
+  //   this.sendStatus = 'idle';
+
+  //   if (this.sending || !this.accepted || contactForm.invalid) return;
+  //   this.sending = true;
+
+  //   this.http.post(this.endPoint, this.contactData, {
+  //     headers: { 'Content-Type': 'application/json' },
+  //     responseType: 'text'
+  //   }).subscribe({
+  //     next: () => {
+  //       this.sending = false;
+  //       this.showToast('success');
+  //       contactForm.resetForm();
+
+  //       this.submitted = false;
+  //       this.accepted = false;
+  //       this.hovered = false;
+  //     },
+  //     error: () => {
+  //       this.sending = false;
+  //       this.showToast('error');
+  //     }
+  //   });
+  // }
+
   onSubmit(contactForm: NgForm) {
+    this.prepareForm(contactForm);
+
+    if (!this.canSubmit(contactForm)) return;
+
+    this.sendRequest(contactForm);
+  }
+
+  private prepareForm(contactForm: NgForm) {
     this.submitted = true;
     contactForm.form.markAllAsTouched();
     this.sendStatus = 'idle';
+  }
 
-    if (this.sending || !this.accepted || contactForm.invalid) return;
+  private canSubmit(contactForm: NgForm): boolean {
+    if (this.sending || !this.accepted || contactForm.invalid) {
+      return false;
+    }
+
     this.sending = true;
+    return true;
+  }
 
+  private sendRequest(contactForm: NgForm) {
     this.http.post(this.endPoint, this.contactData, {
       headers: { 'Content-Type': 'application/json' },
       responseType: 'text'
     }).subscribe({
-      next: () => {
-        this.sending = false;
-        this.showToast('success');
-        contactForm.resetForm();
-
-        this.submitted = false;
-        this.accepted = false;
-        this.hovered = false;
-      },
-      error: () => {
-        this.sending = false;
-        this.showToast('error');
-      }
+      next: () => this.handleSuccess(contactForm),
+      error: () => this.handleError()
     });
   }
+
+  private handleSuccess(contactForm: NgForm) {
+    this.sending = false;
+    this.showToast('success');
+
+    contactForm.resetForm();
+
+    this.resetFormState();
+  }
+
+  private handleError() {
+    this.sending = false;
+    this.showToast('error');
+  }
+
+  private resetFormState() {
+    this.submitted = false;
+    this.accepted = false;
+    this.hovered = false;
+  }
+
+
 
   private showToast(status: 'success' | 'error', duration = 3000) {
     this.sendStatus = status;
