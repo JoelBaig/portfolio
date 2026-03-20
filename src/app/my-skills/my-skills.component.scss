@@ -196,6 +196,7 @@
 ========================= */
 
 .sticker-con {
+    position: relative;
     flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
@@ -335,8 +336,8 @@
 
     .wrapper-bottom {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
+        align-items: center;
+        gap: 20px;
     }
 
     .skill-set {
@@ -350,18 +351,31 @@
     }
 
     .sticker-con {
+        position: relative;
+        max-width: 560px;
+        min-height: 200px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-top: -30px;
         transform: rotate(10deg);
-        justify-content: flex-start;
     }
 
     .sticker-stack {
-        left: 410px;
-        top: -200px;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        left: 120px;
+        top: -125px;
+        right: 0;
     }
 
     .sticker-reveal {
-        top: -160px;
-        left: 400px;
+        position: absolute;
+        width: 200px;
+        left: 111px;
+        top: -87px;
+        right: auto;
     }
 
     .single-skill-con img {
@@ -371,16 +385,6 @@
     .single-skill-con:hover img {
         filter: grayscale(0%);
         transform: none;
-    }
-}
-
-@media(max-width: 720px) {
-    .sticker-stack {
-        left: 300px;
-    }
-
-    .sticker-reveal {
-        left: 290px;
     }
 }
 
@@ -458,22 +462,32 @@
     }
 
     .sticker-con {
+        position: relative;
         width: 100%;
-        justify-content: center;
-        margin-top: 8px;
+        max-width: 320px;
+        min-height: 170px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-top: -10px;
+        transform: rotate(10deg);
     }
 
     .sticker-stack {
+        position: relative;
         width: 170px;
         height: 170px;
-        left: 20px;
-        top: -130px;
+        left: -55px;
+        top: -116px;
+        right: 0;
     }
 
     .sticker-reveal {
+        position: absolute;
         width: 170px;
-        left: 196px;
-        top: -98px;
+        left: 87px;
+        top: -85px;
+        right: auto;
     }
 
     .sticker-text {
