@@ -355,13 +355,13 @@
     }
 
     .sticker-stack {
-        left: 300px;
+        left: 410px;
         top: -200px;
     }
 
     .sticker-reveal {
-        top: 20px;
-        left: 10px;
+        top: -160px;
+        left: 400px;
     }
 
     .single-skill-con img {
@@ -371,6 +371,16 @@
     .single-skill-con:hover img {
         filter: grayscale(0%);
         transform: none;
+    }
+}
+
+@media(max-width: 720px) {
+    .sticker-stack {
+        left: 300px;
+    }
+
+    .sticker-reveal {
+        left: 290px;
     }
 }
 
@@ -462,8 +472,8 @@
 
     .sticker-reveal {
         width: 170px;
-        left: 0;
-        top: 14px;
+        left: 196px;
+        top: -98px;
     }
 
     .sticker-text {

@@ -57,7 +57,6 @@ export class MySkillsComponent {
     this.startY = e.clientY;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     this.topStickerSrc = 'assets/img/header/skills/sticker_hover.png';
-
     e.preventDefault();
   }
 
@@ -71,19 +70,31 @@ export class MySkillsComponent {
 
     this.peelProgress = Math.min(1, pull / this.peelDistance);
     this.peelClipPath = this.calcClipPath(this.peelProgress);
-
     e.preventDefault();
   }
 
   onPeelEnd(_e: PointerEvent) {
-    if (!this.dragging) return;
-    this.dragging = false;
+    if (!this.checkDragging()) return;
+    if (this.checkPeeling()) return;
 
+    this.resetPeelState();
+  }
+
+  private checkDragging(): boolean {
+    if (!this.dragging) return false;
+    this.dragging = false;
+    return true;
+  }
+
+  private checkPeeling(): boolean {
     if (this.peelProgress >= this.openThreshold) {
       this.openSticker();
-      return;
+      return true;
     }
+    return false;
+  }
 
+  private resetPeelState(): void {
     this.peelProgress = 0;
     this.peelClipPath = this.calcClipPath(0);
     this.topStickerSrc = 'assets/img/header/skills/sticker.png';
@@ -112,12 +123,21 @@ export class MySkillsComponent {
   }
 
   private calcClipPath(progress: number): string {
+    const { x, y } = this.calculatePeelValues(progress);
+    return this.buildClipPath(x, y);
+  }
+
+  private calculatePeelValues(progress: number): { x: number; y: number } {
     const overshoot = 100;
     const p = progress * (100 + overshoot);
 
-    const x = 100 - p;
-    const y = p;
+    return {
+      x: 100 - p,
+      y: p
+    };
+  }
 
+  private buildClipPath(x: number, y: number): string {
     return `polygon(
     0% 0%,
     ${x}% 0%,
