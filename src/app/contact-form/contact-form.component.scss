@@ -346,7 +346,6 @@ textarea:-webkit-autofill:focus {
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 392px;
-    justify-content: initial;
   }
 
   .contact-wrapper {
@@ -380,6 +379,11 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 600px) {
+  :host ::ng-deep .contact-headline .line-wrapper {
+    position: relative;
+    top: 392px;
+  }
+
   label {
     font-size: 20px;
   }
@@ -389,3 +393,17 @@ textarea:-webkit-autofill:focus {
     font-size: 16px;
   }
 }
+
+@media (max-width: 500px) {
+  :host ::ng-deep .contact-headline .line-wrapper {
+    position: relative;
+    top: 381px;
+  }
+}
+
+  @media (max-width: 420px) {
+  :host ::ng-deep .contact-headline .line-wrapper {
+    position: relative;
+    top: 373px;
+  }
+  }

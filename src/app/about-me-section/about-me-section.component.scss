@@ -11,6 +11,7 @@
 }
 
 .about-me-main {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,21 +24,35 @@
   min-width: 0;
 }
 
-.image-overlap img {
+.about-me {
+  flex: 1 1 0;
+  max-width: 700px;
+}
+
+.image-overlap>div {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.image-overlap>div>img {
+  width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.text-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 :host ::ng-deep app-app-headline p,
 :host ::ng-deep app-app-headline .headline-info-txt {
   overflow-wrap: anywhere;
   word-break: break-word;
-}
-
-.image-overlap>div {
-  position: relative;
-  display: inline-block;
 }
 
 .image-text {
@@ -54,43 +69,59 @@
   gap: 16px;
 }
 
+.text-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
 .lets-talk-btn {
   display: flex;
   justify-content: flex-end;
   margin-top: 40px;
 }
 
-.image-overlap {
-  flex: 0 0 480px;
-  max-width: 520px;
-}
-
 @media (max-width: 1070px) {
   .image-overlap {
-    flex: 0 0 420px;
+    flex-basis: 420px;
+    max-width: 440px;
+  }
+
+  .image-text {
+    font-size: 20px;
+    gap: 12px;
+  }
+
+  .text-icon {
+    width: 24px;
+    height: 24px;
   }
 }
 
-
 @media (max-width: 900px) {
-  .about-me-main {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 50px;
-    padding-block: 90px;
+  .about-me-wrapper {
+    top: 0;
   }
 
-  .image-overlap {
-    order: 2;
-    position: relative;
-    left: 50px;
+  .about-me-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-block: 70px;
   }
 
   .about-me {
     order: 1;
-    width: 90%;
-    position: relative;
-    padding-right: 50px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-overlap {
+    order: 2;
+    width: 100%;
+    max-width: 460px;
+    align-self: center;
   }
 
   .lets-talk-btn {
@@ -99,29 +130,119 @@
 
   .image-text {
     font-size: 18px;
+    width: 82%;
   }
 }
 
 @media (max-width: 600px) {
+  .about-me-main {
+    gap: 40px;
+    padding-block: 50px;
+  }
+
+  .about-me {
+    width: 100%;
+  }
+
+  .image-overlap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-overlap>div {
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
   .image-text {
     font-size: 16px;
+    gap: 10px;
+    width: 84%;
+    line-height: 1.3;
+  }
+
+  .image-text-1 {
+    top: 55% !important;
+  }
+
+  .image-text-2 {
+    top: 55% !important;
+  }
+}
+
+.text-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.lets-talk-btn {
+  margin-top: 32px;
+}
+
+@media (max-width: 420px) {
+  .about-me-main {
+    gap: 32px;
+    padding-block: 40px;
+  }
+
+  .image-overlap>div {
+    max-width: 400px;
+  }
+
+  .image-text {
+    font-size: 14px;
+    gap: 8px;
+    width: 86%;
+    line-height: 1.25;
+  }
+
+  .image-text-2 {
+    top: 52% !important;
+  }
+
+  .text-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .image-block-1 {
+    transform: translateY(10px);
+  }
+
+  .image-block-2 {
+    transform: translateY(30px);
   }
 }
 
 @media (max-width: 320px) {
-  .about-me {
-    left: 22px;
-  }
-
   .about-me-wrapper {
-    height: 100vh;
+    min-height: auto;
   }
 
-  .image-overlap {
-    left: 0;
-  }
-
-  .image-overlap div {
+  .image-overlap>div {
+    max-width: 300px;
     margin-bottom: -38px !important;
+  }
+
+  .image-text {
+    font-size: 13px;
+    width: 88%;
+  }
+
+  .image-block-1 {
+    transform: translateY(0px);
+  }
+
+  .image-block-2 {
+    transform: translateY(0px);
+  }
+
+  .image-text-1 {
+    top: 50% !important;
+  }
+
+  .image-text-2 {
+    top: 50% !important;
   }
 }

@@ -23,28 +23,27 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
   @Input() title: string = 'Section Title';
   @Input() subtitle: string = '';
   @Input() infoText: string = '';
-
   @Input() subtitlePosition: string = 'above';
   @Input() subtitleOffset: number = 10;
   @Input() subtitleUnderLine: boolean = false;
   @Input() subtitleSize = '20px';
   @Input() subtitleWeight: number = 600;
   @Input() subtitleTag: 'h1' | 'h2' | 'h3' = 'h3';
-
   @Input() infoOffset: number = 16;
-
   @Input() animateLine: boolean = false;
   @Input() lineImage: string = '';
   @Input() lineWidth: number = 40;
+  @Input() mobileLineWidth: number = 200;
+  @Input() smallMobileLineWidth: number = 150;
+  @Input() tinyMobileLineWidth: number = 100;
   @Input() lineMarginBottom: number = 50;
   @Input() lineAboveTitle: boolean = false;
   @Input() lineLeftOfSubtitle: boolean = false;
   @Input() lineUnderInfoText: boolean = false;
-
   @Input() lineAlign: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' = 'center';
   @Input() maskDirection: 'horizontal' | 'rtl' | 'circular' = 'horizontal';
   @Input() textAlign: 'left' | 'right' | 'center' = 'left';
-
+  @Input() mobileLineAlign: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | null = null;
   @Input() lineMatchTitle: boolean = false;
 
   titleWidthPx: number = 0;
@@ -86,5 +85,31 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
     if (w !== this.titleWidthPx) {
       this.titleWidthPx = w;
     }
+  }
+
+  getCurrentLineAlign(): 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' {
+    if (window.innerWidth <= 900 && this.mobileLineAlign) {
+      return this.mobileLineAlign;
+    }
+
+    return this.lineAlign;
+  }
+
+  getCurrentLineWidth(): number {
+    const width = window.innerWidth;
+
+    if (width <= 420) {
+      return this.tinyMobileLineWidth;
+    }
+
+    if (width <= 500) {
+      return this.smallMobileLineWidth;
+    }
+
+    if (width <= 600) {
+      return this.mobileLineWidth;
+    }
+
+    return this.lineWidth;
   }
 }

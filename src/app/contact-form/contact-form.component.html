@@ -5,8 +5,8 @@
     <div class="contact-headline-con">
       <app-app-headline class="contact-headline" [subtitle]="'CONTACT.SUBTITLE'" [title]="'CONTACT.TITLE'"
         [lineImage]="'./assets/contact_form/yellow_arrow_contact.png'" [animateLine]="true" [textAlign]="'left'"
-        [lineWidth]="300" [lineMarginBottom]="30" [infoText]="'CONTACT.INFO_TXT'" [lineAlign]="'flex-end'"
-        [lineUnderInfoText]="true"></app-app-headline>
+        [lineWidth]="300" [mobileLineWidth]="200" [smallMobileLineWidth]="150" [tinyMobileLineWidth]="70" [lineMarginBottom]="30" [infoText]="'CONTACT.INFO_TXT'" [lineAlign]="'flex-end'"
+        [mobileLineAlign]="'flex-start'" [lineUnderInfoText]="true"></app-app-headline>
     </div>
 
     <div class="contact-con">
@@ -49,9 +49,8 @@
         <div class="email-field">
           <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
           <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required email
-            [attr.placeholder]="submitted && email.invalid
-    ? ('CONTACT.EMAIL_ERROR' | translate)
-    : ('CONTACT.EMAIL_PLACEHOLDER' | translate)" [class.error-placeholder]="submitted && email.invalid" />
+            [attr.placeholder]="submitted && email.invalid ? ('CONTACT.EMAIL_ERROR' | translate) : ('CONTACT.EMAIL_PLACEHOLDER' | translate)"
+            [class.error-placeholder]="submitted && email.invalid" />
         </div>
 
         <div class="form-line-3"></div>
