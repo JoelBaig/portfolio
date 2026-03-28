@@ -178,15 +178,71 @@
   }
 
   .single-card:nth-child(1) .card-hover-overlay {
-
+    top: 21px;
+    left: 21px;
+    height: 338px;
+    width: 325px;
+    rotate: calc(-4deg);
   }
 
-  .single-card:nth-child(2) .card-hover-overlay {
-
-  }
+  .single-card:nth-child(2) .card-hover-overlay {}
 
   .single-card:nth-child(3) .card-hover-overlay {
+    top: 12px;
+    left: 10px;
+    height: 340px;
+    width: 329px;
+    rotate: calc(4deg);
+  }
+}
 
+.single-card:nth-child(1) .image-text {
+  top: 12%;
+  left: 20px;
+  right: 20px;
+  transform: rotate(-3deg);
+}
+
+.single-card:nth-child(2) .image-text {
+  top: 14%;
+  left: 18px;
+  right: 18px;
+  transform: rotate(0deg);
+}
+
+.single-card:nth-child(3) .image-text {
+  top: 13%;
+  left: 18px;
+  right: 18px;
+  transform: rotate(3deg);
+}
+
+.single-card:nth-child(1) .card-bottom {
+  bottom: 14px;
+  padding: 0 20px;
+}
+
+.single-card:nth-child(2) .card-bottom {
+  bottom: 18px;
+  padding: 0 18px;
+}
+
+.single-card:nth-child(3) .card-bottom {
+  bottom: 16px;
+  padding: 0 18px;
+}
+
+@media (max-width: 900px) {
+  .feedback-cards {
+    top: 450px;
+  }
+
+  .image-text {
+    top: 40px;
+    left: 25px;
+    right: 25px;
+    width: auto;
+    margin: 0;
   }
 }
 

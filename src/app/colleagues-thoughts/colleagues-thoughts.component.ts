@@ -22,6 +22,7 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
+      iconMobileHover: 'assets/mobile/mobile_card_hover.png',
       text: 'COLLEAGUES.CARD_TXT_1',
       name: 'Lukas Brenner',
       job: 'Frontend Developer'
@@ -33,6 +34,7 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
+      iconMobileHover: 'assets/mobile/mobile_card_hover.png',
       text: 'COLLEAGUES.CARD_TXT_2',
       name: 'Sophia Brink',
       job: 'Frontend Developer'
@@ -44,13 +46,14 @@ export class ColleaguesThoughtsComponent {
       hoverOverlay: 'assets/img/header/colleagues_thoughts/feedback_hover.png',
       icon: 'assets/img/header/colleagues_thoughts/linkedin.png',
       iconHover: 'assets/img/header/colleagues_thoughts/linkedin_hover.png',
+      iconMobileHover: 'assets/mobile/mobile_card_hover.png',
       text: 'COLLEAGUES.CARD_TXT_3',
       name: 'Jan Köhler',
       job: 'Frontend Developer'
     }
   ];
 
-  isMobile = window.innerWidth <= 800;
+  isMobile = window.innerWidth <= 900;
   hoveredIndex: number | null = null;
 
   @HostListener('window:resize')
