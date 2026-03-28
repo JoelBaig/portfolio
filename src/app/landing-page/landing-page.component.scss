@@ -265,17 +265,7 @@
     font-size: clamp(56px, 9vw, 120px);
 }
 
-@media (max-width: 1600px) {
-    .hello-world {
-        top: 50px;
-    }
-}
-
 @media (max-width: 1400px) {
-    .hello-world {
-        top: 80px;
-    }
-
     .hello-world .label {
         font-weight: 500;
     }
@@ -329,6 +319,10 @@
 }
 
 @media (max-width: 430px) {
+    .landingpage-bgr {
+        height: 100vh;
+    }
+
     .main-content-top {
         top: -80px;
         left: -25px;
@@ -360,70 +354,96 @@
     }
 
     .polaroid-con {
+        top: 540px;
+    }
+}
+
+@media (max-width: 430px) and (max-height: 935px) {
+    .polaroid-con {
         top: 440px;
     }
 }
 
-@media (max-width: 420px) {
-    .text-top {
-        top: 160px;
+@media (max-width: 390px) and (max-height: 845px) {
+    .polaroid-con {
+        top: 375px !important;
     }
 
-    .text-bottom {
-        top: -155px;
+    .main-content {
+        top: 100px;
     }
 
     .get-in-touch-btn {
-        top: -75px;
+        top: -90px !important;
     }
+}
 
+
+@media (max-width: 420px) and (max-height: 900px) {
     .polaroid-con {
         top: 400px;
     }
-}
-
-@media (max-width: 390px) {
-    .hello-world {
-        left: 0;
-    }
-
-    .text-bottom {
-        top: -160px;
-    }
-
-    .get-in-touch-btn {
-        top: -90px;
-    }
-
-    .polaroid-con {
-        top: 370px;
-    }
-}
-
-@media (max-width: 375px) {
-    .hello-world {
-        top: 82px;
-    }
 
     .text-top {
-        top: 100px;
-        font-size: clamp(44px, 9vw, 120px);
+        font-size: clamp(40px, 9vw, 120px);
     }
 
     .text-bottom {
-        top: -220px;
-        font-size: clamp(44px, 9vw, 120px);
+        font-size: clamp(40px, 9vw, 120px);
+        top: -150px;
     }
 
     .get-in-touch-btn {
-        top: -160px;
+        top: -70px;
+    }
+}
+
+@media (max-width: 375px) and (max-height: 670px) {
+    .text-top {
+        font-size: clamp(40px, 9vw, 120px);
     }
 
-    .polaroid-con {
-        top: 300px;
+    .text-bottom {
+        font-size: clamp(40px, 9vw, 120px);
+        top: -150px;
+    }
+
+    .get-in-touch-btn {
+        top: -100px;
     }
 
     .landingpage-bgr {
-        top: 0;
+        height: 150vh;
+    }
+
+    .polaroid-con {
+        top: 360px;
+    }
+
+    .main-content {
+        top: 70px;
+    }
+}
+
+@media (max-width: 320px) {
+    .polaroid-con {
+        top: 500px;
+        left: 51px;
+    }
+
+    .polaroid-img {
+        left: 10px;
+    }
+
+    .main-content-top {
+        top: 45px;
+    }
+
+    .get-in-touch-btn {
+        top: -30px;
+    }
+
+    .hello-world {
+        top: 265px;
     }
 }

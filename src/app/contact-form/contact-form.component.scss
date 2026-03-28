@@ -342,6 +342,14 @@ textarea:-webkit-autofill:focus {
    RESPONSIVE
 ========================= */
 
+// @media (max-width: 1245px) {
+//     :host ::ng-deep .contact-headline .line-wrapper {
+//     position: relative;
+//     top: -210px;
+//     right: -260px;
+//   }
+// }
+
 @media (max-width: 900px) {
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
@@ -384,6 +392,10 @@ textarea:-webkit-autofill:focus {
     top: 392px;
   }
 
+  :host ::ng-deep .section-header .title {
+    font-size: 45px !important;
+  }
+
   label {
     font-size: 20px;
   }
@@ -401,9 +413,13 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-  @media (max-width: 420px) {
+@media (max-width: 420px) {
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 373px;
   }
-  }
+
+  // :host ::ng-deep h1 {
+  //   font-size: 55px;
+  // }
+}

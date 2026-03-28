@@ -115,3 +115,10 @@
   object-fit: fill;
   display: block;
 }
+
+@media (max-width: 350px) {
+  .section-header h1,
+  .section-header .title {
+    font-size: 55px;
+  }
+}

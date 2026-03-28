@@ -105,8 +105,27 @@ a {
     top: 80px;
 }
 
-@media (max-width: 1400px) and (orientation: landscape) {
+@media (max-width: 1400px) {
     h1 {
         top: -130px;
     }
+}
+
+@media (max-width: 900px) {
+    h1 {
+        top: -180px;
+    }
+
+    .content {
+        padding-left: 42px;
+        padding-right: 42px;
+    }
+
+    .nav-legal-notice {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    right: 25px;
+    z-index: 1;
+}
 }

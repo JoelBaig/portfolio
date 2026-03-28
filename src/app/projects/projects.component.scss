@@ -228,17 +228,6 @@
 }
 
 @media (max-width: 900px) {
-  .featured-project-sticker {
-    top: 150px;
-    width: 100px;
-  }
-
-  .intro {
-    top: 200px;
-  }
-}
-
-@media (max-width: 800px) {
   .projects-main {
     min-height: auto;
     top: -120px;
@@ -312,6 +301,16 @@
   }
 }
 
+@media (max-width: 600px) {
+  :host ::ng-deep .section-header .title {
+    font-size: 45px !important;
+  }
+
+  :host ::ng-deep .section-header .line-wrapper img.line {
+    width: 183px !important;
+  }
+}
+
 @media (max-width: 500px) {
   .projects-main {
     top: -80px;
@@ -350,5 +349,11 @@
   .featured-project-sticker {
     width: 55px;
     top: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .intro {
+    top: 100px;
   }
 }
