@@ -288,8 +288,16 @@
 }
 
 @media (max-width: 420px) {
+    :host ::ng-deep .section-header {
+    top: -450px !important;
+  }
+
   .colleagues-wrapper {
-    top: 100px;
+    height: 80vh;
+  }
+
+  .colleagues-wrapper {
+    top: 400px;
     padding-bottom: 70px;
   }
 
@@ -298,7 +306,7 @@
   }
 
   .single-card {
-width: 250px;
+    width: 280px;
     max-width: 320px;
     margin-top: -16px;
   }
@@ -323,12 +331,57 @@ width: 250px;
     font-size: 12px;
   }
 
-  .linkedin-icon-wrapper {
-    width: 20px;
+  .linkedin-icon {
+    width: 70px;
     height: 20px;
   }
 
-    .single-card:nth-child(1) .card-bottom>div {
+  .single-card:nth-child(1) {
+    width: 290px;
+  }
+
+  .single-card:nth-child(2) {
+    width: 260px;
+  }
+
+  .single-card:nth-child(3) {
+    width: 285px;
+  }
+
+  .single-card:nth-child(1) .image-text {
+    top: 30px;
+    left: 30px;
+    right: 40px;
+  }
+
+  .single-card:nth-child(2) .image-text {
+    top: 19px;
+    left: 18px;
+    right: 20px;
+  }
+
+  .single-card:nth-child(3) .image-text {
+    top: 26px;
+    left: 30px;
+    right: 23px;
+  }
+
+  .single-card:nth-child(1) .card-bottom {
+    margin-top: -46px;
+    margin-left: -3px;
+  }
+
+  .single-card:nth-child(2) .card-bottom {
+    margin-top: 35px;
+    margin-left: -4px;
+  }
+
+  .single-card:nth-child(3) .card-bottom {
+    margin-top: -40px;
+    margin-left: -1px;
+  }
+
+  .single-card:nth-child(1) .card-bottom>div {
     position: relative;
     right: 22px;
   }
