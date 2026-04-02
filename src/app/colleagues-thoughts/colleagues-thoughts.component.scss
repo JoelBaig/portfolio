@@ -396,3 +396,9 @@
     right: 26px;
   }
 }
+
+@media (max-width: 390px) and (max-height: 850) {
+  .colleagues-wrapper {
+    height: 120vh;
+  }
+}
