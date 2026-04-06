@@ -59,7 +59,7 @@
 .project-info-txt {
   width: 100%;
   height: auto;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -233,6 +233,7 @@
     top: -120px;
     gap: 80px;
     padding-bottom: 80px;
+    width: 100%;
   }
 
   .first-row,
@@ -356,4 +357,9 @@
   .intro {
     top: 100px;
   }
+}
+
+:host ::ng-deep .section-header p.section-info-text {
+  font-size: 16px !important;
+  line-height: 1.5;
 }

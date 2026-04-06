@@ -293,7 +293,7 @@
   }
 
   .colleagues-wrapper {
-    height: 80vh;
+    height: 120dvh;
   }
 
   .colleagues-wrapper {
@@ -352,33 +352,36 @@
     top: 30px;
     left: 30px;
     right: 40px;
+    font-size: 16px;
   }
 
   .single-card:nth-child(2) .image-text {
     top: 19px;
     left: 18px;
     right: 20px;
+    font-size: 16px;
   }
 
   .single-card:nth-child(3) .image-text {
     top: 26px;
     left: 30px;
     right: 23px;
+    font-size: 16px;
   }
 
   .single-card:nth-child(1) .card-bottom {
-    margin-top: -46px;
-    margin-left: -3px;
+    margin-top: 10px;
+    margin-left: -10px;
   }
 
   .single-card:nth-child(2) .card-bottom {
-    margin-top: 35px;
+    margin-top: 45px;
     margin-left: -4px;
   }
 
   .single-card:nth-child(3) .card-bottom {
-    margin-top: -40px;
-    margin-left: -1px;
+    margin-top: 14px;
+    margin-left: -6px;
   }
 
   .single-card:nth-child(1) .card-bottom>div {
@@ -397,9 +400,13 @@
   }
 }
 
-@media (max-width: 390px) and (max-height: 850) {
+@media (max-width: 390px) and (max-height: 845) {
   .colleagues-wrapper {
-    height: 120vh;
+    min-height: 120vh;
+  }
+
+  .image-text {
+    font-size: 16px;
   }
 }
 
