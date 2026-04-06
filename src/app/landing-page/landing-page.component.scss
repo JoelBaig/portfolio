@@ -15,7 +15,7 @@
 
 .landingpage-bgr {
     width: 100vw;
-    height: 100vh;
+    min-height: 100dvh;
     min-width: 100vw;
     object-fit: cover;
     object-position: bottom;
@@ -24,7 +24,7 @@
 .landing-page-main-con {
     max-width: 1440px;
     width: 100%;
-    height: 70vh;
+    min-height: 70dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,9 +34,9 @@
 .main-content {
     max-width: 1440px;
     width: 800px;
-    height: 50vh;
+    min-height: 50dvh;
     position: absolute;
-    top: 150px;
+    top: 600px;
 }
 
 .main-content-top {
@@ -50,7 +50,6 @@
     width: 100%;
     height: 50%;
     position: relative;
-    top: 330px;
 }
 
 .text-top,
@@ -81,7 +80,7 @@
 
 .hello-world {
     position: absolute;
-    top: 140px;
+    top: -200px;
     left: 0;
     height: 40px;
     border-radius: 999px;
@@ -181,9 +180,8 @@
 
 .contact-icons {
     position: absolute;
-    left: 15px;
-    top: 80%;
-    transform: translateY(-50%);
+    left: 0px;
+    top: 800px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -265,13 +263,18 @@
     font-size: clamp(56px, 9vw, 120px);
 }
 
+@media (max-width: 1600px) {
+    .contact-icons {
+        padding-left: 50px;
+    }
+}
+
 @media (max-width: 1400px) {
     .hello-world .label {
         font-weight: 500;
     }
 
     .main-content {
-        top: 120px;
         width: 70%;
     }
 
@@ -282,12 +285,16 @@
 }
 
 @media (max-width: 900px) {
+    .main-content {
+        top: 350px;
+    }
+
     .landing-page-main-con {
-        height: 100vh;
+        min-height: 100dvh;
     }
 
     .landingpage-bgr {
-        height: 100vh;
+        min-height: 100dvh;
         position: relative;
         top: -100px;
     }
@@ -298,23 +305,15 @@
 
     .hello-world {
         position: relative;
-        top: 100px;
+        top: -100px;
     }
 
     .polaroid-con {
-        top: 400px;
-    }
-
-    .text-top {
-        top: 150px;
-    }
-
-    .text-bottom {
-        top: -150px;
+        top: 300px;
     }
 
     .get-in-touch-btn {
-        top: -55px;
+        top: 100px;
     }
 }
 
@@ -334,27 +333,27 @@
     }
 
     .text-top {
-        top: 180px;
+        top: -20px;
     }
 
     .text-bottom {
         font-size: clamp(56px, 9vw, 120px);
         position: relative;
-        top: -125px;
+        // top: -125px;
     }
 
     .hello-world {
-        position: sticky;
-        top: 144px;
+        position: relative;
+        // top: 120px;
         width: 170px;
     }
 
     .get-in-touch-btn {
-        top: -35px;
+        // top: -35px;
     }
 
     .polaroid-con {
-        top: 540px;
+        top: 320px;
     }
 }
 
@@ -413,7 +412,7 @@
     }
 
     .landingpage-bgr {
-        height: 150vh;
+        min-height: 150dvh;
     }
 
     .polaroid-con {
@@ -445,5 +444,21 @@
 
     .hello-world {
         top: 265px;
+    }
+}
+
+@media (max-width: 1200px) and (max-height: 820px) {
+    .contact-icons {
+        top: 70%;
+    }
+
+    .main-content {
+        top: 450px;
+    }
+}
+
+@media (max-width: 770px) and (max-height: 1025px) {
+    .main-content {
+        top: 250px;
     }
 }
