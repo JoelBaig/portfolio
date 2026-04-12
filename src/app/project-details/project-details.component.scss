@@ -244,6 +244,10 @@ h2 {
     width: auto;
 }
 
+.d-none {
+    display: none;
+}
+
 @media (max-width: 1400px) {
     .wrapper-right {
         max-width: 400px;
@@ -291,12 +295,44 @@ h2 {
 }
 
 @media (max-width: 900px) {
+    :host ::ng-deep .section-header .title {
+  font-size: 40px;
+}
+
+.mobile-box-shadow {
+    position: absolute;
+    top: 0;
+height: 100px;
+    width: 100%;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.duration-con {
+    margin-top: 0;
+}
+
+.tech-list {
+    margin-top: 0;
+}
+
+    .details {
+        font-size: 16px;
+    }
+
+    .back-btn-con {
+        top: 550px;
+    }
+
+    .back-btn {
+        color: white;
+    }
+
     .panel {
         flex-direction: column;
         align-items: stretch;
         width: 94vw;
         max-height: 92vh;
-        top: 100px;
+        top: 40px;
     }
 
     .panel-bgr {
@@ -305,10 +341,9 @@ h2 {
         left: -500px;
         height: 100vh;
         width: auto;
-        // transform: none;
         transform-origin: center;
         object-position: center;
-        object-fit:contain;
+        object-fit: contain;
     }
 
     .wrapper-left {
@@ -339,6 +374,6 @@ h2 {
     }
 
     .next-project-btn-con {
-        top: 600px;
+        top: 550px;
     }
 }

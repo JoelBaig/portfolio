@@ -179,4 +179,17 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     if (!url) return;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
+
+  toggleMobileBoxShadow(): void {
+    const mobileBoxShadow = document.getElementById('mobileBoxShadow');
+    if (!mobileBoxShadow) return;
+
+    const screenSize = window.innerWidth;
+
+    if (screenSize <= 900) {
+      mobileBoxShadow.classList.remove('d-none');
+    } else {
+      mobileBoxShadow.classList.add('d-none');
+    }
+  }
 }
