@@ -442,9 +442,15 @@
     }
 }
 
+@media (max-width: 370px) {
+    .text-bottom {
+        left: -46px;
+    }
+}
+
 @media (max-width: 320px) {
     .polaroid-con {
-        top: 500px;
+        // top: 500px;
         left: 51px;
     }
 
@@ -456,13 +462,13 @@
         top: 45px;
     }
 
-    .get-in-touch-btn {
-        top: -30px;
-    }
+    // .get-in-touch-btn {
+    //     top: -30px;
+    // }
 
-    .hello-world {
-        top: 265px;
-    }
+    // .hello-world {
+    //     top: 265px;
+    // }
 }
 
 @media (max-width: 1200px) and (max-height: 820px) {

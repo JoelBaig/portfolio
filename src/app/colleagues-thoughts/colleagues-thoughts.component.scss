@@ -263,8 +263,8 @@
 }
 
 @media(max-width: 850px) {
-  .section-header {
-    top: 200px;
+  :host ::ng-deep .section-header {
+    top: -200px !important;
   }
 }
 
@@ -414,4 +414,10 @@
   .colleagues-wrapper {
     top: -100px;
   }
+}
+
+@media (max-width: 420px) {
+  .colleagues-wrapper {
+        height: 85dvh;
+    }
 }
