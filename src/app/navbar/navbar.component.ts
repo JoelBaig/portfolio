@@ -11,7 +11,8 @@ import { Subscription } from 'rxjs';
     CommonModule,
     NgClass,
     TranslateModule,
-    RouterModule],
+    RouterModule
+  ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
@@ -25,10 +26,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
 
   private langSub?: Subscription;
+  private lockAfterScrollTimer?: number;
 
   constructor(private translate: TranslateService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.selectedLanguage = (this.translate.currentLang as 'en' | 'de') ?? 'en';
     this.setDotPositionInstant(this.selectedLanguage);
 
@@ -39,16 +41,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.langSub?.unsubscribe();
-    if (this.isMenuOpen) this.unlockBodyScrollStayOnTop();
+
+    if (this.lockAfterScrollTimer) {
+      window.clearTimeout(this.lockAfterScrollTimer);
+    }
+
+    if (this.isMenuOpen) {
+      this.unlockBodyScrollStayOnTop();
+    }
   }
 
-  emitNavClick() {
+  emitNavClick(): void {
     this.navClick.emit();
   }
 
-  selectLanguage(lang: 'en' | 'de') {
+  selectLanguage(lang: 'en' | 'de'): void {
     if (lang === this.selectedLanguage) return;
 
     this.dotClass = lang === 'de' ? 'dot-animate-right' : 'dot-animate-left';
@@ -59,29 +68,33 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  private setDotPositionInstant(lang: 'en' | 'de') {
+  private setDotPositionInstant(lang: 'en' | 'de'): void {
     this.dotClass = lang === 'de' ? 'dot-right' : 'dot-left';
   }
 
-  private lockAfterScrollTimer?: number;
+  toggleMenu(): void {
+    if (window.innerWidth > 900) return;
 
-  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+
     if (this.isMenuOpen) {
-      this.closeMenu();
-      return;
+      this.lockAfterScrollTimer = window.setTimeout(() => {
+        this.lockBodyScrollAtTop();
+      }, 450);
+
+      document.getElementById('mainContent')?.classList.add('d-none');
+    } else {
+      if (this.lockAfterScrollTimer) {
+        window.clearTimeout(this.lockAfterScrollTimer);
+        this.lockAfterScrollTimer = undefined;
+      }
+
+      this.unlockBodyScrollStayOnTop();
+      document.getElementById('mainContent')?.classList.remove('d-none');
     }
-
-    this.isMenuOpen = true;
-
-    this.lockAfterScrollTimer = window.setTimeout(() => {
-      this.lockBodyScrollAtTop();
-    }, 450);
-
-    document.getElementById('mainContent')?.classList.add('d-none');
-    document.getElementById('menuBars')?.classList.add('d-none');
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.isMenuOpen = false;
 
     if (this.lockAfterScrollTimer) {
@@ -90,12 +103,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     this.unlockBodyScrollStayOnTop();
-
     document.getElementById('mainContent')?.classList.remove('d-none');
-    document.getElementById('menuBars')?.classList.remove('d-none');
   }
 
-  private lockBodyScrollAtTop() {
+  private lockBodyScrollAtTop(): void {
     document.documentElement.classList.add('no-scroll');
     document.body.classList.add('no-scroll', 'menu-open');
     document.body.style.position = 'fixed';
@@ -105,7 +116,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     document.body.style.width = '100%';
   }
 
-  private unlockBodyScrollStayOnTop() {
+  private unlockBodyScrollStayOnTop(): void {
     document.documentElement.classList.remove('no-scroll');
     document.body.classList.remove('no-scroll', 'menu-open');
     document.body.style.position = '';
@@ -118,12 +129,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('document:keydown.escape')
-  onEsc() {
-    if (this.isMenuOpen) this.closeMenu();
+  onEsc(): void {
+    if (this.isMenuOpen) {
+      this.closeMenu();
+    }
   }
 
   @HostListener('window:resize')
-  onResize() {
-    if (window.innerWidth > 900 && this.isMenuOpen) this.closeMenu();
+  onResize(): void {
+    if (window.innerWidth > 900 && this.isMenuOpen) {
+      this.closeMenu();
+    }
   }
 }
