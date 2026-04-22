@@ -293,3 +293,10 @@
     top: 0;
   }
 }
+
+@media (max-width: 430px) {
+  .about-me-wrapper {
+    top: 0px;
+    height: 120dvh;
+  }
+}
