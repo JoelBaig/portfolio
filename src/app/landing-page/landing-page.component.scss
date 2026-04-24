@@ -365,6 +365,7 @@
     padding-bottom: 60px;
     padding-inline: clamp(20px, 5vw, 48px);
     box-sizing: border-box;
+    margin-top: 150px;
 }
 
 .hero-stack {
@@ -466,9 +467,8 @@
     filter: grayscale(0%);
 }
 
-/* SOCIAL ICONS: immer unter dem Logo */
 .contact-icons {
-    position: fixed;
+    position: relative;
     left: 5vw;
     top: 560px;
     display: flex;
@@ -639,7 +639,7 @@
 
     .hero-stack {
         gap: 18px;
-        margin-top: 70px;
+        margin-top: 20px;
     }
 
     .text-top,
