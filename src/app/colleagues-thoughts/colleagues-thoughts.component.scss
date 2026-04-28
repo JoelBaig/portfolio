@@ -1,3 +1,427 @@
+// @import './../../mixin.scss';
+// @import './../../keyframes.scss';
+
+// .colleagues-wrapper {
+//   width: 100%;
+//   display: flex;
+//   justify-content: flex-end;
+//   height: 70vh;
+//   position: relative;
+// }
+
+// .colleagues-main {
+//   max-width: 1440px;
+//   width: 80vw;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .colleagues-headline {
+//   max-width: 1440px;
+//   width: 80vw;
+// }
+
+// .feedback-cards {
+//   max-width: 1440px;
+//   width: 80vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 300px;
+//   position: absolute;
+//   top: 300px;
+
+//   >img {
+//     width: 400px;
+//     height: 250px;
+//   }
+// }
+
+// .image-overlap {
+//   @include dFlex($f: flex, $c: center, $ai: center, $fd: none);
+// }
+
+// .card-bottom div {
+//   font-size: 16px;
+//   font-weight: 400;
+// }
+
+// .linkedin-icon {
+//   display: block;
+// }
+
+// .single-card {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+// }
+
+// .card-hover-overlay {
+//   position: absolute;
+//   inset: 0;
+//   pointer-events: none;
+//   transition: opacity 0.15s ease;
+//   z-index: 1;
+// }
+
+// .image-text {
+//   position: absolute;
+//   width: 85%;
+//   color: black;
+//   font-family: inherit;
+//   font-size: 18px;
+//   font-weight: 200;
+//   margin: 40px;
+//   z-index: 2;
+// }
+
+// .card-bottom {
+//   position: absolute;
+//   top: 200px;
+//   left: 0;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 0 15px;
+//   box-sizing: border-box;
+//   z-index: 2;
+// }
+
+// .card-bottom.is-hovered .name-main,
+// .card-bottom.is-hovered .name-main h3 {
+//   color: white !important;
+// }
+
+// .name-main {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 2px;
+
+//   >h3 {
+//     margin: 0;
+//   }
+// }
+
+// .linkedin-icon-wrapper {
+//   position: relative;
+//   right: 50px;
+//   width: 24px;
+//   height: 24px;
+//   cursor: pointer;
+// }
+
+// .linkedin-icon-wrapper .linkedin-icon {
+//   position: absolute;
+//   inset: 0;
+//   transition: opacity 0.15s ease;
+// }
+
+// .linkedin-icon-wrapper .hover-icon {
+//   opacity: 0;
+// }
+
+// .linkedin-icon-wrapper .default-icon {
+//   opacity: 1;
+// }
+
+// .linkedin-icon-wrapper:hover .hover-icon {
+//   opacity: 1;
+// }
+
+// .linkedin-icon-wrapper:hover .default-icon {
+//   opacity: 0;
+// }
+
+// @media (max-width: 900px) {
+//   .colleagues-wrapper {
+//     height: 100vh;
+//   }
+
+//   .image-overlap {
+//     flex-direction: column;
+//   }
+
+//   .feedback-cards {
+//     top: 500px;
+//   }
+
+//   .single-card:first-child {
+//     margin-top: 0;
+//   }
+
+//   .single-card {
+//     margin-top: -20px;
+//   }
+
+//   :host ::ng-deep .section-header {
+//     position: relative;
+//     top: -150px;
+//   }
+
+//   .single-card>img:first-child {
+//     width: 100%;
+//     height: auto;
+//     display: block;
+//   }
+
+//   .card-hover-overlay {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//     object-fit: cover;
+//     pointer-events: none;
+//     transition: opacity 0.15s ease;
+//     z-index: 1;
+//   }
+
+//   .single-card:nth-child(1) .card-hover-overlay {
+//     top: 21px;
+//     left: 21px;
+//     height: 338px;
+//     width: 325px;
+//     rotate: calc(-4deg);
+//   }
+
+//   .single-card:nth-child(2) .card-hover-overlay {}
+
+//   .single-card:nth-child(3) .card-hover-overlay {
+//     top: 12px;
+//     left: 10px;
+//     height: 340px;
+//     width: 329px;
+//     rotate: calc(4deg);
+//   }
+// }
+
+// @media (max-width: 900px) {
+//   .card-bottom {
+//     justify-content: space-evenly;
+//   }
+
+//   .feedback-cards {
+//     top: 450px;
+//   }
+
+//   .image-text {
+//     top: 40px;
+//     left: 25px;
+//     right: 25px;
+//     width: auto;
+//     margin: 0;
+//   }
+
+//   .single-card:nth-child(1) .image-text {
+//     top: 45px;
+//     left: 45px;
+//     right: 40px;
+//   }
+
+//   .single-card:nth-child(2) .image-text {
+//     top: 25px;
+//     left: 25px;
+//     right: 20px;
+//   }
+
+//   .single-card:nth-child(3) .image-text {
+//     top: 40px;
+//     left: 45px;
+//     right: 23px;
+//   }
+
+//   .single-card:nth-child(1) .card-bottom {
+//     margin-top: 40px;
+//     margin-left: -17px;
+//   }
+
+//   .single-card:nth-child(2) .card-bottom {
+//     margin-top: 90px;
+//     margin-left: -14px;
+//   }
+
+//   .single-card:nth-child(3) .card-bottom {
+//     margin-top: 35px;
+//     margin-left: -13px;
+//   }
+
+//   .single-card:nth-child(1) .card-bottom>div {
+//     position: relative;
+//     right: 22px;
+//   }
+
+//   .single-card:nth-child(2) .card-bottom>div {
+//     position: relative;
+//     right: 22px;
+//   }
+
+//   .single-card:nth-child(3) .card-bottom>div {
+//     position: relative;
+//     right: 26px;
+//   }
+// }
+
+// @media(max-width: 850px) {
+//   :host ::ng-deep .section-header {
+//     top: -200px !important;
+//   }
+// }
+
+// @media (max-width: 600px) {
+//   :host ::ng-deep .section-header .line-wrapper img {
+//     width: 80px !important;
+//   }
+
+//   :host ::ng-deep .section-header .title {
+//     font-size: 45px !important;
+//   }
+
+//   :host ::ng-deep .section-header .line-wrapper {
+//     margin-bottom: -35px !important;
+//     margin-right: 170px !important;
+//   }
+
+//   :host ::ng-deep .section-header {
+//     top: -120px !important;
+//   }
+// }
+
+// @media (max-width: 420px) {
+//   :host ::ng-deep .section-header {
+//     top: -450px !important;
+//   }
+
+//   .colleagues-wrapper {
+//     height: 120dvh;
+//   }
+
+//   .colleagues-wrapper {
+//     top: 400px;
+//     padding-bottom: 70px;
+//   }
+
+//   .feedback-cards {
+//     top: 20px;
+//   }
+
+//   .single-card {
+//     width: 280px;
+//     max-width: 320px;
+//     margin-top: -16px;
+//   }
+
+//   .image-text {
+//     top: 13%;
+//     width: 77%;
+//     font-size: 14px;
+//     line-height: 1.2;
+//   }
+
+//   .card-bottom {
+//     bottom: 18px;
+//     padding: 0 16px;
+//   }
+
+//   .name-main>h3 {
+//     font-size: 15px;
+//   }
+
+//   .card-bottom div {
+//     font-size: 12px;
+//   }
+
+//   .linkedin-icon {
+//     width: 70px;
+//     height: 20px;
+//   }
+
+//   .single-card:nth-child(1) {
+//     width: 290px;
+//   }
+
+//   .single-card:nth-child(2) {
+//     width: 260px;
+//   }
+
+//   .single-card:nth-child(3) {
+//     width: 285px;
+//   }
+
+//   .single-card:nth-child(1) .image-text {
+//     top: 30px;
+//     left: 30px;
+//     right: 40px;
+//     font-size: 16px;
+//   }
+
+//   .single-card:nth-child(2) .image-text {
+//     top: 19px;
+//     left: 18px;
+//     right: 20px;
+//     font-size: 16px;
+//   }
+
+//   .single-card:nth-child(3) .image-text {
+//     top: 26px;
+//     left: 30px;
+//     right: 23px;
+//     font-size: 16px;
+//   }
+
+//   .single-card:nth-child(1) .card-bottom {
+//     margin-top: 10px;
+//     margin-left: -10px;
+//   }
+
+//   .single-card:nth-child(2) .card-bottom {
+//     margin-top: 45px;
+//     margin-left: -4px;
+//   }
+
+//   .single-card:nth-child(3) .card-bottom {
+//     margin-top: 14px;
+//     margin-left: -6px;
+//   }
+
+//   .single-card:nth-child(1) .card-bottom>div {
+//     position: relative;
+//     right: 22px;
+//   }
+
+//   .single-card:nth-child(2) .card-bottom>div {
+//     position: relative;
+//     right: 22px;
+//   }
+
+//   .single-card:nth-child(3) .card-bottom>div {
+//     position: relative;
+//     right: 26px;
+//   }
+// }
+
+// @media (max-width: 390px) and (max-height: 845px) {
+//   .colleagues-wrapper {
+//     min-height: 120vh;
+//   }
+
+//   .image-text {
+//     font-size: 16px;
+//   }
+// }
+
+// @media (max-width: 1200px) and (max-height: 820px) {
+//   .colleagues-wrapper {
+//     top: -100px;
+//   }
+// }
+
+// @media (max-width: 420px) {
+//   .colleagues-wrapper {
+//         height: 85dvh;
+//     }
+// }
+
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
@@ -5,8 +429,9 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  height: 70vh;
   position: relative;
+  min-height: 70vh;
+  margin-bottom: 100px;
 }
 
 .colleagues-main {
@@ -14,6 +439,7 @@
   width: 80vw;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .colleagues-headline {
@@ -39,6 +465,9 @@
 
 .image-overlap {
   @include dFlex($f: flex, $c: center, $ai: center, $fd: none);
+  position: relative;
+  width: 100%;
+  min-height: 520px;
 }
 
 .card-bottom div {
@@ -133,17 +562,80 @@
   opacity: 0;
 }
 
-@media (max-width: 900px) {
-  .colleagues-wrapper {
-    height: 100vh;
-  }
+/* =========================
+   DESKTOP / TABLET > 900px
+========================= */
 
-  .image-overlap {
-    flex-direction: column;
+@media (min-width: 901px) {
+  .colleagues-wrapper {
+    min-height: 70vh;
+    padding-bottom: 40px;
   }
 
   .feedback-cards {
-    top: 500px;
+    top: 300px;
+    height: 300px;
+  }
+
+  .image-overlap {
+    min-height: 520px;
+  }
+
+  .single-card>img:first-child {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+  }
+
+  .card-hover-overlay {
+    width: auto;
+    height: auto;
+    object-fit: initial;
+  }
+}
+
+/* =========================
+   MOBILE <= 900px
+========================= */
+
+@media (max-width: 900px) {
+  .colleagues-wrapper {
+    justify-content: center;
+    min-height: auto;
+    height: auto;
+    padding-block: 30px 50px;
+    padding-bottom: 60px;
+    top: 0;
+  }
+
+  .colleagues-main {
+    width: 100%;
+    max-width: 1440px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  :host ::ng-deep .section-header {
+    position: relative;
+    top: 0 !important;
+    margin-bottom: 0;
+  }
+
+  .feedback-cards {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: auto;
+    margin-top: 32px;
+    align-items: flex-start;
+  }
+
+  .image-overlap {
+    width: 100%;
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
   }
 
   .single-card:first-child {
@@ -151,12 +643,14 @@
   }
 
   .single-card {
+    position: relative !important;
+    width: 100%;
+    max-width: 360px;
     margin-top: -20px;
   }
 
-  :host ::ng-deep .section-header {
-    position: relative;
-    top: -150px;
+  .single-card:nth-child(2) {
+    width: auto;
   }
 
   .single-card>img:first-child {
@@ -178,31 +672,23 @@
   }
 
   .single-card:nth-child(1) .card-hover-overlay {
-    top: 21px;
-    left: 21px;
-    height: 338px;
-    width: 325px;
+    top: 5.5%;
+    left: 5%;
+    width: 89.5%;
+    height: 89%;
     rotate: calc(-4deg);
   }
 
-  .single-card:nth-child(2) .card-hover-overlay {}
-
   .single-card:nth-child(3) .card-hover-overlay {
-    top: 12px;
-    left: 10px;
-    height: 340px;
-    width: 329px;
+    top: 3.5%;
+    left: 3%;
+    width: 93.5%;
+    height: 93%;
     rotate: calc(4deg);
   }
-}
 
-@media (max-width: 900px) {
   .card-bottom {
     justify-content: space-evenly;
-  }
-
-  .feedback-cards {
-    top: 450px;
   }
 
   .image-text {
@@ -262,9 +748,9 @@
   }
 }
 
-@media(max-width: 850px) {
+@media (max-width: 850px) {
   :host ::ng-deep .section-header {
-    top: -200px !important;
+    top: 0 !important;
   }
 }
 
@@ -283,26 +769,24 @@
   }
 
   :host ::ng-deep .section-header {
-    top: -120px !important;
+    top: 0 !important;
   }
 }
 
 @media (max-width: 420px) {
   :host ::ng-deep .section-header {
-    top: -450px !important;
+    top: 0 !important;
   }
 
   .colleagues-wrapper {
-    height: 120dvh;
-  }
-
-  .colleagues-wrapper {
-    top: 400px;
-    padding-bottom: 70px;
+    min-height: auto;
+    height: auto;
+    padding-block: 20px 40px;
+    padding-bottom: 50px;
   }
 
   .feedback-cards {
-    top: 20px;
+    margin-top: 20px;
   }
 
   .single-card {
@@ -402,7 +886,7 @@
 
 @media (max-width: 390px) and (max-height: 845px) {
   .colleagues-wrapper {
-    min-height: 120vh;
+    padding-block: 20px 36px;
   }
 
   .image-text {
@@ -412,12 +896,6 @@
 
 @media (max-width: 1200px) and (max-height: 820px) {
   .colleagues-wrapper {
-    top: -100px;
+    top: 0;
   }
-}
-
-@media (max-width: 420px) {
-  .colleagues-wrapper {
-        height: 85dvh;
-    }
 }
