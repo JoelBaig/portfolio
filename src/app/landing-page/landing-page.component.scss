@@ -590,6 +590,7 @@
     .main-content {
         padding-top: 100px;
         padding-bottom: 40px;
+        margin-top: 0;
     }
 
     .hero-stack {
@@ -628,6 +629,10 @@
 
     .contact-icons {
         display: none;
+    }
+
+    .colleagues-main {
+        margin-top: -100px;
     }
 }
 
