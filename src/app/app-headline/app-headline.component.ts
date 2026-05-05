@@ -36,7 +36,7 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
   @Input() mobileLineWidth: number = 200;
   @Input() smallMobileLineWidth: number = 150;
   @Input() tinyMobileLineWidth: number = 100;
-  @Input() lineMarginBottom: number = 50;
+  @Input() lineMarginBottom: number = 10;
   @Input() lineAboveTitle: boolean = false;
   @Input() lineLeftOfSubtitle: boolean = false;
   @Input() lineUnderInfoText: boolean = false;
