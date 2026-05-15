@@ -63,23 +63,11 @@
     </div>
   </div>
 
-  <button
-    id="menuBars"
-    class="mobile-only burger-btn"
-    type="button"
-    *ngIf="!isMenuOpen"
-    (click)="toggleMenu()"
-  >
+  <button id="menuBars" class="mobile-only burger-btn" type="button" *ngIf="!isMenuOpen" (click)="toggleMenu()">
     <img src="/assets/mobile/menu_bars.png" alt="menu">
   </button>
 
-  <button
-    id="closeBtn"
-    class="mobile-only mobile-close"
-    type="button"
-    *ngIf="isMenuOpen"
-    (click)="closeMenu()"
-  >
+  <button id="closeBtn" class="mobile-only mobile-close" type="button" *ngIf="isMenuOpen" (click)="closeMenu()">
     <img src="/assets/mobile/menu_close.png" alt="close">
   </button>
 
