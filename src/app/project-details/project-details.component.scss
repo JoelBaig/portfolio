@@ -142,7 +142,7 @@ h2 {
     cursor: pointer;
     z-index: 2003;
 
-    > button {
+    >button {
         width: auto;
         background-color: transparent;
         border: none;
@@ -152,36 +152,36 @@ h2 {
         padding: 0;
     }
 
-    > img {
+    >img {
         position: static;
         height: auto;
     }
 }
 
 .back-btn-con {
-    > button {
+    >button {
         color: black;
     }
 
-    &:hover > button {
+    &:hover>button {
         color: #f87a55;
     }
 
-    > img {
+    >img {
         width: 22px;
     }
 }
 
 .next-project-btn-con {
-    > button {
+    >button {
         color: white;
     }
 
-    &:hover > button {
+    &:hover>button {
         color: #f7c518;
     }
 
-    > img {
+    >img {
         width: 28px;
     }
 }
@@ -254,7 +254,7 @@ h2 {
     display: flex;
     align-items: center;
 
-    > p {
+    >p {
         margin-left: 10px;
     }
 }
@@ -303,10 +303,10 @@ h2 {
     }
 
     .desktop-back-btn {
-    position: absolute;
-    top: clamp(-100px, -8vh, 195px);
-    left: clamp(-0px, 4vw, -90px);
-}
+        position: absolute;
+        top: clamp(-100px, -8vh, 195px);
+        left: clamp(-0px, 4vw, -90px);
+    }
 }
 
 @media (max-width: 1100px) {
@@ -444,7 +444,7 @@ h2 {
         margin-top: 24px;
         align-items: baseline;
 
-        > p {
+        >p {
             width: auto;
             margin-left: 8px;
         }
@@ -501,8 +501,8 @@ h2 {
         z-index: 20;
     }
 
-    .mobile-project-nav-con .back-btn-con > button,
-    .mobile-project-nav-con .next-project-btn-con > button {
+    .mobile-project-nav-con .back-btn-con>button,
+    .mobile-project-nav-con .next-project-btn-con>button {
         width: auto;
         background-color: transparent;
         border: none;
@@ -513,8 +513,8 @@ h2 {
         cursor: pointer;
     }
 
-    .mobile-project-nav-con .back-btn-con > img,
-    .mobile-project-nav-con .next-project-btn-con > img {
+    .mobile-project-nav-con .back-btn-con>img,
+    .mobile-project-nav-con .next-project-btn-con>img {
         position: static;
         width: 18px;
         height: auto;
@@ -528,19 +528,10 @@ h2 {
         display: none;
     }
 
-    // :host ::ng-deep app-navbar.pd-navbar .navbar,
-    // :host ::ng-deep .pd-navbar .navbar {
-    //     width: min(100vw, 430px) !important;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     padding-inline: 14px !important;
-    //     box-sizing: border-box;
-    // }
-
     :host ::ng-deep app-navbar.pd-navbar .navbar {
-    width: 100vw !important;
-    max-width: none !important;
-}
+        width: 100vw !important;
+        max-width: none !important;
+    }
 
     :host ::ng-deep .img-button,
     :host ::ng-deep .img-btn {
@@ -596,8 +587,125 @@ h2 {
         gap: 10px 16px;
     }
 
-    .mobile-project-nav-con .back-btn-con > button,
-    .mobile-project-nav-con .next-project-btn-con > button {
+    .mobile-project-nav-con .back-btn-con>button,
+    .mobile-project-nav-con .next-project-btn-con>button {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 430px) and (max-height: 935px) {
+    :host ::ng-deep .section-header .title {
+        font-size: 30px !important;
+    }
+
+    :host ::ng-deep .section-header h3 {
+        margin-top: 12px !important;
+    }
+
+    :host ::ng-deep .section-subtitle {
+        font-size: 18px !important;
+    }
+
+    .tech-item {
+        font-size: 14px;
+    }
+
+    p,
+    :host ::ng-deep .section-header p.section-info-text,
+    .details {
+        font-size: 15px !important;
+    }
+
+    h1,
+    h2 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .detail-img {
+        height: 300px;
+    }
+
+    .duration-con {
+        margin: 0;
+    }
+
+    .tech-list {
+        margin-top: 0px;
+    }
+
+    .mobile-project-nav-con {
+        margin: 0;
+    }
+
+    .panel-bgr {
+        top: 50%;
+    }
+}
+
+@media (max-width: 415px) and (max-height: 900px) {
+    .detail-img {
+        height: 250px;
+    }
+
+    .tech-item {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 390px) and (max-height: 845px) {
+    .detail-img {
+        height: 200px;
+    }
+
+    .panel-bgr {
+        top: 50%;
+    }
+
+    .tech-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 375px) and (max-height: 670px) {
+    .tech-item {
+        font-size: 11px;
+    }
+
+    :host ::ng-deep .section-header h3 {
+        margin-top: 0px !important;
+        margin-bottom: -12px !important;
+    }
+
+    :host ::ng-deep .section-header .title {
+        font-size: 22px !important;
+    }
+
+    h1,
+    h2 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    :host ::ng-deep .section-header h3 {
+        font-size: 16px !important;
+    }
+
+    p {
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
+
+    .wrapper-right {
+        padding-top: 8px;
+    }
+
+    .detail-img {
+        height: 140px;
     }
 }

@@ -1,43 +1,55 @@
 <div class="legal-page">
+  <section class="legal-hero">
     <app-navbar class="nav-legal-notice" variant="default"></app-navbar>
 
-    <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.png" alt="" />
+    <img
+      class="legal-notice-bgr"
+      src="./assets/legal_notice/legal_notice_bgr.png"
+      alt=""
+    />
 
-    <main class="content">
-        <h1>{{ 'LEGAL.TITLE' | translate }}</h1>
+    <h1>{{ 'LEGAL.TITLE' | translate }}</h1>
+  </section>
 
-        <h2>{{ 'LEGAL.IMPRINT_TITLE' | translate }}</h2>
-        <p class="preline">{{ 'LEGAL.IMPRINT_TEXT' | translate }}</p>
+  <main class="content">
+    <h2>{{ 'LEGAL.IMPRINT_TITLE' | translate }}</h2>
+    <p class="preline">{{ 'LEGAL.IMPRINT_TEXT' | translate }}</p>
 
-        <h3>{{ 'LEGAL.PROJECT_TITLE' | translate }}</h3>
-        <p class="preline">{{ 'LEGAL.PROJECT_TEXT' | translate }}</p>
+    <h3>{{ 'LEGAL.PROJECT_TITLE' | translate }}</h3>
+    <p class="preline">{{ 'LEGAL.PROJECT_TEXT' | translate }}</p>
 
-        <h3>{{ 'LEGAL.TERMS_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.TERMS_TEXT_1' | translate }}</p>
+    <h3>{{ 'LEGAL.TERMS_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.TERMS_TEXT_1' | translate }}</p>
 
-        <h3>{{ 'LEGAL.SCOPE_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.SCOPE_TEXT_1' | translate }}</p>
+    <h3>{{ 'LEGAL.SCOPE_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.SCOPE_TEXT_1' | translate }}</p>
 
-        <h3>{{ 'LEGAL.RIGHTS_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.RIGHTS_TEXT_1' | translate }}</p>
+    <h3>{{ 'LEGAL.RIGHTS_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.RIGHTS_TEXT_1' | translate }}</p>
 
-        <h3>{{ 'LEGAL.USE_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.USE_TEXT' | translate }}</p>
+    <h3>{{ 'LEGAL.USE_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.USE_TEXT' | translate }}</p>
 
-        <h3>{{ 'LEGAL.DISCLAIMER_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.DISCLAIMER_TEXT_1' | translate }}</p>
+    <h3>{{ 'LEGAL.DISCLAIMER_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.DISCLAIMER_TEXT_1' | translate }}</p>
 
-        <h3>{{ 'LEGAL.INDEMNITY_TITLE' | translate }}</h3>
-        <p>{{ 'LEGAL.INDEMNITY_TEXT_1' | translate }}</p>
+    <h3>{{ 'LEGAL.INDEMNITY_TITLE' | translate }}</h3>
+    <p>{{ 'LEGAL.INDEMNITY_TEXT_1' | translate }}</p>
 
-        <p class="preline">
-            {{ 'LEGAL.QUESTIONS_TEXT' | translate }}
-            <a href="#" (click)="onEmailLinkClick($event)">ibaig@web.de</a>
-            <br /><br />
-            {{ 'LEGAL.DATE_TEXT' | translate }}
-        </p>
-        <app-footer class="legal-notice-footer-pos" [theme]="'light'" [legalAsClose]="true"
-            (legalNoticeClick)="closeToHomeTop()" (emailClick)="closeToContact()">
-        </app-footer>
-    </main>
+    <p class="preline">
+      {{ 'LEGAL.QUESTIONS_TEXT' | translate }}
+      <a href="#" (click)="onEmailLinkClick($event)">ibaig@web.de</a>
+      <br /><br />
+      {{ 'LEGAL.DATE_TEXT' | translate }}
+    </p>
+
+    <app-footer
+      class="legal-notice-footer-pos"
+      [theme]="'light'"
+      [legalAsClose]="true"
+      (legalNoticeClick)="closeToHomeTop()"
+      (emailClick)="closeToContact()"
+    >
+    </app-footer>
+  </main>
 </div>

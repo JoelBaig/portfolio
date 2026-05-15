@@ -314,6 +314,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        overflow: hidden;
     }
 
     .mobile-links {
@@ -368,14 +369,14 @@
         display: block;
     }
 
-    html.no-scroll,
-    body.no-scroll {
-        overflow: hidden !important;
-    }
+    // html.no-scroll,
+    // body.no-scroll {
+    //     overflow: hidden !important;
+    // }
 
-    body.menu-open {
-        touch-action: none;
-    }
+    // body.menu-open {
+    //     touch-action: none;
+    // }
 
     .d-none {
         display: none;

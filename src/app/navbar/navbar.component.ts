@@ -18,6 +18,8 @@ import { Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() navClick = new EventEmitter<void>();
+  @Output() menuOpenChange = new EventEmitter<boolean>();
+
   @Input() variant: 'default' | 'overlay' = 'default';
 
   activeSection: string | null = null;
@@ -49,6 +51,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     if (this.isMenuOpen) {
+      this.menuOpenChange.emit(false);
       this.unlockBodyScrollStayOnTop();
     }
   }
@@ -76,6 +79,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (window.innerWidth > 900) return;
 
     this.isMenuOpen = !this.isMenuOpen;
+    this.menuOpenChange.emit(this.isMenuOpen);
 
     if (this.isMenuOpen) {
       this.lockAfterScrollTimer = window.setTimeout(() => {
@@ -95,7 +99,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   closeMenu(): void {
+    if (!this.isMenuOpen) return;
+
     this.isMenuOpen = false;
+    this.menuOpenChange.emit(false);
 
     if (this.lockAfterScrollTimer) {
       window.clearTimeout(this.lockAfterScrollTimer);

@@ -109,6 +109,17 @@ body.modal-open {
   transform: translateY(var(--reveal-distance, 24px));
 }
 
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100%;
+    overscroll-behavior: none;
+}
+
+body.menu-open {
+    touch-action: none;
+}
+
 /* Barrierefreiheit */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
