@@ -628,7 +628,7 @@ h2 {
     }
 
     .detail-img {
-        height: 300px;
+        height: 200px;
     }
 
     .duration-con {
@@ -640,11 +640,15 @@ h2 {
     }
 
     .mobile-project-nav-con {
-        margin: 0;
+        margin: -20px;
     }
 
     .panel-bgr {
-        top: 50%;
+        top: 57%;
+    }
+
+    .wrapper-right {
+        padding-top: 10px;
     }
 }
 
@@ -664,7 +668,7 @@ h2 {
     }
 
     .panel-bgr {
-        top: 50%;
+        top: 57%;
     }
 
     .tech-item {
@@ -707,5 +711,9 @@ h2 {
 
     .detail-img {
         height: 140px;
+    }
+
+    .panel-bgr {
+        top: 54%;
     }
 }
