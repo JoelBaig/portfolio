@@ -2,9 +2,11 @@ import { Component, inject, EventEmitter, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
+
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -23,10 +25,15 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
+
   private http = inject(HttpClient);
 
-  @Output() legalNoticeClick = new EventEmitter<void>();
-  onLegalNoticeClick() { this.legalNoticeClick.emit(); }
+  @Output() legalNoticeClick =
+    new EventEmitter<void>();
+
+  onLegalNoticeClick() {
+    this.legalNoticeClick.emit();
+  }
 
   contactData = {
     contactName: '',
@@ -40,98 +47,98 @@ export class ContactFormComponent {
   sending = false;
 
   sendStatus: 'idle' | 'success' | 'error' = 'idle';
+
   toastVisible = false;
 
-  endPoint = 'https://joelbaig.com/sendMail.php';
+  endPoint =
+    'https://joelbaig.com/sendMail.php';
 
   onSubmit(contactForm: NgForm) {
+
     this.submitted = true;
+
     contactForm.form.markAllAsTouched();
+
     this.sendStatus = 'idle';
 
-    if (this.sending || !this.accepted || contactForm.invalid) return;
+    if (
+      this.sending ||
+      !this.accepted ||
+      contactForm.invalid
+    ) {
+      return;
+    }
+
     this.sending = true;
 
-    this.http.post(this.endPoint, this.contactData, {
-      headers: { 'Content-Type': 'application/json' },
-      responseType: 'text'
-    }).subscribe({
-      next: () => {
+    this.http.post(
+      this.endPoint,
+      this.contactData,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        responseType: 'text'
+      }
+    ).subscribe({
+
+      next: (res) => {
+
+        console.log(
+          'SUCCESS RESPONSE:',
+          res
+        );
+
         this.sending = false;
+
         this.showToast('success');
+
         contactForm.resetForm();
 
         this.submitted = false;
         this.accepted = false;
         this.hovered = false;
       },
-      error: () => {
+
+      error: (err) => {
+
+        console.error(
+          'ERROR RESPONSE:',
+          err
+        );
+
+        console.error(
+          'SERVER ERROR:',
+          err?.error
+        );
+
         this.sending = false;
+
         this.showToast('error');
       }
     });
   }
 
-  // onSubmit(contactForm: NgForm) {
-  //   this.prepareForm(contactForm);
+  private showToast(
+    status: 'success' | 'error',
+    duration = 3000
+  ) {
 
-  //   if (!this.canSubmit(contactForm)) return;
-
-  //   this.sendRequest(contactForm);
-  // }
-
-  // private prepareForm(contactForm: NgForm) {
-  //   this.submitted = true;
-  //   contactForm.form.markAllAsTouched();
-  //   this.sendStatus = 'idle';
-  // }
-
-  // private canSubmit(contactForm: NgForm): boolean {
-  //   if (this.sending || !this.accepted || contactForm.invalid) {
-  //     return false;
-  //   }
-
-  //   this.sending = true;
-  //   return true;
-  // }
-
-  // private sendRequest(contactForm: NgForm) {
-  //   this.http.post(this.endPoint, this.contactData, {
-  //     headers: { 'Content-Type': 'application/json' },
-  //     responseType: 'text'
-  //   }).subscribe({
-  //     next: () => this.handleSuccess(contactForm),
-  //     error: () => this.handleError()
-  //   });
-  // }
-
-  // private handleSuccess(contactForm: NgForm) {
-  //   this.sending = false;
-  //   this.showToast('success');
-
-  //   contactForm.resetForm();
-
-  //   this.resetFormState();
-  // }
-
-  // private handleError() {
-  //   this.sending = false;
-  //   this.showToast('error');
-  // }
-
-  // private resetFormState() {
-  //   this.submitted = false;
-  //   this.accepted = false;
-  //   this.hovered = false;
-  // }
-
-  private showToast(status: 'success' | 'error', duration = 3000) {
     this.sendStatus = status;
+
     this.toastVisible = false;
 
-    requestAnimationFrame(() => (this.toastVisible = true));
-    setTimeout(() => (this.toastVisible = false), duration);
-    setTimeout(() => (this.sendStatus = 'idle'), duration + 300);
+    requestAnimationFrame(() => {
+      this.toastVisible = true;
+    });
+
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, duration);
+
+    setTimeout(() => {
+      this.sendStatus = 'idle';
+    }, duration + 300);
   }
 
   toggleCheckbox(event: Event) {

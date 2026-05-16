@@ -192,4 +192,60 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       mobileBoxShadow.classList.add('d-none');
     }
   }
+
+closeProjectDetails(fragment: string): void {
+
+  window.removeEventListener(
+    'wheel',
+    this.wheelHandler as EventListener
+  );
+
+  window.removeEventListener(
+    'touchmove',
+    this.touchMoveHandler as EventListener
+  );
+
+  window.removeEventListener(
+    'keydown',
+    this.keydownHandler as EventListener
+  );
+
+  this.doc.body.classList.remove(
+    'no-scroll',
+    'menu-open',
+    'd-none'
+  );
+
+  this.doc.documentElement.classList.remove(
+    'no-scroll'
+  );
+
+  this.doc.body.style.position = '';
+  this.doc.body.style.top = '';
+  this.doc.body.style.left = '';
+  this.doc.body.style.right = '';
+  this.doc.body.style.width = '';
+  this.doc.body.style.overflow = '';
+
+  this.doc.documentElement.style.overflow = '';
+
+  this.close.emit();
+
+  requestAnimationFrame(() => {
+
+    setTimeout(() => {
+
+      const target =
+        document.getElementById(fragment);
+
+      if (!target) return;
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+    }, 120);
+  });
+}
 }

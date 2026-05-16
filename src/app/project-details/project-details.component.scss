@@ -606,6 +606,10 @@ h2 {
         font-size: 18px !important;
     }
 
+        :host ::ng-deep .title-fit {
+        margin-top: -10px !important;
+    }
+
     .tech-item {
         font-size: 14px;
     }
@@ -664,7 +668,7 @@ h2 {
 
 @media (max-width: 390px) and (max-height: 845px) {
     .detail-img {
-        height: 200px;
+        height: 150px;
     }
 
     .panel-bgr {
