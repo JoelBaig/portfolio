@@ -2,11 +2,9 @@ import { Component, inject, EventEmitter, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
-
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { FooterComponent } from '../shared/footer/footer.component';
-
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
