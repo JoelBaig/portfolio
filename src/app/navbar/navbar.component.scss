@@ -135,7 +135,6 @@
     opacity: 1;
 }
 
-/* language */
 .language-wrapper {
     display: flex;
     align-items: center;
@@ -213,7 +212,6 @@
     transform: scaleX(1);
 }
 
-/* prevent blend issues */
 .language-wrapper,
 .language-wrapper *,
 .language-switch-wrapper,
@@ -223,7 +221,6 @@
     isolation: isolate !important;
 }
 
-/* helpers */
 .desktop-only {
     display: flex;
 }
@@ -368,15 +365,6 @@
         height: 28px;
         display: block;
     }
-
-    // html.no-scroll,
-    // body.no-scroll {
-    //     overflow: hidden !important;
-    // }
-
-    // body.menu-open {
-    //     touch-action: none;
-    // }
 
     .d-none {
         display: none;

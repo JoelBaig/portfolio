@@ -1,6 +1,4 @@
 <div class="section-header" [ngClass]="'align-' + textAlign">
-
-  <!-- Reusable Subtitle-Template (steuert Tag + Margins zentral) -->
   <ng-template #subtitleTpl let-mt="mt" let-mb="mb">
     @switch (subtitleTag) {
     @case ('h1') {
@@ -21,12 +19,8 @@
     }
   </ng-template>
 
-  <!-- ============================= -->
-  <!-- FALL A: Linie ÜBER dem Title -->
-  <!-- ============================= -->
   @if (lineAboveTitle) {
 
-  <!-- Linie über dem Title -->
   <div class="line-wrapper" [style.display]="'flex'" [style.justifyContent]="getCurrentLineAlign()"
     [style.marginBottom.px]="lineMarginBottom" [style.marginRight.px]="160">
 
@@ -40,25 +34,20 @@
     }
   </div>
 
-  <!-- Subtitle (falls über dem Title gewünscht) -->
   @if (subtitlePosition === 'above') {
   <ng-container *ngTemplateOutlet="subtitleTpl; context: { mb: subtitleOffset }"></ng-container>
   }
 
-  <!-- Title -->
   <h1 #titleElement class="title">{{ title | translate }}</h1>
 
-  <!-- Subtitle (falls unter dem Title gewünscht) -->
   @if (subtitlePosition === 'below') {
   <ng-container *ngTemplateOutlet="subtitleTpl; context: { mt: subtitleOffset }"></ng-container>
   }
 
-  <!-- Info-Text -->
   <p class="section-info-text" [style.marginTop.px]="infoOffset">
     {{ infoText | translate }}
   </p>
 
-  <!-- Optionale Linie unter dem Info-Text -->
   @if (lineUnderInfoText) {
   <div class="line-wrapper" [style.display]="'flex'" [style.width]="'100%'" [style.marginTop.px]="lineMarginBottom"
     [style.justifyContent]="getCurrentLineAlign()">
@@ -76,14 +65,8 @@
 
   } @else {
 
-  <!-- ============================================ -->
-  <!-- FALL B: Linie NICHT über dem Title (default) -->
-  <!-- ============================================ -->
-
-  <!-- Variante B1: Subtitle ZWINGEND unter der Linie -->
   @if (subtitleUnderLine) {
 
-  <!-- Title + Line als gemeinsamer Shrink-to-fit-Block -->
   <div class="title-fit">
     <h1 #titleElement class="title">{{ title | translate }}</h1>
 
@@ -102,17 +85,14 @@
     }
   </div>
 
-  <!-- Subtitle immer UNTER der Linie -->
   <h3 class="section-subtitle" [style.marginTop.px]="subtitleOffset">
     {{ subtitle | translate }}
   </h3>
 
-  <!-- Info-Text -->
   <p class="section-info-text" [style.marginTop.px]="infoOffset">
     {{ infoText | translate }}
   </p>
 
-  <!-- Optionale Linie unter dem Info-Text -->
   @if (lineUnderInfoText) {
   <div class="line-wrapper" [style.display]="'flex'" [style.width]="'100%'" [style.marginTop.px]="lineMarginBottom"
     [style.justifyContent]="getCurrentLineAlign()">
@@ -130,20 +110,16 @@
 
   } @else {
 
-  <!-- Variante B2: Standard-Verhalten -->
-
   @if (subtitlePosition === 'above') {
   <ng-container *ngTemplateOutlet="subtitleTpl; context: { mb: subtitleOffset }"></ng-container>
   }
 
-  <!-- Title -->
   <h1 #titleElement class="title">{{ title | translate }}</h1>
 
   @if (subtitlePosition === 'below') {
   <ng-container *ngTemplateOutlet="subtitleTpl; context: { mt: subtitleOffset }"></ng-container>
   }
 
-  <!-- Linie unter dem Title -->
   @if (!lineUnderInfoText) {
   <div class="line-wrapper" [style.display]="'flex'" [style.width]="'100%'" [style.marginBottom.px]="lineMarginBottom"
     [style.justifyContent]="getCurrentLineAlign()">
@@ -160,12 +136,10 @@
   </div>
   }
 
-  <!-- Info-Text -->
   <p class="section-info-text" [style.marginTop.px]="infoOffset">
     {{ infoText | translate }}
   </p>
 
-  <!-- Optionale Linie unter dem Info-Text -->
   @if (lineUnderInfoText) {
   <div class="line-wrapper" [style.display]="'flex'" [style.width]="'100%'" [style.marginTop.px]="lineMarginBottom"
     [style.justifyContent]="getCurrentLineAlign()">

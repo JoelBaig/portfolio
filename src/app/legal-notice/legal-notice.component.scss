@@ -1,166 +1,3 @@
-// :host {
-//     display: block;
-//     overflow-x: hidden;
-// }
-
-// .legal-page {
-//     width: 100%;
-//     position: relative;
-//     overflow-x: hidden;
-// }
-
-// .legal-hero {
-//     position: relative;
-//     width: 100%;
-//     height: 30vh;
-//     min-height: 260px;
-// }
-
-// .legal-notice-bgr {
-//     width: 100%;
-//     height: 100%;
-//     display: block;
-//     object-fit: cover;
-//     object-position: center bottom;
-// }
-
-// .nav-legal-notice {
-//     position: absolute;
-//     top: 0;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     width: min(1440px, calc(100% - 84px));
-//     z-index: 10;
-// }
-
-// h1 {
-//     position: absolute;
-//     left: 50%;
-//     bottom: 42%;
-//     transform: translateX(-50%);
-//     width: min(1440px, calc(100% - 84px));
-//     box-sizing: border-box;
-//     padding-left: 20px;
-//     font-size: 60px;
-//     color: white;
-//     margin: 0;
-// }
-
-// .content {
-//     max-width: 1440px;
-//     margin: 0 auto;
-//     width: 100%;
-//     position: relative;
-//     padding: 80px clamp(24px, 6vw, 120px) 0;
-//     box-sizing: border-box;
-// }
-
-// .back-btn-con {
-//     display: none;
-// }
-
-// h2 {
-//     color: #3355ff;
-// }
-
-// h3 {
-//     margin: 0;
-//     color: #3355ff;
-// }
-
-// p {
-//     margin-top: 0;
-// }
-
-// a {
-//     text-decoration: none;
-//     color: #3355ff;
-// }
-
-// .preline {
-//     white-space: pre-line;
-// }
-
-// .legal-notice-footer-pos {
-//     position: relative;
-//     top: 80px;
-// }
-
-// @media (max-width: 900px) {
-//     :host ::ng-deep .legal-link {
-// position: absolute;
-//     }
-
-//     .nav-legal-notice {
-//         width: calc(100% - 50px);
-//     }
-
-//     h1 {
-//         width: calc(100% - 50px);
-//         padding-left: 0;
-//         font-size: 48px;
-//         bottom: 35%;
-//     }
-
-//     .back-btn-con {
-//         display: inline-flex;
-//         align-items: center;
-//         gap: 8px;
-//         cursor: pointer;
-//         margin-bottom: 36px;
-
-//         >button {
-//             width: auto;
-//             background-color: transparent;
-//             border: none;
-//             color: black;
-//             font-weight: 700;
-//             font-size: 18px;
-//             cursor: pointer;
-//             padding: 0;
-//         }
-
-//         >img {
-//             width: 20px;
-//             height: auto;
-//             display: block;
-//         }
-
-//         &:hover>button {
-//             color: #f87a55;
-//         }
-
-//     }
-
-//     :host ::ng-deep .mobile-menu {
-//         min-width: 100vw !important;
-//     }
-// }
-
-// @media (max-width: 500px) {
-//     h1 {
-//         font-size: 40px;
-//     }
-
-//     .content {
-//         padding-left: 24px;
-//         padding-right: 24px;
-//     }
-
-//     .back-btn-con {
-//         margin-bottom: 30px;
-
-//         >button {
-//             font-size: 16px;
-//         }
-
-//         >img {
-//             width: 18px;
-//         }
-//     }
-// }
-
-
 :host {
     display: block;
     overflow-x: hidden;
@@ -249,10 +86,6 @@ a {
     top: 80px;
 }
 
-/* =========================
-   MOBILE / TABLET
-========================= */
-
 @media (max-width: 900px) {
 
     .nav-legal-notice {
@@ -270,8 +103,6 @@ a {
         padding-left: 24px;
         padding-right: 24px;
     }
-
-    /* BACK BUTTON */
 
     .back-btn-con {
         display: inline-flex;
@@ -306,10 +137,6 @@ a {
         min-width: 100vw !important;
     }
 
-    /* =========================
-       LEGAL NOTICE FOOTER FIX
-    ========================= */
-
     :host ::ng-deep app-footer.legal-notice-footer-pos {
         display: block;
         width: 100%;
@@ -329,15 +156,12 @@ a {
         box-sizing: border-box;
     }
 
-    /* COPYRIGHT */
-
     :host ::ng-deep app-footer.legal-notice-footer-pos .logo-wrapper .my-name {
         right: 0;
         top: 8px;
         white-space: nowrap;
     }
 
-    /* LEGAL NOTICE */
 
     :host ::ng-deep app-footer.legal-notice-footer-pos .nav-about-me {
         right: 0;
@@ -351,7 +175,6 @@ a {
         font-size: 18px;
     }
 
-    /* BOTTOM LINKS ABSTAND */
 
     :host ::ng-deep app-footer.legal-notice-footer-pos .nav-main:nth-child(3) {
         left: 6px;
@@ -366,10 +189,6 @@ a {
         right: 6px;
     }
 }
-
-/* =========================
-   SMALL MOBILE
-========================= */
 
 @media (max-width: 500px) {
 

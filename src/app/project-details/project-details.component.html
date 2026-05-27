@@ -10,7 +10,6 @@
     <div class="panel" (click)="$event.stopPropagation()">
         <ng-container *ngIf="selectedProject as project">
 
-            <!-- DESKTOP: Go Back links oben -->
             <div class="back-btn-con desktop-back-btn" (click)="onClose(); $event.stopPropagation()">
                 <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
                 <button class="back-btn" type="button">
@@ -69,7 +68,6 @@
                     </a>
                 </div>
 
-                <!-- MOBILE: beide Buttons unten unter Github/Live Test -->
                 <div class="mobile-project-nav-con">
                     <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
                         <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
@@ -110,7 +108,6 @@
                 </div>
             </div>
 
-            <!-- DESKTOP: Next Project unten rechts -->
             <div class="next-project-btn-con desktop-next-btn" (click)="nextProject(); $event.stopPropagation()">
                 <button type="button">
                     {{ 'PROJECT_DETAILS.NEXT_PROJECT_BTN' | translate }}

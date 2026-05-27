@@ -35,10 +35,6 @@
     z-index: 1;
 }
 
-/* =========================
-   TOP AREA
-========================= */
-
 .wrapper-top {
     width: 100%;
     display: flex;
@@ -88,10 +84,6 @@
     animation: ovalOrbit 3s ease-in-out infinite;
 }
 
-/* =========================
-   INTRO
-========================= */
-
 .skill-introduction {
     flex: 1;
     display: flex;
@@ -127,10 +119,6 @@
     z-index: 2;
 }
 
-/* =========================
-   BOTTOM AREA
-========================= */
-
 .wrapper-bottom {
     width: 100%;
     margin-top: 56px;
@@ -146,10 +134,6 @@
     justify-content: center;
     align-items: center;
 }
-
-/* =========================
-   SKILLS GRID
-========================= */
 
 .skills-grid {
     display: grid;
@@ -190,10 +174,6 @@
     filter: grayscale(0%);
     transform: scale(0.9);
 }
-
-/* =========================
-   STICKER
-========================= */
 
 .sticker-con {
     position: relative;
@@ -286,10 +266,6 @@
 .sticker-con.no-pointer {
     pointer-events: none;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 1400px) {
     .wrapper-main {

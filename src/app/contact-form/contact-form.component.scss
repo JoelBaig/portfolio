@@ -1,10 +1,6 @@
 @import './../../mixin.scss';
 @import './../../keyframes.scss';
 
-/* =========================
-   CONTACT SECTION LAYOUT
-========================= */
-
 .contact-con-main {
   position: relative;
   width: 100%;
@@ -29,10 +25,6 @@
   pointer-events: none;
 }
 
-/* =========================
-   MAIN WRAPPER (1440px)
-========================= */
-
 .contact-wrapper {
   max-width: 1440px;
   width: 80vw;
@@ -47,10 +39,6 @@
   gap: 60px;
 }
 
-/* =========================
-   LEFT COLUMN
-========================= */
-
 .contact-headline-con {
   width: 50%;
 }
@@ -60,19 +48,11 @@
   position: relative;
 }
 
-/* =========================
-   RIGHT COLUMN (FORM)
-========================= */
-
 .contact-con {
   width: min(520px, 100%);
   position: relative;
   top: 120px;
 }
-
-/* =========================
-   FORM ELEMENTS
-========================= */
 
 label {
   display: flex;
@@ -119,9 +99,6 @@ textarea {
   height: 20px;
 }
 
-/* =========================
-   FORM LINES
-========================= */
 
 .form-line-1,
 .form-line-2,
@@ -142,7 +119,6 @@ textarea {
   background: yellow;
 }
 
-/* Hover interactions */
 .name-field:hover+.form-line-2,
 .name-field:focus-within+.form-line-2,
 .email-field:hover+.form-line-3,
@@ -161,17 +137,9 @@ textarea {
   color: #e47b57;
 }
 
-/* =========================
-   ERROR STATES (nur im Input!)
-========================= */
-
 .error-placeholder::placeholder {
   color: #e47b57;
 }
-
-/* =========================
-   CHECKBOX (nicht mehr versetzt)
-========================= */
 
 .checkbox-con {
   display: flex;
@@ -188,7 +156,6 @@ textarea {
   cursor: pointer;
   flex: 0 0 18px;
   margin-top: 3px;
-  /* optisch auf Text baseline */
 }
 
 .checkbox-img,
@@ -221,10 +188,6 @@ textarea {
   color: #e47b57;
 }
 
-/* =========================
-   SEND BUTTON
-========================= */
-
 .send-button {
   align-self: flex-end;
   margin-top: 24px;
@@ -249,10 +212,6 @@ textarea {
 .send-native-btn:disabled {
   cursor: not-allowed;
 }
-
-/* =========================
-   STICKER (VISUAL ONLY)
-========================= */
 
 .sticker-con {
   position: absolute;
@@ -279,10 +238,6 @@ textarea {
   top: 50px;
   left: 55px;
 }
-
-/* =========================
-   TOAST
-========================= */
 
 .toast {
   position: fixed;
@@ -316,10 +271,6 @@ textarea {
   border: 1px solid rgba(255, 90, 90, 0.4);
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 .site-footer {
   max-width: 1440px;
   width: 100%;
@@ -337,18 +288,6 @@ textarea:-webkit-autofill:focus {
   transition: background-color 9999s ease-in-out 0s;
   box-shadow: 0 0 0px 1000px transparent inset !important;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-// @media (max-width: 1245px) {
-//     :host ::ng-deep .contact-headline .line-wrapper {
-//     position: relative;
-//     top: -210px;
-//     right: -260px;
-//   }
-// }
 
 @media (max-width: 900px) {
   :host ::ng-deep .contact-headline .line-wrapper {
@@ -418,8 +357,4 @@ textarea:-webkit-autofill:focus {
     position: relative;
     top: 373px;
   }
-
-  // :host ::ng-deep h1 {
-  //   font-size: 55px;
-  // }
 }

@@ -71,20 +71,20 @@ if (!is_array($data)) {
 // =========================
 
 $name =
-  trim((string)($data['contactName'] ?? ''));
+  trim((string) ($data['contactName'] ?? ''));
 
 $email =
-  trim((string)($data['email'] ?? ''));
+  trim((string) ($data['email'] ?? ''));
 
 $message =
-  trim((string)($data['message'] ?? ''));
+  trim((string) ($data['message'] ?? ''));
 
 // =========================
 // HONEYPOT
 // =========================
 
 $honeypot =
-  trim((string)($data['website'] ?? ''));
+  trim((string) ($data['website'] ?? ''));
 
 if ($honeypot !== '') {
 

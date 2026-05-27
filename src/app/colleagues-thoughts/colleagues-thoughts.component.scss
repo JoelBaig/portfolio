@@ -138,10 +138,6 @@
   opacity: 0;
 }
 
-/* =========================
-   DESKTOP / TABLET > 900px
-========================= */
-
 @media (min-width: 901px) {
   .colleagues-wrapper {
     min-height: 70vh;
@@ -170,10 +166,6 @@
     object-fit: initial;
   }
 }
-
-/* =========================
-   MOBILE <= 900px
-========================= */
 
 @media (max-width: 900px) {
   .colleagues-wrapper {

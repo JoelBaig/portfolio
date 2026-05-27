@@ -128,8 +128,6 @@ h2 {
     width: min(1464px, 92vw);
 }
 
-/* DESKTOP BUTTONS */
-
 .mobile-project-nav-con {
     display: none;
 }
@@ -606,7 +604,7 @@ h2 {
         font-size: 18px !important;
     }
 
-        :host ::ng-deep .title-fit {
+    :host ::ng-deep .title-fit {
         margin-top: -10px !important;
     }
 

@@ -8,7 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 class AssetsTranslateLoader implements TranslateLoader {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getTranslation(lang: string): Observable<any> {
     return this.http.get(`/assets/i18n/${lang}.json`);
   }
@@ -18,7 +18,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
 
-    // ✅ AnchorScrolling + ScrollRestoration
     provideRouter(
       routes,
       withInMemoryScrolling({

@@ -72,11 +72,8 @@ body.modal-open {
 .layout-container {
   width: var(--container);
   margin: 0 auto;
-  // padding-inline: var(--pad);
 }
 
-
-/* STARTZUSTAND */
 .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-distance, 24px));
@@ -86,13 +83,11 @@ body.modal-open {
   will-change: opacity, transform;
 }
 
-/* ENDZUSTAND */
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Richtungen (optional) */
 .reveal.from-left {
   transform: translateX(calc(var(--reveal-distance, 24px) * -1));
 }
@@ -111,13 +106,13 @@ body.modal-open {
 
 html.no-scroll,
 body.no-scroll {
-    overflow: hidden !important;
-    height: 100%;
-    overscroll-behavior: none;
+  overflow: hidden !important;
+  height: 100%;
+  overscroll-behavior: none;
 }
 
 body.menu-open {
-    touch-action: none;
+  touch-action: none;
 }
 
 /* Barrierefreiheit */

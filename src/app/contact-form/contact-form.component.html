@@ -46,7 +46,6 @@
 
         <div class="form-line-2"></div>
 
-        <!-- EMAIL -->
         <div class="email-field">
           <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
           <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required email
@@ -68,7 +67,6 @@
 
         <div class="form-line-4"></div>
 
-        <!-- CHECKBOX + PRIVACY HINT (immer sichtbar bis accepted) -->
         <div class="checkbox-con">
           <div class="checkbox-icon" (click)="toggleCheckbox($event)" (mouseenter)="hovered = true"
             (mouseleave)="hovered = false">
@@ -83,14 +81,12 @@
           <div class="privacy-text-wrap">
             <span class="privacy-policy-text">{{ 'CONTACT.PRIVACY_TXT' | translate }}</span>
 
-            <!-- ✅ von Anfang an sichtbar, verschwindet beim Haken -->
             <div class="privacy-hint" *ngIf="!accepted">
               {{ 'CONTACT.PRIVACY_HINT' | translate }}
             </div>
           </div>
         </div>
 
-        <!-- SUBMIT -->
         <button type="submit" class="send-native-btn" [disabled]="sending">
           <app-app-btn class="send-button" [text]="'CONTACT.SEND_BTN' | translate" [color]="'white'"
             [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
@@ -102,7 +98,7 @@
     </div>
   </div>
 
-  <!-- TOASTS -->
+
   <div class="toast success" *ngIf="sendStatus === 'success'" [class.hide]="!toastVisible">
     <span>{{ 'CONTACT.TOAST_SUCCESS' | translate }}</span>
   </div>

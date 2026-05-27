@@ -54,11 +54,11 @@ export class ProjectsComponent {
 
   openProjectDetails(projectId: string) {
     this.openProject = projectId;
-    this.projectModalOpenChange.emit(true); 
+    this.projectModalOpenChange.emit(true);
   }
 
   closeProjectDetails() {
     this.openProject = null;
-    this.projectModalOpenChange.emit(false); 
+    this.projectModalOpenChange.emit(false);
   }
 }
