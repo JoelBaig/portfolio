@@ -1,59 +1,129 @@
-# PortfolioTemp
+# Joel Baig - Frontend Developer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+🚀 Open to Junior Frontend Developer opportunities
 
-## Development server
+Welcome to my portfolio project. This website showcases my skills, projects and experience as a frontend developer. The application was built with Angular, TypeScript and SCSS and focuses on clean design, responsive layouts and modern web development practices.
 
-To start a local development server, run:
+## 🌐 Live Demo
 
-```bash
-ng serve
-```
+Visit the live version here:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+https://joelbaig.com
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📸 Preview
 
-```bash
-ng generate component component-name
-```
+Portfolio Preview
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ✨ Features
 
-## Building
+- Responsive design for desktop, tablet and mobile devices
+- Multi-language support (English / German)
+- Interactive animations and hover effects
+- Contact form with email functionality
+- Modern and clean user interface
+- Smooth scrolling navigation
+- Optimized user experience across different screen sizes
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🛠️ Tech Stack
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Frontend
 
-## Running unit tests
+- Angular
+- TypeScript
+- HTML5
+- SCSS
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Development Tools
 
-```bash
-ng test
-```
+- Git
+- GitHub
+- Visual Studio Code
+- npm
 
-## Running end-to-end tests
+### Additional Concepts
 
-For end-to-end (e2e) testing, run:
+- Responsive Web Design
+- Component-Based Architecture
+- REST API Integration
+- Internationalization (i18n)
+- Performance Optimization
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📂 Project Structure
 
-## Additional Resources
+text src/ ├── app/ │   ├── components/ │   ├── shared/ │   ├── services/ │   └── pages/ ├── assets/ ├── environments/ ├── styles/ └── index.html 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🚀 Installation
+
+Clone the repository:
+
+bash git clone https://github.com/JoelBaig/portfolio.git 
+
+Navigate into the project folder:
+
+bash cd portfolio 
+
+Install dependencies:
+
+bash npm install 
+
+Start the development server:
+
+bash ng serve 
+
+Open your browser:
+
+text http://localhost:4200 
+
+---
+
+## 🎯 Goals of This Project
+
+The purpose of this portfolio is to:
+
+- Showcase my frontend development skills
+- Present selected projects and achievements
+- Demonstrate responsive design principles
+- Practice modern Angular development
+- Provide recruiters and companies with an overview of my work
+
+---
+
+## 👨‍💻 About Me
+
+I am a frontend developer from Germany with a strong interest in creating modern, responsive and user-friendly web applications.
+
+My main focus is Angular development, TypeScript and clean UI implementation. I enjoy learning new technologies and continuously improving my development skills through practical projects.
+
+---
+
+## 📬 Contact
+
+### LinkedIn
+
+https://www.linkedin.com/in/joel-baig-51ab56305
+
+### GitHub
+
+https://github.com/JoelBaig
+
+### Portfolio Website
+
+https://joelbaig.com
+
+---
+
+## 📄 License
+
+This project is intended for portfolio and demonstration purposes only.
+
+© Joel Baig
