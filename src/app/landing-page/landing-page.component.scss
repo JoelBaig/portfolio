@@ -250,6 +250,10 @@
 }
 
 @media (max-width: 900px) {
+    .polaroid-con .polaroid-img {
+        filter: grayscale(0%) !important;
+    }
+
     .main-content {
         padding-top: 100px;
         padding-bottom: 40px;
