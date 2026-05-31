@@ -14,7 +14,7 @@ https://joelbaig.com
 
 ## 📸 Preview
 
-Portfolio Preview
+![Portfolio Preview](./src/assets/readme/portfolio-preview.webp)
 
 ---
 
