@@ -12,6 +12,10 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
+/**
+ * Displays a reusable section headline with optional subtitle,
+ * info text and configurable decorative line behavior.
+ */
 @Component({
   selector: 'app-app-headline',
   standalone: true,
@@ -52,22 +56,36 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
 
   constructor(private cdr: ChangeDetectorRef) { }
 
-  ngAfterViewInit() {
+  /**
+   * Measures the title width after the view has been initialized.
+   */
+  ngAfterViewInit(): void {
     this.deferMeasure();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  /**
+   * Re-measures the title width when relevant input values change.
+   *
+   * @param changes The changed component input values.
+   */
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['title'] || changes['lineMatchTitle']) {
       this.deferMeasure();
     }
   }
 
+  /**
+   * Re-measures the title width after the browser window is resized.
+   */
   @HostListener('window:resize')
-  onResize() {
+  onResize(): void {
     this.deferMeasure();
   }
 
-  private deferMeasure() {
+  /**
+   * Defers the title width measurement until the browser has rendered the view.
+   */
+  private deferMeasure(): void {
     if (!this.lineMatchTitle) return;
 
     requestAnimationFrame(() => {
@@ -78,15 +96,35 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
     });
   }
 
-  private updateTitleWidth() {
+  /**
+   * Updates the stored title width if the rendered title size has changed.
+   */
+  private updateTitleWidth(): void {
     if (!this.lineMatchTitle || !this.titleElement) return;
 
-    const w = Math.ceil(this.titleElement.nativeElement.getBoundingClientRect().width);
-    if (w !== this.titleWidthPx) {
-      this.titleWidthPx = w;
+    const width = this.getTitleWidth();
+
+    if (width !== this.titleWidthPx) {
+      this.titleWidthPx = width;
     }
   }
 
+  /**
+   * Returns the current rendered title width in pixels.
+   *
+   * @returns The rounded title width in pixels.
+   */
+  private getTitleWidth(): number {
+    return Math.ceil(
+      this.titleElement.nativeElement.getBoundingClientRect().width
+    );
+  }
+
+  /**
+   * Returns the active line alignment depending on the viewport size.
+   *
+   * @returns The currently used flex alignment value.
+   */
   getCurrentLineAlign(): 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' {
     if (window.innerWidth <= 900 && this.mobileLineAlign) {
       return this.mobileLineAlign;
@@ -95,6 +133,11 @@ export class AppHeadlineComponent implements AfterViewInit, OnChanges {
     return this.lineAlign;
   }
 
+  /**
+   * Returns the active decorative line width depending on the viewport size.
+   *
+   * @returns The current line width in pixels.
+   */
   getCurrentLineWidth(): number {
     const width = window.innerWidth;
 

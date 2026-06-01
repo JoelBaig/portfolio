@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+/**
+ * Displays the footer section including social links,
+ * legal notice navigation and contact actions.
+ */
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -25,12 +29,24 @@ export class FooterComponent {
   over: 'github' | 'linkedin' | 'email' | null = null;
   hasInteracted = false;
 
-  openLegalNotice(event: MouseEvent) {
+  /**
+   * Prevents the default link behavior and emits
+   * an event to open the legal notice page.
+   *
+   * @param event The mouse click event.
+   */
+  openLegalNotice(event: MouseEvent): void {
     event.preventDefault();
     this.legalNoticeClick.emit();
   }
 
-  onEmailClick(event?: MouseEvent) {
+  /**
+   * Prevents the default email link behavior and emits
+   * an event to handle email navigation externally.
+   *
+   * @param event The optional mouse click event.
+   */
+  onEmailClick(event?: MouseEvent): void {
     event?.preventDefault();
     this.emailClick.emit();
   }

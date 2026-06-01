@@ -56,15 +56,26 @@ export class ColleaguesThoughtsComponent {
   isMobile = window.innerWidth <= 900;
   hoveredIndex: number | null = null;
 
+  /**
+   * Updates the current screen size state when the window is resized.
+   */
   @HostListener('window:resize')
   onResize(): void {
     this.updateScreenSize();
   }
 
+  /**
+   * Updates the mobile screen state based on the viewport width.
+   */
   private updateScreenSize(): void {
     this.isMobile = window.innerWidth <= 900;
   }
 
+  /**
+   * Returns the cards in the order they should be displayed.
+   *
+   * @returns The ordered array of colleague cards.
+   */
   get displayedCards() {
     if (this.isMobile) {
       return [this.imageCards[1], this.imageCards[0], this.imageCards[2]];
@@ -73,35 +84,86 @@ export class ColleaguesThoughtsComponent {
     return this.imageCards;
   }
 
+  /**
+   * Returns the card positioning style based on its index.
+   *
+   * @param index The card index.
+   * @returns A style object containing positioning values.
+   */
   getCardStyle(index: number): { [key: string]: string } {
     switch (index) {
       case 0:
-        return {
-          top: '30%',
-          left: '65%',
-          transform: 'translate(-50%, -50%) rotate(5deg)'
-        };
+        return this.styleCase0();
+
       case 1:
-        return {
-          top: '55%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) rotate(0deg)'
-        };
+        return this.styleCase1();
+
       case 2:
-        return {
-          top: '30%',
-          left: '37%',
-          transform: 'translate(-50%, -50%) rotate(-5deg)'
-        };
+        return this.styleCase2();
+
       default:
-        return {
-          top: '40%',
-          left: '20%',
-          transform: 'translate(-50%, -50%) rotate(0deg)'
-        };
+        return this.styleDefault();
     }
   }
 
+  /**
+   * Returns the style configuration for the first card.
+   *
+   * @returns The card style object.
+   */
+  private styleCase0() {
+    return {
+      top: '30%',
+      left: '65%',
+      transform: 'translate(-50%, -50%) rotate(5deg)'
+    };
+  }
+
+  /**
+   * Returns the style configuration for the second card.
+   *
+   * @returns The card style object.
+   */
+  private styleCase1() {
+    return {
+      top: '55%',
+      left: '50%',
+      transform: 'translate(-50%, -50%) rotate(0deg)'
+    };
+  }
+
+  /**
+   * Returns the style configuration for the third card.
+   *
+   * @returns The card style object.
+   */
+  private styleCase2() {
+    return {
+      top: '30%',
+      left: '37%',
+      transform: 'translate(-50%, -50%) rotate(-5deg)'
+    };
+  }
+
+  /**
+   * Returns the default card style.
+   *
+   * @returns A fallback style object.
+   */
+  private styleDefault() {
+    return {
+      top: '40%',
+      left: '20%',
+      transform: 'translate(-50%, -50%) rotate(0deg)'
+    };
+  }
+
+  /**
+   * Returns the text rotation based on the card id and screen size.
+   *
+   * @param cardId The id of the card.
+   * @returns A CSS rotation value.
+   */
   getTextRotation(cardId: number): string {
     if (this.isMobile) {
       switch (cardId) {
@@ -116,59 +178,90 @@ export class ColleaguesThoughtsComponent {
       }
     }
 
-    switch (cardId) {
-      case 0:
-        return 'rotate(0deg)';
-      case 1:
-        return 'rotate(0deg)';
-      case 2:
-        return 'rotate(0deg)';
-      default:
-        return 'rotate(0deg)';
-    }
+    return 'rotate(0deg)';
   }
 
+  /**
+   * Opens the LinkedIn profile of the selected card in a new tab.
+   *
+   * @param card The selected colleague card.
+   */
   openLinkedIn(card: any): void {
     if (card.link) {
       window.open(card.link, '_blank');
     }
   }
 
+  /**
+   * Returns the default z-index for a card based on its position.
+   *
+   * @param i The card index.
+   * @returns The z-index value.
+   */
   baseZ(i: number): number {
     return i === 0 ? 30 : i === 1 ? 20 : 10;
   }
 
+  /**
+   * Returns the combined style configuration depending on the current device type.
+   *
+   * @param i The card index.
+   * @param cardId The card id.
+   * @returns The final style object.
+   */
   combinedStyle(i: number, cardId: number): { [key: string]: string | number } {
     if (this.isMobile) {
-      let rotation = 'none';
-
-      switch (cardId) {
-        case 0:
-          rotation = 'rotate(0deg)';
-          break;
-        case 1:
-          rotation = 'rotate(-2deg)';
-          break;
-        case 2:
-          rotation = 'rotate(1deg)';
-          break;
-      }
-
-      return {
-        position: 'relative',
-        zIndex: 'auto',
-        top: 'auto',
-        left: 'auto',
-        transform: rotation
-      };
+      return this.getMobileStyle(cardId);
     }
 
+    return this.getDesktopStyle(i);
+  }
+
+  /**
+   * Returns the mobile style configuration for a card.
+   *
+   * @param cardId The card id.
+   * @returns The mobile style object.
+   */
+  private getMobileStyle(cardId: number): { [key: string]: string | number } {
+    return {
+      position: 'relative',
+      zIndex: 'auto',
+      top: 'auto',
+      left: 'auto',
+      transform: this.getMobileRotation(cardId)
+    };
+  }
+
+  /**
+   * Returns the rotation value used on mobile devices.
+   *
+   * @param cardId The card id.
+   * @returns A CSS rotation value.
+   */
+  private getMobileRotation(cardId: number): string {
+    const rotations = [
+      'rotate(0deg)',
+      'rotate(-2deg)',
+      'rotate(1deg)'
+    ];
+
+    return rotations[cardId] || 'rotate(0deg)';
+  }
+
+  /**
+   * Returns the desktop style configuration for a card.
+   *
+   * @param i The card index.
+   * @returns The desktop style object.
+   */
+  private getDesktopStyle(i: number): { [key: string]: string | number } {
     const base = this.getCardStyle(i);
 
     return {
       ...base,
       position: 'absolute',
-      zIndex: this.hoveredIndex === i ? 999 : this.baseZ(i),
+      zIndex: this.hoveredIndex === i ? 999 : this.baseZ(i)
     };
   }
 }

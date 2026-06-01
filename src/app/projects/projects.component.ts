@@ -5,6 +5,10 @@ import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 import { TranslateModule } from '@ngx-translate/core';
 
+/**
+ * Displays the portfolio projects section and manages
+ * opening and closing the project details modal.
+ */
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -52,12 +56,22 @@ export class ProjectsComponent {
     }
   ];
 
-  openProjectDetails(projectId: string) {
+  /**
+   * Opens the details modal for the selected project
+   * and notifies the parent component.
+   *
+   * @param projectId The id of the selected project.
+   */
+  openProjectDetails(projectId: string): void {
     this.openProject = projectId;
     this.projectModalOpenChange.emit(true);
   }
 
-  closeProjectDetails() {
+  /**
+   * Closes the currently open project details modal
+   * and notifies the parent component.
+   */
+  closeProjectDetails(): void {
     this.openProject = null;
     this.projectModalOpenChange.emit(false);
   }

@@ -1,6 +1,10 @@
 import { CommonModule, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
+/**
+ * Reusable button component with configurable dimensions,
+ * colors, text content and hover images.
+ */
 @Component({
   selector: 'app-app-btn',
   imports: [

@@ -1,6 +1,10 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
 
+/**
+ * Displays a floating "scroll to top" button that appears
+ * after the user has scrolled down the page.
+ */
 @Component({
   selector: 'app-arrow-up',
   imports: [
@@ -16,27 +20,49 @@ export class ArrowUpComponent {
   showArrowUp = false;
   private lock = false;
 
+  /**
+   * Updates the visibility of the arrow button based on
+   * the current scroll position.
+   */
   @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    if (this.disabled || this.lock) {
+      return;
+    }
 
-  onWindowScroll() {
-    if (this.disabled || this.lock) return;
     this.showArrowUp = window.scrollY > 300;
   }
 
-  scrollToTop() {
-    if (this.disabled) return;
+  /**
+   * Smoothly scrolls the page back to the top and temporarily
+   * hides the arrow button until scrolling is complete.
+   */
+  scrollToTop(): void {
+    if (this.disabled) {
+      return;
+    }
 
     this.lock = true;
     this.showArrowUp = false;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const check = () => {
-      if (window.scrollY <= 0) {
-        this.lock = false;
-        return;
-      }
-      requestAnimationFrame(check);
-    };
-    requestAnimationFrame(check);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    requestAnimationFrame(() => this.checkScrollFinished());
+  }
+
+  /**
+   * Checks whether the page has finished scrolling to the top
+   * and releases the scroll lock.
+   */
+  private checkScrollFinished(): void {
+    if (window.scrollY <= 0) {
+      this.lock = false;
+      return;
+    }
+
+    requestAnimationFrame(() => this.checkScrollFinished());
   }
 }

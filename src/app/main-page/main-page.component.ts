@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { LandingPageComponent } from "../landing-page/landing-page.component";
 import { AboutMeSectionComponent } from "../about-me-section/about-me-section.component";
 import { MySkillsComponent } from "../my-skills/my-skills.component";
@@ -9,6 +8,10 @@ import { ColleaguesThoughtsComponent } from "../colleagues-thoughts/colleagues-t
 import { ContactFormComponent } from "../contact-form/contact-form.component";
 import { ArrowUpComponent } from "../arrow-up/arrow-up.component";
 
+/**
+ * Main page container component.
+ * Combines all portfolio sections into a single page layout.
+ */
 @Component({
   selector: 'app-main-page',
   standalone: true,

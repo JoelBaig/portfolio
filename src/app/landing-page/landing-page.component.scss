@@ -59,6 +59,7 @@
     min-width: 0;
     width: max-content;
     max-width: 100%;
+    overflow: visible;
 }
 
 .text-top,
@@ -68,6 +69,15 @@
     font-size: clamp(56px, 9vw, 120px);
     line-height: 0.95;
     margin: 0;
+    white-space: nowrap;
+    display: block;
+}
+
+.text-top .letter,
+.text-bottom .letter {
+    display: inline-block;
+    width: 0.7em;
+    text-align: center;
 }
 
 .text-bottom {
@@ -76,9 +86,8 @@
 
 .get-in-touch-btn {
     margin-top: 16px;
-    position: relative;
-    right: 0;
-    align-self: flex-end;
+    align-self: flex-start;
+    margin-left: 530px;
 }
 
 .polaroid-con {
@@ -283,7 +292,7 @@
 
     .get-in-touch-btn {
         margin-top: 12px;
-        margin-left: 0;
+        margin-left: 300px;
         right: 0;
     }
 
@@ -300,6 +309,12 @@
 
     .colleagues-main {
         margin-top: -100px;
+    }
+}
+
+@media (max-width: 530px) {
+    .get-in-touch-btn {
+        margin-left: 200px;
     }
 }
 
@@ -323,12 +338,18 @@
         margin-left: 60px;
     }
 
+    .text-top .letter,
+    .text-bottom .letter {
+        width: 0.72em;
+    }
+
     .hello-world {
         width: 170px;
     }
 
     .get-in-touch-btn {
         margin-top: 10px;
+        margin-left: 100px;
     }
 }
 
