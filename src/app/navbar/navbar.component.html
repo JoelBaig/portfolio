@@ -1,10 +1,10 @@
 <nav class="navbar" [ngClass]="'navbar--' + variant">
 
   <div class="navbar-left">
-    <div class="logo-wrapper">
+    <a class="logo-wrapper" [routerLink]="['/']" (click)="closeMenu(false)">
       <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
       <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
-    </div>
+    </a>
   </div>
 
   <div class="navbar-center desktop-only">

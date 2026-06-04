@@ -50,4 +50,26 @@ export class FooterComponent {
     event?.preventDefault();
     this.emailClick.emit();
   }
+
+  /**
+   * Scrolls to the landing page section.
+   */
+  scrollToLandingPage(): void {
+    setTimeout(() => {
+      const heroSection = document.getElementById('hero');
+
+      if (heroSection) {
+        heroSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
+  }
 }

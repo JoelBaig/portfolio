@@ -1,11 +1,11 @@
 <div class="footer-main" [class.light]="theme === 'light'" [class.dark]="theme === 'dark'">
   <nav class="navbar">
     <ul class="nav-links">
-      <div class="logo-wrapper">
+      <a class="logo-wrapper" [routerLink]="['/']" (click)="scrollToLandingPage()">
         <img class="logo logo-blue" src="./assets/img/header/logo_blue.png" alt="">
         <img class="logo logo-yellow" src="./assets/img/header/logo_yellow.png" alt="">
         <div class="my-name">© Joel Baig 2025</div>
-      </div>
+      </a>
 
       <li class="nav-about-me" *ngIf="showLegalLink">
         <a *ngIf="legalAsClose; else normalLegal" (click)="openLegalNotice($event)" class="nav-link legal-link">

@@ -37,7 +37,6 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() navClick = new EventEmitter<string>();
   @Output() menuOpenChange = new EventEmitter<boolean>();
-
   @Input() variant: 'default' | 'overlay' = 'default';
 
   activeSection: string | null = null;
