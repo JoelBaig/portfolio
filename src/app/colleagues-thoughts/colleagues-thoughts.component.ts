@@ -114,7 +114,7 @@ export class ColleaguesThoughtsComponent {
   private styleCase0() {
     return {
       top: '30%',
-      left: '65%',
+      left: '75%',
       transform: 'translate(-50%, -50%) rotate(5deg)'
     };
   }
@@ -126,7 +126,7 @@ export class ColleaguesThoughtsComponent {
    */
   private styleCase1() {
     return {
-      top: '55%',
+      top: '38%',
       left: '50%',
       transform: 'translate(-50%, -50%) rotate(0deg)'
     };
@@ -140,7 +140,7 @@ export class ColleaguesThoughtsComponent {
   private styleCase2() {
     return {
       top: '30%',
-      left: '37%',
+      left: '26%',
       transform: 'translate(-50%, -50%) rotate(-5deg)'
     };
   }
