@@ -407,6 +407,41 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
    * @param fragment The target section id.
    */
   private scrollToFragment(fragment: string): void {
+    if (this.isTopFragment(fragment)) {
+      this.scrollToPageTop();
+      return;
+    }
+
+    this.scrollToElement(fragment);
+  }
+
+  /**
+   * Checks whether the target fragment points to the page top.
+   *
+   * @param fragment The fragment to check.
+   * @returns True if the fragment points to the page top.
+   */
+  private isTopFragment(fragment: string): boolean {
+    return fragment === 'top';
+  }
+
+  /**
+   * Scrolls smoothly to the top of the page.
+   */
+  private scrollToPageTop(): void {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  /**
+   * Scrolls smoothly to an element by id.
+   *
+   * @param fragment The id of the target element.
+   */
+  private scrollToElement(fragment: string): void {
     const target = document.getElementById(fragment);
     if (!target) return;
 

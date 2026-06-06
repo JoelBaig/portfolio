@@ -1,7 +1,7 @@
 <nav class="navbar" [ngClass]="'navbar--' + variant">
 
   <div class="navbar-left">
-    <a class="logo-wrapper" [routerLink]="['/']" (click)="closeMenu(false)">
+    <a class="logo-wrapper" [routerLink]="['/']" (click)="onLogoClick($event)">
       <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="">
       <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
     </a>
@@ -12,44 +12,36 @@
 
       <li class="nav-about-me">
         <a class="nav-link" [routerLink]="['/']" fragment="about-me" (click)="onNavItemClick('about-me')">
-
           <span class="nav-text">
             {{ 'NAV.ABOUT' | translate }}
           </span>
-
           <img src="assets/img/header/B.2.png" class="hover-bg" />
         </a>
       </li>
 
       <li class="nav-skills">
         <a class="nav-link" [routerLink]="['/']" fragment="skills" (click)="onNavItemClick('skills')">
-
           <span class="nav-text">
             {{ 'NAV.SKILLS' | translate }}
           </span>
-
           <img src="assets/img/header/B.1.png" class="hover-bg" />
         </a>
       </li>
 
       <li class="nav-projects">
         <a class="nav-link" [routerLink]="['/']" fragment="projects" (click)="onNavItemClick('projects')">
-
           <span class="nav-text">
             {{ 'NAV.PROJECTS' | translate }}
           </span>
-
           <img src="assets/img/header/B.4.png" class="hover-bg" />
         </a>
       </li>
 
       <li class="nav-contact">
         <a class="nav-link" [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact')">
-
           <span class="nav-text">
             {{ 'NAV.CONTACT' | translate }}
           </span>
-
           <img src="assets/img/header/B.3.png" class="hover-bg" />
         </a>
       </li>
@@ -62,7 +54,6 @@
     <div class="language-wrapper">
 
       <div class="en-language-wrapper" (click)="selectLanguage('en')">
-
         <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
           src="/assets/img/header/en_red.png">
 
@@ -74,12 +65,10 @@
 
       <div class="language-switch-wrapper">
         <img class="language-line" src="/assets/img/header/language_line.png">
-
         <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png">
       </div>
 
       <div class="de-language-wrapper" (click)="selectLanguage('de')">
-
         <img [ngClass]="{'visible': selectedLanguage !== 'de'}" class="language-pos de-language-white"
           src="/assets/img/header/de_white.png">
 
@@ -93,12 +82,10 @@
   </div>
 
   <button id="menuBars" class="mobile-only burger-btn" type="button" *ngIf="!isMenuOpen" (click)="toggleMenu()">
-
     <img src="/assets/mobile/menu_bars.png" alt="menu">
   </button>
 
   <button id="closeBtn" class="mobile-only mobile-close" type="button" *ngIf="isMenuOpen" (click)="closeMenu()">
-
     <img src="/assets/mobile/menu_close.png" alt="close">
   </button>
 
@@ -110,28 +97,24 @@
 
         <li>
           <a [routerLink]="['/']" fragment="about-me" (click)="onNavItemClick('about-me')">
-
             {{ 'NAV.ABOUT' | translate }}
           </a>
         </li>
 
         <li>
           <a [routerLink]="['/']" fragment="skills" (click)="onNavItemClick('skills')">
-
             {{ 'NAV.SKILLS' | translate }}
           </a>
         </li>
 
         <li>
           <a [routerLink]="['/']" fragment="projects" (click)="onNavItemClick('projects')">
-
             {{ 'NAV.PROJECTS' | translate }}
           </a>
         </li>
 
         <li>
           <a [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact')">
-
             {{ 'NAV.CONTACT' | translate }}
           </a>
         </li>
@@ -143,7 +126,6 @@
         <div class="language-wrapper">
 
           <div class="en-language-wrapper" (click)="selectLanguage('en')">
-
             <img [ngClass]="{'visible': selectedLanguage === 'en'}" class="language-pos en-language-red"
               src="/assets/img/header/en_red.png">
 
@@ -155,12 +137,10 @@
 
           <div class="language-switch-wrapper">
             <img class="language-line" src="/assets/img/header/language_line.png">
-
             <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png">
           </div>
 
           <div class="de-language-wrapper" (click)="selectLanguage('de')">
-
             <img [ngClass]="{'visible': selectedLanguage !== 'de'}" class="language-pos de-language-white"
               src="/assets/img/header/de_white.png">
 
@@ -176,17 +156,14 @@
       <div class="mobile-social">
 
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-
           <img src="/assets/img/header/linkedin_default.png" alt="linkedin">
         </a>
 
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-
           <img src="/assets/img/header/github_default.png" alt="github">
         </a>
 
         <a [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact')">
-
           <img src="/assets/img/header/email_default.png" alt="mail">
         </a>
 

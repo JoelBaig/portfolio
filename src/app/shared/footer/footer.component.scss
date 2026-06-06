@@ -6,9 +6,11 @@
     --footer-muted: #F8F9FA;
     --pill-bg: #3355ff;
     color: var(--footer-text);
-    height: 100px;
+    min-height: 100px;
+    height: auto;
     width: 100%;
     position: relative;
+    overflow: visible;
 }
 
 .footer-main.light {
@@ -17,16 +19,19 @@
 }
 
 .navbar {
-    @include elementSize($w: 100%, $h: 100px, $mw: none);
+    @include elementSize($w: 100%, $h: auto, $mw: none);
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: visible;
 }
 
 .nav-links {
     @include dFlex($f: flex, $c: space-between, $ai: center);
-    height: 100px;
+    min-height: 100px;
+    height: auto;
     width: 90vw;
     font-weight: 700;
     color: var(--footer-muted);
@@ -34,6 +39,7 @@
     margin: 0;
     list-style: none;
     position: relative;
+    overflow: visible;
 }
 
 li {
@@ -181,6 +187,7 @@ a {
     top: -55px;
     display: inline-block;
     cursor: pointer;
+    overflow: visible;
 
     .logo {
         position: absolute;
@@ -215,24 +222,30 @@ a {
 
 @media (max-width: 900px) {
     .footer-main {
-        height: 190px;
-        padding-bottom: 48px;
+        min-height: 190px;
+        height: auto;
+        padding-bottom: 0;
+        overflow: visible;
     }
 
     .navbar {
-        height: 190px;
+        min-height: 190px;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        overflow: visible;
     }
 
     .nav-links {
         position: relative;
         width: calc(100% - 64px);
-        height: 190px;
+        min-height: 190px;
+        height: auto;
         display: block;
         padding: 0;
         margin: 0 auto;
+        overflow: visible;
     }
 
     .logo-wrapper {
@@ -322,17 +335,20 @@ a {
 
 @media (max-width: 500px) {
     .footer-main {
-        height: 180px;
-        padding-bottom: 40px;
+        min-height: 180px;
+        height: auto;
+        padding-bottom: 0;
     }
 
     .navbar {
-        height: 180px;
+        min-height: 180px;
+        height: auto;
     }
 
     .nav-links {
         width: calc(100% - 48px);
-        height: 180px;
+        min-height: 180px;
+        height: auto;
     }
 
     .logo-wrapper {

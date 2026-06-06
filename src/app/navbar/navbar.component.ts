@@ -375,4 +375,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.closeMenu();
     }
   }
+
+  onLogoClick(event: MouseEvent): void {
+    this.closeMenu(false);
+
+    if (this.variant === 'overlay') {
+      event.preventDefault();
+      this.navClick.emit('top');
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }
