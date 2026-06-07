@@ -23,58 +23,61 @@ import { Router } from '@angular/router';
 })
 export class LegalNoticeComponent implements AfterViewInit {
   isMobileMenuOpen = false;
+
   private router = inject(Router);
+  private readonly contactRestoreKey = 'restoreContactInstantly';
 
   /**
    * Navigates back to the home page and scrolls to the top.
    */
   closeToHomeTop(): void {
     this.router.navigateByUrl('/').then(() => {
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'instant' as ScrollBehavior
-        });
-      });
+      this.scrollToPageTopInstantly();
     });
   }
 
   /**
-   * Navigates to the contact section on the home page.
+   * Navigates back to the home page and restores the contact section.
    */
   closeToContact(): void {
-    this.router.navigateByUrl('/#contact').then(() => {
-      requestAnimationFrame(() => {
-        document.getElementById('contact')?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
-    });
+    this.markContactRestore();
+    this.router.navigateByUrl('/');
   }
 
   /**
-   * Scrolls the page to the top after the view has been initialized.
+   * Scrolls the legal notice page to the top after initialization.
    */
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'auto'
-      });
+      this.scrollToPageTopInstantly();
     });
   }
 
   /**
-   * Prevents the default email link behavior and navigates
-   * to the contact section instead.
+   * Prevents the default email link behavior and returns to contact.
    *
    * @param event The mouse click event.
    */
   onEmailLinkClick(event: MouseEvent): void {
     event.preventDefault();
     this.closeToContact();
+  }
+
+  /**
+   * Stores the contact restore request for the home page.
+   */
+  private markContactRestore(): void {
+    sessionStorage.setItem(this.contactRestoreKey, 'true');
+  }
+
+  /**
+   * Instantly scrolls to the top of the page.
+   */
+  private scrollToPageTopInstantly(): void {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
   }
 }

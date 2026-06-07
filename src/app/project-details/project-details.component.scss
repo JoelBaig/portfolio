@@ -264,6 +264,42 @@ h2 {
     width: auto;
 }
 
+.project-css-btn {
+    width: 180px;
+    height: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 999px;
+    font-size: 22px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 4px 5px 0 rgba(255, 255, 255, 1);
+    transition:
+        background-color 150ms ease,
+        color 150ms ease,
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.project-css-btn:hover {
+    background: #EA8061;
+    color: white;
+    border-color: white;
+    box-shadow: none;
+    transform: translate(3px, 2px);
+}
+
+.project-css-btn:active {
+    transform: translate(5px, 4px);
+}
+
 .d-none {
     display: none;
 }
@@ -475,6 +511,24 @@ h2 {
         padding: 0;
         box-sizing: border-box;
         order: 2;
+    }
+
+    .project-css-btn {
+        width: 100px;
+        height: 34px;
+        border-width: 2px;
+        font-size: 16px;
+        box-shadow: 0 5px 0 white;
+    }
+
+    .project-css-btn:hover {
+        transform: translateY(3px);
+        box-shadow: 0 2px 0 white;
+    }
+
+    .project-css-btn:active {
+        transform: translateY(5px);
+        box-shadow: 0 0 0 white;
     }
 
     .mobile-project-nav-con {

@@ -172,10 +172,20 @@ export class MySkillsComponent {
   }
 
   /**
+   * Opens the sticker when the user clicks it.
+   */
+  openStickerByClick(): void {
+    if (this.isOpen || this.dragging) return;
+
+    this.openSticker();
+  }
+
+  /**
    * Opens the sticker and reveals the hidden technologies.
    */
   private openSticker(): void {
     this.isOpen = true;
+    this.dragging = false;
     this.peelProgress = 1;
     this.peelClipPath = this.calcClipPath(1);
   }

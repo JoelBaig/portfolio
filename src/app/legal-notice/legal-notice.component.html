@@ -8,7 +8,7 @@
   </section>
 
   <main class="content">
-    <div class="back-btn-con" (click)="closeToHomeTop()">
+    <div class="back-btn-con" (click)="closeToContact()">
       <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button" />
       <button class="back-btn" type="button">
         {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
@@ -47,7 +47,7 @@
     </p>
 
     <app-footer class="legal-notice-footer-pos" [theme]="'light'" [legalAsClose]="true"
-      (legalNoticeClick)="closeToHomeTop()" (emailClick)="closeToContact()">
+      (legalNoticeClick)="closeToContact()" (emailClick)="closeToContact()">
     </app-footer>
   </main>
 </div>

@@ -1,4 +1,4 @@
-import { Component, inject, EventEmitter, Output } from '@angular/core';
+import { Component, inject, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
@@ -26,8 +26,9 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements AfterViewInit {
   private http = inject(HttpClient);
+  private readonly contactRestoreKey = 'restoreContactInstantly';
 
   @Output() legalNoticeClick = new EventEmitter<void>();
 
@@ -47,14 +48,19 @@ export class ContactFormComponent {
   toastVisible = false;
 
   /**
+   * Restores the contact section after returning from legal notice.
+   */
+  ngAfterViewInit(): void {
+    this.restoreContactViewIfNeeded();
+  }
+
+  /**
    * Returns the correct form endpoint depending on the current hostname.
    *
    * @returns The endpoint URL used for the contact form request.
    */
   private get endPoint(): string {
-    const isLocalhost = this.isLocalhost();
-
-    return isLocalhost
+    return this.isLocalhost()
       ? 'https://joelbaig.com/sendMail.php'
       : '/sendMail.php';
   }
@@ -84,9 +90,7 @@ export class ContactFormComponent {
   onSubmit(contactForm: NgForm): void {
     this.prepareSubmit(contactForm);
 
-    if (this.isSubmitBlocked(contactForm)) {
-      return;
-    }
+    if (this.isSubmitBlocked(contactForm)) return;
 
     this.sendContactForm(contactForm);
   }
@@ -246,12 +250,80 @@ export class ContactFormComponent {
   }
 
   /**
-   * Toggles the custom checkbox state and prevents the default browser behavior.
+   * Toggles the custom checkbox state and prevents default browser behavior.
    *
    * @param event The checkbox click event.
    */
   toggleCheckbox(event: Event): void {
     event.preventDefault();
     this.accepted = !this.accepted;
+  }
+
+  /**
+   * Restores the contact section if requested.
+   */
+  private restoreContactViewIfNeeded(): void {
+    if (!this.shouldRestoreContactView()) return;
+
+    this.clearContactRestoreRequest();
+    this.restoreContactViewRepeatedly();
+  }
+
+  /**
+   * Checks whether the contact section should be restored.
+   *
+   * @returns True if the contact section should be restored.
+   */
+  private shouldRestoreContactView(): boolean {
+    return sessionStorage.getItem(this.contactRestoreKey) === 'true';
+  }
+
+  /**
+   * Clears the stored contact restore request.
+   */
+  private clearContactRestoreRequest(): void {
+    sessionStorage.removeItem(this.contactRestoreKey);
+  }
+
+  /**
+   * Restores the contact position multiple times to override later jumps.
+   */
+  private restoreContactViewRepeatedly(): void {
+    this.restoreContactViewInstantly();
+    requestAnimationFrame(() => this.restoreContactViewInstantly());
+    setTimeout(() => this.restoreContactViewInstantly(), 0);
+    setTimeout(() => this.restoreContactViewInstantly(), 50);
+  }
+
+  /**
+   * Restores the contact section without smooth scrolling.
+   */
+  private restoreContactViewInstantly(): void {
+    const top = this.getContactTopPosition();
+    this.forceInstantScroll(top);
+  }
+
+  /**
+   * Returns the absolute top position of the contact section.
+   *
+   * @returns The contact section top offset.
+   */
+  private getContactTopPosition(): number {
+    const contact = document.getElementById('contact');
+    return contact ? contact.getBoundingClientRect().top + window.scrollY : 0;
+  }
+
+  /**
+   * Scrolls to the given top position without smooth behavior.
+   *
+   * @param top The target top position.
+   */
+  private forceInstantScroll(top: number): void {
+    const html = document.documentElement;
+    const previousBehavior = html.style.scrollBehavior;
+
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, top);
+    html.style.scrollBehavior = previousBehavior;
   }
 }

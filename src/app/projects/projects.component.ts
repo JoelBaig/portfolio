@@ -29,6 +29,8 @@ export class ProjectsComponent {
   hoveredProject: string | null = null;
   openProject: string | null = null;
 
+  private scrollPosition = 0;
+
   projects = [
     {
       id: 'join',
@@ -57,22 +59,62 @@ export class ProjectsComponent {
   ];
 
   /**
-   * Opens the details modal for the selected project
-   * and notifies the parent component.
+   * Opens the details modal and stores the current scroll position.
    *
-   * @param projectId The id of the selected project.
+   * @param projectId The selected project id.
    */
   openProjectDetails(projectId: string): void {
+    this.storeScrollPosition();
     this.openProject = projectId;
     this.projectModalOpenChange.emit(true);
   }
 
   /**
-   * Closes the currently open project details modal
-   * and notifies the parent component.
+   * Closes the details modal and restores the previous viewport position.
    */
   closeProjectDetails(): void {
     this.openProject = null;
     this.projectModalOpenChange.emit(false);
+    this.restoreScrollPositionRepeatedly();
+  }
+
+  /**
+   * Stores the current page scroll position.
+   */
+  private storeScrollPosition(): void {
+    this.scrollPosition = window.scrollY;
+  }
+
+  /**
+   * Restores the scroll position multiple times to override later jumps.
+   */
+  private restoreScrollPositionRepeatedly(): void {
+    this.restoreScrollPosition();
+    requestAnimationFrame(() => this.restoreScrollPosition());
+    setTimeout(() => this.restoreScrollPosition(), 0);
+    setTimeout(() => this.restoreScrollPosition(), 50);
+  }
+
+  /**
+   * Restores the saved scroll position instantly.
+   */
+  private restoreScrollPosition(): void {
+    this.disableSmoothScroll();
+    window.scrollTo(0, this.scrollPosition);
+    this.enableSmoothScrollReset();
+  }
+
+  /**
+   * Temporarily disables global smooth scrolling.
+   */
+  private disableSmoothScroll(): void {
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
+
+  /**
+   * Clears the temporary scroll behavior override.
+   */
+  private enableSmoothScrollReset(): void {
+    document.documentElement.style.scrollBehavior = '';
   }
 }

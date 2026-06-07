@@ -317,7 +317,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
    */
   private isAllowedNavElement(element: HTMLElement): boolean {
     const content = this.getNavElementContent(element);
-    return /(about|skills|projects|contact)/i.test(content);
+    return /(about|skills|projects|contact|top)/i.test(content);
   }
 
   /**

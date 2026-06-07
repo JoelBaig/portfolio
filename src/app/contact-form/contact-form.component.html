@@ -1,4 +1,4 @@
-<div class="contact-con-main">
+<div id="contact" class="contact-con-main">
   <img src="./assets/contact_form/bgr_contact.webp" alt="" />
 
   <div class="contact-wrapper layout-container">
@@ -35,7 +35,6 @@
       <div class="form-line-1"></div>
 
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
-        <!-- NAME -->
         <div class="name-field">
           <label for="name">{{ 'CONTACT.NAME_FIELD' | translate }}</label>
           <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name" required
@@ -55,7 +54,6 @@
 
         <div class="form-line-3"></div>
 
-        <!-- MESSAGE -->
         <div class="help-field">
           <label for="message">{{ 'CONTACT.HELP_FIELD' | translate }}</label>
           <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message"
@@ -97,7 +95,6 @@
       </form>
     </div>
   </div>
-
 
   <div class="toast success" *ngIf="sendStatus === 'success'" [class.hide]="!toastVisible">
     <span>{{ 'CONTACT.TOAST_SUCCESS' | translate }}</span>
