@@ -116,6 +116,11 @@
   display: block;
 }
 
+.section-header .title {
+  display: inline-block;
+  width: fit-content;
+}
+
 @media (max-width: 350px) {
 
   .section-header h1,
