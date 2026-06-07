@@ -119,10 +119,10 @@
 .section-header .title {
   display: inline-block;
   width: fit-content;
+  text-transform: none !important;
 }
 
 @media (max-width: 350px) {
-
   .section-header h1,
   .section-header .title {
     font-size: 55px;
