@@ -249,16 +249,22 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Adds listeners that prevent scrolling while the details view is open.
+   * Adds listeners that prevent background scrolling.
+   * On mobile the project details panel itself should remain scrollable.
    */
   private addScrollBlockListeners(): void {
+    if (window.innerWidth <= 900) {
+      window.addEventListener('keydown', this.keydownHandler, { passive: false });
+      return;
+    }
+
     window.addEventListener('wheel', this.wheelHandler, { passive: false });
     window.addEventListener('touchmove', this.touchMoveHandler, { passive: false });
     window.addEventListener('keydown', this.keydownHandler, { passive: false });
   }
 
   /**
-   * Removes listeners that prevented scrolling.
+   * Removes all scroll blocking listeners.
    */
   private removeScrollBlockListeners(): void {
     window.removeEventListener('wheel', this.wheelHandler as EventListener);
