@@ -21,6 +21,7 @@ type Project = {
   duration: string;
   githubUrl?: string;
   liveUrl?: string;
+  hidden?: boolean;
 };
 
 /**
@@ -110,7 +111,8 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       duration: 'PROJECT_DETAILS.DURATION_TIME_DABUBBLE',
       alt: 'dabubble_project',
       githubUrl: 'https://github.com/JoelBaig/epl_',
-      liveUrl: 'https://elpolloloco.joelbaig.com/'
+      liveUrl: 'https://elpolloloco.joelbaig.com/',
+      hidden: true
     },
   ];
 
@@ -165,8 +167,13 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
    * Switches to the next project in the project list.
    */
   nextProject(): void {
-    if (this.projectDetails.length === 0) return;
-    this.projectId = this.projectDetails[this.getNextIndex()].id;
+    const visibleProjects = this.projectDetails.filter(project => !project.hidden);
+    const currentVisibleIndex = visibleProjects.findIndex(project => project.id === this.projectId);
+
+    if (visibleProjects.length === 0) return;
+
+    const nextIndex = (currentVisibleIndex + 1) % visibleProjects.length;
+    this.projectId = visibleProjects[nextIndex].id;
   }
 
   /**
