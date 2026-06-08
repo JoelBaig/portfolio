@@ -45,7 +45,8 @@
     </div>
 
     <div class="wrapper">
-        <div class="single-project-con" *ngFor="let project of projects.slice(1)">
+        <div class="single-project-con" *ngFor="let project of projects.slice(1)"
+            [style.display]="project.id === 'da-bubble' ? 'none' : 'flex'">
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = project.title"
                 (mouseleave)="hoveredProject = null">
                 <img class="project-img" [src]="project.image" [alt]="project.alt" />

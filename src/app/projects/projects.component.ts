@@ -54,9 +54,16 @@ export class ProjectsComponent {
       description: 'PROJECTS.DABUBBLE',
       image: './assets/img/header/projects/dabubble1.png',
       hoverImg: './assets/img/header/projects/dabubble_hover.png',
-      alt: 'dabubble_project'
+      alt: 'dabubble_project',
+      hidden: true
     }
   ];
+
+  get visibleProjects() {
+
+    return this.projects.filter(project => !project.hidden);
+
+  }
 
   /**
    * Opens the details modal and stores the current scroll position.
