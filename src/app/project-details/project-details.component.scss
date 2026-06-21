@@ -581,8 +581,22 @@ h2 {
     }
 
     :host ::ng-deep app-navbar.pd-navbar .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
         width: 100vw !important;
         max-width: none !important;
+        z-index: 999999 !important;
+    }
+
+    :host ::ng-deep app-navbar.pd-navbar .mobile-menu-overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        z-index: 999998 !important;
     }
 
     :host ::ng-deep .img-button,
