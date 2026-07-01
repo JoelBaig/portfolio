@@ -77,7 +77,15 @@
           </div>
 
           <div class="privacy-text-wrap">
-            <span class="privacy-policy-text">{{ 'CONTACT.PRIVACY_TXT' | translate }}</span>
+            <span class="privacy-policy-text">
+              {{ 'CONTACT.PRIVACY_TXT_BEFORE' | translate }}
+
+              <a class="privacy-policy-link" [routerLink]="['/privacy-policy']" (click)="$event.stopPropagation()">
+                {{ 'CONTACT.PRIVACY_POLICY_LINK' | translate }}
+              </a>
+
+              {{ 'CONTACT.PRIVACY_TXT_AFTER' | translate }}
+            </span>
 
             <div class="privacy-hint" *ngIf="!accepted">
               {{ 'CONTACT.PRIVACY_HINT' | translate }}

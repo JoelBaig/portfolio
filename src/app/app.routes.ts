@@ -21,10 +21,21 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./privacy-policy/privacy-policy.component').then(
+        m => m.PrivacyPolicyComponent
+      ),
+  },
+  {
     path: 'project/:id',
     loadComponent: () =>
       import('./project-details/project-details.component').then(
         m => m.ProjectDetailsComponent
       ),
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];

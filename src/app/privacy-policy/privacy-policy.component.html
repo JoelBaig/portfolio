@@ -1,0 +1,52 @@
+<div class="privacy-page">
+    <section class="privacy-hero">
+        <app-navbar class="nav-privacy-policy" variant="default"></app-navbar>
+
+        <img class="privacy-policy-bgr" src="./assets/legal_notice/legal_notice_bgr.webp" alt="" />
+
+        <h1>{{ 'PRIVACY.TITLE' | translate }}</h1>
+    </section>
+
+    <main class="content">
+        <div class="back-btn-con" (click)="closeToContact()">
+            <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button" />
+            <button class="back-btn" type="button">
+                {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
+            </button>
+        </div>
+
+        <h2>{{ 'PRIVACY.GENERAL_TITLE' | translate }}</h2>
+        <p class="preline">{{ 'PRIVACY.GENERAL_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.RESPONSIBLE_TITLE' | translate }}</h3>
+        <p class="preline">{{ 'PRIVACY.RESPONSIBLE_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.ACCESS_DATA_TITLE' | translate }}</h3>
+        <p class="preline">{{ 'PRIVACY.ACCESS_DATA_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.CONTACT_TITLE' | translate }}</h3>
+        <p class="preline">{{ 'PRIVACY.CONTACT_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.COOKIES_TITLE' | translate }}</h3>
+        <p>{{ 'PRIVACY.COOKIES_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.EXTERNAL_LINKS_TITLE' | translate }}</h3>
+        <p>{{ 'PRIVACY.EXTERNAL_LINKS_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.RIGHTS_TITLE' | translate }}</h3>
+        <p class="preline">{{ 'PRIVACY.RIGHTS_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.STORAGE_TITLE' | translate }}</h3>
+        <p>{{ 'PRIVACY.STORAGE_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.SECURITY_TITLE' | translate }}</h3>
+        <p>{{ 'PRIVACY.SECURITY_TEXT' | translate }}</p>
+
+        <h3>{{ 'PRIVACY.CHANGES_TITLE' | translate }}</h3>
+        <p>{{ 'PRIVACY.CHANGES_TEXT' | translate }}</p>
+    </main>
+
+    <app-footer class="privacy-policy-footer-pos" [theme]="'light'" [legalAsClose]="true"
+        (legalNoticeClick)="closeToContact()" (emailClick)="closeToContact()">
+    </app-footer>
+</div>

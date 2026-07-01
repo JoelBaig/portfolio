@@ -66,8 +66,10 @@
         "HELP_FIELD": "Wie kann ich dir helfen?",
         "HELP_ERROR": "Hallo Joel, ich interessiere mich für...",
         "HELP_PLACEHOLDER": "Frag mich hier...",
-        "PRIVACY_TXT": "Ich habe die Datenschutzerklärung gelesen und bin mit der Verarbeitung meiner Daten einverstanden.",
-        "PRIVACY_HINT": "Bitte akzeptiere die Datenschutzerklärung.",
+        "PRIVACY_TXT_BEFORE": "Ich habe die ",
+        "PRIVACY_POLICY_LINK": "Datenschutzerklärung",
+        "PRIVACY_TXT_AFTER": " gelesen und stimme der Verarbeitung meiner Daten zu.",
+        "PRIVACY_HINT": "Bitte akzeptieren Sie die Datenschutzerklärung.",
         "SEND_BTN": "Senden",
         "TOAST_SUCCESS": "✓ Nachricht wurde erfolgreich gesendet.",
         "TOAST_ERROR": "✕ Da ist etwas schiefgelaufen. Bitte versuche es noch einmal."
@@ -104,5 +106,28 @@
         "INDEMNITY_TEXT_2": " sowie deren Partner, Organe und Mitarbeitende von sämtlichen Ansprüchen, Schäden oder Kosten (einschließlich angemessener Anwaltskosten) freizustellen, die aus deiner Nutzung des ",
         "QUESTIONS_TEXT": "Bei Fragen oder Hinweisen erreichst du mich unter",
         "DATE_TEXT": "Stand: 13. Januar 2026"
+    },
+    "PRIVACY": {
+        "TITLE": "Datenschutzerklärung",
+        "GENERAL_TITLE": "Datenschutzerklärung",
+        "GENERAL_TEXT": "Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website. Personenbezogene Daten sind alle Informationen, mit denen Sie persönlich identifiziert werden können.",
+        "RESPONSIBLE_TITLE": "Verantwortlicher",
+        "RESPONSIBLE_TEXT": "Verantwortlich für die Datenverarbeitung auf dieser Website ist:\n\nJoel Baig\nHansestraße 92\n48282 Emsdetten\nDeutschland\nE-Mail: ibaig@web.de",
+        "ACCESS_DATA_TITLE": "Zugriffsdaten und Server-Logfiles",
+        "ACCESS_DATA_TEXT": "Beim Besuch dieser Website können durch den Hosting-Anbieter automatisch technische Zugriffsdaten verarbeitet werden. Dazu können die besuchte Seite, Datum und Uhrzeit des Zugriffs, übertragene Datenmenge, Browsertyp und Browserversion, Betriebssystem, Referrer-URL sowie die IP-Adresse gehören.\n\nDie Verarbeitung erfolgt, um einen sicheren und stabilen Betrieb der Website zu gewährleisten.",
+        "CONTACT_TITLE": "Kontaktaufnahme",
+        "CONTACT_TEXT": "Wenn Sie mich per E-Mail oder über eine Kontaktmöglichkeit auf dieser Website kontaktieren, werden die von Ihnen übermittelten Angaben zur Bearbeitung Ihrer Anfrage verarbeitet. Dazu können Name, E-Mail-Adresse und Nachrichteninhalt gehören.\n\nEine Weitergabe dieser Daten erfolgt nicht ohne Ihre Einwilligung.",
+        "COOKIES_TITLE": "Cookies",
+        "COOKIES_TEXT": "Diese Website verwendet keine Cookies zu Tracking- oder Werbezwecken. Falls technisch notwendige Cookies verwendet werden, dienen diese ausschließlich der Bereitstellung grundlegender Website-Funktionen.",
+        "EXTERNAL_LINKS_TITLE": "Externe Links",
+        "EXTERNAL_LINKS_TEXT": "Diese Website kann Links zu externen Websites enthalten, zum Beispiel zu GitHub oder LinkedIn. Wenn Sie diese Links anklicken, verlassen Sie diese Website. Für die Datenverarbeitung auf den externen Websites sind die jeweiligen Anbieter verantwortlich.",
+        "RIGHTS_TITLE": "Ihre Rechte",
+        "RIGHTS_TEXT": "Sie haben das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten, Berichtigung unrichtiger Daten, Löschung Ihrer Daten, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung.\n\nAußerdem haben Sie das Recht, sich bei einer zuständigen Aufsichtsbehörde zu beschweren.",
+        "STORAGE_TITLE": "Speicherdauer",
+        "STORAGE_TEXT": "Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen.",
+        "SECURITY_TITLE": "Datensicherheit",
+        "SECURITY_TEXT": "Es werden geeignete technische und organisatorische Maßnahmen eingesetzt, um personenbezogene Daten vor Verlust, Missbrauch und unbefugtem Zugriff zu schützen.",
+        "CHANGES_TITLE": "Änderungen dieser Datenschutzerklärung",
+        "CHANGES_TEXT": "Diese Datenschutzerklärung kann angepasst werden, wenn sich die Website oder rechtliche Anforderungen ändern."
     }
 }
