@@ -1,3 +1,812 @@
+// :host ::ng-deep .section-subtitle {
+//     font-size: 22px;
+//     font-weight: 600;
+// }
+
+// :host ::ng-deep app-navbar.pd-navbar .nav-about-me .nav-text,
+// :host ::ng-deep app-navbar.pd-navbar .nav-skills .nav-text {
+//     color: #000 !important;
+// }
+
+// :host ::ng-deep .title-fit .line-wrapper-title {
+//     margin-bottom: 10px !important;
+// }
+
+// :host ::ng-deep .section-header p.section-info-text {
+//     font-size: 18px !important;
+//     line-height: 1.1;
+// }
+
+// .overlay {
+//     position: fixed;
+//     inset: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100vw;
+//     height: 100vh;
+//     background: transparent;
+//     z-index: 100;
+//     overflow: hidden;
+//     touch-action: none;
+// }
+
+// .overlay::before {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 120px;
+//     bottom: 0;
+//     z-index: 1;
+//     pointer-events: none;
+// }
+
+// .panel-bgr {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-position: 20% center;
+//     transform: scale(1.08);
+//     transform-origin: left center;
+//     background-color: #1c1c1c;
+//     z-index: 0;
+// }
+
+// .panel {
+//     position: relative;
+//     color: white;
+//     max-width: 1440px;
+//     width: min(1440px, 92vw);
+//     max-height: 90vh;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     background: transparent;
+//     z-index: 2;
+// }
+
+// .wrapper-left {
+//     position: relative;
+//     width: clamp(400px, 32vw, 500px);
+// }
+
+// .wrapper-right {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     gap: 18px;
+//     right: 0;
+//     padding-top: 160px;
+// }
+
+// .single-project-headline {
+//     width: 40%;
+//     position: sticky;
+//     top: 0;
+//     color: black;
+// }
+
+// p {
+//     color: black;
+//     width: 70%;
+//     font-size: 18px;
+// }
+
+// h1,
+// h2 {
+//     color: black;
+//     font-size: 22px;
+// }
+
+// .header-project-details {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 10;
+//     pointer-events: auto;
+// }
+
+// .details {
+//     width: auto;
+//     height: auto;
+// }
+
+// .detail-img {
+//     border-radius: 20px;
+// }
+
+// :host ::ng-deep app-navbar.pd-navbar .navbar {
+//     position: fixed;
+//     top: 0;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 2002;
+//     width: min(1464px, 92vw);
+// }
+
+// .mobile-project-nav-con {
+//     display: none;
+// }
+
+// .back-btn-con,
+// .next-project-btn-con {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     cursor: pointer;
+//     z-index: 2003;
+
+//     >button {
+//         width: auto;
+//         background-color: transparent;
+//         border: none;
+//         font-weight: 700;
+//         font-size: 20px;
+//         cursor: pointer;
+//         padding: 0;
+//     }
+
+//     >img {
+//         position: static;
+//         height: auto;
+//     }
+// }
+
+// .back-btn-con {
+//     >button {
+//         color: black;
+//     }
+
+//     &:hover>button {
+//         color: #f87a55;
+//     }
+
+//     >img {
+//         width: 22px;
+//     }
+// }
+
+// .next-project-btn-con {
+//     >button {
+//         color: white;
+//     }
+
+//     &:hover>button {
+//         color: #f7c518;
+//     }
+
+//     >img {
+//         width: 28px;
+//     }
+// }
+
+// .desktop-back-btn {
+//     position: absolute;
+//     top: clamp(80px, -3vh, 195px);
+//     left: clamp(-13px, 4vw, -90px);
+// }
+
+// .desktop-next-btn {
+//     position: absolute;
+//     right: clamp(-34px, -2vw, 180px);
+//     bottom: clamp(-85px, -3vh, 161px);
+// }
+
+// .sticker-img {
+//     position: relative;
+//     top: -364px;
+//     right: -49px;
+// }
+
+// .sticker-text {
+//     position: absolute;
+//     top: 242px;
+//     right: -51px;
+//     height: 190px;
+//     width: 122px;
+// }
+
+// .circle-text {
+//     font-family: "Bricolage Grotesque", sans-serif;
+//     font-weight: 700;
+//     font-size: 16px;
+//     fill: #111;
+// }
+
+// .logo-sticker {
+//     position: absolute;
+//     top: 313px;
+//     right: -15px;
+//     height: 50px;
+// }
+
+// .tech-list {
+//     list-style: none;
+//     padding: 0;
+//     display: flex;
+//     gap: 12px;
+//     flex-wrap: wrap;
+// }
+
+// .tech-item {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     background: rgba(255, 255, 255, 0.06);
+//     border-radius: 8px;
+//     font-weight: 600;
+//     color: black;
+// }
+
+// .tech-icon {
+//     width: 20px;
+//     height: 20px;
+//     display: block;
+// }
+
+// .duration-con {
+//     display: flex;
+//     align-items: center;
+
+//     >p {
+//         margin-left: 10px;
+//     }
+// }
+
+// .bottom-btns-con {
+//     position: static;
+//     display: flex;
+//     gap: 16px;
+//     width: auto;
+// }
+
+// .project-css-btn {
+//     width: 180px;
+//     height: 45px;
+//     display: inline-flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: transparent;
+//     color: white;
+//     border: 1px solid white;
+//     border-radius: 999px;
+//     font-size: 22px;
+//     font-weight: 400;
+//     text-decoration: none;
+//     cursor: pointer;
+//     user-select: none;
+//     box-shadow: 4px 5px 0 rgba(255, 255, 255, 1);
+//     transition:
+//         background-color 150ms ease,
+//         color 150ms ease,
+//         border-color 150ms ease,
+//         box-shadow 150ms ease,
+//         transform 150ms ease;
+// }
+
+// .project-css-btn:hover {
+//     background: #EA8061;
+//     color: white;
+//     border-color: white;
+//     box-shadow: none;
+//     transform: translate(3px, 2px);
+// }
+
+// .project-css-btn:active {
+//     transform: translate(5px, 4px);
+// }
+
+// .d-none {
+//     display: none;
+// }
+
+// @media (max-width: 1400px) {
+//     .wrapper-right {
+//         max-width: 400px;
+//         padding-right: 40px;
+//     }
+
+//     .wrapper-left {
+//         width: clamp(360px, 32vw, 420px);
+//     }
+
+//     .detail-img {
+//         max-width: 400px;
+//     }
+
+//     .sticker-img {
+//         top: -280px;
+//     }
+
+//     .logo-sticker {
+//         top: 284px;
+//         right: 23px;
+//     }
+
+//     .sticker-text {
+//         top: 213px;
+//         right: -11px;
+//     }
+
+//     .panel-bgr {
+//         object-position: 40% center;
+//     }
+
+//     .desktop-back-btn {
+//         position: absolute;
+//         top: clamp(0px, -8vh, 195px);
+//         left: clamp(-0px, 4vw, -90px);
+//     }
+// }
+
+// @media (max-width: 1100px) {
+//     .wrapper-left {
+//         width: 30vw;
+//     }
+// }
+
+// @media (max-width: 900px) {
+//     .overlay {
+//         display: block;
+//         position: fixed;
+//         left: 0;
+//         right: 0;
+//         top: 96px;
+//         bottom: 0;
+//         width: 100vw;
+//         height: calc(100dvh - 96px);
+//         overflow-y: auto;
+//         overflow-x: hidden;
+//         background: #1c1c1c;
+//         touch-action: pan-y;
+//         padding: 0;
+//         -webkit-overflow-scrolling: touch;
+//         overscroll-behavior: contain;
+//     }
+
+//     .overlay::before {
+//         display: none;
+//     }
+
+//     .mobile-box-shadow {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 120px;
+//         pointer-events: none;
+//         z-index: 5;
+//         background: linear-gradient(to bottom,
+//                 rgba(0, 0, 0, 0.42) 0%,
+//                 rgba(0, 0, 0, 0.22) 45%,
+//                 rgba(0, 0, 0, 0) 100%);
+//     }
+
+//     .panel-bgr {
+//         position: fixed;
+//         top: 40%;
+//         left: 50%;
+//         width: 100dvh;
+//         height: 100dvw;
+//         max-width: none;
+//         max-height: none;
+//         object-fit: cover;
+//         object-position: 9% center;
+//         transform: translate(-50%, -20%) rotate(90deg) scale(1.42);
+//         transform-origin: center;
+//         background-color: #1c1c1c;
+//         z-index: 0;
+//     }
+
+//     .panel {
+//         position: relative;
+//         z-index: 2;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: stretch;
+//         justify-content: flex-start;
+//         width: min(100vw, 430px);
+//         max-width: none;
+//         min-height: calc(100dvh - 96px);
+//         max-height: none;
+//         margin: 0 auto;
+//         padding: 0 14px 28px;
+//         box-sizing: border-box;
+//         top: 0 !important;
+//         background: transparent;
+//     }
+
+//     .desktop-back-btn,
+//     .desktop-next-btn {
+//         display: none;
+//     }
+
+//     .wrapper-left {
+//         width: 100%;
+//         padding-top: 0;
+//         box-sizing: border-box;
+//     }
+
+//     .wrapper-right {
+//         position: static;
+//         width: 100%;
+//         max-width: none;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         gap: 18px;
+//         padding-top: 50px;
+//         right: auto;
+//         top: auto;
+//     }
+
+//     .single-project-headline {
+//         width: 100%;
+//         position: static;
+//     }
+
+//     :host ::ng-deep .section-header .title {
+//         font-size: 42px !important;
+//         line-height: 0.95 !important;
+//     }
+
+//     :host ::ng-deep .title-fit .line-wrapper-title {
+//         margin-bottom: 18px !important;
+//     }
+
+//     :host ::ng-deep .section-header p.section-info-text,
+//     p {
+//         width: 100%;
+//         font-size: 16px !important;
+//         line-height: 1.15 !important;
+//     }
+
+//     h1,
+//     h2,
+//     .section-subtitle {
+//         font-size: 22px;
+//         line-height: 1.1;
+//     }
+
+//     .details {
+//         width: 100%;
+//         font-size: 16px;
+//     }
+
+//     .implementation-details {
+//         margin-top: 24px;
+//     }
+
+//     .duration-con {
+//         margin-top: 24px;
+//         align-items: baseline;
+
+//         >p {
+//             width: auto;
+//             margin-left: 8px;
+//         }
+//     }
+
+//     .tech-list {
+//         width: 100%;
+//         justify-content: flex-start;
+//         gap: 12px 22px;
+//         margin-top: 12px;
+//         margin-bottom: 0;
+//     }
+
+//     .tech-item {
+//         font-size: 16px;
+//     }
+
+//     .detail-img {
+//         width: 100%;
+//         max-width: 100%;
+//         border-radius: 14px;
+//     }
+
+//     .bottom-btns-con {
+//         width: 100%;
+//         display: flex;
+//         justify-content: flex-end;
+//         gap: 28px;
+//         margin-top: 0;
+//         padding: 0;
+//         box-sizing: border-box;
+//         order: 2;
+//     }
+
+//     .project-css-btn {
+//         width: 100px;
+//         height: 34px;
+//         border-width: 2px;
+//         font-size: 16px;
+//         box-shadow: 2px 3px 0 white;
+//     }
+
+//     .project-css-btn:hover {
+//         transform: translateY(3px);
+//         box-shadow: 0 1px 0 white;
+//     }
+
+//     .project-css-btn:active {
+//         transform: translateY(5px);
+//         box-shadow: 0 0 0 white;
+//     }
+
+//     .mobile-project-nav-con {
+//         order: 3;
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         margin-top: 18px;
+//         padding: 0 4px;
+//         box-sizing: border-box;
+//     }
+
+//     .mobile-project-nav-con .back-btn-con,
+//     .mobile-project-nav-con .next-project-btn-con {
+//         position: static;
+//         display: flex;
+//         align-items: center;
+//         gap: 8px;
+//         width: auto;
+//         cursor: pointer;
+//         z-index: 20;
+//     }
+
+//     .mobile-project-nav-con .back-btn-con>button,
+//     .mobile-project-nav-con .next-project-btn-con>button {
+//         width: auto;
+//         background-color: transparent;
+//         border: none;
+//         color: white;
+//         font-weight: 700;
+//         font-size: 15px;
+//         padding: 0;
+//         cursor: pointer;
+//     }
+
+//     .mobile-project-nav-con .back-btn-con>img,
+//     .mobile-project-nav-con .next-project-btn-con>img {
+//         position: static;
+//         width: 18px;
+//         height: auto;
+//     }
+
+//     .featured-project-sticker-mobile,
+//     .featured-sticker-img-mobile,
+//     .sticker-img,
+//     .sticker-text,
+//     .logo-sticker {
+//         display: none;
+//     }
+
+//     :host ::ng-deep app-navbar.pd-navbar .navbar {
+//         position: fixed !important;
+//         top: 0 !important;
+//         left: 0 !important;
+//         right: 0 !important;
+//         transform: none !important;
+//         width: 100vw !important;
+//         max-width: none !important;
+//         z-index: 999999 !important;
+//     }
+
+//     :host ::ng-deep app-navbar.pd-navbar .mobile-menu-overlay {
+//         position: fixed !important;
+//         inset: 0 !important;
+//         width: 100vw !important;
+//         height: 100dvh !important;
+//         z-index: 999998 !important;
+//     }
+
+//     :host ::ng-deep .img-button,
+//     :host ::ng-deep .img-btn {
+//         width: 100px !important;
+//         height: 34px !important;
+//     }
+
+//     :host ::ng-deep .btn-text {
+//         font-size: 16px !important;
+//         top: -27px !important;
+//     }
+// }
+
+// @media (max-width: 390px) {
+//     .panel {
+//         padding-inline: 12px;
+//         padding-bottom: 24px;
+//     }
+
+//     .wrapper-left {
+//         padding-top: 0;
+//     }
+
+//     :host ::ng-deep .section-header .title {
+//         font-size: 38px !important;
+//     }
+
+//     p,
+//     :host ::ng-deep .section-header p.section-info-text,
+//     .details {
+//         font-size: 15px !important;
+//     }
+
+//     .bottom-btns-con {
+//         gap: 18px;
+//     }
+// }
+
+// @media (max-width: 360px) {
+//     .panel {
+//         padding-inline: 10px;
+//     }
+
+//     .panel-bgr {
+//         top: 50%;
+//     }
+
+//     :host ::ng-deep .section-header .title {
+//         font-size: 36px !important;
+//     }
+
+//     .tech-list {
+//         gap: 10px 16px;
+//     }
+
+//     .mobile-project-nav-con .back-btn-con>button,
+//     .mobile-project-nav-con .next-project-btn-con>button {
+//         font-size: 14px;
+//     }
+// }
+
+// @media (max-width: 430px) and (max-height: 935px) {
+//     :host ::ng-deep .section-header .title {
+//         font-size: 30px !important;
+//     }
+
+//     :host ::ng-deep .section-header h3 {
+//         margin-top: 12px !important;
+//     }
+
+//     :host ::ng-deep .section-subtitle {
+//         font-size: 18px !important;
+//     }
+
+//     :host ::ng-deep .title-fit {
+//         margin-top: -10px !important;
+//     }
+
+//     .tech-item {
+//         font-size: 14px;
+//     }
+
+//     p,
+//     :host ::ng-deep .section-header p.section-info-text,
+//     .details {
+//         font-size: 15px !important;
+//     }
+
+//     h1,
+//     h2 {
+//         font-size: 18px;
+//         margin: 0;
+//     }
+
+//     p {
+//         margin-top: 10px;
+//         margin-bottom: 10px;
+//     }
+
+//     .detail-img {
+//         height: 200px;
+//     }
+
+//     .duration-con {
+//         margin: 0;
+//     }
+
+//     .tech-list {
+//         margin-top: 0px;
+//     }
+
+//     .mobile-project-nav-con {
+//         margin: 10px;
+//     }
+
+//     .panel-bgr {
+//         top: 57%;
+//     }
+
+//     .wrapper-right {
+//         padding-top: 10px;
+//     }
+// }
+
+// @media (max-width: 415px) and (max-height: 900px) {
+//     .detail-img {
+//         height: 250px;
+//     }
+
+//     .tech-item {
+//         font-size: 13px;
+//     }
+// }
+
+// @media (max-width: 390px) and (max-height: 845px) {
+//     .detail-img {
+//         height: 150px;
+//     }
+
+//     .panel-bgr {
+//         top: 57%;
+//     }
+
+//     .tech-item {
+//         font-size: 12px;
+//     }
+// }
+
+// @media (max-width: 375px) and (max-height: 670px) {
+//     .tech-item {
+//         font-size: 11px;
+//     }
+
+//     :host ::ng-deep .section-header h3 {
+//         margin-top: 0px !important;
+//         margin-bottom: -12px !important;
+//     }
+
+//     :host ::ng-deep .section-header .title {
+//         font-size: 22px !important;
+//     }
+
+//     h1,
+//     h2 {
+//         font-size: 16px;
+//         margin: 0;
+//     }
+
+//     :host ::ng-deep .section-header h3 {
+//         font-size: 16px !important;
+//     }
+
+//     p {
+//         margin-bottom: 4px;
+//         margin-top: 4px;
+//     }
+
+//     .wrapper-right {
+//         padding-top: 8px;
+//     }
+
+//     .detail-img {
+//         height: 140px;
+//     }
+
+//     .panel-bgr {
+//         top: 54%;
+//     }
+// }
+
+
+@import './../../mixin.scss';
+@import './../../keyframes.scss';
+
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: block;
+    background: #1c1c1c;
+}
+
 :host ::ng-deep .section-subtitle {
     font-size: 22px;
     font-weight: 600;
@@ -20,83 +829,101 @@
 .overlay {
     position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: transparent;
-    z-index: 100;
+    background: #1c1c1c;
     overflow: hidden;
-    touch-action: none;
+    z-index: 100;
 }
 
 .overlay::before {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 120px;
-    bottom: 0;
-    z-index: 1;
+    inset: 0;
+    background-image: url('/assets/project_details/paper_bgr.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
     pointer-events: none;
+    transform: translate(8.5%, 0%) scale(1.38);
+    transform-origin: center;
 }
 
 .panel-bgr {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-position: 20% center;
-    transform: scale(1.08);
-    transform-origin: left center;
-    background-color: #1c1c1c;
-    z-index: 0;
+    display: none;
+}
+
+.mobile-box-shadow {
+    display: none;
+}
+
+.header-project-details {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: min(1464px, 92vw);
+    height: 120px;
+    transform: translateX(-50%);
+    z-index: 3000;
+    pointer-events: auto;
+}
+
+:host ::ng-deep app-navbar.pd-navbar .navbar {
+    position: relative !important;
+    width: 100% !important;
+    height: 120px;
+    z-index: 3000;
 }
 
 .panel {
     position: relative;
-    color: white;
-    max-width: 1440px;
+    z-index: 2;
     width: min(1440px, 92vw);
-    max-height: 90vh;
-    display: flex;
+    min-height: min(760px, 82dvh);
+    max-height: calc(100dvh - 130px);
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: minmax(360px, 500px) minmax(360px, 520px);
     justify-content: space-between;
     align-items: center;
+    gap: clamp(32px, 5vw, 90px);
+    color: white;
     background: transparent;
-    z-index: 2;
     box-sizing: border-box;
-    gap: clamp(40px, 5vw, 90px);
 }
 
 .wrapper-left {
     position: relative;
-    width: clamp(360px, 34vw, 500px);
-    flex-shrink: 0;
+    width: 100%;
+    max-width: 500px;
 }
 
 .wrapper-right {
     position: relative;
+    width: 100%;
+    max-width: 520px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     gap: 18px;
-    right: auto;
-    padding-top: 120px;
-    max-width: min(520px, 46vw);
-    flex-shrink: 1;
+    padding-top: 90px;
+    box-sizing: border-box;
 }
 
 .single-project-headline {
-    width: 40%;
-    position: sticky;
-    top: 0;
+    width: 100%;
+    position: static;
     color: black;
 }
 
 p {
     color: black;
-    width: 70%;
+    width: 100%;
+    max-width: 520px;
     font-size: 18px;
 }
 
@@ -106,39 +933,17 @@ h2 {
     font-size: 22px;
 }
 
-.header-project-details {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    pointer-events: auto;
-}
-
 .details {
-    width: auto;
+    width: 100%;
     height: auto;
 }
 
 .detail-img {
     width: 100%;
-    max-width: 520px;
+    max-width: 500px;
     height: auto;
     border-radius: 20px;
     display: block;
-}
-
-:host ::ng-deep app-navbar.pd-navbar .navbar {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2002;
-    width: min(1464px, 92vw);
-}
-
-.mobile-project-nav-con {
-    display: none;
 }
 
 .back-btn-con,
@@ -147,7 +952,7 @@ h2 {
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    z-index: 2003;
+    z-index: 20;
 
     >button {
         width: auto;
@@ -195,30 +1000,32 @@ h2 {
 
 .desktop-back-btn {
     position: absolute;
-    top: 86px;
+    top: 32px;
     left: 0;
 }
 
 .desktop-next-btn {
     position: absolute;
     right: 0;
-    bottom: 24px;
+    bottom: 0;
+}
+
+.mobile-project-nav-con {
+    display: none;
 }
 
 .sticker-img {
-    position: absolute;
-    top: 235px;
-    right: -20px;
-    z-index: 5;
+    position: relative;
+    top: -364px;
+    right: -49px;
 }
 
 .sticker-text {
     position: absolute;
-    top: 252px;
-    right: -9px;
+    top: 242px;
+    right: -51px;
     height: 190px;
     width: 122px;
-    z-index: 6;
 }
 
 .circle-text {
@@ -230,10 +1037,9 @@ h2 {
 
 .logo-sticker {
     position: absolute;
-    top: 318px;
-    right: 26px;
+    top: 313px;
+    right: -15px;
     height: 50px;
-    z-index: 7;
 }
 
 .tech-list {
@@ -270,7 +1076,6 @@ h2 {
 }
 
 .bottom-btns-con {
-    position: static;
     display: flex;
     gap: 16px;
     width: auto;
@@ -291,7 +1096,7 @@ h2 {
     text-decoration: none;
     cursor: pointer;
     user-select: none;
-    box-shadow: 4px 5px 0 rgba(255, 255, 255, 1);
+    box-shadow: 4px 5px 0 white;
     transition:
         background-color 150ms ease,
         color 150ms ease,
@@ -317,297 +1122,128 @@ h2 {
 }
 
 @media (max-width: 1400px) {
-    .wrapper-right {
-        max-width: min(460px, 44vw);
-        padding-right: 0;
-        padding-top: 120px;
+    .panel {
+        grid-template-columns: minmax(330px, 460px) minmax(330px, 460px);
+        gap: clamp(24px, 4vw, 60px);
     }
 
-    .wrapper-left {
-        width: clamp(340px, 34vw, 420px);
+    .wrapper-right {
+        max-width: 440px;
+        padding-top: 80px;
     }
 
     .detail-img {
-        max-width: 460px;
+        max-width: 430px;
     }
 
-    .sticker-img {
-        top: 235px;
-        right: -20px;
-    }
-
+    .sticker-img,
+    .sticker-text,
     .logo-sticker {
-        top: 318px;
-        right: 26px;
-    }
-
-    .sticker-text {
-        top: 252px;
-        right: -9px;
-    }
-
-    .panel-bgr {
-        object-position: 40% center;
-    }
-
-    .desktop-back-btn {
-        top: 86px;
-        left: 0;
-    }
-
-    .desktop-next-btn {
-        right: 0;
-        bottom: 24px;
+        display: none;
     }
 }
 
 @media (max-width: 1100px) {
-    .wrapper-left {
-        width: clamp(320px, 34vw, 380px);
-    }
-
-    .wrapper-right {
-        max-width: min(420px, 43vw);
-    }
-
-    .detail-img {
-        max-width: 420px;
-    }
-
-    .project-css-btn {
-        width: 160px;
-        height: 42px;
-        font-size: 20px;
-    }
-
-    .desktop-back-btn {
-        top: 92px;
-        left: 0;
-    }
-
-    .desktop-next-btn {
-        right: 0;
-        bottom: 24px;
-    }
-
-    .sticker-img {
-        top: 220px;
-        right: -18px;
-    }
-
-    .sticker-text {
-        top: 237px;
-        right: -7px;
-    }
-
-    .logo-sticker {
-        top: 303px;
-        right: 28px;
-    }
-}
-
-@media (min-width: 901px) and (max-width: 1200px) and (max-height: 820px) {
-    .overlay {
-        align-items: center;
-    }
-
     .panel {
-        width: min(1024px, 92vw);
-        max-height: none;
-        height: calc(100vh - 48px);
-        align-items: center;
+        width: min(1000px, 94vw);
+        grid-template-columns: minmax(310px, 1fr) minmax(310px, 1fr);
         gap: 28px;
     }
 
-    .wrapper-left {
-        width: 390px;
-        transform: scale(0.8);
-        transform-origin: left center;
-    }
-
-    .wrapper-right {
-        max-width: 420px;
-        padding-top: 34px;
-        gap: 14px;
-        transform: translateX(-28px);
-    }
-
-    :host ::ng-deep .section-header .title {
-        font-size: 58px !important;
-        line-height: 0.88 !important;
-    }
-
-    :host ::ng-deep .section-header h3 {
-        margin-top: 6px !important;
-        margin-bottom: 6px !important;
-    }
-
-    :host ::ng-deep .title-fit .line-wrapper-title {
-        margin-bottom: 6px !important;
-    }
-
-    :host ::ng-deep .section-header p.section-info-text,
-    p {
-        font-size: 16px !important;
-        line-height: 1.02 !important;
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-
-    h1,
-    h2,
-    .section-subtitle {
-        font-size: 21px !important;
-        line-height: 1.02;
-        margin-top: 12px;
-        margin-bottom: 6px;
-    }
-
-    .implementation-details {
-        margin-top: 10px;
-    }
-
-    .duration-con {
-        margin-top: 10px;
-
-        >p {
-            width: auto;
-            margin-left: 8px;
-        }
-    }
-
-    .tech-list {
-        gap: 8px 14px;
-        margin-top: 8px;
-        margin-bottom: 0;
-    }
-
-    .tech-item {
-        font-size: 13px;
-        gap: 6px;
-    }
-
-    .tech-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .detail-img {
-        max-width: 420px;
-        border-radius: 18px;
-    }
-
-    .bottom-btns-con {
-        gap: 16px;
-    }
-
-    .project-css-btn {
-        width: 166px;
-        height: 42px;
-        font-size: 20px;
-    }
-
     .desktop-back-btn {
-        top: 92px;
-        left: 0;
+        top: 18px;
     }
 
     .desktop-next-btn {
-        right: 0;
-        bottom: 34px;
+        bottom: 12px;
     }
 
-    .sticker-img {
-        top: 206px;
-        right: -16px;
-        transform: scale(0.88);
-        transform-origin: center;
+    .wrapper-right {
+        padding-top: 70px;
     }
 
-    .sticker-text {
-        top: 220px;
-        right: -4px;
-        transform: scale(0.88);
-        transform-origin: center;
-    }
-
-    .logo-sticker {
-        top: 280px;
-        right: 34px;
-        height: 44px;
+    :host ::ng-deep .section-header .title {
+        font-size: 54px !important;
     }
 }
 
 @media (max-width: 900px) {
+    // .overlay {
+    //     display: block;
+    //     overflow-y: auto;
+    //     overflow-x: hidden;
+    //     background: #1c1c1c;
+    //     touch-action: pan-y;
+    //     -webkit-overflow-scrolling: touch;
+    //     overscroll-behavior: contain;
+    // }
+
     .overlay {
         display: block;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 96px;
-        bottom: 0;
-        width: 100vw;
-        height: calc(100dvh - 96px);
         overflow-y: auto;
         overflow-x: hidden;
         background: #1c1c1c;
         touch-action: pan-y;
-        padding: 0;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
     }
 
     .overlay::before {
-        display: none;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/project_details/paper_bgr_mobile.webp');
+        background-size: 100% 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        transform: none;
+        transform-origin: center;
     }
 
-    .mobile-box-shadow {
-        position: fixed;
+    .header-project-details {
+        position: sticky;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 120px;
-        pointer-events: none;
-        z-index: 5;
-        background: linear-gradient(to bottom,
-                rgba(0, 0, 0, 0.42) 0%,
-                rgba(0, 0, 0, 0.22) 45%,
-                rgba(0, 0, 0, 0) 100%);
+        transform: none;
+        width: 100vw;
+        height: 96px;
+        z-index: 3000;
+        background: transparent;
     }
 
-    .panel-bgr {
-        position: fixed;
-        top: 40%;
-        left: 50%;
-        width: 100dvh;
-        height: 100dvw;
-        max-width: none;
-        max-height: none;
-        object-fit: cover;
-        object-position: 9% center;
-        transform: translate(-50%, -20%) rotate(90deg) scale(1.42);
-        transform-origin: center;
-        background-color: #1c1c1c;
-        z-index: 0;
+    :host ::ng-deep app-navbar.pd-navbar .navbar {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        width: 100vw !important;
+        max-width: none !important;
+        height: 96px !important;
+        z-index: 3000 !important;
+    }
+
+    :host ::ng-deep app-navbar.pd-navbar .mobile-menu-overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        z-index: 2999 !important;
     }
 
     .panel {
-        position: relative;
-        z-index: 2;
+        width: min(100vw, 430px);
+        min-height: auto;
+        max-height: none;
+        margin: 0 auto;
+        padding: 0 14px 28px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-start;
-        width: min(100vw, 430px);
-        max-width: none;
-        min-height: calc(100dvh - 96px);
-        max-height: none;
-        margin: 0 auto;
-        padding: 18px 14px 28px;
-        box-sizing: border-box;
-        top: 0 !important;
-        background: transparent;
         gap: 0;
+        box-sizing: border-box;
     }
 
     .desktop-back-btn,
@@ -617,10 +1253,9 @@ h2 {
 
     .wrapper-left {
         width: 100%;
+        max-width: none;
         padding-top: 0;
         box-sizing: border-box;
-        flex-shrink: 1;
-        transform: none;
     }
 
     .wrapper-right {
@@ -631,11 +1266,7 @@ h2 {
         flex-direction: column;
         align-items: center;
         gap: 18px;
-        padding-top: 50px;
-        right: auto;
-        top: auto;
-        flex-shrink: 1;
-        transform: none;
+        padding-top: 28px;
     }
 
     .single-project-headline {
@@ -645,17 +1276,11 @@ h2 {
 
     :host ::ng-deep .section-header .title {
         font-size: 42px !important;
-        line-height: 1 !important;
-        padding-top: 4px;
-    }
-
-    :host ::ng-deep .title-fit {
-        margin-top: 0 !important;
+        line-height: 0.95 !important;
     }
 
     :host ::ng-deep .title-fit .line-wrapper-title {
         margin-bottom: 18px !important;
-        overflow: visible !important;
     }
 
     :host ::ng-deep .section-header p.section-info-text,
@@ -707,6 +1332,8 @@ h2 {
         width: 100%;
         max-width: 100%;
         height: auto;
+        max-height: 260px;
+        object-fit: cover;
         border-radius: 14px;
     }
 
@@ -727,16 +1354,6 @@ h2 {
         border-width: 2px;
         font-size: 16px;
         box-shadow: 2px 3px 0 white;
-    }
-
-    .project-css-btn:hover {
-        transform: translateY(3px);
-        box-shadow: 0 1px 0 white;
-    }
-
-    .project-css-btn:active {
-        transform: translateY(5px);
-        box-shadow: 0 0 0 white;
     }
 
     .mobile-project-nav-con {
@@ -787,56 +1404,16 @@ h2 {
     .logo-sticker {
         display: none;
     }
-
-    :host ::ng-deep app-navbar.pd-navbar .navbar {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        transform: none !important;
-        width: 100vw !important;
-        max-width: none !important;
-        z-index: 999999 !important;
-    }
-
-    :host ::ng-deep app-navbar.pd-navbar .mobile-menu-overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        width: 100vw !important;
-        height: 100dvh !important;
-        z-index: 999998 !important;
-    }
-
-    :host ::ng-deep .img-button,
-    :host ::ng-deep .img-btn {
-        width: 100px !important;
-        height: 34px !important;
-    }
-
-    :host ::ng-deep .btn-text {
-        font-size: 16px !important;
-        top: -27px !important;
-    }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
     .panel {
-        padding-inline: 12px;
+        padding-inline: 14px;
         padding-bottom: 24px;
-    }
-
-    .wrapper-left {
-        padding-top: 0;
     }
 
     :host ::ng-deep .section-header .title {
         font-size: 38px !important;
-        line-height: 1 !important;
-        padding-top: 4px;
-    }
-
-    :host ::ng-deep .title-fit {
-        margin-top: 0 !important;
     }
 
     p,
@@ -848,6 +1425,28 @@ h2 {
     .bottom-btns-con {
         gap: 18px;
     }
+
+    .detail-img {
+        max-height: 240px;
+    }
+}
+
+@media (max-width: 390px) {
+    .panel {
+        padding-inline: 12px;
+    }
+
+    :host ::ng-deep .section-header .title {
+        font-size: 34px !important;
+    }
+
+    .tech-item {
+        font-size: 13px;
+    }
+
+    .detail-img {
+        max-height: 210px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -855,14 +1454,8 @@ h2 {
         padding-inline: 10px;
     }
 
-    .panel-bgr {
-        top: 50%;
-    }
-
     :host ::ng-deep .section-header .title {
-        font-size: 36px !important;
-        line-height: 1 !important;
-        padding-top: 4px;
+        font-size: 32px !important;
     }
 
     .tech-list {
@@ -873,39 +1466,33 @@ h2 {
     .mobile-project-nav-con .next-project-btn-con>button {
         font-size: 14px;
     }
+
+    .detail-img {
+        max-height: 180px;
+    }
 }
 
-@media (max-width: 430px) and (max-height: 935px) {
+@media (max-height: 720px) and (max-width: 900px) {
+    .wrapper-right {
+        padding-top: 16px;
+    }
+
     :host ::ng-deep .section-header .title {
         font-size: 30px !important;
-        line-height: 1 !important;
-        padding-top: 4px;
     }
 
     :host ::ng-deep .section-header h3 {
-        margin-top: 12px !important;
+        margin-top: 8px !important;
     }
 
     :host ::ng-deep .section-subtitle {
         font-size: 18px !important;
     }
 
-    :host ::ng-deep .title-fit {
-        margin-top: 0 !important;
-    }
-
-    :host ::ng-deep .title-fit .line-wrapper-title {
-        overflow: visible !important;
-    }
-
-    .tech-item {
-        font-size: 14px;
-    }
-
     p,
     :host ::ng-deep .section-header p.section-info-text,
     .details {
-        font-size: 15px !important;
+        font-size: 14px !important;
     }
 
     h1,
@@ -915,103 +1502,23 @@ h2 {
     }
 
     p {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .detail-img {
-        height: 200px;
-        object-fit: cover;
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 
     .duration-con {
-        margin: 0;
+        margin-top: 12px;
     }
 
     .tech-list {
-        margin-top: 0px;
-    }
-
-    .mobile-project-nav-con {
-        margin: 10px;
-    }
-
-    .panel-bgr {
-        top: 57%;
-    }
-
-    .wrapper-right {
-        padding-top: 10px;
-    }
-}
-
-@media (max-width: 415px) and (max-height: 900px) {
-    .detail-img {
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .tech-item {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 390px) and (max-height: 845px) {
-    .detail-img {
-        height: 150px;
-        object-fit: cover;
-    }
-
-    .panel-bgr {
-        top: 57%;
-    }
-
-    .tech-item {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 375px) and (max-height: 670px) {
-    .tech-item {
-        font-size: 11px;
-    }
-
-    :host ::ng-deep .section-header h3 {
-        margin-top: 0px !important;
-        margin-bottom: -12px !important;
-    }
-
-    :host ::ng-deep .section-header .title {
-        font-size: 22px !important;
-        line-height: 1 !important;
-        padding-top: 4px;
-    }
-
-    h1,
-    h2 {
-        font-size: 16px;
-        margin: 0;
-    }
-
-    :host ::ng-deep .section-header h3 {
-        font-size: 16px !important;
-    }
-
-    p {
-        margin-bottom: 4px;
         margin-top: 4px;
     }
 
-    .wrapper-right {
-        padding-top: 8px;
-    }
-
     .detail-img {
-        height: 140px;
-        object-fit: cover;
+        max-height: 155px;
     }
 
-    .panel-bgr {
-        top: 54%;
+    .mobile-project-nav-con {
+        margin-top: 10px;
     }
 }
