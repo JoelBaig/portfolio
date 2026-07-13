@@ -1,5 +1,6 @@
 <nav class="navbar" [ngClass]="'navbar--' + variant">
 
+  <!-- Logo -->
   <div class="navbar-left">
     <a class="logo-wrapper" [routerLink]="['/']" (click)="onLogoClick($event)">
       <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="Logo">
@@ -57,7 +58,6 @@
 
   <!-- Desktop Language Switch -->
   <div class="navbar-right desktop-only">
-
     <div class="language-wrapper">
 
       <div class="en-language-wrapper" role="button" tabindex="0" (click)="selectLanguage('en')"
@@ -91,7 +91,7 @@
     </div>
   </div>
 
-  <!-- Mobile Burger Button -->
+  <!-- Mobile Burger -->
   <button id="menuBars" class="mobile-only burger-btn mobile-menu-button" type="button"
     *ngIf="!isMenuOpen && !isMenuClosing" aria-label="Menü öffnen" (click)="toggleMenu()">
     <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_bars.png" alt="">
@@ -99,19 +99,23 @@
     <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_bars_mobile.png" alt="">
   </button>
 
-  <!-- Mobile Close Button -->
-  <button id="closeBtn" class="mobile-only mobile-close mobile-menu-button" type="button"
-    *ngIf="isMenuOpen || isMenuClosing" aria-label="Menü schließen" [disabled]="isMenuClosing" (click)="closeMenu()">
-    <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_close.png" alt="">
-
-    <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_close_mobile.png" alt="">
-  </button>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu-overlay" *ngIf="isMenuOpen || isMenuClosing" [class.is-closing]="isMenuClosing"
-    (click)="closeMenu()">
+  <!-- Mobile Overlay -->
+  <div class="mobile-menu-overlay" *ngIf="isMenuOpen || isMenuClosing" [class.is-visible]="isMenuVisible"
+    [class.is-closing]="isMenuClosing" (click)="closeMenu(false)">
     <div class="mobile-menu" (click)="$event.stopPropagation()">
 
+      <!--
+        Der Close-Button liegt absichtlich innerhalb des Sliders.
+        Dadurch bewegt er sich automatisch mit dem Menü.
+      -->
+      <button id="closeBtn" class="mobile-only mobile-close mobile-menu-button" type="button"
+        aria-label="Menü schließen" [disabled]="isMenuClosing" (click)="closeMenu(false)">
+        <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_close.png" alt="">
+
+        <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_close_mobile.png" alt="">
+      </button>
+
+      <!-- Mobile Links -->
       <ul class="mobile-links">
 
         <li class="mobile-nav-about">
@@ -158,7 +162,6 @@
 
       <!-- Mobile Language Switch -->
       <div class="mobile-language">
-
         <div class="language-wrapper">
 
           <div class="en-language-wrapper" role="button" tabindex="0" (click)="selectLanguage('en')"

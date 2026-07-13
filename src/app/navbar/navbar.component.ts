@@ -10,7 +10,11 @@ import {
   Output
 } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
+import {
+  NavigationEnd,
+  Router,
+  RouterModule
+} from '@angular/router';
 
 import {
   LangChangeEvent,
@@ -18,7 +22,10 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 
-import { Subscription } from 'rxjs';
+import {
+  filter,
+  Subscription
+} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -45,28 +52,37 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isMenuOpen = false;
   isMenuClosing = false;
+  isMenuVisible = false;
 
   private readonly menuAnimationDuration = 600;
 
   private langSub?: Subscription;
-  private lockAfterScrollTimer?: number;
+  private routerSub?: Subscription;
+
   private menuCloseTimer?: number;
+  private openAnimationFrame?: number;
+  private secondOpenAnimationFrame?: number;
 
   private afterCloseAction?: () => void;
 
+  private savedScrollPosition = 0;
+
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.initSelectedLanguage();
     this.subscribeToLanguageChanges();
+    this.subscribeToRouterEvents();
   }
 
   ngOnDestroy(): void {
     this.langSub?.unsubscribe();
+    this.routerSub?.unsubscribe();
 
-    this.clearLockTimer();
+    this.clearOpenAnimationFrames();
     this.clearMenuCloseTimer();
     this.cleanUpOpenMenu();
   }
@@ -82,6 +98,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.handleLanguageChange(event);
       }
     );
+  }
+
+  private subscribeToRouterEvents(): void {
+    this.routerSub = this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe(() => {
+        const fragment = this.getFragmentFromUrl(
+          this.router.url
+        );
+
+        if (!fragment) {
+          return;
+        }
+
+        this.scrollToFragment(fragment);
+      });
   }
 
   private handleLanguageChange(
@@ -111,18 +148,117 @@ export class NavbarComponent implements OnInit, OnDestroy {
     fragment: string,
     event?: Event
   ): void {
+    /*
+     * Auf Mobile zuerst das Menü schließen.
+     * Erst danach wird zur gewünschten Sektion navigiert.
+     */
     if (this.isMenuOpen || this.isMenuClosing) {
       event?.preventDefault();
       event?.stopPropagation();
 
       this.closeMenu(false, () => {
-        this.navClick.emit(fragment);
+        this.navigateToFragment(fragment);
       });
 
       return;
     }
 
+    /*
+     * In Project Details wird die Navigation weiterhin an
+     * die übergeordnete Komponente gegeben.
+     */
+    if (this.variant === 'overlay') {
+      event?.preventDefault();
+      this.navClick.emit(fragment);
+      return;
+    }
+
+    /*
+     * Auf der Landingpage kann der RouterLink normal arbeiten.
+     */
     this.navClick.emit(fragment);
+  }
+
+  private navigateToFragment(
+    fragment: string
+  ): void {
+    if (this.variant === 'overlay') {
+      this.navClick.emit(fragment);
+      return;
+    }
+
+    if (this.isLandingPageUrl(this.router.url)) {
+      this.updateUrlFragment(fragment);
+      this.scrollToFragment(fragment);
+      return;
+    }
+
+    void this.router.navigate(
+      ['/'],
+      {
+        fragment
+      }
+    ).then(() => {
+      this.scrollToFragment(fragment);
+    });
+  }
+
+  private isLandingPageUrl(
+    url: string
+  ): boolean {
+    const urlWithoutFragment = url.split('#')[0];
+    const urlWithoutQuery = urlWithoutFragment.split('?')[0];
+
+    return (
+      urlWithoutQuery === '/' ||
+      urlWithoutQuery === ''
+    );
+  }
+
+  private updateUrlFragment(
+    fragment: string
+  ): void {
+    void this.router.navigate(
+      [],
+      {
+        fragment,
+        replaceUrl: false
+      }
+    );
+  }
+
+  private scrollToFragment(
+    fragment: string
+  ): void {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const element =
+          document.getElementById(fragment);
+
+        if (!element) {
+          return;
+        }
+
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  }
+
+  private getFragmentFromUrl(
+    url: string
+  ): string | null {
+    const hashIndex = url.indexOf('#');
+
+    if (hashIndex === -1) {
+      return null;
+    }
+
+    const fragment = url.slice(hashIndex + 1);
+
+    return fragment || null;
   }
 
   selectLanguage(
@@ -167,7 +303,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     if (this.isMenuOpen) {
-      this.closeMenu();
+      this.closeMenu(false);
       return;
     }
 
@@ -176,21 +312,33 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private openMenu(): void {
     this.clearMenuCloseTimer();
-    this.clearLockTimer();
+    this.clearOpenAnimationFrames();
 
     this.afterCloseAction = undefined;
 
-    this.isMenuClosing = false;
     this.isMenuOpen = true;
+    this.isMenuClosing = false;
+    this.isMenuVisible = false;
 
     this.menuOpenChange.emit(true);
 
-    this.hideMainContent();
-    this.setLockTimer();
+    this.lockBodyScroll();
+
+    /*
+     * Das Menü wird erst ins DOM eingesetzt und anschließend
+     * im nächsten Render-Zyklus sichtbar gesetzt.
+     */
+    this.openAnimationFrame =
+      window.requestAnimationFrame(() => {
+        this.secondOpenAnimationFrame =
+          window.requestAnimationFrame(() => {
+            this.isMenuVisible = true;
+          });
+      });
   }
 
   closeMenu(
-    scrollToTop: boolean = true,
+    scrollToTop: boolean = false,
     afterClose?: () => void
   ): void {
     if (this.isMenuClosing) {
@@ -204,25 +352,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     this.afterCloseAction = afterClose;
 
-    /*
-     * WICHTIG:
-     *
-     * Der Hauptinhalt wird bereits vor Beginn der Schließanimation
-     * wieder eingeblendet.
-     *
-     * Dadurch wird beim Heraussliden des Menüs die Seite darunter
-     * sichtbar. Vorher war der Hauptinhalt weiterhin mit d-none
-     * ausgeblendet und das Menü hat beim Heraussliden nur eine
-     * schwarze beziehungsweise leere Fläche freigegeben.
-     */
-    this.showMainContent();
+    this.clearOpenAnimationFrames();
+    this.clearMenuCloseTimer();
 
     this.isMenuClosing = true;
+    this.isMenuVisible = false;
 
     this.menuOpenChange.emit(false);
-
-    this.clearLockTimer();
-    this.clearMenuCloseTimer();
 
     this.menuCloseTimer = window.setTimeout(() => {
       this.finishClosingMenu(scrollToTop);
@@ -234,10 +370,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ): void {
     this.isMenuOpen = false;
     this.isMenuClosing = false;
+    this.isMenuVisible = false;
+
     this.menuCloseTimer = undefined;
 
     this.unlockBodyScroll();
-    this.scrollToTopIfNeeded(scrollToTop);
+
+    if (scrollToTop) {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto'
+      });
+    }
 
     const action = this.afterCloseAction;
 
@@ -246,21 +391,68 @@ export class NavbarComponent implements OnInit, OnDestroy {
     action?.();
   }
 
-  private setLockTimer(): void {
-    this.clearLockTimer();
+  private lockBodyScroll(): void {
+    this.savedScrollPosition =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      0;
 
-    this.lockAfterScrollTimer = window.setTimeout(() => {
-      this.lockBodyScrollAtTop();
-    }, 450);
+    document.documentElement.classList.add('no-scroll');
+
+    document.body.classList.add(
+      'no-scroll',
+      'menu-open'
+    );
+
+    document.body.style.position = 'fixed';
+    document.body.style.top =
+      `-${this.savedScrollPosition}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
   }
 
-  private clearLockTimer(): void {
-    if (this.lockAfterScrollTimer === undefined) {
-      return;
+  private unlockBodyScroll(): void {
+    document.documentElement.classList.remove('no-scroll');
+
+    document.body.classList.remove(
+      'no-scroll',
+      'menu-open'
+    );
+
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+
+    window.scrollTo({
+      top: this.savedScrollPosition,
+      left: 0,
+      behavior: 'auto'
+    });
+  }
+
+  private clearOpenAnimationFrames(): void {
+    if (this.openAnimationFrame !== undefined) {
+      window.cancelAnimationFrame(
+        this.openAnimationFrame
+      );
+
+      this.openAnimationFrame = undefined;
     }
 
-    window.clearTimeout(this.lockAfterScrollTimer);
-    this.lockAfterScrollTimer = undefined;
+    if (
+      this.secondOpenAnimationFrame !== undefined
+    ) {
+      window.cancelAnimationFrame(
+        this.secondOpenAnimationFrame
+      );
+
+      this.secondOpenAnimationFrame = undefined;
+    }
   }
 
   private clearMenuCloseTimer(): void {
@@ -272,76 +464,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.menuCloseTimer = undefined;
   }
 
-  private lockBodyScrollAtTop(): void {
-    this.addScrollLockClasses();
-    this.setFixedBodyStyles();
-  }
-
-  private addScrollLockClasses(): void {
-    document.documentElement.classList.add('no-scroll');
-
-    document.body.classList.add(
-      'no-scroll',
-      'menu-open'
-    );
-  }
-
-  private setFixedBodyStyles(): void {
-    document.body.style.position = 'fixed';
-    document.body.style.top = '0';
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
-  }
-
-  private unlockBodyScroll(): void {
-    this.removeScrollLockClasses();
-    this.resetBodyStyles();
-  }
-
-  private removeScrollLockClasses(): void {
-    document.documentElement.classList.remove('no-scroll');
-
-    document.body.classList.remove(
-      'no-scroll',
-      'menu-open'
-    );
-  }
-
-  private resetBodyStyles(): void {
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-  }
-
-  private hideMainContent(): void {
-    document
-      .getElementById('mainContent')
-      ?.classList.add('d-none');
-  }
-
-  private showMainContent(): void {
-    document
-      .getElementById('mainContent')
-      ?.classList.remove('d-none');
-  }
-
-  private scrollToTopIfNeeded(
-    scrollToTop: boolean
-  ): void {
-    if (!scrollToTop) {
-      return;
-    }
-
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'auto'
-    });
-  }
-
   private cleanUpOpenMenu(): void {
     if (!this.isMenuOpen && !this.isMenuClosing) {
       return;
@@ -349,26 +471,26 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     this.isMenuOpen = false;
     this.isMenuClosing = false;
+    this.isMenuVisible = false;
     this.afterCloseAction = undefined;
 
     this.menuOpenChange.emit(false);
 
     this.unlockBodyScroll();
-    this.showMainContent();
   }
 
   private closeMenuImmediately(): void {
-    this.clearLockTimer();
+    this.clearOpenAnimationFrames();
     this.clearMenuCloseTimer();
 
     this.isMenuOpen = false;
     this.isMenuClosing = false;
+    this.isMenuVisible = false;
     this.afterCloseAction = undefined;
 
     this.menuOpenChange.emit(false);
 
     this.unlockBodyScroll();
-    this.showMainContent();
   }
 
   private isDesktop(): boolean {
@@ -415,6 +537,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (this.variant === 'overlay') {
       event?.preventDefault();
       this.navClick.emit('top');
+      return;
+    }
+
+    if (!this.isLandingPageUrl(this.router.url)) {
+      void this.router.navigate(['/']);
       return;
     }
 
