@@ -197,6 +197,109 @@
     }
 }
 
+/*
+ * Mobile Navbar auf der Hauptseite:
+ * von oben nach unten.
+ */
+@keyframes mobile-navbar-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-110%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+ * Mobile Navbar in den Project Details:
+ * von links nach rechts.
+ */
+@keyframes mobile-navbar-slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-110%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*
+ * Geöffnetes Mobile-Menü auf der Hauptseite:
+ * von oben nach unten.
+ */
+@keyframes mobile-menu-overlay-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+ * Geöffnetes Mobile-Menü in den Project Details:
+ * von links nach rechts.
+ */
+@keyframes mobile-menu-overlay-slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes mobile-menu-open-from-top {
+    from {
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes mobile-menu-close-to-top {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+@keyframes mobile-menu-open-from-left {
+    from {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes mobile-menu-close-to-left {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
 
 /* Projects Component  */
 
