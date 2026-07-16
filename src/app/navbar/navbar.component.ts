@@ -1,4 +1,7 @@
-import { CommonModule, NgClass } from '@angular/common';
+import {
+  CommonModule,
+  NgClass
+} from '@angular/common';
 
 import {
   Component,
@@ -48,6 +51,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   activeSection: string | null = null;
 
   selectedLanguage: 'en' | 'de' = 'en';
+
   dotClass = '';
 
   isMenuOpen = false;
@@ -88,45 +92,54 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private initSelectedLanguage(): void {
-    this.selectedLanguage = this.getCurrentLanguage();
-    this.setDotPositionInstant(this.selectedLanguage);
-  }
+    this.selectedLanguage =
+      this.getCurrentLanguage();
 
-  private subscribeToLanguageChanges(): void {
-    this.langSub = this.translate.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this.handleLanguageChange(event);
-      }
+    this.setDotPositionInstant(
+      this.selectedLanguage
     );
   }
 
-  private subscribeToRouterEvents(): void {
-    this.routerSub = this.router.events
-      .pipe(
-        filter(
-          (event): event is NavigationEnd =>
-            event instanceof NavigationEnd
-        )
-      )
-      .subscribe(() => {
-        const fragment = this.getFragmentFromUrl(
-          this.router.url
-        );
-
-        if (!fragment) {
-          return;
+  private subscribeToLanguageChanges(): void {
+    this.langSub =
+      this.translate.onLangChange.subscribe(
+        (event: LangChangeEvent) => {
+          this.handleLanguageChange(event);
         }
+      );
+  }
 
-        this.scrollToFragment(fragment);
-      });
+  private subscribeToRouterEvents(): void {
+    this.routerSub =
+      this.router.events
+        .pipe(
+          filter(
+            (event): event is NavigationEnd =>
+              event instanceof NavigationEnd
+          )
+        )
+        .subscribe(() => {
+          const fragment =
+            this.getFragmentFromUrl(
+              this.router.url
+            );
+
+          if (!fragment) {
+            return;
+          }
+
+          this.scrollToFragment(fragment);
+        });
   }
 
   private handleLanguageChange(
     event: LangChangeEvent
   ): void {
-    const lang = this.getLangFromEvent(event);
+    const lang =
+      this.getLangFromEvent(event);
 
     this.selectedLanguage = lang;
+
     this.setDotPositionInstant(lang);
   }
 
@@ -152,13 +165,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
      * Auf Mobile zuerst das Menü schließen.
      * Erst danach wird zur gewünschten Sektion navigiert.
      */
-    if (this.isMenuOpen || this.isMenuClosing) {
+    if (
+      this.isMenuOpen ||
+      this.isMenuClosing
+    ) {
       event?.preventDefault();
       event?.stopPropagation();
 
-      this.closeMenu(false, () => {
-        this.navigateToFragment(fragment);
-      });
+      this.closeMenu(
+        false,
+        () => {
+          this.navigateToFragment(fragment);
+        }
+      );
 
       return;
     }
@@ -169,7 +188,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
      */
     if (this.variant === 'overlay') {
       event?.preventDefault();
+
       this.navClick.emit(fragment);
+
       return;
     }
 
@@ -184,12 +205,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ): void {
     if (this.variant === 'overlay') {
       this.navClick.emit(fragment);
+
       return;
     }
 
-    if (this.isLandingPageUrl(this.router.url)) {
+    if (
+      this.isLandingPageUrl(
+        this.router.url
+      )
+    ) {
       this.updateUrlFragment(fragment);
       this.scrollToFragment(fragment);
+
       return;
     }
 
@@ -206,8 +233,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private isLandingPageUrl(
     url: string
   ): boolean {
-    const urlWithoutFragment = url.split('#')[0];
-    const urlWithoutQuery = urlWithoutFragment.split('?')[0];
+    const urlWithoutFragment =
+      url.split('#')[0];
+
+    const urlWithoutQuery =
+      urlWithoutFragment.split('?')[0];
 
     return (
       urlWithoutQuery === '/' ||
@@ -250,13 +280,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private getFragmentFromUrl(
     url: string
   ): string | null {
-    const hashIndex = url.indexOf('#');
+    const hashIndex =
+      url.indexOf('#');
 
     if (hashIndex === -1) {
       return null;
     }
 
-    const fragment = url.slice(hashIndex + 1);
+    const fragment =
+      url.slice(hashIndex + 1);
 
     return fragment || null;
   }
@@ -264,27 +296,34 @@ export class NavbarComponent implements OnInit, OnDestroy {
   selectLanguage(
     lang: 'en' | 'de'
   ): void {
-    if (lang === this.selectedLanguage) {
+    if (
+      lang === this.selectedLanguage
+    ) {
       return;
     }
 
     this.animateDotToLanguage(lang);
+
     this.selectedLanguage = lang;
+
     this.useLanguage(lang);
   }
 
   private animateDotToLanguage(
     lang: 'en' | 'de'
   ): void {
-    this.dotClass = lang === 'de'
-      ? 'dot-animate-right'
-      : 'dot-animate-left';
+    this.dotClass =
+      lang === 'de'
+        ? 'dot-animate-right'
+        : 'dot-animate-left';
   }
 
   private useLanguage(
     lang: 'en' | 'de'
   ): void {
-    if (this.translate.currentLang !== lang) {
+    if (
+      this.translate.currentLang !== lang
+    ) {
       this.translate.use(lang);
     }
   }
@@ -292,18 +331,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private setDotPositionInstant(
     lang: 'en' | 'de'
   ): void {
-    this.dotClass = lang === 'de'
-      ? 'dot-right'
-      : 'dot-left';
+    this.dotClass =
+      lang === 'de'
+        ? 'dot-right'
+        : 'dot-left';
   }
 
   toggleMenu(): void {
-    if (this.isDesktop() || this.isMenuClosing) {
+    if (
+      this.isDesktop() ||
+      this.isMenuClosing
+    ) {
       return;
     }
 
     if (this.isMenuOpen) {
       this.closeMenu(false);
+
       return;
     }
 
@@ -325,8 +369,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.lockBodyScroll();
 
     /*
-     * Das Menü wird erst ins DOM eingesetzt und anschließend
-     * im nächsten Render-Zyklus sichtbar gesetzt.
+     * Das Menü wird zuerst ins DOM eingesetzt.
+     * Anschließend wird die sichtbare Position gesetzt,
+     * damit die CSS-Transition sauber startet.
      */
     this.openAnimationFrame =
       window.requestAnimationFrame(() => {
@@ -347,6 +392,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     if (!this.isMenuOpen) {
       afterClose?.();
+
       return;
     }
 
@@ -360,9 +406,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     this.menuOpenChange.emit(false);
 
-    this.menuCloseTimer = window.setTimeout(() => {
-      this.finishClosingMenu(scrollToTop);
-    }, this.menuAnimationDuration);
+    this.menuCloseTimer =
+      window.setTimeout(() => {
+        this.finishClosingMenu(
+          scrollToTop
+        );
+      }, this.menuAnimationDuration);
   }
 
   private finishClosingMenu(
@@ -384,7 +433,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
     }
 
-    const action = this.afterCloseAction;
+    const action =
+      this.afterCloseAction;
 
     this.afterCloseAction = undefined;
 
@@ -397,7 +447,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
       document.documentElement.scrollTop ||
       0;
 
-    document.documentElement.classList.add('no-scroll');
+    document.documentElement.classList.add(
+      'no-scroll'
+    );
 
     document.body.classList.add(
       'no-scroll',
@@ -405,8 +457,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     );
 
     document.body.style.position = 'fixed';
+
     document.body.style.top =
       `-${this.savedScrollPosition}px`;
+
     document.body.style.left = '0';
     document.body.style.right = '0';
     document.body.style.width = '100%';
@@ -414,7 +468,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private unlockBodyScroll(): void {
-    document.documentElement.classList.remove('no-scroll');
+    document.documentElement.classList.remove(
+      'no-scroll'
+    );
 
     document.body.classList.remove(
       'no-scroll',
@@ -436,7 +492,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private clearOpenAnimationFrames(): void {
-    if (this.openAnimationFrame !== undefined) {
+    if (
+      this.openAnimationFrame !== undefined
+    ) {
       window.cancelAnimationFrame(
         this.openAnimationFrame
       );
@@ -456,22 +514,31 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private clearMenuCloseTimer(): void {
-    if (this.menuCloseTimer === undefined) {
+    if (
+      this.menuCloseTimer === undefined
+    ) {
       return;
     }
 
-    window.clearTimeout(this.menuCloseTimer);
+    window.clearTimeout(
+      this.menuCloseTimer
+    );
+
     this.menuCloseTimer = undefined;
   }
 
   private cleanUpOpenMenu(): void {
-    if (!this.isMenuOpen && !this.isMenuClosing) {
+    if (
+      !this.isMenuOpen &&
+      !this.isMenuClosing
+    ) {
       return;
     }
 
     this.isMenuOpen = false;
     this.isMenuClosing = false;
     this.isMenuVisible = false;
+
     this.afterCloseAction = undefined;
 
     this.menuOpenChange.emit(false);
@@ -486,6 +553,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.isMenuOpen = false;
     this.isMenuClosing = false;
     this.isMenuVisible = false;
+
     this.afterCloseAction = undefined;
 
     this.menuOpenChange.emit(false);
@@ -499,7 +567,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown.escape')
   onEsc(): void {
-    if (this.isMenuOpen && !this.isMenuClosing) {
+    if (
+      this.isMenuOpen &&
+      !this.isMenuClosing
+    ) {
       this.closeMenu(false);
     }
   }
@@ -508,7 +579,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onResize(): void {
     if (
       this.isDesktop() &&
-      (this.isMenuOpen || this.isMenuClosing)
+      (
+        this.isMenuOpen ||
+        this.isMenuClosing
+      )
     ) {
       this.closeMenuImmediately();
     }
@@ -517,13 +591,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onLogoClick(
     event: MouseEvent
   ): void {
-    if (this.isMenuOpen || this.isMenuClosing) {
+    if (
+      this.isMenuOpen ||
+      this.isMenuClosing
+    ) {
       event.preventDefault();
       event.stopPropagation();
 
-      this.closeMenu(false, () => {
-        this.handleLogoNavigation();
-      });
+      this.closeMenu(
+        false,
+        () => {
+          this.handleLogoNavigation();
+        }
+      );
 
       return;
     }
@@ -536,12 +616,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ): void {
     if (this.variant === 'overlay') {
       event?.preventDefault();
+
       this.navClick.emit('top');
+
       return;
     }
 
-    if (!this.isLandingPageUrl(this.router.url)) {
+    if (
+      !this.isLandingPageUrl(
+        this.router.url
+      )
+    ) {
       void this.router.navigate(['/']);
+
       return;
     }
 

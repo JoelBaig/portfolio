@@ -92,28 +92,26 @@
   </div>
 
   <!-- Mobile Burger -->
-  <button id="menuBars" class="mobile-only burger-btn mobile-menu-button" type="button"
+  <button id="menuBars" class="mobile-only mobile-menu-button burger-btn" type="button"
     *ngIf="!isMenuOpen && !isMenuClosing" aria-label="Menü öffnen" (click)="toggleMenu()">
     <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_bars.png" alt="">
 
     <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_bars_mobile.png" alt="">
   </button>
 
+  <!-- Mobile Close -->
+  <button id="closeBtn" class="mobile-only mobile-menu-button mobile-close" type="button"
+    *ngIf="isMenuOpen || isMenuClosing" aria-label="Menü schließen" [disabled]="isMenuClosing"
+    (click)="closeMenu(false)">
+    <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_close.png" alt="">
+
+    <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_close_mobile.png" alt="">
+  </button>
+
   <!-- Mobile Overlay -->
   <div class="mobile-menu-overlay" *ngIf="isMenuOpen || isMenuClosing" [class.is-visible]="isMenuVisible"
     [class.is-closing]="isMenuClosing" (click)="closeMenu(false)">
     <div class="mobile-menu" (click)="$event.stopPropagation()">
-
-      <!--
-        Der Close-Button liegt absichtlich innerhalb des Sliders.
-        Dadurch bewegt er sich automatisch mit dem Menü.
-      -->
-      <button id="closeBtn" class="mobile-only mobile-close mobile-menu-button" type="button"
-        aria-label="Menü schließen" [disabled]="isMenuClosing" (click)="closeMenu(false)">
-        <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_close.png" alt="">
-
-        <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_close_mobile.png" alt="">
-      </button>
 
       <!-- Mobile Links -->
       <ul class="mobile-links">

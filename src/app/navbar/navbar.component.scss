@@ -12,12 +12,17 @@
     top: 0;
     left: 0;
     right: 0;
+
     height: 120px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     background: transparent;
+
     mix-blend-mode: normal;
+
     z-index: 2002;
 }
 
@@ -35,43 +40,63 @@
 
 .nav-links {
     width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
     gap: 40px;
+
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
 
 .nav-link {
     position: relative;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     padding: 8px 16px;
+
     cursor: pointer;
+
     font-weight: 700;
+
     text-decoration: none !important;
+
     isolation: isolate;
 
     .nav-text {
         position: relative;
+
         z-index: 2;
+
         color: #fff;
+
         transition: color 0.2s ease;
     }
 
     .hover-bg {
         position: absolute;
+
         top: 50%;
         left: 50%;
+
         width: calc(100% + 12px);
         height: calc(100% + 12px);
+
         object-fit: contain;
+
         opacity: 0;
+
         z-index: 1;
+
         pointer-events: none;
+
         mix-blend-mode: normal;
 
         transform:
@@ -136,8 +161,11 @@
 
 .logo-wrapper {
     position: relative;
+
     top: -21px;
+
     width: 48px;
+
     cursor: pointer;
 
     filter:
@@ -151,18 +179,22 @@
 
 .logo-wrapper .logo {
     position: absolute;
+
     top: 0;
     left: 0;
+
     transition: opacity 0.3s ease;
 }
 
 .logo-blue {
     opacity: 1;
+
     z-index: 1;
 }
 
 .logo-yellow {
     opacity: 0;
+
     z-index: 2;
 }
 
@@ -181,22 +213,27 @@
 .language-wrapper {
     display: flex;
     align-items: center;
+
     gap: 12px;
 }
 
 .en-language-wrapper,
 .de-language-wrapper {
     position: relative;
+
     width: 38px;
     height: 24px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
 }
 
 .language-switch-wrapper {
     position: relative;
+
     width: 30px;
     height: 24px;
 }
@@ -207,9 +244,13 @@
 
 .language-dot {
     position: absolute;
+
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     transition: left 0.15s ease-in-out;
+
     will-change: left, transform;
 }
 
@@ -231,7 +272,9 @@
 
 .language-pos {
     position: absolute;
+
     opacity: 0;
+
     transition: opacity 0.15s ease-in-out;
 }
 
@@ -241,10 +284,14 @@
 
 .language-mark {
     position: absolute;
+
     transform: scaleX(0);
     transform-origin: left;
+
     opacity: 1;
+
     z-index: 1;
+
     pointer-events: none;
 
     transition:
@@ -263,6 +310,7 @@
 .de-language-wrapper:focus-visible {
     outline: 2px solid #f7c518;
     outline-offset: 4px;
+
     border-radius: 4px;
 }
 
@@ -283,16 +331,14 @@
     display: none;
 }
 
-.mobile-close {
-    display: none;
-}
-
 /* Mobile */
 
 @media (max-width: 900px) {
     :host {
         display: block;
+
         position: relative;
+
         z-index: 999999;
     }
 
@@ -306,6 +352,7 @@
 
     .navbar {
         position: absolute;
+
         top: 0;
         left: 0;
         right: 0;
@@ -314,11 +361,13 @@
         height: 90px;
 
         padding: 0 16px;
+
         box-sizing: border-box;
 
         mix-blend-mode: normal !important;
 
         z-index: 999999;
+
         overflow: visible;
     }
 
@@ -329,6 +378,7 @@
         content: '';
 
         position: absolute;
+
         top: -22px;
         left: 0;
         right: 0;
@@ -337,6 +387,7 @@
         height: 115px;
 
         pointer-events: none;
+
         z-index: 0;
 
         background:
@@ -358,8 +409,12 @@
         animation: none;
     }
 
+    /*
+     * Logo liegt immer über dem einfahrenden Menü.
+     */
     .navbar-left {
         position: relative;
+
         z-index: 1000002;
     }
 
@@ -375,15 +430,20 @@
             );
     }
 
-    /* Burger */
-
-    .burger-btn {
+    /*
+     * Burger und Close liegen an exakt derselben Position.
+     * Nur der jeweilige Button wird per Angular angezeigt.
+     */
+    .burger-btn,
+    .mobile-close {
         position: absolute;
+
         top: 50%;
         right: 16px;
 
         width: 38px;
         height: 38px;
+
         padding: 0;
 
         transform: translateY(-50%);
@@ -393,6 +453,7 @@
         justify-content: center;
 
         background: transparent;
+
         border: none;
 
         cursor: pointer;
@@ -400,36 +461,7 @@
         z-index: 1000002;
 
         overflow: visible;
-        -webkit-tap-highlight-color: transparent;
-    }
 
-    /*
-     * Close-Button innerhalb des Sliders.
-     *
-     * Er bewegt sich deshalb automatisch zusammen
-     * mit der gesamten .mobile-menu.
-     */
-    .mobile-close {
-        position: absolute;
-        top: 26px;
-        right: 16px;
-
-        width: 38px;
-        height: 38px;
-        padding: 0;
-
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-
-        background: transparent;
-        border: none;
-
-        cursor: pointer;
-
-        z-index: 10;
-
-        overflow: visible;
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -439,6 +471,7 @@
 
     .mobile-menu-button .menu-icon {
         position: absolute;
+
         top: 50%;
         left: 50%;
 
@@ -448,6 +481,7 @@
         display: block;
 
         object-fit: contain;
+
         pointer-events: none;
 
         transition:
@@ -500,6 +534,7 @@
     .mobile-menu-button:focus-visible {
         outline: 2px solid #f7c518;
         outline-offset: 5px;
+
         border-radius: 6px;
     }
 
@@ -510,6 +545,7 @@
             clamp(560px, 78dvh, 760px);
 
         position: fixed !important;
+
         inset: 0 !important;
 
         width: 100% !important;
@@ -519,11 +555,13 @@
         display: block;
 
         overflow: hidden;
+
         isolation: isolate;
 
         z-index: 999998 !important;
 
         background: transparent !important;
+
         pointer-events: none;
     }
 
@@ -534,11 +572,13 @@
         content: '';
 
         position: absolute;
+
         inset: 0;
 
         z-index: 0;
 
         background: rgba(0, 0, 0, 0.72);
+
         opacity: 0;
 
         pointer-events: none;
@@ -603,6 +643,7 @@
         width: 100% !important;
 
         height: var(--mobile-menu-height);
+
         min-height: 0 !important;
         max-height: calc(100dvh - 45px);
 
@@ -633,6 +674,10 @@
         overflow-y: auto;
         overflow-x: hidden;
 
+        /*
+         * Das Menü liegt unter Logo und Menübutton,
+         * aber über der Abdunklung.
+         */
         z-index: 2;
 
         filter:
@@ -653,7 +698,7 @@
 
     /*
      * Landingpage:
-     * Start oberhalb.
+     * Menü startet oberhalb des Bildschirms.
      */
     .navbar--default .mobile-menu {
         transform:
@@ -662,7 +707,7 @@
 
     /*
      * Project Details:
-     * Start links außerhalb.
+     * Menü startet links außerhalb.
      */
     .navbar--overlay .mobile-menu {
         transform:
@@ -684,7 +729,8 @@
 
     /*
      * Landingpage schließen:
-     * Menü und Close-Button fahren nach oben.
+     * Nur das Menü fährt nach oben.
+     * Logo und Close-Button bleiben stehen.
      */
     .navbar--default
         .mobile-menu-overlay.is-closing
@@ -698,7 +744,8 @@
 
     /*
      * Project Details schließen:
-     * Menü und Close-Button fahren nach links.
+     * Nur das Menü fährt nach links.
+     * Logo und Close-Button bleiben stehen.
      */
     .navbar--overlay
         .mobile-menu-overlay.is-closing
@@ -728,6 +775,7 @@
     .mobile-links li {
         margin: 0;
         padding: 0;
+
         list-style: none;
     }
 
@@ -739,9 +787,11 @@
         align-items: center;
 
         min-width: 150px;
+
         padding: 10px 18px;
 
         color: #fff;
+
         text-decoration: none;
 
         font-weight: 700;
@@ -749,11 +799,13 @@
         line-height: 1.1;
 
         isolation: isolate;
+
         -webkit-tap-highlight-color: transparent;
     }
 
     .mobile-nav-text {
         position: relative;
+
         z-index: 2;
     }
 
@@ -774,6 +826,7 @@
         pointer-events: none;
 
         opacity: 0;
+
         z-index: 1;
 
         transform:
@@ -792,8 +845,9 @@
      * Projects-Grafik breiter und kräftiger.
      */
     .mobile-nav-projects .mobile-hover-line {
-        width: calc(100% + 64px);
-        height: 34px;
+        width: calc(100% + -25px);
+        height: 80px;
+
         object-fit: fill;
     }
 
@@ -901,6 +955,7 @@
 
     .mobile-menu {
         height: var(--mobile-menu-height);
+
         max-height:
             calc(100dvh - 24px);
 
@@ -910,11 +965,6 @@
             28px;
     }
 
-    .mobile-close {
-        top: 24px;
-        right: 14px;
-    }
-
     .mobile-links {
         gap:
             clamp(24px, 4dvh, 36px);
@@ -922,7 +972,9 @@
 
     .mobile-links a {
         min-width: 135px;
+
         padding: 8px 14px;
+
         font-size: 26px;
     }
 
@@ -956,16 +1008,13 @@
             22px;
     }
 
-    .mobile-close {
-        top: 22px;
-    }
-
     .mobile-links {
         gap: 22px;
     }
 
     .mobile-links a {
         padding: 7px 14px;
+
         font-size: 24px;
     }
 
