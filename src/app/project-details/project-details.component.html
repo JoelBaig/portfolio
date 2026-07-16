@@ -1,22 +1,17 @@
 <div class="overlay">
     <img class="panel-bgr" src="./assets/project_details/paper_bgr.webp" alt="">
-
     <div id="mobileBoxShadow" class="mobile-box-shadow"></div>
-
     <app-navbar variant="overlay" class="header-project-details navbar pd-navbar" (click)="onNavbarClick($event)"
         (navClick)="closeProjectDetails($event)">
     </app-navbar>
-
     <div class="panel" (click)="$event.stopPropagation()">
         <ng-container *ngIf="selectedProject as project">
-
             <div class="back-btn-con desktop-back-btn" (click)="onClose(); $event.stopPropagation()">
                 <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
                 <button class="back-btn" type="button">
                     {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
                 </button>
             </div>
-
             <div class="wrapper-left">
                 <div>
                     <app-app-headline class="single-project-headline" [title]="project.title"
@@ -26,19 +21,16 @@
                         [subtitleUnderLine]="true" [lineMatchTitle]="true" [subtitleTag]="'h2'">
                     </app-app-headline>
                 </div>
-
                 <div>
                     <h1 class="implementation-details">
                         {{ 'PROJECT_DETAILS.SECOND_SUBTITLE' | translate }}
                     </h1>
                     <p class="details">{{ project.details | translate }}</p>
                 </div>
-
                 <div class="duration-con">
                     <h2>{{ 'PROJECT_DETAILS.DURATION' | translate }}</h2>
                     <p>{{ project.duration | translate }}</p>
                 </div>
-
                 <ul class="tech-list" *ngIf="project.used_technologies?.length">
                     <li class="tech-item" *ngFor="let tech of project.used_technologies">
                         <img class="tech-icon" [src]="tech.icon" [alt]="tech.name + ' icon'" />
@@ -46,22 +38,18 @@
                     </li>
                 </ul>
             </div>
-
             <div class="wrapper-right">
                 <img class="detail-img" [src]="project.image" [alt]="project.alt" />
-
                 <div class="bottom-btns-con">
                     <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer"
                         class="project-css-btn">
                         Github
                     </a>
-
                     <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer"
                         class="project-css-btn">
                         Live Test
                     </a>
                 </div>
-
                 <div class="mobile-project-nav-con">
                     <div class="back-btn-con" (click)="onClose(); $event.stopPropagation()">
                         <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button">
@@ -69,7 +57,6 @@
                             {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
                         </button>
                     </div>
-
                     <div class="next-project-btn-con" (click)="nextProject(); $event.stopPropagation()">
                         <button type="button">
                             {{ 'PROJECT_DETAILS.NEXT_PROJECT_BTN' | translate }}
@@ -77,10 +64,8 @@
                         <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
                     </div>
                 </div>
-
                 <div class="featured-sticker-img-mobile">
                     <img class="sticker-img" *ngIf="project.sticker" [src]="project.sticker" alt="project_sticker" />
-
                     <div *ngIf="project.id !== 'join'" class="featured-project-sticker-mobile">
                         <svg class="sticker-text" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                             <defs>
@@ -89,7 +74,6 @@
                                     a 118,118 0 1,1 236,0
                                     a 118,118 0 1,1 -236,0" />
                             </defs>
-
                             <text class="circle-text">
                                 <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
                                     Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;
@@ -101,14 +85,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="next-project-btn-con desktop-next-btn" (click)="nextProject(); $event.stopPropagation()">
                 <button type="button">
                     {{ 'PROJECT_DETAILS.NEXT_PROJECT_BTN' | translate }}
                 </button>
                 <img src="./assets/project_details/arrow_forward.png" alt="next_project_button">
             </div>
-
         </ng-container>
     </div>
 </div>

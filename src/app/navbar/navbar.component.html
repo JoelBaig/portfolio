@@ -1,10 +1,8 @@
 <nav class="navbar" [ngClass]="'navbar--' + variant">
-
   <!-- Logo -->
   <div class="navbar-left">
     <a class="logo-wrapper" [routerLink]="['/']" (click)="onLogoClick($event)">
       <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="Logo">
-
       <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
     </a>
   </div>
@@ -12,78 +10,61 @@
   <!-- Desktop Navigation -->
   <div class="navbar-center desktop-only">
     <ul class="nav-links">
-
       <li class="nav-about-me">
         <a class="nav-link" [routerLink]="['/']" fragment="about-me" (click)="onNavItemClick('about-me', $event)">
           <span class="nav-text">
             {{ 'NAV.ABOUT' | translate }}
           </span>
-
           <img src="/assets/img/header/B.2.png" class="hover-bg" alt="">
         </a>
       </li>
-
       <li class="nav-skills">
         <a class="nav-link" [routerLink]="['/']" fragment="skills" (click)="onNavItemClick('skills', $event)">
           <span class="nav-text">
             {{ 'NAV.SKILLS' | translate }}
           </span>
-
           <img src="/assets/img/header/B.1.png" class="hover-bg" alt="">
         </a>
       </li>
-
       <li class="nav-projects">
         <a class="nav-link" [routerLink]="['/']" fragment="projects" (click)="onNavItemClick('projects', $event)">
           <span class="nav-text">
             {{ 'NAV.PROJECTS' | translate }}
           </span>
-
           <img src="/assets/img/header/B.4.png" class="hover-bg" alt="">
         </a>
       </li>
-
       <li class="nav-contact">
         <a class="nav-link" [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact', $event)">
           <span class="nav-text">
             {{ 'NAV.CONTACT' | translate }}
           </span>
-
           <img src="/assets/img/header/B.3.png" class="hover-bg" alt="">
         </a>
       </li>
-
     </ul>
   </div>
 
   <!-- Desktop Language Switch -->
   <div class="navbar-right desktop-only">
     <div class="language-wrapper">
-
       <div class="en-language-wrapper" role="button" tabindex="0" (click)="selectLanguage('en')"
         (keydown.enter)="selectLanguage('en')" (keydown.space)="selectLanguage('en')">
         <img [ngClass]="{ 'visible': selectedLanguage === 'en' }" class="language-pos en-language-red"
           src="/assets/img/header/en_red.png" alt="English">
-
         <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png" alt="">
-
         <img [ngClass]="{ 'visible': selectedLanguage !== 'en' }" class="language-pos en-language-white"
           src="/assets/img/header/en_white.png" alt="English">
       </div>
-
       <div class="language-switch-wrapper">
         <img class="language-line" src="/assets/img/header/language_line.png" alt="">
-
         <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png" alt="">
       </div>
-
       <div class="de-language-wrapper" role="button" tabindex="0" (click)="selectLanguage('de')"
         (keydown.enter)="selectLanguage('de')" (keydown.space)="selectLanguage('de')">
         <img [ngClass]="{ 'visible': selectedLanguage !== 'de' }" class="language-pos de-language-white"
           src="/assets/img/header/de_white.png" alt="Deutsch">
-
         <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png" alt="">
-
         <img [ngClass]="{ 'visible': selectedLanguage === 'de' }" class="language-pos de-language-red"
           src="/assets/img/header/de_red.png" alt="Deutsch">
       </div>
@@ -95,8 +76,6 @@
   <button id="menuBars" class="mobile-only mobile-menu-button burger-btn" type="button"
     *ngIf="!isMenuOpen && !isMenuClosing" aria-label="Menü öffnen" (click)="toggleMenu()">
     <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_bars.png" alt="">
-
-    <!-- Platzhalter: später durch dein richtiges Hover-Bild ersetzen -->
     <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_close_mobile_hover.png" alt="">
   </button>
 
@@ -105,8 +84,6 @@
     *ngIf="isMenuOpen || isMenuClosing" aria-label="Menü schließen" [disabled]="isMenuClosing"
     (click)="closeMenu(false)">
     <img class="menu-icon menu-icon-default" src="/assets/mobile/menu_close.png" alt="">
-
-    <!-- Platzhalter: später durch dein richtiges Hover-Bild ersetzen -->
     <img class="menu-icon menu-icon-hover" src="/assets/mobile/menu_bars_mobile_hover.png" alt="">
   </button>
 
@@ -117,43 +94,35 @@
 
       <!-- Mobile Links -->
       <ul class="mobile-links">
-
         <li class="mobile-nav-about">
           <a [routerLink]="['/']" fragment="about-me" (click)="onNavItemClick('about-me', $event)">
             <span class="mobile-nav-text">
               {{ 'NAV.ABOUT' | translate }}
             </span>
-
             <img class="mobile-hover-line" src="/assets/img/header/B.2.png" alt="">
           </a>
         </li>
-
         <li class="mobile-nav-skills">
           <a [routerLink]="['/']" fragment="skills" (click)="onNavItemClick('skills', $event)">
             <span class="mobile-nav-text">
               {{ 'NAV.SKILLS' | translate }}
             </span>
-
             <img class="mobile-hover-line" src="/assets/img/header/B.1.png" alt="">
           </a>
         </li>
-
         <li class="mobile-nav-projects">
           <a [routerLink]="['/']" fragment="projects" (click)="onNavItemClick('projects', $event)">
             <span class="mobile-nav-text">
               {{ 'NAV.PROJECTS' | translate }}
             </span>
-
             <img class="mobile-hover-line" src="/assets/img/header/B.4.png" alt="">
           </a>
         </li>
-
         <li class="mobile-nav-contact">
           <a [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact', $event)">
             <span class="mobile-nav-text">
               {{ 'NAV.CONTACT' | translate }}
             </span>
-
             <img class="mobile-hover-line" src="/assets/img/header/B.3.png" alt="">
           </a>
         </li>
@@ -163,21 +132,17 @@
       <!-- Mobile Language Switch -->
       <div class="mobile-language">
         <div class="language-wrapper">
-
           <div class="en-language-wrapper" role="button" tabindex="0" (click)="selectLanguage('en')"
             (keydown.enter)="selectLanguage('en')" (keydown.space)="selectLanguage('en')">
             <img [ngClass]="{ 'visible': selectedLanguage === 'en' }" class="language-pos en-language-red"
               src="/assets/img/header/en_red.png" alt="English">
-
             <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png" alt="">
-
             <img [ngClass]="{ 'visible': selectedLanguage !== 'en' }" class="language-pos en-language-white"
               src="/assets/img/header/en_white.png" alt="English">
           </div>
 
           <div class="language-switch-wrapper">
             <img class="language-line" src="/assets/img/header/language_line.png" alt="">
-
             <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png" alt="">
           </div>
 
@@ -185,19 +150,15 @@
             (keydown.enter)="selectLanguage('de')" (keydown.space)="selectLanguage('de')">
             <img [ngClass]="{ 'visible': selectedLanguage !== 'de' }" class="language-pos de-language-white"
               src="/assets/img/header/de_white.png" alt="Deutsch">
-
             <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png" alt="">
-
             <img [ngClass]="{ 'visible': selectedLanguage === 'de' }" class="language-pos de-language-red"
               src="/assets/img/header/de_red.png" alt="Deutsch">
           </div>
-
         </div>
       </div>
 
       <!-- Mobile Social Links -->
       <div class="mobile-social">
-
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn öffnen">
           <img src="/assets/img/header/linkedin_default.png" alt="">
         </a>
@@ -210,10 +171,7 @@
           (click)="onNavItemClick('contact', $event)">
           <img src="/assets/img/header/email_default.png" alt="">
         </a>
-
       </div>
-
     </div>
   </div>
-
 </nav>

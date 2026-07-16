@@ -1,5 +1,5 @@
-@import './../../mixin.scss';
 @import './../../keyframes.scss';
+@import './../../mixin.scss';
 
 :host {
     display: block;
@@ -12,17 +12,12 @@
     top: 0;
     left: 0;
     right: 0;
-
     height: 120px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: transparent;
-
     mix-blend-mode: normal;
-
     z-index: 2002;
 }
 
@@ -40,70 +35,47 @@
 
 .nav-links {
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
     gap: 40px;
-
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
 .nav-link {
     position: relative;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     padding: 8px 16px;
-
     cursor: pointer;
-
     font-weight: 700;
-
     text-decoration: none !important;
-
     isolation: isolate;
 
     .nav-text {
         position: relative;
-
         z-index: 2;
-
         color: #fff;
-
         transition: color 0.2s ease;
     }
 
     .hover-bg {
         position: absolute;
-
         top: 50%;
         left: 50%;
-
         width: calc(100% + 12px);
         height: calc(100% + 12px);
-
         object-fit: contain;
-
         opacity: 0;
-
         z-index: 1;
-
         pointer-events: none;
-
         mix-blend-mode: normal;
-
         transform:
             translate(-50%, -50%) scaleX(0);
-
         transform-origin: left center;
-
         transition:
             transform 0.2s ease,
             opacity 0.2s ease;
@@ -112,7 +84,6 @@
     &:hover .hover-bg,
     &:focus-visible .hover-bg {
         opacity: 1;
-
         transform:
             translate(-50%, -50%) scaleX(1);
     }
@@ -121,14 +92,12 @@
 .nav-about-me .hover-bg {
     transform:
         translate(-50%, -50%) scaleY(0);
-
     transform-origin: top center;
 }
 
 .nav-about-me:hover .hover-bg,
 .nav-about-me .nav-link:focus-visible .hover-bg {
     opacity: 1;
-
     transform:
         translate(-50%, -50%) scaleY(1);
 }
@@ -153,39 +122,29 @@
     }
 }
 
-/* Logo */
-
 .logo-wrapper {
     position: relative;
-
     top: -21px;
-
     width: 48px;
-
     cursor: pointer;
-
     filter:
         drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 7px rgba(0, 0, 0, 0.14));
 }
 
 .logo-wrapper .logo {
     position: absolute;
-
     top: 0;
     left: 0;
-
     transition: opacity 0.3s ease;
 }
 
 .logo-blue {
     opacity: 1;
-
     z-index: 1;
 }
 
 .logo-yellow {
     opacity: 0;
-
     z-index: 2;
 }
 
@@ -199,32 +158,25 @@
     opacity: 1;
 }
 
-/* Language Switch */
-
 .language-wrapper {
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
 
 .en-language-wrapper,
 .de-language-wrapper {
     position: relative;
-
     width: 38px;
     height: 24px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
 }
 
 .language-switch-wrapper {
     position: relative;
-
     width: 30px;
     height: 24px;
 }
@@ -235,13 +187,9 @@
 
 .language-dot {
     position: absolute;
-
     top: 50%;
-
     transform: translate(-50%, -50%);
-
     transition: left 0.15s ease-in-out;
-
     will-change: left, transform;
 }
 
@@ -263,9 +211,7 @@
 
 .language-pos {
     position: absolute;
-
     opacity: 0;
-
     transition: opacity 0.15s ease-in-out;
 }
 
@@ -275,16 +221,11 @@
 
 .language-mark {
     position: absolute;
-
     transform: scaleX(0);
     transform-origin: left;
-
     opacity: 1;
-
     z-index: 1;
-
     pointer-events: none;
-
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
@@ -301,7 +242,6 @@
 .de-language-wrapper:focus-visible {
     outline: 2px solid #f7c518;
     outline-offset: 4px;
-
     border-radius: 4px;
 }
 
@@ -322,14 +262,10 @@
     display: none;
 }
 
-/* Mobile */
-
 @media (max-width: 900px) {
     :host {
         display: block;
-
         position: relative;
-
         z-index: 999999;
     }
 
@@ -343,44 +279,28 @@
 
     .navbar {
         position: absolute;
-
         top: 0;
         left: 0;
         right: 0;
-
         width: 100%;
         height: 90px;
-
         padding: 0 16px;
-
         box-sizing: border-box;
-
         mix-blend-mode: normal !important;
-
         z-index: 999999;
-
         overflow: visible;
     }
 
-    /*
-     * Schatten nur bei Project Details.
-     */
     .navbar--overlay::before {
         content: '';
-
         position: absolute;
-
         top: -22px;
         left: 0;
         right: 0;
-
         width: 100%;
         height: 115px;
-
         pointer-events: none;
-
         z-index: 0;
-
         background:
             linear-gradient(to bottom,
                 rgba(0, 0, 0, 0.52) 20%,
@@ -398,53 +318,34 @@
         animation: none;
     }
 
-    /*
-     * Logo bleibt immer über dem einfahrenden Menü.
-     */
     .navbar-left {
         position: relative;
-
         z-index: 1000002;
     }
 
     .logo-wrapper {
         z-index: 1000002;
-
         filter:
             drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.16));
     }
 
-    /*
-     * Burger und Close liegen an exakt derselben Position.
-     */
     .burger-btn,
     .mobile-close {
         position: absolute;
-
         top: 50%;
         right: 16px;
-
         width: 38px;
         height: 38px;
-
         padding: 0;
-
         transform: translateY(-50%);
-
         display: inline-flex;
         align-items: center;
         justify-content: center;
-
         background: transparent;
-
         border: none;
-
         cursor: pointer;
-
         z-index: 1000002;
-
         overflow: visible;
-
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -452,57 +353,34 @@
         cursor: default;
     }
 
-    /*
-     * Normales Bild und Hover-Bild liegen exakt übereinander.
-     */
     .mobile-menu-button .menu-icon {
         position: absolute;
-
         top: 50%;
         left: 50%;
-
         width: 32px;
         height: 32px;
-
         display: block;
-
         object-fit: contain;
-
         pointer-events: none;
-
         transition:
             opacity 180ms ease,
             transform 180ms ease;
     }
 
-    /*
-     * Das normale Button-Bild bleibt immer sichtbar.
-     */
     .mobile-menu-button .menu-icon-default {
         opacity: 1;
-
         z-index: 1;
-
         transform:
             translate(-50%, -50%) scale(1);
     }
 
-    /*
-     * Das Hover-Bild liegt über dem normalen Bild.
-     */
     .mobile-menu-button .menu-icon-hover {
         opacity: 0;
-
         z-index: 2;
-
         transform:
             translate(-50%, -50%) scale(0.88);
     }
 
-    /*
- * Beim Hover bleibt das Standardbild sichtbar,
- * wird aber blau eingefärbt.
- */
     .mobile-menu-button:not(:disabled):hover .menu-icon-default,
     .mobile-menu-button:not(:disabled):focus-visible .menu-icon-default,
     .mobile-menu-button:not(:disabled):active .menu-icon-default {
@@ -510,14 +388,10 @@
             brightness(0) saturate(100%) invert(28%) sepia(97%) saturate(2390%) hue-rotate(197deg) brightness(98%) contrast(94%);
     }
 
-    /*
- * Hoverbild wird zusätzlich darüber eingeblendet.
- */
     .mobile-menu-button:not(:disabled):hover .menu-icon-hover,
     .mobile-menu-button:not(:disabled):focus-visible .menu-icon-hover,
     .mobile-menu-button:not(:disabled):active .menu-icon-hover {
         opacity: 1;
-
         transform:
             translate(-50%, -50%) scale(1);
     }
@@ -525,77 +399,47 @@
     .mobile-menu-button:focus-visible {
         outline: 2px solid #f7c518;
         outline-offset: 5px;
-
         border-radius: 6px;
     }
-
-    /* Mobile Overlay */
 
     .mobile-menu-overlay {
         --mobile-menu-height:
             clamp(560px, 78dvh, 760px);
-
         position: fixed !important;
-
         inset: 0 !important;
-
         width: 100% !important;
         height: 100dvh !important;
         min-height: 100dvh !important;
-
         display: block;
-
         overflow: hidden;
-
         isolation: isolate;
-
         z-index: 999998 !important;
-
         background: transparent !important;
-
         pointer-events: none;
     }
 
-    /*
-     * Abdunklung der Seite unter dem Menü.
-     */
     .mobile-menu-overlay::before {
         content: '';
-
         position: absolute;
-
         inset: 0;
-
         z-index: 0;
-
         background: rgba(0, 0, 0, 0.72);
-
         opacity: 0;
-
         pointer-events: none;
-
         transition:
             opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .mobile-menu-overlay::after {
         content: '';
-
         position: absolute;
-
         top: calc(var(--mobile-menu-height) - 42px);
-
         left: 0;
-
         width: 100%;
         height: 170px;
-
         z-index: 3;
-
         opacity: 0;
-
         pointer-events: none;
-
         transition:
             opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -618,198 +462,131 @@
         opacity: 0;
     }
 
-    /* Mobile Menü */
-
     .mobile-menu {
         position: absolute;
-
         top: 0;
         left: 0;
         right: 0;
-
         width: 100% !important;
-
         height: var(--mobile-menu-height);
-
         min-height: 0 !important;
         max-height: calc(100dvh - 45px);
-
         padding:
             105px 16px 38px;
-
         box-sizing: border-box;
-
         display: flex;
         flex-direction: column;
         align-items: center;
-
         text-align: center;
-
         background-color: transparent;
-
         background-image:
             url('/assets/img/header/background_header.webp'
             );
-
         background-size: 100% 100%;
         background-position: center top;
         background-repeat: no-repeat;
-
         overflow-y: auto;
         overflow-x: hidden;
-
         z-index: 2;
-
         filter:
             drop-shadow(0 12px 12px rgba(0, 0, 0, 0.24));
-
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
-
         will-change: transform;
-
         transition:
             transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /*
-     * Landingpage:
-     * Menü startet oberhalb.
-     */
     .navbar--default .mobile-menu {
         transform:
             translate3d(0, -101%, 0);
     }
 
-    /*
-     * Project Details:
-     * Menü startet links außerhalb.
-     */
     .navbar--overlay .mobile-menu {
         transform:
             translate3d(-101%, 0, 0);
     }
 
-    /*
-     * Geöffnet.
-     */
     .navbar--default .mobile-menu-overlay.is-visible .mobile-menu,
     .navbar--overlay .mobile-menu-overlay.is-visible .mobile-menu {
         transform:
             translate3d(0, 0, 0);
     }
 
-    /*
-     * Landingpage schließen.
-     */
     .navbar--default .mobile-menu-overlay.is-closing .mobile-menu {
         transform:
             translate3d(0, -101%, 0);
-
+        transition-duration: 250ms;
         transition-timing-function:
             cubic-bezier(0.64, 0, 0.78, 0);
     }
 
-    /*
-     * Project Details schließen.
-     */
     .navbar--overlay .mobile-menu-overlay.is-closing .mobile-menu {
         transform:
             translate3d(-101%, 0, 0);
-
+        transition-duration: 250ms;
         transition-timing-function:
             cubic-bezier(0.64, 0, 0.78, 0);
     }
-
-    /* Mobile Links */
 
     .mobile-links {
         margin: 0;
         padding: 0;
-
         list-style: none;
-
         display: flex;
         flex-direction: column;
         align-items: center;
-
         gap: clamp(30px, 5dvh, 48px);
     }
 
     .mobile-links li {
         margin: 0;
         padding: 0;
-
         list-style: none;
     }
 
     .mobile-links a {
         position: relative;
-
         display: inline-flex;
         justify-content: center;
         align-items: center;
-
         min-width: 150px;
-
         padding: 10px 18px;
-
         color: #fff;
-
         text-decoration: none;
-
         font-weight: 700;
         font-size: 28px;
         line-height: 1.1;
-
         isolation: isolate;
-
         -webkit-tap-highlight-color: transparent;
     }
 
     .mobile-nav-text {
         position: relative;
-
         z-index: 2;
     }
 
-    /*
-     * Hover-Grafik mittig hinter dem Text.
-     */
     .mobile-hover-line {
         position: absolute;
-
         top: 50%;
         left: 50%;
-
         width: calc(100% + 18px);
         height: calc(100% + 10px);
-
         object-fit: contain;
-
         pointer-events: none;
-
         opacity: 0;
-
         z-index: 1;
-
         transform:
             translate(-50%, -50%) scaleX(0);
-
         transform-origin: left center;
-
         transition:
             transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
             opacity 120ms ease;
     }
 
-    /*
-     * Projects-Grafik breiter und kräftiger.
-     */
     .mobile-nav-projects .mobile-hover-line {
         width: calc(100% + -25px);
         height: 80px;
-
         object-fit: fill;
     }
 
@@ -817,7 +594,6 @@
     .mobile-links a:focus-visible .mobile-hover-line,
     .mobile-links a:active .mobile-hover-line {
         opacity: 1;
-
         transform:
             translate(-50%, -50%) scaleX(1);
     }
@@ -826,13 +602,9 @@
         outline: none;
     }
 
-    /*
-     * About-Me vertikal.
-     */
     .mobile-nav-about .mobile-hover-line {
         transform:
             translate(-50%, -50%) scaleY(0);
-
         transform-origin: top center;
     }
 
@@ -840,12 +612,9 @@
     .mobile-nav-about a:focus-visible .mobile-hover-line,
     .mobile-nav-about a:active .mobile-hover-line {
         opacity: 1;
-
         transform:
             translate(-50%, -50%) scaleY(1);
     }
-
-    /* Mobile Language */
 
     .mobile-language {
         margin-top:
@@ -854,26 +623,19 @@
 
     .mobile-language .language-wrapper {
         margin-bottom: 0;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         gap: 12px;
     }
-
-    /* Mobile Social */
 
     .mobile-social {
         margin-top:
             clamp(22px, 3dvh, 32px);
-
         padding-bottom: 8px;
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         gap: 22px;
     }
 
@@ -886,9 +648,7 @@
     .mobile-social img {
         width: 28px;
         height: 28px;
-
         display: block;
-
         transition:
             transform 160ms ease,
             opacity 160ms ease;
@@ -900,8 +660,6 @@
     }
 }
 
-/* Kleine Smartphones */
-
 @media (max-width: 400px) {
     .mobile-menu-overlay {
         --mobile-menu-height:
@@ -910,10 +668,8 @@
 
     .mobile-menu {
         height: var(--mobile-menu-height);
-
         max-height:
             calc(100dvh - 24px);
-
         padding:
             96px 12px 28px;
     }
@@ -925,9 +681,7 @@
 
     .mobile-links a {
         min-width: 135px;
-
         padding: 8px 14px;
-
         font-size: 26px;
     }
 
@@ -940,8 +694,6 @@
     }
 }
 
-/* Niedrige Smartphones */
-
 @media (max-width: 900px) and (max-height: 680px) {
     .mobile-menu-overlay {
         --mobile-menu-height:
@@ -951,10 +703,8 @@
     .mobile-menu {
         height:
             var(--mobile-menu-height);
-
         max-height:
             var(--mobile-menu-height);
-
         padding:
             88px 12px 22px;
     }
@@ -965,7 +715,6 @@
 
     .mobile-links a {
         padding: 7px 14px;
-
         font-size: 24px;
     }
 
@@ -977,8 +726,6 @@
         margin-top: 18px;
     }
 }
-
-/* Reduzierte Bewegung */
 
 @media (prefers-reduced-motion: reduce) {
 
