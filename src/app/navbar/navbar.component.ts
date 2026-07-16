@@ -161,10 +161,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     fragment: string,
     event?: Event
   ): void {
-    /*
-     * Auf Mobile zuerst das Menü schließen.
-     * Erst danach wird zur gewünschten Sektion navigiert.
-     */
     if (
       this.isMenuOpen ||
       this.isMenuClosing
@@ -182,10 +178,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       return;
     }
 
-    /*
-     * In Project Details wird die Navigation weiterhin an
-     * die übergeordnete Komponente gegeben.
-     */
     if (this.variant === 'overlay') {
       event?.preventDefault();
 
@@ -194,9 +186,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       return;
     }
 
-    /*
-     * Auf der Landingpage kann der RouterLink normal arbeiten.
-     */
     this.navClick.emit(fragment);
   }
 
@@ -368,11 +357,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     this.lockBodyScroll();
 
-    /*
-     * Das Menü wird zuerst ins DOM eingesetzt.
-     * Anschließend wird die sichtbare Position gesetzt,
-     * damit die CSS-Transition sauber startet.
-     */
     this.openAnimationFrame =
       window.requestAnimationFrame(() => {
         this.secondOpenAnimationFrame =

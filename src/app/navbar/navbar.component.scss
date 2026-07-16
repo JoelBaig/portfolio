@@ -100,8 +100,7 @@
         mix-blend-mode: normal;
 
         transform:
-            translate(-50%, -50%)
-            scaleX(0);
+            translate(-50%, -50%) scaleX(0);
 
         transform-origin: left center;
 
@@ -115,15 +114,13 @@
         opacity: 1;
 
         transform:
-            translate(-50%, -50%)
-            scaleX(1);
+            translate(-50%, -50%) scaleX(1);
     }
 }
 
 .nav-about-me .hover-bg {
     transform:
-        translate(-50%, -50%)
-        scaleY(0);
+        translate(-50%, -50%) scaleY(0);
 
     transform-origin: top center;
 }
@@ -133,8 +130,7 @@
     opacity: 1;
 
     transform:
-        translate(-50%, -50%)
-        scaleY(1);
+        translate(-50%, -50%) scaleY(1);
 }
 
 .navbar--default {
@@ -169,12 +165,7 @@
     cursor: pointer;
 
     filter:
-        drop-shadow(
-            0 1px 2px rgba(0, 0, 0, 0.35)
-        )
-        drop-shadow(
-            0 0 7px rgba(0, 0, 0, 0.14)
-        );
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 7px rgba(0, 0, 0, 0.14));
 }
 
 .logo-wrapper .logo {
@@ -391,13 +382,11 @@
         z-index: 0;
 
         background:
-            linear-gradient(
-                to bottom,
+            linear-gradient(to bottom,
                 rgba(0, 0, 0, 0.52) 20%,
                 rgba(0, 0, 0, 0.32) 55%,
                 rgba(0, 0, 0, 0.11) 90%,
-                rgba(0, 0, 0, 0) 100%
-            );
+                rgba(0, 0, 0, 0) 100%);
     }
 
     .navbar--default::before {
@@ -410,7 +399,7 @@
     }
 
     /*
-     * Logo liegt immer über dem einfahrenden Menü.
+     * Logo bleibt immer über dem einfahrenden Menü.
      */
     .navbar-left {
         position: relative;
@@ -422,17 +411,11 @@
         z-index: 1000002;
 
         filter:
-            drop-shadow(
-                0 1px 2px rgba(0, 0, 0, 0.4)
-            )
-            drop-shadow(
-                0 0 8px rgba(0, 0, 0, 0.16)
-            );
+            drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.16));
     }
 
     /*
      * Burger und Close liegen an exakt derselben Position.
-     * Nur der jeweilige Button wird per Angular angezeigt.
      */
     .burger-btn,
     .mobile-close {
@@ -469,6 +452,9 @@
         cursor: default;
     }
 
+    /*
+     * Normales Bild und Hover-Bild liegen exakt übereinander.
+     */
     .mobile-menu-button .menu-icon {
         position: absolute;
 
@@ -489,46 +475,51 @@
             transform 180ms ease;
     }
 
+    /*
+     * Das normale Button-Bild bleibt immer sichtbar.
+     */
     .mobile-menu-button .menu-icon-default {
         opacity: 1;
 
+        z-index: 1;
+
         transform:
-            translate(-50%, -50%)
-            scale(1);
+            translate(-50%, -50%) scale(1);
     }
 
+    /*
+     * Das Hover-Bild liegt über dem normalen Bild.
+     */
     .mobile-menu-button .menu-icon-hover {
         opacity: 0;
 
-        transform:
-            translate(-50%, -50%)
-            scale(0.85);
-    }
-
-    .mobile-menu-button:not(:disabled):hover
-        .menu-icon-default,
-    .mobile-menu-button:not(:disabled):active
-        .menu-icon-default,
-    .mobile-menu-button:not(:disabled):focus-visible
-        .menu-icon-default {
-        opacity: 0;
+        z-index: 2;
 
         transform:
-            translate(-50%, -50%)
-            scale(0.85);
+            translate(-50%, -50%) scale(0.88);
     }
 
-    .mobile-menu-button:not(:disabled):hover
-        .menu-icon-hover,
-    .mobile-menu-button:not(:disabled):active
-        .menu-icon-hover,
-    .mobile-menu-button:not(:disabled):focus-visible
-        .menu-icon-hover {
+    /*
+ * Beim Hover bleibt das Standardbild sichtbar,
+ * wird aber blau eingefärbt.
+ */
+    .mobile-menu-button:not(:disabled):hover .menu-icon-default,
+    .mobile-menu-button:not(:disabled):focus-visible .menu-icon-default,
+    .mobile-menu-button:not(:disabled):active .menu-icon-default {
+        filter:
+            brightness(0) saturate(100%) invert(28%) sepia(97%) saturate(2390%) hue-rotate(197deg) brightness(98%) contrast(94%);
+    }
+
+    /*
+ * Hoverbild wird zusätzlich darüber eingeblendet.
+ */
+    .mobile-menu-button:not(:disabled):hover .menu-icon-hover,
+    .mobile-menu-button:not(:disabled):focus-visible .menu-icon-hover,
+    .mobile-menu-button:not(:disabled):active .menu-icon-hover {
         opacity: 1;
 
         transform:
-            translate(-50%, -50%)
-            scale(1);
+            translate(-50%, -50%) scale(1);
     }
 
     .mobile-menu-button:focus-visible {
@@ -584,8 +575,7 @@
         pointer-events: none;
 
         transition:
-            opacity 600ms
-                cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .mobile-menu-overlay::after {
@@ -593,9 +583,7 @@
 
         position: absolute;
 
-        top: calc(
-            var(--mobile-menu-height) - 42px
-        );
+        top: calc(var(--mobile-menu-height) - 42px);
 
         left: 0;
 
@@ -609,8 +597,7 @@
         pointer-events: none;
 
         transition:
-            opacity 600ms
-                cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .mobile-menu-overlay.is-visible {
@@ -648,9 +635,7 @@
         max-height: calc(100dvh - 45px);
 
         padding:
-            105px
-            16px
-            38px;
+            105px 16px 38px;
 
         box-sizing: border-box;
 
@@ -663,8 +648,7 @@
         background-color: transparent;
 
         background-image:
-            url(
-                '/assets/img/header/background_header.webp'
+            url('/assets/img/header/background_header.webp'
             );
 
         background-size: 100% 100%;
@@ -674,17 +658,10 @@
         overflow-y: auto;
         overflow-x: hidden;
 
-        /*
-         * Das Menü liegt unter Logo und Menübutton,
-         * aber über der Abdunklung.
-         */
         z-index: 2;
 
         filter:
-            drop-shadow(
-                0 12px 12px
-                rgba(0, 0, 0, 0.24)
-            );
+            drop-shadow(0 12px 12px rgba(0, 0, 0, 0.24));
 
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
@@ -692,13 +669,12 @@
         will-change: transform;
 
         transition:
-            transform 600ms
-                cubic-bezier(0.22, 1, 0.36, 1);
+            transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /*
      * Landingpage:
-     * Menü startet oberhalb des Bildschirms.
+     * Menü startet oberhalb.
      */
     .navbar--default .mobile-menu {
         transform:
@@ -717,24 +693,16 @@
     /*
      * Geöffnet.
      */
-    .navbar--default
-        .mobile-menu-overlay.is-visible
-        .mobile-menu,
-    .navbar--overlay
-        .mobile-menu-overlay.is-visible
-        .mobile-menu {
+    .navbar--default .mobile-menu-overlay.is-visible .mobile-menu,
+    .navbar--overlay .mobile-menu-overlay.is-visible .mobile-menu {
         transform:
             translate3d(0, 0, 0);
     }
 
     /*
-     * Landingpage schließen:
-     * Nur das Menü fährt nach oben.
-     * Logo und Close-Button bleiben stehen.
+     * Landingpage schließen.
      */
-    .navbar--default
-        .mobile-menu-overlay.is-closing
-        .mobile-menu {
+    .navbar--default .mobile-menu-overlay.is-closing .mobile-menu {
         transform:
             translate3d(0, -101%, 0);
 
@@ -743,13 +711,9 @@
     }
 
     /*
-     * Project Details schließen:
-     * Nur das Menü fährt nach links.
-     * Logo und Close-Button bleiben stehen.
+     * Project Details schließen.
      */
-    .navbar--overlay
-        .mobile-menu-overlay.is-closing
-        .mobile-menu {
+    .navbar--overlay .mobile-menu-overlay.is-closing .mobile-menu {
         transform:
             translate3d(-101%, 0, 0);
 
@@ -830,14 +794,12 @@
         z-index: 1;
 
         transform:
-            translate(-50%, -50%)
-            scaleX(0);
+            translate(-50%, -50%) scaleX(0);
 
         transform-origin: left center;
 
         transition:
-            transform 240ms
-                cubic-bezier(0.22, 1, 0.36, 1),
+            transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
             opacity 120ms ease;
     }
 
@@ -852,14 +814,12 @@
     }
 
     .mobile-links a:hover .mobile-hover-line,
-    .mobile-links a:focus-visible
-        .mobile-hover-line,
+    .mobile-links a:focus-visible .mobile-hover-line,
     .mobile-links a:active .mobile-hover-line {
         opacity: 1;
 
         transform:
-            translate(-50%, -50%)
-            scaleX(1);
+            translate(-50%, -50%) scaleX(1);
     }
 
     .mobile-links a:focus-visible {
@@ -871,23 +831,18 @@
      */
     .mobile-nav-about .mobile-hover-line {
         transform:
-            translate(-50%, -50%)
-            scaleY(0);
+            translate(-50%, -50%) scaleY(0);
 
         transform-origin: top center;
     }
 
-    .mobile-nav-about a:hover
-        .mobile-hover-line,
-    .mobile-nav-about a:focus-visible
-        .mobile-hover-line,
-    .mobile-nav-about a:active
-        .mobile-hover-line {
+    .mobile-nav-about a:hover .mobile-hover-line,
+    .mobile-nav-about a:focus-visible .mobile-hover-line,
+    .mobile-nav-about a:active .mobile-hover-line {
         opacity: 1;
 
         transform:
-            translate(-50%, -50%)
-            scaleY(1);
+            translate(-50%, -50%) scaleY(1);
     }
 
     /* Mobile Language */
@@ -960,9 +915,7 @@
             calc(100dvh - 24px);
 
         padding:
-            96px
-            12px
-            28px;
+            96px 12px 28px;
     }
 
     .mobile-links {
@@ -1003,9 +956,7 @@
             var(--mobile-menu-height);
 
         padding:
-            88px
-            12px
-            22px;
+            88px 12px 22px;
     }
 
     .mobile-links {
@@ -1030,6 +981,7 @@
 /* Reduzierte Bewegung */
 
 @media (prefers-reduced-motion: reduce) {
+
     .mobile-menu,
     .mobile-menu-overlay::before,
     .mobile-menu-overlay::after {
