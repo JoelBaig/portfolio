@@ -1,6 +1,7 @@
 <div class="privacy-page">
     <section class="privacy-hero">
-        <app-navbar class="nav-privacy-policy" variant="default"></app-navbar>
+        <app-navbar class="nav-privacy-policy" variant="overlay">
+        </app-navbar>
 
         <img class="privacy-policy-bgr" src="./assets/legal_notice/legal_notice_bgr.webp" alt="" />
 
@@ -8,8 +9,11 @@
     </section>
 
     <main class="content">
-        <div class="back-btn-con" (click)="closeToContact()">
-            <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button" />
+        <div class="back-btn-con" role="button" tabindex="0" (click)="closeToContact()"
+            (keydown.enter)="closeToContact()" (keydown.space)="closeToContact()">
+
+            <img src="./assets/project_details/arrow_back.png" alt="" />
+
             <button class="back-btn" type="button">
                 {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
             </button>

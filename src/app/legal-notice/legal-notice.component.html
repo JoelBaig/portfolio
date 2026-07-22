@@ -1,6 +1,7 @@
 <div class="legal-page">
   <section class="legal-hero">
-    <app-navbar class="nav-legal-notice" variant="default"></app-navbar>
+    <app-navbar class="nav-legal-notice" variant="overlay">
+    </app-navbar>
 
     <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.webp" alt="" />
 
@@ -8,8 +9,11 @@
   </section>
 
   <main class="content">
-    <div class="back-btn-con" (click)="closeToContact()">
-      <img src="./assets/project_details/arrow_back.png" alt="back_to_page_button" />
+    <div class="back-btn-con" role="button" tabindex="0" (click)="closeToContact()" (keydown.enter)="closeToContact()"
+      (keydown.space)="closeToContact()">
+
+      <img src="./assets/project_details/arrow_back.png" alt="" />
+
       <button class="back-btn" type="button">
         {{ 'PROJECT_DETAILS.GO_BACK_BTN' | translate }}
       </button>
@@ -41,8 +45,13 @@
 
     <p class="preline">
       {{ 'LEGAL.QUESTIONS_TEXT' | translate }}
-      <a href="#" (click)="onEmailLinkClick($event)">ibaig@web.de</a>
-      <br /><br />
+      <a href="#" (click)="onEmailLinkClick($event)">
+        ibaig@web.de
+      </a>
+
+      <br />
+      <br />
+
       {{ 'LEGAL.DATE_TEXT' | translate }}
     </p>
   </main>
