@@ -2,7 +2,6 @@ import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy, Host
 import { AppHeadlineComponent } from '../app-headline/app-headline.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule, NgForOf, NgIf } from '@angular/common';
-import { AppBtnComponent } from '../app-btn/app-btn.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 /**
@@ -36,7 +35,6 @@ type Project = {
     CommonModule,
     AppHeadlineComponent,
     NavbarComponent,
-    AppBtnComponent,
     NgIf,
     NgForOf,
     TranslateModule

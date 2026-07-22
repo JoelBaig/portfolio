@@ -251,22 +251,37 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
   @HostListener('window:scroll', [])
   onScroll(): void {
     const sections = ['about-me', 'skills', 'projects', 'contact'];
+    const activeSection = sections.find((id) => this.isSectionActive(id));
 
-    for (const id of sections) {
-      const el = document.getElementById(id);
+    this.activeSection = activeSection ?? null;
+  }
 
-      if (!el) {
-        continue;
-      }
+  /**
+   * Checks whether the given section is currently inside the active viewport area.
+   *
+   * @param sectionId The id of the section to check.
+   * @returns True if the section crosses the active scroll position.
+   */
+  private isSectionActive(sectionId: string): boolean {
+    const section = document.getElementById(sectionId);
 
-      const rect = el.getBoundingClientRect();
-
-      if (rect.top <= 150 && rect.bottom >= 150) {
-        this.activeSection = id;
-        return;
-      }
+    if (!section) {
+      return false;
     }
 
-    this.activeSection = null;
+    return this.isInsideActiveArea(section.getBoundingClientRect());
+  }
+
+  /**
+   * Checks whether a section rectangle crosses the active viewport position.
+   *
+   * @param rect The section's current viewport rectangle.
+   * @returns True if the active position lies inside the rectangle.
+   */
+  private isInsideActiveArea(rect: DOMRect): boolean {
+    const activePosition = 150;
+
+    return rect.top <= activePosition
+      && rect.bottom >= activePosition;
   }
 }

@@ -21,11 +21,18 @@ export class PrivacyPolicyComponent implements AfterViewInit {
   private router = inject(Router);
   private readonly contactRestoreKey = 'restoreContactInstantly';
 
+  /**
+   * Returns to the landing page and marks the contact section
+   * for immediate restoration.
+   */
   closeToContact(): void {
     sessionStorage.setItem(this.contactRestoreKey, 'true');
     this.router.navigateByUrl('/');
   }
 
+  /**
+   * Scrolls to the top of the page after the view has initialized.
+   */
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {
       window.scrollTo({
