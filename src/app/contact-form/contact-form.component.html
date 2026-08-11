@@ -1,4 +1,4 @@
-<div id="contact" class="contact-con-main">
+<!-- <div id="contact" class="contact-con-main">
   <img src="./assets/contact_form/bgr_contact.webp" alt="" />
 
   <div class="contact-wrapper layout-container">
@@ -99,6 +99,124 @@
             [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
             [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'"
             [ngClass]="{ 'btn-disabled': !accepted || contactForm.invalid || sending }"></app-app-btn>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast success" *ngIf="sendStatus === 'success'" [class.hide]="!toastVisible">
+    <span>{{ 'CONTACT.TOAST_SUCCESS' | translate }}</span>
+  </div>
+
+  <div class="toast error" *ngIf="sendStatus === 'error'" [class.hide]="!toastVisible">
+    <span>{{ 'CONTACT.TOAST_ERROR' | translate }}</span>
+  </div>
+
+  <app-footer class="site-footer" [theme]="'dark'"></app-footer>
+</div> -->
+
+
+<div id="contact" class="contact-con-main">
+  <img src="./assets/contact_form/bgr_contact.webp" alt="" />
+
+  <div class="contact-wrapper layout-container">
+    <div class="contact-headline-con">
+      <app-app-headline class="contact-headline" [subtitle]="'CONTACT.SUBTITLE'" [title]="'CONTACT.TITLE'"
+        [lineImage]="'./assets/contact_form/yellow_arrow_contact.png'" [animateLine]="true" [textAlign]="'left'"
+        [lineWidth]="300" [mobileLineWidth]="200" [smallMobileLineWidth]="150" [tinyMobileLineWidth]="70"
+        [lineMarginBottom]="30" [infoText]="'CONTACT.INFO_TXT'" [lineAlign]="'flex-end'"
+        [mobileLineAlign]="'flex-start'" [lineUnderInfoText]="true"></app-app-headline>
+    </div>
+
+    <div class="contact-con">
+      <div class="sticker-con">
+        <img class="orange-sticker" src="./assets/contact_form/sticker_contact.png" alt="orange_sticker" />
+
+        <svg class="sticker-text" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="circlePath" d="M150,150
+                 m -118,0
+                 a 118,118 0 1,1 236,0
+                 a 118,118 0 1,1 -236,0" />
+          </defs>
+
+          <text class="circle-text">
+            <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
+              Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;Joel&nbsp;Baig&nbsp;•&nbsp;Frontend&nbsp;Developer&nbsp;•&nbsp;
+            </textPath>
+          </text>
+        </svg>
+
+        <img class="logo-sticker" src="./assets/contact_form/logo_black.png" alt="logo_sticker" />
+      </div>
+
+      <div class="form-line-1"></div>
+
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+        <div class="name-field">
+          <label for="name">{{ 'CONTACT.NAME_FIELD' | translate }}</label>
+          <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name" required
+            [attr.placeholder]="submitted && name.invalid
+              ? ('CONTACT.NAME_ERROR' | translate)
+              : ('CONTACT.NAME_PLACEHOLDER' | translate)" [class.error-placeholder]="submitted && name.invalid" />
+        </div>
+
+        <div class="form-line-2"></div>
+
+        <div class="email-field">
+          <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
+          <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required email
+            [attr.placeholder]="submitted && email.invalid ? ('CONTACT.EMAIL_ERROR' | translate) : ('CONTACT.EMAIL_PLACEHOLDER' | translate)"
+            [class.error-placeholder]="submitted && email.invalid" />
+        </div>
+
+        <div class="form-line-3"></div>
+
+        <div class="help-field">
+          <label for="message">{{ 'CONTACT.HELP_FIELD' | translate }}</label>
+          <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message"
+            rows="5" required [attr.placeholder]="submitted && message.invalid
+              ? ('CONTACT.HELP_ERROR' | translate)
+              : ('CONTACT.HELP_PLACEHOLDER' | translate)"
+            [class.error-placeholder]="submitted && message.invalid"></textarea>
+        </div>
+
+        <div class="form-line-4"></div>
+
+        <div class="checkbox-con">
+          <div class="checkbox-icon" (click)="toggleCheckbox($event)" (mouseenter)="hovered = true"
+            (mouseleave)="hovered = false">
+            <img class="checkbox-img" [ngClass]="accepted ? 'checked' : 'unchecked'" [src]="accepted
+                ? './assets/contact_form/property_checked.png'
+                : './assets/contact_form/check_box_outline_blank.png'" alt="Checkbox" />
+
+            <img class="checkbox-hover-img" *ngIf="hovered" src="./assets/contact_form/property_unchecked_hover.png"
+              alt="Checkbox hover" />
+          </div>
+
+          <div class="privacy-text-wrap">
+            <span class="privacy-policy-text">
+              {{ 'CONTACT.PRIVACY_TXT_BEFORE' | translate }}
+
+              <a class="privacy-policy-link" [routerLink]="['/privacy-policy']" (click)="$event.stopPropagation()">
+                {{ 'CONTACT.PRIVACY_POLICY_LINK' | translate }}
+              </a>
+
+              {{ 'CONTACT.PRIVACY_TXT_AFTER' | translate }}
+            </span>
+
+            <div class="privacy-hint" *ngIf="submitted && !accepted">
+              {{ 'CONTACT.PRIVACY_HINT' | translate }}
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="send-native-btn" [disabled]="contactForm.invalid || sending">
+          <app-app-btn class="send-button" [text]="'CONTACT.SEND_BTN' | translate" [color]="'white'"
+            [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
+            [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
+            [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'"
+            [ngClass]="{ 'btn-disabled': contactForm.invalid || sending }"></app-app-btn>
         </button>
       </form>
     </div>
