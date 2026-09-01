@@ -48,6 +48,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
   private wheelHandler = (e: Event) => e.preventDefault();
   private touchMoveHandler = (e: Event) => e.preventDefault();
+  private wasMobile = window.innerWidth <= 900;
 
   private keydownHandler = (e: KeyboardEvent) => {
     if (this.isEditableTarget(e.target)) return;
@@ -125,6 +126,24 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   onEsc(event: Event): void {
     event.preventDefault();
     this.onClose();
+  }
+
+  /**
+   * Updates scroll blocking when switching between desktop and mobile view.
+   * Resets the mobile overlay scroll position when returning to desktop.
+   */
+  @HostListener('window:resize')
+  onResize(): void {
+    const isMobile = window.innerWidth <= 900;
+
+    if (this.wasMobile && !isMobile) {
+      this.resetOverlayScrollPosition();
+    }
+
+    this.wasMobile = isMobile;
+
+    this.removeScrollBlockListeners();
+    this.addScrollBlockListeners();
   }
 
   /**
@@ -259,7 +278,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
    */
   private addScrollBlockListeners(): void {
     if (window.innerWidth <= 900) {
-      window.addEventListener('keydown', this.keydownHandler, { passive: false });
       return;
     }
 
@@ -275,6 +293,17 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     window.removeEventListener('wheel', this.wheelHandler as EventListener);
     window.removeEventListener('touchmove', this.touchMoveHandler as EventListener);
     window.removeEventListener('keydown', this.keydownHandler as EventListener);
+  }
+
+  /**
+   * Resets the project details overlay scroll position.
+   */
+  private resetOverlayScrollPosition(): void {
+    const overlay = this.doc.querySelector('.overlay') as HTMLElement | null;
+    if (!overlay) return;
+
+    overlay.scrollTop = 0;
+    overlay.scrollLeft = 0;
   }
 
   /**
