@@ -1,8 +1,8 @@
-import { Component, HostListener, AfterViewInit, OnDestroy, inject } from '@angular/core';
+import { Component, HostListener, AfterViewInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { AppBtnComponent } from "../app-btn/app-btn.component";
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
@@ -32,7 +32,10 @@ import { Subscription } from 'rxjs';
 })
 export class LandingPageComponent implements AfterViewInit, OnDestroy {
   private translate = inject(TranslateService);
+  private platformId = inject(PLATFORM_ID);
   private langSub?: Subscription;
+
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   hover = false;
   hoverImg = false;
@@ -45,7 +48,8 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
    */
   ngAfterViewInit(): void {
     this.renderHeadlines();
-    this.langSub = this.translate.onLangChange.subscribe(() => {
+    this.langSub = this.translate.onLangChange.subscribe((event) => {
+      this.saveLanguage(event.lang);
       this.renderHeadlines();
     });
   }
@@ -55,6 +59,19 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.langSub?.unsubscribe();
+  }
+
+  /**
+   * Saves the currently selected language in local storage.
+   *
+   * @param language The active language code.
+   */
+  private saveLanguage(language: string): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    localStorage.setItem('lang', language);
   }
 
   /**
@@ -252,7 +269,6 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
   onScroll(): void {
     const sections = ['about-me', 'skills', 'projects', 'contact'];
     const activeSection = sections.find((id) => this.isSectionActive(id));
-
     this.activeSection = activeSection ?? null;
   }
 
@@ -264,11 +280,9 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
    */
   private isSectionActive(sectionId: string): boolean {
     const section = document.getElementById(sectionId);
-
     if (!section) {
       return false;
     }
-
     return this.isInsideActiveArea(section.getBoundingClientRect());
   }
 

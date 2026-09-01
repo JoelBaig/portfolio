@@ -84,13 +84,18 @@ export class AppComponent {
 
   /**
    * Sets the default application language.
+   * Uses the previously saved language if available.
    */
   private initLanguage(): void {
-    if (this.isBrowser) {
-      localStorage.removeItem('lang');
-    }
     this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    if (!this.isBrowser) {
+      return;
+    }
+    const savedLanguage = localStorage.getItem('lang');
+    const language = savedLanguage === 'de' || savedLanguage === 'en'
+      ? savedLanguage
+      : 'en';
+    this.translate.use(language);
   }
 
   /**
