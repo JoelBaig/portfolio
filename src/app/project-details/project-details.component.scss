@@ -398,7 +398,7 @@ h2 {
         position: fixed;
         inset: 0;
         width: 100%;
-        height: 120%;
+        height: 100%;
         background-image: url('/assets/project_details/paper_bgr_mobile.webp');
         background-size: 100% 100%;
         background-position: center top;
@@ -726,5 +726,11 @@ h2 {
 
     .mobile-project-nav-con {
         margin-top: 10px;
+    }
+}
+
+@media (max-height: 667px) and (max-width: 375px) {
+    .overlay::before {
+        height: 110%;
     }
 }
