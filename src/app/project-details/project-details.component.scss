@@ -225,8 +225,8 @@ h2 {
 
 .sticker-text {
     position: absolute;
-    top: 242px;
-    right: -51px;
+    top: 129px;
+    right: -52px;
     height: 190px;
     width: 122px;
 }
@@ -240,8 +240,8 @@ h2 {
 
 .logo-sticker {
     position: absolute;
-    top: 313px;
-    right: -15px;
+    top: 198px;
+    right: -17px;
     height: 50px;
 }
 
@@ -327,7 +327,6 @@ h2 {
 :host ::ng-deep .section-header.align-left {
     margin-top: 0px;
 }
-
 
 @media (max-width: 1400px) {
     .panel {
@@ -460,6 +459,7 @@ h2 {
     .wrapper-left {
         width: 100%;
         max-width: none;
+        min-height: 480px;
         padding-top: 0;
         box-sizing: border-box;
     }
@@ -537,8 +537,7 @@ h2 {
     .detail-img {
         width: 100%;
         max-width: 100%;
-        height: auto;
-        max-height: 260px;
+        height: 240px;
         object-fit: cover;
         border-radius: 14px;
     }
@@ -618,6 +617,10 @@ h2 {
         padding-bottom: 24px;
     }
 
+    .wrapper-left {
+        min-height: 470px;
+    }
+
     :host ::ng-deep .section-header .title {
         font-size: 38px !important;
     }
@@ -633,13 +636,17 @@ h2 {
     }
 
     .detail-img {
-        max-height: 240px;
+        height: 220px;
     }
 }
 
 @media (max-width: 390px) {
     .panel {
         padding-inline: 12px;
+    }
+
+    .wrapper-left {
+        min-height: 460px;
     }
 
     :host ::ng-deep .section-header .title {
@@ -651,13 +658,17 @@ h2 {
     }
 
     .detail-img {
-        max-height: 210px;
+        height: 200px;
     }
 }
 
 @media (max-width: 360px) {
     .panel {
         padding-inline: 10px;
+    }
+
+    .wrapper-left {
+        min-height: 450px;
     }
 
     :host ::ng-deep .section-header .title {
@@ -674,11 +685,15 @@ h2 {
     }
 
     .detail-img {
-        max-height: 180px;
+        height: 180px;
     }
 }
 
 @media (max-height: 720px) and (max-width: 900px) {
+    .wrapper-left {
+        min-height: 400px;
+    }
+
     .wrapper-right {
         padding-top: 16px;
     }
@@ -721,7 +736,7 @@ h2 {
     }
 
     .detail-img {
-        max-height: 155px;
+        height: 155px;
     }
 
     .mobile-project-nav-con {
@@ -729,8 +744,8 @@ h2 {
     }
 }
 
-@media (max-height: 667px) and (max-width: 375px) {
+@media (max-height: 670px) and (max-width: 375px) {
     .overlay::before {
-        height: 110%;
+        height: 120%;
     }
 }

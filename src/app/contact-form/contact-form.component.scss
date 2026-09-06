@@ -29,9 +29,10 @@
   max-width: 1440px;
   width: 80vw;
   padding-inline: 16px;
+  padding-bottom: 140px;
   margin: 0 auto;
   position: relative;
-  top: 80px;
+  top: 50px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -297,7 +298,7 @@ textarea {
 .site-footer {
   max-width: 1440px;
   width: 100%;
-  margin-top: 180px;
+  margin-top: 220px;
   margin-bottom: 0;
 }
 
@@ -312,10 +313,37 @@ textarea:-webkit-autofill:focus {
   box-shadow: 0 0 0px 1000px transparent inset !important;
 }
 
+@media (max-width: 1000px) {
+  :host ::ng-deep button.img-button {
+    margin-top: 100px;
+  }
+
+  .sticker-con {
+    top: -150px;
+  }
+
+  .contact-wrapper {
+    padding-bottom: 170px;
+  }
+
+  .site-footer {
+    margin-top: 240px;
+  }
+}
+
 @media (max-width: 900px) {
+  :host ::ng-deep img.animated-line.horizontal-mask[src*="yellow_arrow_contact.png"] {
+    position: relative;
+    top: 80px;
+  }
+
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 392px;
+  }
+
+  :host ::ng-deep button.img-button {
+    margin-top: -20px;
   }
 
   .contact-con-main {
@@ -325,7 +353,7 @@ textarea:-webkit-autofill:focus {
   .contact-wrapper {
     flex-direction: column;
     gap: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 190px;
     top: 40px;
   }
 
@@ -353,7 +381,7 @@ textarea:-webkit-autofill:focus {
   }
 
   .site-footer {
-    margin-top: 80px;
+    margin-top: 140px;
   }
 }
 
@@ -375,12 +403,32 @@ textarea:-webkit-autofill:focus {
   textarea {
     font-size: 16px;
   }
+
+  .contact-wrapper {
+    padding-bottom: 200px;
+  }
+
+  .site-footer {
+    margin-top: 150px;
+  }
 }
 
 @media (max-width: 500px) {
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 381px;
+  }
+
+  :host ::ng-deep button.img-button {
+    margin-top: 70px;
+  }
+
+  .contact-wrapper {
+    padding-bottom: 210px;
+  }
+
+  .site-footer {
+    margin-top: 160px;
   }
 }
 
@@ -394,7 +442,25 @@ textarea:-webkit-autofill:focus {
     padding-bottom: 24px;
   }
 
+  .contact-wrapper {
+    padding-bottom: 220px;
+  }
+
   .site-footer {
-    margin-top: 60px;
+    margin-top: 170px;
+  }
+}
+
+@media (max-width: 370px) {
+  :host ::ng-deep button.img-button {
+    margin-top: 40px;
+  }
+
+  .contact-wrapper {
+    padding-bottom: 250px;
+  }
+
+  .site-footer {
+    margin-top: 190px;
   }
 }
