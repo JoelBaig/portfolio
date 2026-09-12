@@ -38,6 +38,7 @@
         <div class="name-field">
           <label for="name">{{ 'CONTACT.NAME_FIELD' | translate }}</label>
           <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name" required
+            minlength="2" pattern=".*[A-Za-zÀ-žÄÖÜäöüß].*[A-Za-zÀ-žÄÖÜäöüß].*"
             [attr.placeholder]="'CONTACT.NAME_PLACEHOLDER' | translate"
             [class.input-error]="submitted && name.invalid" />
 
@@ -51,7 +52,7 @@
         <div class="email-field">
           <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
           <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required
-            pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+            pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
             [attr.placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate"
             [class.input-error]="submitted && email.invalid" />
 
@@ -65,8 +66,7 @@
         <div class="help-field">
           <label for="message">{{ 'CONTACT.HELP_FIELD' | translate }}</label>
           <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message"
-            rows="5" required
-            [attr.placeholder]="'CONTACT.HELP_PLACEHOLDER' | translate"
+            rows="5" required [attr.placeholder]="'CONTACT.HELP_PLACEHOLDER' | translate"
             [class.input-error]="submitted && message.invalid"></textarea>
 
           <div class="field-error" *ngIf="submitted && message.invalid">
