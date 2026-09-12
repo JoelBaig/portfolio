@@ -52,11 +52,13 @@
         (keydown.enter)="selectLanguage('en')" (keydown.space)="selectLanguage('en')">
         <img [ngClass]="{ 'visible': selectedLanguage === 'en' }" class="language-pos en-language-red"
           src="/assets/img/header/en_red.png" alt="English">
-        <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png" alt="">
+        <img class="language-pos en-language-mark language-mark"
+          [class.switch-highlight]="languageSwitchHighlight === 'en'" src="/assets/img/header/en_toggle.png" alt="">
         <img [ngClass]="{ 'visible': selectedLanguage !== 'en' }" class="language-pos en-language-white"
           src="/assets/img/header/en_white.png" alt="English">
       </div>
-      <div class="language-switch-wrapper">
+      <div class="language-switch-wrapper" role="button" tabindex="0" aria-label="Sprache wechseln"
+        (click)="toggleLanguage()" (keydown.enter)="toggleLanguage()" (keydown.space)="toggleLanguage()">
         <img class="language-line" src="/assets/img/header/language_line.png" alt="">
         <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png" alt="">
       </div>
@@ -64,7 +66,8 @@
         (keydown.enter)="selectLanguage('de')" (keydown.space)="selectLanguage('de')">
         <img [ngClass]="{ 'visible': selectedLanguage !== 'de' }" class="language-pos de-language-white"
           src="/assets/img/header/de_white.png" alt="Deutsch">
-        <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png" alt="">
+        <img class="language-pos de-language-mark language-mark"
+          [class.switch-highlight]="languageSwitchHighlight === 'de'" src="/assets/img/header/de_toggle.png" alt="">
         <img [ngClass]="{ 'visible': selectedLanguage === 'de' }" class="language-pos de-language-red"
           src="/assets/img/header/de_red.png" alt="Deutsch">
       </div>
@@ -136,12 +139,14 @@
             (keydown.enter)="selectLanguage('en')" (keydown.space)="selectLanguage('en')">
             <img [ngClass]="{ 'visible': selectedLanguage === 'en' }" class="language-pos en-language-red"
               src="/assets/img/header/en_red.png" alt="English">
-            <img class="language-pos en-language-mark language-mark" src="/assets/img/header/en_toggle.png" alt="">
+            <img class="language-pos en-language-mark language-mark"
+              [class.switch-highlight]="languageSwitchHighlight === 'en'" src="/assets/img/header/en_toggle.png" alt="">
             <img [ngClass]="{ 'visible': selectedLanguage !== 'en' }" class="language-pos en-language-white"
               src="/assets/img/header/en_white.png" alt="English">
           </div>
 
-          <div class="language-switch-wrapper">
+          <div class="language-switch-wrapper" role="button" tabindex="0" aria-label="Sprache wechseln"
+            (click)="toggleLanguage()" (keydown.enter)="toggleLanguage()" (keydown.space)="toggleLanguage()">
             <img class="language-line" src="/assets/img/header/language_line.png" alt="">
             <img class="language-dot" [ngClass]="dotClass" src="/assets/img/header/language_dot.png" alt="">
           </div>
@@ -150,7 +155,8 @@
             (keydown.enter)="selectLanguage('de')" (keydown.space)="selectLanguage('de')">
             <img [ngClass]="{ 'visible': selectedLanguage !== 'de' }" class="language-pos de-language-white"
               src="/assets/img/header/de_white.png" alt="Deutsch">
-            <img class="language-pos de-language-mark language-mark" src="/assets/img/header/de_toggle.png" alt="">
+            <img class="language-pos de-language-mark language-mark"
+              [class.switch-highlight]="languageSwitchHighlight === 'de'" src="/assets/img/header/de_toggle.png" alt="">
             <img [ngClass]="{ 'visible': selectedLanguage === 'de' }" class="language-pos de-language-red"
               src="/assets/img/header/de_red.png" alt="Deutsch">
           </div>

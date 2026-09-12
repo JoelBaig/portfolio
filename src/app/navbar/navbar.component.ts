@@ -1,34 +1,8 @@
-import {
-  CommonModule,
-  NgClass
-} from '@angular/common';
-
-import {
-  Component,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output
-} from '@angular/core';
-
-import {
-  NavigationEnd,
-  Router,
-  RouterModule
-} from '@angular/router';
-
-import {
-  LangChangeEvent,
-  TranslateModule,
-  TranslateService
-} from '@ngx-translate/core';
-
-import {
-  filter,
-  Subscription
-} from 'rxjs';
+import {CommonModule,NgClass} from '@angular/common';
+import {Component,EventEmitter,HostListener,Input,OnDestroy,OnInit,Output} from '@angular/core';
+import {NavigationEnd,Router,RouterModule} from '@angular/router';
+import {LangChangeEvent,TranslateModule,TranslateService} from '@ngx-translate/core';
+import {filter,Subscription} from 'rxjs';
 
 type Language = 'en' | 'de';
 type NavbarVariant = 'default' | 'overlay';
@@ -53,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   activeSection: string | null = null;
   selectedLanguage: Language = 'en';
+  languageSwitchHighlight: Language | null = null;
   dotClass = '';
 
   isMenuOpen = false;
@@ -60,10 +35,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isMenuVisible = false;
 
   private readonly menuAnimationDuration = 250;
+  private readonly languageHighlightDuration = 500;
 
   private langSub?: Subscription;
   private routerSub?: Subscription;
   private menuCloseTimer?: number;
+  private languageHighlightTimer?: number;
   private openAnimationFrame?: number;
   private secondOpenAnimationFrame?: number;
   private afterCloseAction?: () => void;
@@ -93,6 +70,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.unsubscribeFromServices();
     this.clearOpenAnimationFrames();
     this.clearMenuCloseTimer();
+    this.clearLanguageHighlightTimer();
     this.cleanUpOpenMenu();
   }
 
@@ -475,6 +453,48 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.dotClass = language === 'de'
       ? 'dot-right'
       : 'dot-left';
+  }
+
+  /**
+   * Toggles between the supported application languages
+   * and briefly highlights the newly selected language.
+   */
+  toggleLanguage(): void {
+    const nextLanguage: Language =
+      this.selectedLanguage === 'en' ? 'de' : 'en';
+
+    this.showLanguageSwitchHighlight(nextLanguage);
+    this.selectLanguage(nextLanguage);
+  }
+
+  /**
+   * Briefly shows the same language mark that is used
+   * by the hover effect for the newly selected language.
+   *
+   * @param language The language whose mark should be highlighted.
+   */
+  private showLanguageSwitchHighlight(
+    language: Language
+  ): void {
+    this.clearLanguageHighlightTimer();
+    this.languageSwitchHighlight = language;
+
+    this.languageHighlightTimer = window.setTimeout(() => {
+      this.languageSwitchHighlight = null;
+      this.languageHighlightTimer = undefined;
+    }, this.languageHighlightDuration);
+  }
+
+  /**
+   * Clears the active language highlight timer.
+   */
+  private clearLanguageHighlightTimer(): void {
+    if (this.languageHighlightTimer === undefined) {
+      return;
+    }
+
+    window.clearTimeout(this.languageHighlightTimer);
+    this.languageHighlightTimer = undefined;
   }
 
   /**

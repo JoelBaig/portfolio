@@ -180,6 +180,7 @@
     position: relative;
     width: 30px;
     height: 24px;
+    cursor: pointer;
 }
 
 .language-line {
@@ -235,12 +236,14 @@
 .en-language-wrapper:hover .en-language-mark,
 .en-language-wrapper:focus-visible .en-language-mark,
 .de-language-wrapper:hover .de-language-mark,
-.de-language-wrapper:focus-visible .de-language-mark {
+.de-language-wrapper:focus-visible .de-language-mark,
+.language-mark.switch-highlight {
     transform: scaleX(1);
 }
 
 .en-language-wrapper:focus-visible,
-.de-language-wrapper:focus-visible {
+.de-language-wrapper:focus-visible,
+.language-switch-wrapper:focus-visible {
     outline: 2px solid #f7c518;
     outline-offset: 4px;
     border-radius: 4px;
