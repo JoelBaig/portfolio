@@ -1,8 +1,8 @@
-import {CommonModule,NgClass} from '@angular/common';
-import {Component,EventEmitter,HostListener,Input,OnDestroy,OnInit,Output} from '@angular/core';
-import {NavigationEnd,Router,RouterModule} from '@angular/router';
-import {LangChangeEvent,TranslateModule,TranslateService} from '@ngx-translate/core';
-import {filter,Subscription} from 'rxjs';
+import { CommonModule, NgClass } from '@angular/common';
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { filter, Subscription } from 'rxjs';
 
 type Language = 'en' | 'de';
 type NavbarVariant = 'default' | 'overlay';
@@ -193,7 +193,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Closes the mobile menu and navigates to the target fragment afterwards.
+   * Closes the mobile menu and navigates to the target fragment
+   * after the browser has completed the menu layout update.
    *
    * @param fragment The target section fragment.
    * @param event The optional triggering event.
@@ -203,7 +204,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     event?: Event
   ): void {
     this.preventNavigationEvent(event);
-    this.closeMenu(false, () => this.navigateToFragment(fragment));
+
+    this.closeMenu(false, () => {
+      window.requestAnimationFrame(() => {
+        this.navigateToFragment(fragment);
+      });
+    });
   }
 
   /**
@@ -356,6 +362,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   /**
    * Scrolls to the element matching the requested fragment.
+   * Desktop navigation uses smooth scrolling while mobile navigation
+   * jumps directly to the target to avoid layout timing issues.
    *
    * @param fragment The target section fragment.
    */
@@ -364,8 +372,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ): void {
     const element = document.getElementById(fragment);
 
-    element?.scrollIntoView({
-      behavior: 'smooth',
+    if (!element) {
+      return;
+    }
+
+    element.scrollIntoView({
+      behavior: this.isDesktop() ? 'smooth' : 'auto',
       block: 'start'
     });
   }

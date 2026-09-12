@@ -41,7 +41,7 @@
   top: unset;
   z-index: 1;
 
-  > img {
+  >img {
     width: 400px;
     height: 250px;
   }
@@ -55,7 +55,7 @@
 }
 
 .card-bottom div {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -111,7 +111,7 @@
   flex-direction: column;
   gap: 2px;
 
-  > h3 {
+  >h3 {
     margin: 0;
   }
 }
@@ -163,7 +163,7 @@
     min-height: 360px;
   }
 
-  .single-card > img:first-child {
+  .single-card>img:first-child {
     display: block;
     width: auto;
     height: auto;
@@ -237,7 +237,7 @@
     width: auto;
   }
 
-  .single-card > img:first-child {
+  .single-card>img:first-child {
     width: 100%;
     height: auto;
     display: block;
@@ -272,7 +272,10 @@
   }
 
   .card-bottom {
-    justify-content: space-evenly;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0;
   }
 
   .image-text {
@@ -303,28 +306,32 @@
 
   .single-card:nth-child(1) .card-bottom {
     margin-top: 40px;
-    margin-left: -17px;
+    margin-left: 0;
   }
 
   .single-card:nth-child(2) .card-bottom {
     margin-top: 90px;
-    margin-left: -14px;
+    margin-left: 0;
   }
 
   .single-card:nth-child(3) .card-bottom {
     margin-top: 35px;
-    margin-left: -13px;
+    margin-left: 0;
   }
 
-  .single-card:nth-child(1) .card-bottom > div,
-  .single-card:nth-child(2) .card-bottom > div {
-    position: relative;
-    right: 22px;
+  .single-card:nth-child(1) .name-main {
+    position: absolute;
+    left: 45px;
   }
 
-  .single-card:nth-child(3) .card-bottom > div {
-    position: relative;
-    right: 26px;
+  .single-card:nth-child(2) .name-main {
+    position: absolute;
+    left: 25px;
+  }
+
+  .single-card:nth-child(3) .name-main {
+    position: absolute;
+    left: 45px;
   }
 }
 
@@ -350,6 +357,91 @@
 
   :host ::ng-deep .section-header {
     top: 0 !important;
+  }
+
+  .image-text {
+    top: 13%;
+    width: 77%;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .card-bottom {
+    bottom: 18px;
+    padding: 0;
+  }
+
+  .name-main>h3 {
+    font-size: 18px;
+  }
+
+  .card-bottom div {
+    font-size: 12px;
+  }
+
+  .linkedin-icon {
+    width: 70px;
+    height: 20px;
+  }
+
+  .single-card:nth-child(1) .image-text {
+    top: 36px;
+    left: 30px;
+    right: 40px;
+    font-size: 18px;
+    width: 80%;
+  }
+
+  .single-card:nth-child(2) .image-text {
+    top: 19px;
+    left: 18px;
+    right: 20px;
+    font-size: 18px;
+    width: 90%;
+  }
+
+  .single-card:nth-child(3) .image-text {
+    top: 26px;
+    left: 38px;
+    right: 23px;
+    font-size: 18px;
+    width: 84%;
+  }
+
+  .single-card:nth-child(1) .card-bottom {
+    margin-top: 10px;
+    margin-left: -7px;
+  }
+
+  .single-card:nth-child(2) .card-bottom {
+    margin-top: 45px;
+    margin-left: -17px;
+  }
+
+  .single-card:nth-child(3) .card-bottom {
+    margin-top: 14px;
+    margin-left: -7px;
+  }
+
+  .single-card:nth-child(1) .name-main {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    transform: translateX(-22px);
+  }
+
+  .single-card:nth-child(2) .name-main {
+    position: absolute;
+    left: 18px;
+    top: 65px;
+    transform: none;
+  }
+
+  .single-card:nth-child(3) .name-main {
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    transform: translateX(-22px);
   }
 }
 
@@ -382,17 +474,17 @@
   .image-text {
     top: 13%;
     width: 77%;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.2;
   }
 
   .card-bottom {
     bottom: 18px;
-    padding: 0 16px;
+    padding: 0;
   }
 
-  .name-main > h3 {
-    font-size: 15px;
+  .name-main>h3 {
+    font-size: 18px;
   }
 
   .card-bottom div {
@@ -420,54 +512,64 @@
     top: 30px;
     left: 30px;
     right: 40px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .single-card:nth-child(2) .image-text {
     top: 19px;
     left: 18px;
     right: 20px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .single-card:nth-child(3) .image-text {
     top: 26px;
     left: 30px;
     right: 23px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .single-card:nth-child(1) .card-bottom {
     margin-top: 10px;
-    margin-left: -10px;
+    margin-left: -7px;
   }
 
   .single-card:nth-child(2) .card-bottom {
     margin-top: 45px;
-    margin-left: -4px;
+    margin-left: -17px;
   }
 
   .single-card:nth-child(3) .card-bottom {
     margin-top: 14px;
-    margin-left: -6px;
+    margin-left: -7px;
   }
 
-  .single-card:nth-child(1) .card-bottom > div,
-  .single-card:nth-child(2) .card-bottom > div {
-    position: relative;
-    right: 22px;
+  .single-card:nth-child(1) .name-main {
+    position: absolute;
+    left: 30px;
+    top: -7px;
+    transform: translateX(-22px);
   }
 
-  .single-card:nth-child(3) .card-bottom > div {
-    position: relative;
-    right: 26px;
+  .single-card:nth-child(2) .name-main {
+    position: absolute;
+    left: 18px;
+    top: -7px;
+    transform: none;
+  }
+
+  .single-card:nth-child(3) .name-main {
+    position: absolute;
+    left: 30px;
+    top: -7px;
+    transform: translateX(-22px);
   }
 }
 
 @media (max-width: 430px) and (max-height: 935px) {
-.colleagues-wrapper {
-  margin-top: 0;
-}
+  .colleagues-wrapper {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 390px) and (max-height: 845px) {
@@ -476,7 +578,7 @@
   }
 
   .image-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 

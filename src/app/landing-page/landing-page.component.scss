@@ -442,3 +442,13 @@
     transform: rotate(8deg) scale(0.72);
   }
 }
+
+@media (max-height: 600px) and (max-width: 1024px) {
+  .polaroid-con {
+    margin-top: clamp(-150px, 5vh, -60px);
+  }
+
+  .hero-stack {
+    max-width: 750px;
+  }
+}

@@ -21,7 +21,6 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 100px;
-  // width: 100%;
   max-width: 1440px;
   padding-inline: var(--pad);
   box-sizing: border-box;
@@ -60,7 +59,7 @@
 .project-info-txt {
   width: 100%;
   height: auto;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -396,7 +395,7 @@
 
   .headline-info-txt,
   .project-info-txt {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .project-img-wrapper {
@@ -420,7 +419,7 @@
 }
 
 :host ::ng-deep .section-header p.section-info-text {
-  font-size: 16px !important;
+  font-size: 18px !important;
   line-height: 1.5;
 }
 
