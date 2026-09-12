@@ -1,4 +1,4 @@
-import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
  * - section/anchor navigation
  * - removal of URL fragments
  * - scroll reset on initial page load
+ * - Animate On Scroll (AOS) animations
  */
 @Component({
   selector: 'app-root',
@@ -23,17 +24,26 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
   private translate = inject(TranslateService);
   private router = inject(Router);
   private viewportScroller = inject(ViewportScroller);
   private platformId = inject(PLATFORM_ID);
 
   /**
+   * Stores the dynamically loaded AOS module.
+   *
+   * AOS is loaded only inside the browser because the application
+   * also uses server-side rendering (SSR).
+   */
+  private aos: typeof import('aos') | null = null;
+
+  /**
    * True only when Angular is running inside the browser.
    *
    * This is important because the application also uses SSR
-   * where objects like window and history do not exist.
+   * where objects like window, history and document do not exist.
    */
   private readonly isBrowser = isPlatformBrowser(
     this.platformId
@@ -49,7 +59,9 @@ export class AppComponent {
 
   constructor() {
     this.initLanguage();
+
     if (this.isBrowser) {
+
       /**
        * Prevent the browser itself from restoring
        * the previous scroll position after a reload.
@@ -57,6 +69,7 @@ export class AppComponent {
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
+
       /**
        * Remove an existing fragment immediately.
        *
@@ -69,6 +82,7 @@ export class AppComponent {
        * joelbaig.com/
        */
       this.removeFragmentFromBrowserUrl();
+
       /**
        * Always begin at the top when the application
        * is loaded/reloaded.
@@ -79,7 +93,68 @@ export class AppComponent {
         behavior: 'auto'
       });
     }
+
     this.handleAnchorScrolling();
+  }
+
+  /**
+   * Initializes browser-specific functionality after Angular
+   * has rendered the application's initial view.
+   *
+   * AOS is initialized here because its animations depend on
+   * rendered DOM elements and must never run during SSR.
+   */
+  ngAfterViewInit(): void {
+    this.initAos();
+  }
+
+  /**
+   * Dynamically loads and initializes Animate On Scroll (AOS).
+   *
+   * The library is imported only when the application is running
+   * inside the browser. This prevents SSR errors because AOS
+   * accesses browser-specific objects such as window and document.
+   *
+   * Animations run only once when an element enters the viewport.
+   * The duration defines how long each animation takes.
+   */
+  private async initAos(): Promise<void> {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    this.aos = await import('aos');
+
+    this.aos.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+      offset: 80
+    });
+
+    /**
+     * Recalculate all AOS elements after Angular
+     * has completed the current rendering cycle.
+     */
+    requestAnimationFrame(() => {
+      this.aos?.refresh();
+    });
+  }
+
+  /**
+   * Refreshes AOS after Angular navigation or DOM changes.
+   *
+   * This makes sure that newly rendered or repositioned elements
+   * are detected correctly by AOS and receive their animations.
+   */
+  private refreshAos(): void {
+    if (!this.isBrowser || !this.aos) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      this.aos?.refresh();
+    });
   }
 
   /**
@@ -88,13 +163,18 @@ export class AppComponent {
    */
   private initLanguage(): void {
     this.translate.setDefaultLang('en');
+
     if (!this.isBrowser) {
       return;
     }
+
     const savedLanguage = localStorage.getItem('lang');
-    const language = savedLanguage === 'de' || savedLanguage === 'en'
-      ? savedLanguage
-      : 'en';
+
+    const language =
+      savedLanguage === 'de' || savedLanguage === 'en'
+        ? savedLanguage
+        : 'en';
+
     this.translate.use(language);
   }
 
@@ -108,6 +188,7 @@ export class AppComponent {
    * Later navigation:
    * - scrolls to the requested section
    * - removes the fragment afterwards
+   * - refreshes AOS positions
    */
   private handleAnchorScrolling(): void {
     this.router.events
@@ -121,22 +202,30 @@ export class AppComponent {
         if (!this.isBrowser) {
           return;
         }
+
         /**
          * Ignore anchor scrolling on the initial page load.
          */
         if (this.initialNavigation) {
           this.initialNavigation = false;
+
           this.removeFragmentFromBrowserUrl();
+
           requestAnimationFrame(() => {
             window.scrollTo({
               top: 0,
               left: 0,
               behavior: 'auto'
             });
+
+            this.refreshAos();
           });
+
           return;
         }
+
         this.scrollToCurrentFragment();
+        this.refreshAos();
       });
   }
 
@@ -154,9 +243,11 @@ export class AppComponent {
       this.router.parseUrl(
         this.router.url
       ).fragment;
+
     if (!fragment) {
       return;
     }
+
     this.scrollToAnchorAfterRender(fragment);
   }
 
@@ -167,6 +258,7 @@ export class AppComponent {
     fragment: string
   ): void {
     requestAnimationFrame(() => {
+
       this.viewportScroller.scrollToAnchor(
         fragment
       );
@@ -179,6 +271,12 @@ export class AppComponent {
        * but the URL remains clean.
        */
       this.removeFragmentFromBrowserUrl();
+
+      /**
+       * Recalculate AOS positions after scrolling
+       * to another section.
+       */
+      this.refreshAos();
     });
   }
 
@@ -198,12 +296,15 @@ export class AppComponent {
     if (!this.isBrowser) {
       return;
     }
+
     if (!window.location.hash) {
       return;
     }
+
     const cleanUrl =
       window.location.pathname +
       window.location.search;
+
     history.replaceState(
       history.state,
       '',
