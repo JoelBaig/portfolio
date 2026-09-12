@@ -126,10 +126,10 @@ export class AppComponent implements AfterViewInit {
     this.aos = await import('aos');
 
     this.aos.init({
-      duration: 800,
+      duration: 700,
       once: true,
       easing: 'ease-out',
-      offset: 80
+      offset: 250
     });
 
     /**

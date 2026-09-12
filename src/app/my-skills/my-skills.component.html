@@ -2,7 +2,7 @@
     <img src="./assets/img/header/skills/background.webp" alt="">
 
     <div class="wrapper-main layout-container">
-        <div class="wrapper-top">
+        <div class="wrapper-top" data-aos="fade-right">
             <div class="skill-headline">
                 <div class="headline-wrapper">
                     <p>{{'SKILLS.SUBTITLE' | translate}}</p>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="wrapper-bottom">
+        <div class="wrapper-bottom" data-aos="fade-left">
             <div class="skill-set">
                 <div class="skills-grid">
                     <div class="single-skill-con" *ngFor="let skill of skills" (mouseenter)="hoveredSkill = skill.name"

@@ -3,7 +3,7 @@
         (close)="closeProjectDetails()">
     </app-project-details>
 
-    <div class="first-row">
+    <div class="first-row" data-aos="fade-right">
         <app-app-headline class="intro" [subtitle]="'PROJECTS.SUBTITLE'" [title]="'PROJECTS.TITLE'"
             [infoText]="'PROJECTS.INTRODUCTION'" [lineImage]="'./assets/img/header/projects/yellow_line.png'"
             [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="260" [lineMatchTitle]="true"
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" data-aos="fade-left">
         <div class="single-project-con" *ngFor="let project of projects.slice(1)"
             [style.display]="project.id === 'da-bubble' ? 'none' : 'flex'">
             <div class="project-img-wrapper" (mouseenter)="hoveredProject = project.title"

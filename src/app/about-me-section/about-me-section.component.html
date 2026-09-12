@@ -1,7 +1,7 @@
 <div class="about-me-wrapper">
 
     <div class="about-me-main layout-container">
-        <div class="image-overlap">
+        <div class="image-overlap" data-aos="fade-right">
             <div *ngFor="let block of imageBlocks; let i = index" [ngClass]="'image-block-' + i"
                 [ngStyle]="{'margin-bottom.px': i === 2 ? -90 : -70, 'z-index': i === 0 ? 30 : i === 1 ? 20 : 10}"
                 style="position: relative;">
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="about-me">
+        <div class="about-me" data-aos="fade-left" >
             <app-app-headline [subtitle]="'ABOUT_ME.SUBTITLE'" [title]="'ABOUT_ME.TITLE'"
                 [infoText]="'ABOUT_ME.DESCRIPTION'" [lineImage]="'./assets/img/header/about_me/blue_line.png'"
                 [animateLine]="true" [maskDirection]="'horizontal'" [lineWidth]="330" [lineAlign]="'flex-start'">
