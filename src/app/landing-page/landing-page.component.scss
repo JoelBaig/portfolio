@@ -332,12 +332,12 @@
   }
 
   .text-bottom {
-    margin-left: clamp(40px, 16vw, 80px);
+    margin-left: 0;
   }
 
   .get-in-touch-btn {
     margin-top: 12px;
-    margin-left: clamp(80px, 28vw, 160px);
+    margin-left: clamp(80px, 28vw, 140px);
   }
 
   .polaroid-con {
@@ -347,7 +347,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   .main-content {
     padding-top: 84px;
     padding-bottom: 24px;
@@ -364,10 +364,6 @@
     font-size: clamp(38px, 12.5vw, 54px);
   }
 
-  .text-bottom {
-    margin-left: clamp(36px, 15vw, 60px);
-  }
-
   .text-top .letter,
   .text-bottom .letter {
     width: 0.72em;
@@ -378,11 +374,7 @@
   }
 
   .get-in-touch-btn {
-    margin-left: clamp(70px, 26vw, 110px);
-  }
-
-  .polaroid-frame {
-    width: 170px;
+    margin-left: clamp(60px, 16vw, 110px);
   }
 
   .polaroid-con {
@@ -401,16 +393,8 @@
     font-size: 38px;
   }
 
-  .text-bottom {
-    margin-left: 42px;
-  }
-
   .get-in-touch-btn {
     margin-left: 70px;
-  }
-
-  .polaroid-frame {
-    width: 145px;
   }
 
   .hello-world {
