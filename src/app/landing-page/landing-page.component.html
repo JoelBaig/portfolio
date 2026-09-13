@@ -1,7 +1,7 @@
 <app-navbar variant="default" class="navbar-main"></app-navbar>
 <div class="landing-page-main-con">
   <div class="hero-rail">
-    <div class="contact-icons">
+    <div class="contact-icons" data-aos="fade-right">
       <a class="social-icons" href="https://www.linkedin.com/in/joel-baig-51ab56305/" target="_blank"
         rel="noopener noreferrer">
         <img src="./assets/img/header/linkedin_default.png" alt="linkedin" />
@@ -17,7 +17,7 @@
   <div id="mainContent" class="main-content layout-container">
     <div class="hero-stack">
       <div class="hello-world" [class.has-interacted]="hasInteracted" [@container]="hover ? 'on' : 'off'"
-        (mouseenter)="onEnter()" (mouseleave)="onLeave()">
+        (mouseenter)="onEnter()" (mouseleave)="onLeave()" data-aos="fade-up">
         <span class="icon-wrap" [class.on]="hover">
           <img class="icon" src="./assets/img/header/waving_hand.png" alt="wave" />
         </span>
@@ -33,13 +33,13 @@
       </div>
       <div class="hero-main-row">
         <div class="headline-block">
-          <span id="headlineFrontend" class="text-top"></span>
-          <span id="headlineDeveloper" class="text-bottom"></span>
+          <span id="headlineFrontend" class="text-top" data-aos="fade-right"></span>
+          <span id="headlineDeveloper" class="text-bottom" data-aos="fade-left"></span>
           <app-app-btn (click)="scrollToSection('contact')" class="get-in-touch-btn"
             [text]="'LANDING_PAGE.GET_IN_TOUCH_BTN' | translate" [color]="'white'" [hoverColor]="'white'"
             [visible]="true" [width]="'180px'" [height]="'45px'"
             [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
-            [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'">
+            [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'" data-aos="fade-down">
           </app-app-btn>
         </div>
         <div class="polaroid-con" (mouseenter)="hoverImg = true" (mouseleave)="hoverImg = false">
