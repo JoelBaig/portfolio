@@ -5,6 +5,14 @@ import { filter } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
+ * Defines the AOS functions used by the application.
+ */
+interface AosInstance {
+  init(options?: Record<string, unknown>): void;
+  refresh(): void;
+}
+
+/**
  * Root application component.
  *
  * Handles:
@@ -32,12 +40,12 @@ export class AppComponent implements AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
   /**
-   * Stores the dynamically loaded AOS module.
+   * Stores the loaded AOS instance.
    *
    * AOS is loaded only inside the browser because the application
    * also uses server-side rendering (SSR).
    */
-  private aos: typeof import('aos') | null = null;
+  private aos: AosInstance | null = null;
 
   /**
    * True only when Angular is running inside the browser.
@@ -109,33 +117,43 @@ export class AppComponent implements AfterViewInit {
   }
 
   /**
-   * Dynamically loads and initializes Animate On Scroll (AOS).
-   *
-   * The library is imported only when the application is running
-   * inside the browser. This prevents SSR errors because AOS
-   * accesses browser-specific objects such as window and document.
-   *
-   * Animations run only once when an element enters the viewport.
-   * The duration defines how long each animation takes.
+   * Dynamically loads and initializes Animate On Scroll.
    */
   private async initAos(): Promise<void> {
     if (!this.isBrowser) {
       return;
     }
 
-    this.aos = await import('aos');
+    await this.loadAos();
+    this.startAos();
+    this.scheduleAosRefresh();
+  }
 
-    this.aos.init({
+  /**
+   * Loads the AOS default export dynamically.
+   */
+  private async loadAos(): Promise<void> {
+    const aosModule = await import('aos');
+
+    this.aos = aosModule.default as AosInstance;
+  }
+
+  /**
+   * Initializes AOS with the global animation settings.
+   */
+  private startAos(): void {
+    this.aos?.init({
       duration: 700,
       once: true,
       easing: 'ease-out',
       offset: 250
     });
+  }
 
-    /**
-     * Recalculate all AOS elements after Angular
-     * has completed the current rendering cycle.
-     */
+  /**
+   * Schedules an AOS refresh for the next rendering frame.
+   */
+  private scheduleAosRefresh(): void {
     requestAnimationFrame(() => {
       this.aos?.refresh();
     });
@@ -152,9 +170,7 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
-    requestAnimationFrame(() => {
-      this.aos?.refresh();
-    });
+    this.scheduleAosRefresh();
   }
 
   /**
@@ -199,34 +215,57 @@ export class AppComponent implements AfterViewInit {
         )
       )
       .subscribe(() => {
-        if (!this.isBrowser) {
-          return;
-        }
-
-        /**
-         * Ignore anchor scrolling on the initial page load.
-         */
-        if (this.initialNavigation) {
-          this.initialNavigation = false;
-
-          this.removeFragmentFromBrowserUrl();
-
-          requestAnimationFrame(() => {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'auto'
-            });
-
-            this.refreshAos();
-          });
-
-          return;
-        }
-
-        this.scrollToCurrentFragment();
-        this.refreshAos();
+        this.handleNavigationEnd();
       });
+  }
+
+  /**
+   * Handles a completed Angular navigation.
+   */
+  private handleNavigationEnd(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    if (this.initialNavigation) {
+      this.handleInitialNavigation();
+      return;
+    }
+
+    this.handleLaterNavigation();
+  }
+
+  /**
+   * Handles the application's initial navigation.
+   */
+  private handleInitialNavigation(): void {
+    this.initialNavigation = false;
+    this.removeFragmentFromBrowserUrl();
+
+    requestAnimationFrame(() => {
+      this.resetInitialScroll();
+    });
+  }
+
+  /**
+   * Resets the initial scroll position and refreshes AOS.
+   */
+  private resetInitialScroll(): void {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+
+    this.refreshAos();
+  }
+
+  /**
+   * Handles all navigations after the initial page load.
+   */
+  private handleLaterNavigation(): void {
+    this.scrollToCurrentFragment();
+    this.refreshAos();
   }
 
   /**
@@ -258,26 +297,20 @@ export class AppComponent implements AfterViewInit {
     fragment: string
   ): void {
     requestAnimationFrame(() => {
-
-      this.viewportScroller.scrollToAnchor(
-        fragment
-      );
-
-      /**
-       * Remove #skills / #projects / etc.
-       * from the visible browser URL afterwards.
-       *
-       * The user stays on the section,
-       * but the URL remains clean.
-       */
-      this.removeFragmentFromBrowserUrl();
-
-      /**
-       * Recalculate AOS positions after scrolling
-       * to another section.
-       */
-      this.refreshAos();
+      this.scrollToAnchor(fragment);
     });
+  }
+
+  /**
+   * Scrolls to an anchor and cleans the browser URL.
+   */
+  private scrollToAnchor(fragment: string): void {
+    this.viewportScroller.scrollToAnchor(
+      fragment
+    );
+
+    this.removeFragmentFromBrowserUrl();
+    this.refreshAos();
   }
 
   /**
@@ -301,6 +334,13 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
+    this.replaceUrlWithoutFragment();
+  }
+
+  /**
+   * Replaces the current URL without its fragment.
+   */
+  private replaceUrlWithoutFragment(): void {
     const cleanUrl =
       window.location.pathname +
       window.location.search;
