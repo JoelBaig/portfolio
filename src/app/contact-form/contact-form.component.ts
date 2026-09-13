@@ -78,17 +78,6 @@ export class ContactFormComponent implements AfterViewInit {
   }
 
   /**
-   * Checks whether at least one form field contains user input.
-   *
-   * @returns True if any contact form input contains text.
-   */
-  hasAnyInput(): boolean {
-    return this.contactData.contactName.trim().length > 0 ||
-      this.contactData.email.trim().length > 0 ||
-      this.contactData.message.trim().length > 0;
-  }
-
-  /**
    * Emits an event to open or show the legal notice section.
    */
   onLegalNoticeClick(): void {

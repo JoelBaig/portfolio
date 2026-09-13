@@ -40,9 +40,9 @@
           <input #name="ngModel" [(ngModel)]="contactData.contactName" type="text" id="name" name="name" required
             minlength="2" pattern=".*[A-Za-zÀ-žÄÖÜäöüß].*[A-Za-zÀ-žÄÖÜäöüß].*"
             [attr.placeholder]="'CONTACT.NAME_PLACEHOLDER' | translate"
-            [class.input-error]="submitted && name.invalid" />
+            [class.input-error]="name.invalid && (name.touched || submitted)" />
 
-          <div class="field-error" *ngIf="submitted && name.invalid">
+          <div class="field-error" *ngIf="name.invalid && (name.touched || submitted)">
             {{ 'CONTACT.NAME_ERROR' | translate }}
           </div>
         </div>
@@ -54,9 +54,9 @@
           <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required
             pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
             [attr.placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate"
-            [class.input-error]="submitted && email.invalid" />
+            [class.input-error]="email.invalid && (email.touched || submitted)" />
 
-          <div class="field-error" *ngIf="submitted && email.invalid">
+          <div class="field-error" *ngIf="email.invalid && (email.touched || submitted)">
             {{ 'CONTACT.EMAIL_ERROR' | translate }}
           </div>
         </div>
@@ -67,9 +67,9 @@
           <label for="message">{{ 'CONTACT.HELP_FIELD' | translate }}</label>
           <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message"
             rows="5" required [attr.placeholder]="'CONTACT.HELP_PLACEHOLDER' | translate"
-            [class.input-error]="submitted && message.invalid"></textarea>
+            [class.input-error]="message.invalid && (message.touched || submitted)"></textarea>
 
-          <div class="field-error" *ngIf="submitted && message.invalid">
+          <div class="field-error" *ngIf="message.invalid && (message.touched || submitted)">
             {{ 'CONTACT.HELP_ERROR' | translate }}
           </div>
         </div>
@@ -104,12 +104,12 @@
           </div>
         </div>
 
-        <button type="submit" class="send-native-btn" [disabled]="!hasAnyInput() || sending">
+        <button type="submit" class="send-native-btn" [disabled]="contactForm.invalid || !accepted || sending">
           <app-app-btn class="send-button" [text]="'CONTACT.SEND_BTN' | translate" [color]="'white'"
             [hoverColor]="'white'" [visible]="true" [width]="'180px'" [height]="'45px'"
             [defaultImg]="'./assets/img/header/app_btn/default_btn.png'"
             [hoverImg]="'./assets/img/header/app_btn/hover_btn.png'"
-            [ngClass]="{ 'btn-disabled': !hasAnyInput() || sending }"></app-app-btn>
+            [ngClass]="{ 'btn-disabled': contactForm.invalid || !accepted || sending }"></app-app-btn>
         </button>
       </form>
     </div>
