@@ -6,10 +6,10 @@ const assetsDir = './src/assets';
 const extensions = ['.png', '.jpg', '.jpeg', '.webp'];
 
 const joelImageName = 'joel4.png';
-const joelMaxSize = 1024 * 1024;
+const joelMaxSize = 480 * 1024;
 const joelStartDimension = 1800;
-const joelMinDimension = 800;
-const joelDimensionStep = 100;
+const joelMinDimension = 500;
+const joelDimensionStep = 50;
 
 const stickerNames = [
     'sticker_open.png',
