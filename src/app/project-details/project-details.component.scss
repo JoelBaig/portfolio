@@ -234,7 +234,7 @@ h2 {
 .circle-text {
     font-family: "Bricolage Grotesque", sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     fill: #111;
 }
 
@@ -557,7 +557,7 @@ h2 {
         width: 100px;
         height: 34px;
         border-width: 2px;
-        font-size: 16px;
+        font-size: 18px;
         box-shadow: 2px 3px 0 white;
     }
 
@@ -590,7 +590,7 @@ h2 {
         border: none;
         color: white;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 18px;
         padding: 0;
         cursor: pointer;
     }
@@ -628,7 +628,7 @@ h2 {
     p,
     :host ::ng-deep .section-header p.section-info-text,
     .details {
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     .bottom-btns-con {
@@ -654,7 +654,7 @@ h2 {
     }
 
     .tech-item {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .detail-img {
@@ -681,7 +681,7 @@ h2 {
 
     .mobile-project-nav-con .back-btn-con>button,
     .mobile-project-nav-con .next-project-btn-con>button {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .detail-img {
@@ -713,7 +713,7 @@ h2 {
     p,
     :host ::ng-deep .section-header p.section-info-text,
     .details {
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     h1,
@@ -744,8 +744,14 @@ h2 {
     }
 }
 
-@media (max-height: 670px) and (max-width: 375px) {
+@media (max-height: 900px) and (max-width: 420px) {
     .overlay::before {
         height: 120%;
+    }
+}
+
+@media (max-height: 670px) and (max-width: 375px) {
+    .overlay::before {
+        height: 125%;
     }
 }

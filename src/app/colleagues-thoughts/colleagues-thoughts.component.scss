@@ -288,14 +288,14 @@
 
   .single-card:nth-child(1) .image-text {
     top: 45px;
-    left: 45px;
-    right: 40px;
+    left: 41px;
+    right: 42px;
   }
 
   .single-card:nth-child(2) .image-text {
     top: 25px;
-    left: 25px;
-    right: 20px;
+    left: 30px;
+    right: 23px;
   }
 
   .single-card:nth-child(3) .image-text {
@@ -321,17 +321,20 @@
 
   .single-card:nth-child(1) .name-main {
     position: absolute;
-    left: 45px;
+    bottom: -40px;
+    left: 0px;
   }
 
   .single-card:nth-child(2) .name-main {
     position: absolute;
-    left: 25px;
+    bottom: -45px;
+    left: 0px;
   }
 
   .single-card:nth-child(3) .name-main {
     position: absolute;
-    left: 45px;
+    left: 0px;
+    bottom: -60px;
   }
 }
 
