@@ -52,7 +52,7 @@
         <div class="email-field">
           <label for="email">{{ 'CONTACT.EMAIL_FIELD' | translate }}</label>
           <input #email="ngModel" name="email" id="email" type="email" [(ngModel)]="contactData.email" required
-            pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
+            pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*\.[A-Za-z]{2,4}$"
             [attr.placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate"
             [class.input-error]="email.invalid && (email.touched || submitted)" />
 

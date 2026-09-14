@@ -37,8 +37,7 @@ export class ContactFormComponent implements AfterViewInit {
   contactData = {
     contactName: '',
     email: '',
-    message: '',
-    website: ''
+    message: ''
   };
 
   accepted = false;
@@ -192,8 +191,7 @@ export class ContactFormComponent implements AfterViewInit {
     this.contactData = {
       contactName: '',
       email: '',
-      message: '',
-      website: ''
+      message: ''
     };
   }
 
