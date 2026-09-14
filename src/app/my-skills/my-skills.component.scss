@@ -109,11 +109,9 @@
 
 .skill-intro-wrapper>p {
     position: absolute;
-    top: 31%;
-    left: 5%;
-    right: 5%;
+    top: 21%;
+    margin-left: 66px;
     width: 82%;
-    margin: 0;
     font-size: 20px;
     line-height: 1.25;
     color: black;
@@ -282,6 +280,10 @@
 
     .skill-intro-wrapper {
         max-width: 580px;
+
+        >p {
+            top: 14%;
+        }
     }
 }
 
@@ -309,6 +311,10 @@
 
     .skill-intro-wrapper {
         max-width: 560px;
+
+        >p {
+            margin-left: 58px;
+        }
     }
 
     .wrapper-bottom {
@@ -602,5 +608,19 @@
 @media (max-width: 375px) and (max-height: 670px) {
     .orange-circle {
         top: 13px;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 1024px) {
+    .skill-intro-wrapper>p {
+        position: absolute;
+        top: 31%;
+        width: 82%;
+        font-size: 20px;
+        line-height: 1.25;
+        color: #000;
+        z-index: 2;
+        margin-left: 52px;
+        text-align: start;
     }
 }
