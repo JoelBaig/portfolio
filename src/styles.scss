@@ -5,9 +5,22 @@
 @import "./keyframes.scss";
 @import 'aos/dist/aos.css';
 
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  min-width: 0;
   font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .d-none {
@@ -16,12 +29,7 @@ body {
 
 .lock-scroll {
   position: fixed;
-  overflow: hidden;
   width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 .letter {
@@ -34,10 +42,6 @@ html {
 
 .letter:hover {
   color: #f7c719;
-}
-
-body.modal-open {
-  overflow: hidden;
 }
 
 * {
@@ -66,13 +70,16 @@ body.modal-open {
 }
 
 :root {
-  --container: min(1440px, 92vw);
+  --container: min(1440px, 92%);
   --pad: 16px;
 }
 
 .layout-container {
   width: var(--container);
+  max-width: 1440px;
+  min-width: 0;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .reveal {
@@ -107,7 +114,6 @@ body.modal-open {
 
 html.no-scroll,
 body.no-scroll {
-  overflow: hidden !important;
   height: 100%;
   overscroll-behavior: none;
 }

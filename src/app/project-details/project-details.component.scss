@@ -37,7 +37,6 @@
     justify-content: center;
     align-items: center;
     background: #1c1c1c;
-    overflow: hidden;
     z-index: 100;
 }
 
@@ -386,7 +385,6 @@ h2 {
     .overlay {
         display: block;
         overflow-y: auto;
-        overflow-x: hidden;
         background: #1c1c1c;
         touch-action: pan-y;
         -webkit-overflow-scrolling: touch;

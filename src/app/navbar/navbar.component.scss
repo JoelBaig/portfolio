@@ -415,7 +415,6 @@
         height: 100dvh !important;
         min-height: 100dvh !important;
         display: block;
-        overflow: hidden;
         isolation: isolate;
         z-index: 999998 !important;
         background: transparent !important;
@@ -490,7 +489,6 @@
         background-position: center top;
         background-repeat: no-repeat;
         overflow-y: auto;
-        overflow-x: hidden;
         z-index: 2;
         filter:
             drop-shadow(0 12px 12px rgba(0, 0, 0, 0.24));

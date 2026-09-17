@@ -1,29 +1,40 @@
 :host {
     display: flex;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     flex-direction: column;
-    overflow-x: hidden !important;
-}
-
-body {
-    overflow-x: hidden !important;
+    box-sizing: border-box;
 }
 
 .page-content {
     flex: 1 0 auto;
-    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .site-footer {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .lp {
     display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .my-skills {
     display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
+    box-sizing: border-box;
 }
