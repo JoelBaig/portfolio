@@ -274,10 +274,15 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
   /**
    * Adds listeners that prevent background scrolling.
-   * On mobile the project details panel itself should remain scrollable.
+   * On mobile and short desktop viewports the project details panel itself
+   * should remain scrollable.
    */
   private addScrollBlockListeners(): void {
-    if (window.innerWidth <= 900) {
+    const needsOverlayScroll =
+      window.innerWidth <= 900 ||
+      window.innerHeight <= 760;
+
+    if (needsOverlayScroll) {
       return;
     }
 
