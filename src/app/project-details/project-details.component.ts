@@ -46,14 +46,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   @Input() projectId!: string;
   @Output() close = new EventEmitter<void>();
 
-  private wheelHandler = (e: Event) => e.preventDefault();
-  private touchMoveHandler = (e: Event) => e.preventDefault();
   private wasMobile = window.innerWidth <= 900;
-
-  private keydownHandler = (e: KeyboardEvent) => {
-    if (this.isEditableTarget(e.target)) return;
-    if (this.isBlockedKey(e.key)) e.preventDefault();
-  };
 
   projectDetails: Project[] = [
     {
@@ -129,7 +122,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Updates scroll blocking when switching between desktop and mobile view.
    * Resets the mobile overlay scroll position when returning to desktop.
    */
   @HostListener('window:resize')
@@ -141,24 +133,19 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     }
 
     this.wasMobile = isMobile;
-
-    this.removeScrollBlockListeners();
-    this.addScrollBlockListeners();
   }
 
   /**
-   * Initializes scroll blocking when the details view is opened.
+   * Prevents the page behind the project details view from scrolling.
    */
   ngOnInit(): void {
     this.addNoScrollClasses();
-    this.addScrollBlockListeners();
   }
 
   /**
-   * Restores normal scroll behavior when the component is destroyed.
+   * Restores normal page scrolling when the component is destroyed.
    */
   ngOnDestroy(): void {
-    this.removeScrollBlockListeners();
     this.removeNoScrollClasses();
   }
 
@@ -250,7 +237,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
    * @param fragment The id of the target section.
    */
   closeProjectDetails(fragment: string): void {
-    this.removeScrollBlockListeners();
     this.resetDocumentAfterClose();
     this.close.emit();
     this.scrollToFragmentAfterClose(fragment);
@@ -273,34 +259,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Adds listeners that prevent background scrolling.
-   * On mobile and short desktop viewports the project details panel itself
-   * should remain scrollable.
-   */
-  private addScrollBlockListeners(): void {
-    const needsOverlayScroll =
-      window.innerWidth <= 900 ||
-      window.innerHeight <= 760;
-
-    if (needsOverlayScroll) {
-      return;
-    }
-
-    window.addEventListener('wheel', this.wheelHandler, { passive: false });
-    window.addEventListener('touchmove', this.touchMoveHandler, { passive: false });
-    window.addEventListener('keydown', this.keydownHandler, { passive: false });
-  }
-
-  /**
-   * Removes all scroll blocking listeners.
-   */
-  private removeScrollBlockListeners(): void {
-    window.removeEventListener('wheel', this.wheelHandler as EventListener);
-    window.removeEventListener('touchmove', this.touchMoveHandler as EventListener);
-    window.removeEventListener('keydown', this.keydownHandler as EventListener);
-  }
-
-  /**
    * Resets the project details overlay scroll position.
    */
   private resetOverlayScrollPosition(): void {
@@ -309,38 +267,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
     overlay.scrollTop = 0;
     overlay.scrollLeft = 0;
-  }
-
-  /**
-   * Checks whether the event target is an editable element.
-   *
-   * @param target The event target to check.
-   * @returns True if the target is editable.
-   */
-  private isEditableTarget(target: EventTarget | null): boolean {
-    const el = target as HTMLElement | null;
-    const tag = el?.tagName?.toLowerCase();
-    return tag === 'input' || tag === 'textarea' || !!el?.isContentEditable;
-  }
-
-  /**
-   * Checks whether a pressed key should be blocked from scrolling.
-   *
-   * @param key The pressed keyboard key.
-   * @returns True if the key should be blocked.
-   */
-  private isBlockedKey(key: string): boolean {
-    return [
-      'ArrowUp',
-      'ArrowDown',
-      'ArrowLeft',
-      'ArrowRight',
-      'PageUp',
-      'PageDown',
-      'Home',
-      'End',
-      ' '
-    ].includes(key);
   }
 
   /**
