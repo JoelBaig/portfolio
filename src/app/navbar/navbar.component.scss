@@ -13,6 +13,8 @@
     left: 0;
     right: 0;
     height: 120px;
+    padding: 0 clamp(24px, 4vw, 64px);
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -264,6 +266,24 @@
 
 .mobile-only {
     display: none;
+}
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 0 32px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-link {
+        padding: 8px 10px;
+    }
+
+    .language-wrapper {
+        gap: 8px;
+    }
 }
 
 @media (max-width: 900px) {
