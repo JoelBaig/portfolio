@@ -37,6 +37,10 @@
     z-index: 2002;
 }
 
+:host ::ng-deep app-navbar.nav-legal-notice .navbar {
+    padding-left: 0;
+}
+
 h1 {
     position: absolute;
     left: 50%;
