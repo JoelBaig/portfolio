@@ -136,8 +136,10 @@
 
 .logo-wrapper .logo {
     position: absolute;
-    top: 0;
+    top: -17px;
     left: 0;
+    height: 72px;
+    width: auto;
     transition: opacity 0.3s ease;
 }
 

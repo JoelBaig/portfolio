@@ -184,7 +184,9 @@ a {
 
 .logo-wrapper {
     position: absolute;
-    top: -55px;
+    top: -90px;
+    width: 48px;
+    height: 72px;
     display: inline-block;
     cursor: pointer;
     overflow: visible;
@@ -192,6 +194,10 @@ a {
     .logo {
         position: absolute;
         top: 0;
+        left: 0;
+        height: 72px;
+        width: auto;
+        max-width: none;
         transition: opacity 0.3s ease-in-out;
     }
 
@@ -213,10 +219,11 @@ a {
 
     .my-name {
         position: relative;
-        bottom: -55px;
+        bottom: -90px;
         left: 0;
         font-size: 17px;
         color: var(--footer-text);
+        width: 150px;
     }
 }
 
@@ -259,8 +266,6 @@ a {
             position: absolute;
             top: 0;
             left: 0;
-            width: 42px;
-            height: auto;
         }
 
         .my-name {
@@ -353,10 +358,6 @@ a {
 
     .logo-wrapper {
         height: 58px;
-
-        .logo {
-            width: 38px;
-        }
 
         .my-name {
             top: 8px;

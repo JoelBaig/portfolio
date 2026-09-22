@@ -93,7 +93,7 @@ export class AboutMeSectionComponent {
     return {
       top: '50%',
       left: '50%',
-      transform: 'translate(-50%, -50%) rotate(5deg)'
+      transform: 'translate(-50%, -50%) rotate(7deg)'
     };
   }
 

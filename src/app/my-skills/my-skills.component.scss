@@ -96,22 +96,26 @@
     width: 100%;
     max-width: 650px;
     aspect-ratio: 4 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-intro-wrapper>img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
     position: absolute;
     inset: 0;
 }
 
 .skill-intro-wrapper>p {
-    position: absolute;
-    top: 21%;
-    margin-left: 66px;
-    width: 82%;
-    font-size: 20px;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0 12%;
+    box-sizing: border-box;
+    font-size: clamp(18px, 1.55vw, 20px);
     line-height: 1.25;
     color: black;
     z-index: 2;
@@ -187,7 +191,7 @@
     position: relative;
     width: 200px;
     height: 200px;
-    right: 50px;
+    right: 20px;
 }
 
 .sticker-base {
@@ -279,10 +283,6 @@
 
     .skill-intro-wrapper {
         max-width: 580px;
-
-        >p {
-            top: 14%;
-        }
     }
 }
 
@@ -310,10 +310,6 @@
 
     .skill-intro-wrapper {
         max-width: 560px;
-
-        >p {
-            margin-left: 58px;
-        }
     }
 
     .wrapper-bottom {
@@ -424,30 +420,17 @@
     }
 
     .skill-intro-wrapper {
-        position: relative;
         width: 100%;
-        max-width: 360px;
-        height: 150px;
-        aspect-ratio: auto;
-    }
-
-    .skill-intro-wrapper>img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
+        max-width: 380px;
+        min-height: 150px;
+        aspect-ratio: 4 / 1.65;
     }
 
     .skill-intro-wrapper>p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 82%;
-        margin: 0;
-        transform: translate(-50%, -50%);
-        font-size: 18px;
-        line-height: 1.2;
-        color: black;
-        z-index: 2;
+        width: 100%;
+        padding: 0 12%;
+        font-size: clamp(16px, 4.3vw, 18px);
+        line-height: 1.25;
     }
 
     .wrapper-bottom {
@@ -490,28 +473,30 @@
         justify-items: end;
         align-items: start;
         margin-top: -10px;
+        padding-inline: 18px;
+        box-sizing: border-box;
         transform: rotate(10deg);
     }
 
     .sticker-stack {
         position: relative;
         grid-area: 1 / 1;
-        width: 170px;
-        height: 170px;
+        width: clamp(145px, 44vw, 170px);
+        height: clamp(145px, 44vw, 170px);
         top: -116px;
         left: auto;
-        right: 30px;
+        right: 0;
     }
 
     .sticker-reveal {
         position: relative;
         grid-area: 1 / 1;
-        width: 170px;
-        height: 170px;
+        width: clamp(145px, 44vw, 170px);
+        height: clamp(145px, 44vw, 170px);
         top: -116px;
         left: auto;
-        right: 30px;
-        padding: 18px;
+        right: 0;
+        padding: clamp(14px, 4vw, 18px);
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -550,15 +535,21 @@
 
     .orange-circle {
         width: 180px;
-        top: 16px;
+        left: -15px;
+        top: 10px;
     }
 
     .skill-intro-wrapper {
-        max-width: 320px;
+        max-width: 100%;
+        min-height: 145px;
+        aspect-ratio: 2.15 / 1;
     }
 
     .skill-intro-wrapper>p {
-        font-size: 18px;
+        width: 100%;
+        padding: 0 12%;
+        font-size: 16px;
+        line-height: 1.25;
     }
 
     .skills-grid {
@@ -578,16 +569,29 @@
     .single-skill-con>p {
         font-size: 18px;
     }
-}
 
-@media (max-width: 380px) {
-    .skill-intro-wrapper>p {
-        font-size: 18px;
+    .sticker-con {
+        padding-inline: 22px;
     }
 
-    .orange-circle {
-        left: -15px;
-        top: 10px;
+    .sticker-stack {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sticker-reveal {
+        width: 150px;
+        height: 150px;
+        padding: 14px;
+    }
+
+    .sticker-text {
+        font-size: 16px;
+    }
+
+    .sticker-skills img {
+        width: 42px;
+        height: 42px;
     }
 }
 
@@ -610,14 +614,6 @@
 
 @media (max-height: 600px) and (max-width: 1024px) {
     .skill-intro-wrapper>p {
-        position: absolute;
-        top: 18%;
-        width: 82%;
-        font-size: 20px;
-        line-height: 1.25;
-        color: #000;
-        z-index: 2;
-        margin-left: 56px;
-        text-align: start;
+        font-size: 18px;
     }
 }

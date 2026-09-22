@@ -65,7 +65,7 @@
   min-width: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(140px, 17vw, 210px);
-  column-gap: clamp(20px, 3vw, 40px);
+  column-gap: clamp(40px, 5vw, 70px);
   align-items: center;
 }
 
@@ -77,6 +77,8 @@
   min-width: 0;
   width: 100%;
   max-width: 100%;
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 
 .text-top,
@@ -114,7 +116,8 @@
   position: relative;
   justify-self: end;
   align-self: center;
-  margin-top: clamp(-70px, -5vh, -30px);
+  margin-top: clamp(-400px, -20vh, -250px);
+  right: clamp(-152px, -3vw, -120px);
   transform: rotate(8deg);
   transform-origin: center;
   z-index: 2;
@@ -161,7 +164,7 @@
 
 .contact-icons {
   position: absolute;
-  left: 5vw;
+  left: calc(5vw + 80px);
   top: 70%;
   transform: translateY(-50%);
   display: flex;
@@ -272,7 +275,19 @@
 
 @media (min-width: 1600px) {
   .contact-icons {
-    left: calc((100vw - 1440px) / 2);
+    left: calc((100vw - 1440px) / 2 + 80px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .polaroid-con {
+    right: clamp(48px, -2vw, -20px);
+  }
+}
+
+@media (max-width: 1300px) {
+  .polaroid-con {
+    right: clamp(-52px, -3vw, -20px);
   }
 }
 
@@ -283,7 +298,7 @@
 
   .hero-main-row {
     grid-template-columns: minmax(0, 1fr) clamp(135px, 18vw, 180px);
-    column-gap: 24px;
+    column-gap: clamp(40px, 5vw, 60px);
   }
 
   .text-top,
@@ -304,7 +319,8 @@
   }
 
   .polaroid-con {
-    margin-top: -30px;
+    margin-top: -80px;
+    right: -25px;
   }
 }
 
@@ -325,7 +341,12 @@
 
   .hero-main-row {
     grid-template-columns: minmax(0, 1fr) 150px;
-    column-gap: 20px;
+    column-gap: 30px;
+  }
+
+  .headline-block {
+    margin-left: 0;
+    margin-bottom: 0;
   }
 
   .text-top,
@@ -346,7 +367,8 @@
   }
 
   .polaroid-con {
-    margin-top: 0;
+    margin-top: -30px;
+    right: 0;
     transform: rotate(8deg);
   }
 
@@ -359,27 +381,41 @@
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 800px) and (min-width: 901px) {
+  .contact-icons {
+    top: 70%;
+  }
+
+  .polaroid-con {
+    margin-top: -100px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 901px) {
+  .polaroid-con {
+    margin-top: -110px;
+    right: -30px;
+  }
+
+  .contact-icons {
+    top: 65%;
+  }
+}
+
+@media (max-height: 600px) and (min-width: 901px) {
+  .polaroid-con {
+    margin-top: -120px;
+    right: -30px;
+  }
+
   .contact-icons {
     top: 60%;
   }
 }
 
-@media (max-height: 700px) {
-  .polaroid-con {
-    margin-top: -200px;
-  }
-}
-
-@media (max-height: 600px) {
+@media (max-height: 500px) and (min-width: 901px) {
   .contact-icons {
     top: 50%;
-  }
-}
-
-@media (max-height: 500px) {
-  .contact-icons {
-    top: 40%;
   }
 
   .get-in-touch-btn {
@@ -387,7 +423,13 @@
   }
 
   .hello-world {
-    margin-top: 50px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-height:400px) and (min-width: 901px) {
+  .contact-icons {
+    top: 45%;
   }
 }
 
@@ -412,7 +454,7 @@
     min-width: 0;
     margin-inline: auto;
     align-items: flex-start;
-    gap: 18px;
+    gap: 24px;
   }
 
   .hero-main-row {
@@ -440,12 +482,13 @@
     text-align: left;
   }
 
-.text-bottom {
-  margin-left: clamp(0px, calc((100vw - 440px) * 0.22), 70px);
-}
+  .text-bottom {
+    margin-left: clamp(0px, calc((100vw - 440px) * 0.22), 70px);
+  }
 
   .hello-world {
     align-self: flex-start;
+    margin-bottom: 4px;
   }
 
   .get-in-touch-btn {
@@ -459,6 +502,7 @@
     justify-self: center;
     align-self: center;
     margin-top: 4px;
+    right: 0;
     transform: rotate(8deg);
   }
 
@@ -475,7 +519,7 @@
   }
 
   .hero-stack {
-    gap: 16px;
+    gap: 22px;
     margin-top: 12px;
   }
 
@@ -495,6 +539,7 @@
 
   .hello-world {
     width: 170px;
+    margin-bottom: 6px;
   }
 
   .get-in-touch-btn {
@@ -503,6 +548,7 @@
 
   .polaroid-con {
     margin-top: 4px;
+    right: 0;
     transform: rotate(8deg) scale(0.9);
   }
 }
@@ -510,6 +556,10 @@
 @media (max-width: 360px) {
   .main-content {
     padding-inline: 20px;
+  }
+
+  .hero-stack {
+    gap: 20px;
   }
 
   .text-top,
@@ -524,6 +574,7 @@
   .hello-world {
     width: 150px;
     height: 36px;
+    margin-bottom: 8px;
   }
 
   .hello-world .label {
@@ -542,7 +593,7 @@
   }
 
   .hero-stack {
-    gap: 12px;
+    gap: 16px;
   }
 
   .text-top,
@@ -551,6 +602,8 @@
   }
 
   .polaroid-con {
+    margin-top: -110px;
+    right: -30px;
     transform: rotate(8deg) scale(0.82);
   }
 
@@ -566,7 +619,7 @@
   }
 
   .hero-stack {
-    gap: 10px;
+    gap: 14px;
     margin-top: 0;
   }
 
@@ -585,6 +638,7 @@
 
   .polaroid-con {
     margin-top: 0;
+    right: 0;
     transform: rotate(8deg) scale(0.72);
   }
 }
@@ -597,7 +651,7 @@
 
   .hero-stack {
     max-width: 720px;
-    gap: 8px;
+    gap: 10px;
   }
 
   .text-top,
@@ -618,14 +672,9 @@
   }
 
   .polaroid-con {
-    margin-top: 0;
-    transform: rotate(8deg) scale(0.7);
-  }
-}
-
-@media (max-height: 520px) and (min-width: 761px) {
-  .polaroid-con {
     margin-top: -100px;
+    right: -30px;
+    transform: rotate(8deg) scale(0.7);
   }
 }
 
