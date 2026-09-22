@@ -83,11 +83,11 @@
 }
 
 .header-project-details {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 50%;
     width: min(1464px, 92vw);
-    height: 120px;
+    height: 80px;
     transform: translateX(-50%);
     z-index: 3000;
     pointer-events: auto;
@@ -97,7 +97,13 @@
     position: relative !important;
     width: 100% !important;
     height: 80px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     z-index: 3000;
+}
+
+:host ::ng-deep app-navbar.pd-navbar .logo-wrapper {
+    left: -18px;
 }
 
 .panel {
@@ -374,6 +380,10 @@ h2 {
 }
 
 @media (max-width: 1100px) {
+    .header-project-details {
+        width: min(1000px, 94vw);
+    }
+
     .panel {
         width: min(1000px, 94vw);
         grid-template-columns: minmax(310px, 1fr) minmax(310px, 1fr);
@@ -425,31 +435,38 @@ h2 {
     }
 
     .desktop-next-btn {
-        position: fixed;
-        right: 10vw;
-        bottom: clamp(20px, 5dvh, 50px);
+        position: absolute;
+        right: 0;
+        bottom: 40px;
     }
 }
 
 @media (max-width: 900px) {
+    :host ::ng-deep app-navbar.pd-navbar .logo-wrapper {
+        left: 0;
+    }
+
     .overlay {
         display: block;
-        height: auto;
-        min-height: 100dvh;
+        width: 100vw;
+        height: 100dvh;
+        min-height: 0;
+        overflow-x: hidden;
         overflow-y: auto;
         background: #1c1c1c;
         touch-action: pan-y;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
+        overscroll-behavior-y: contain;
+        box-sizing: border-box;
     }
 
     .overlay::before {
         position: absolute;
-        inset: 0;
+        inset: 0 auto auto 0;
         width: 100%;
-        height: 100%;
+        height: 980px;
         background-image: url('/assets/project_details/paper_bgr_mobile.webp');
-        background-size: 100% 100%;
+        background-size: 100% 980px;
         background-position: center top;
         background-repeat: no-repeat;
         transform: none;
@@ -490,16 +507,25 @@ h2 {
     .panel {
         width: 100%;
         max-width: 430px;
-        min-height: auto;
+        min-height: 0;
         max-height: none;
         margin: 0 auto;
-        padding: 0 14px 28px;
+        padding: 0 14px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-start;
         gap: 0;
         box-sizing: border-box;
+    }
+
+    .panel::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 120px;
+        min-height: 200px;
+        flex: 0 0 120px;
     }
 
     .desktop-back-btn,
@@ -524,6 +550,8 @@ h2 {
         align-items: center;
         gap: 18px;
         padding-top: 28px;
+        padding-bottom: 0;
+        box-sizing: border-box;
     }
 
     .single-project-headline {
@@ -619,8 +647,10 @@ h2 {
         justify-content: space-between;
         align-items: center;
         margin-top: 18px;
+        margin-bottom: 0;
         padding: 0 4px;
         box-sizing: border-box;
+        flex-shrink: 0;
     }
 
     .mobile-project-nav-con .back-btn-con,
@@ -663,9 +693,13 @@ h2 {
 }
 
 @media (max-width: 430px) {
+    .overlay::before {
+        height: 1050px;
+        background-size: 100% 1050px;
+    }
+
     .panel {
         padding-inline: 14px;
-        padding-bottom: 24px;
     }
 
     :host ::ng-deep .section-header .title {
@@ -688,6 +722,11 @@ h2 {
 }
 
 @media (max-width: 390px) {
+    .overlay::before {
+        height: 1080px;
+        background-size: 100% 1080px;
+    }
+
     .panel {
         padding-inline: 12px;
     }
@@ -706,6 +745,11 @@ h2 {
 }
 
 @media (max-width: 360px) {
+    .overlay::before {
+        height: 1100px;
+        background-size: 100% 1100px;
+    }
+
     .panel {
         padding-inline: 10px;
     }
@@ -776,17 +820,5 @@ h2 {
 
     .mobile-project-nav-con {
         margin-top: 10px;
-    }
-}
-
-@media (max-height: 900px) and (max-width: 420px) {
-    .overlay::before {
-        height: 120%;
-    }
-}
-
-@media (max-height: 670px) and (max-width: 375px) {
-    .overlay::before {
-        height: 125%;
     }
 }
