@@ -65,7 +65,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
       ],
       duration: 'PROJECT_DETAILS.DURATION_TIME_JOIN',
       alt: 'join_project',
-      githubUrl: 'https://github.com/JoelBaig/join-kanban',
+      githubUrl: 'https://github.com/JoelBaig/join',
       liveUrl: 'https://join.joelbaig.com/'
     },
     {
