@@ -332,16 +332,18 @@
   .main-content {
     padding-top: 100px;
     padding-bottom: 40px;
-    padding-inline: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .hero-stack {
-    max-width: 720px;
+    max-width: 100%;
+    margin: 0;
   }
 
   .hero-main-row {
     grid-template-columns: minmax(0, 1fr) 150px;
-    column-gap: 30px;
+    column-gap: 0;
   }
 
   .headline-block {
@@ -368,7 +370,8 @@
 
   .polaroid-con {
     margin-top: -30px;
-    right: 0;
+    right: 18px;
+    justify-self: end;
     transform: rotate(8deg);
   }
 

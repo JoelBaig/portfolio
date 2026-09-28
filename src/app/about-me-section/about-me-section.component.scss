@@ -175,6 +175,9 @@
     align-items: center;
     gap: 80px;
     padding-block: 70px;
+    padding-inline: 0;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .about-me {
@@ -301,6 +304,8 @@
   .about-me-main {
     padding-inline: 0;
     gap: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .about-me-wrapper {
@@ -315,7 +320,7 @@
   }
 
   .about-me {
-    width: calc(100% - 40px);
+    width: 100%;
   }
 
   .image-overlap>div {
