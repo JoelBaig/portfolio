@@ -203,10 +203,14 @@ a {
 
     .logo-blue {
         opacity: 1;
+        display: block;
+        transform: translateX(-8px);
     }
 
     .logo-yellow {
         opacity: 0;
+        display: block;
+        transform: translateX(-8px);
     }
 
     &:hover .logo-blue {

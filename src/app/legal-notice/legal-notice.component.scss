@@ -41,10 +41,14 @@
     padding-left: 0;
 }
 
+:host ::ng-deep .navbar {
+    padding: 0 !important;
+}
+
 h1 {
     position: absolute;
     left: 50%;
-    bottom: 42%;
+    bottom: 25%;
     width: min(1440px, calc(100% - 84px));
     margin: 0;
     box-sizing: border-box;
@@ -127,6 +131,10 @@ a {
 }
 
 @media (max-width: 900px) {
+    :host ::ng-deep .logo-wrapper .logo {
+        padding-left: 8px;
+    }
+
     .legal-hero {
         height: 260px;
         min-height: 260px;
@@ -140,13 +148,12 @@ a {
 
     h1 {
         bottom: 35%;
-        width: calc(100% - 50px);
-        padding-left: 16px;
+        width: calc(100% - 15px);
         font-size: 48px;
     }
 
     .content {
-        padding: 64px 40px 80px;
+        padding: 64px 8px 80px;
     }
 
     .back-btn-con {
@@ -190,6 +197,8 @@ a {
         display: block;
         overflow: visible;
         margin-bottom: -200px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     :host ::ng-deep app-footer.legal-notice-footer-pos .footer-main {
@@ -248,7 +257,7 @@ a {
     }
 
     .content {
-        padding: 56px 40px 80px;
+        padding: 56px 8px 80px;
     }
 
     .back-btn-con {
@@ -273,5 +282,11 @@ a {
 
     :host ::ng-deep app-footer.legal-notice-footer-pos .legal-link {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    h1 {
+        bottom: 25%;
     }
 }

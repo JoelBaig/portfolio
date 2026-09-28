@@ -146,11 +146,15 @@
 .logo-blue {
     opacity: 1;
     z-index: 1;
+    display: block;
+    transform: translateX(-8px);
 }
 
 .logo-yellow {
     opacity: 0;
     z-index: 2;
+    display: block;
+    transform: translateX(-8px);
 }
 
 .logo-wrapper:hover .logo-blue,
