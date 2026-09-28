@@ -1,6 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter, Subscription } from 'rxjs';
 
@@ -13,8 +13,7 @@ type NavbarVariant = 'default' | 'overlay';
   imports: [
     CommonModule,
     NgClass,
-    TranslateModule,
-    RouterModule
+    TranslateModule
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
@@ -175,12 +174,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     fragment: string,
     event?: Event
   ): void {
+    this.preventNavigationEvent(event);
+
     if (this.isMenuActive()) {
-      this.handleMobileNavClick(fragment, event);
+      this.handleMobileNavClick(fragment);
       return;
     }
 
-    this.handleDesktopNavClick(fragment, event);
+    this.handleDesktopNavClick(fragment);
   }
 
   /**
@@ -193,18 +194,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Closes the mobile menu and navigates to the target fragment
-   * after the browser has completed the menu layout update.
+   * Closes the mobile menu before navigation.
    *
    * @param fragment The target section fragment.
-   * @param event The optional triggering event.
    */
   private handleMobileNavClick(
-    fragment: string,
-    event?: Event
+    fragment: string
   ): void {
-    this.preventNavigationEvent(event);
-
     this.closeMenu(false, () => {
       window.requestAnimationFrame(() => {
         this.navigateToFragment(fragment);
@@ -216,17 +212,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
    * Handles navigation while the mobile menu is closed.
    *
    * @param fragment The target section fragment.
-   * @param event The optional triggering event.
    */
   private handleDesktopNavClick(
-    fragment: string,
-    event?: Event
+    fragment: string
   ): void {
-    if (this.variant === 'overlay') {
-      event?.preventDefault();
-    }
-
-    this.navClick.emit(fragment);
+    this.navigateToFragment(fragment);
   }
 
   /**
@@ -258,7 +248,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Navigates within the landing page or back to it from a subpage.
+   * Navigates within the landing page or back to it.
    *
    * @param fragment The target section fragment.
    */
@@ -362,8 +352,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   /**
    * Scrolls to the element matching the requested fragment.
-   * Desktop navigation uses smooth scrolling while mobile navigation
-   * jumps directly to the target to avoid layout timing issues.
    *
    * @param fragment The target section fragment.
    */
@@ -371,10 +359,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     fragment: string
   ): void {
     const element = document.getElementById(fragment);
-
-    if (!element) {
-      return;
-    }
+    if (!element) return;
 
     element.scrollIntoView({
       behavior: this.isDesktop() ? 'smooth' : 'auto',
@@ -468,8 +453,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Toggles between the supported application languages
-   * and briefly highlights the newly selected language.
+   * Toggles between the supported application languages.
    */
   toggleLanguage(): void {
     const nextLanguage: Language =
@@ -480,10 +464,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Briefly shows the same language mark that is used
-   * by the hover effect for the newly selected language.
+   * Highlights the newly selected language.
    *
-   * @param language The language whose mark should be highlighted.
+   * @param language The language to highlight.
    */
   private showLanguageSwitchHighlight(
     language: Language
@@ -501,9 +484,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
    * Clears the active language highlight timer.
    */
   private clearLanguageHighlightTimer(): void {
-    if (this.languageHighlightTimer === undefined) {
-      return;
-    }
+    if (this.languageHighlightTimer === undefined) return;
 
     window.clearTimeout(this.languageHighlightTimer);
     this.languageHighlightTimer = undefined;
@@ -513,9 +494,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
    * Opens or closes the mobile menu.
    */
   toggleMenu(): void {
-    if (!this.canToggleMenu()) {
-      return;
-    }
+    if (!this.canToggleMenu()) return;
 
     this.isMenuOpen
       ? this.closeMenu(false)
@@ -544,7 +523,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Clears all active menu timers and animation frames.
+   * Clears active menu timers and animation frames.
    */
   private clearMenuAnimations(): void {
     this.clearMenuCloseTimer();
@@ -552,14 +531,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Removes the stored action that should run after closing.
+   * Removes the stored action after closing.
    */
   private resetAfterCloseAction(): void {
     this.afterCloseAction = undefined;
   }
 
   /**
-   * Sets the initial state for the opening animation.
+   * Sets the initial opening menu state.
    */
   private setOpeningMenuState(): void {
     this.isMenuOpen = true;
@@ -568,7 +547,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Schedules the start of the mobile menu opening animation.
+   * Schedules the mobile menu opening animation.
    */
   private scheduleMenuOpening(): void {
     this.openAnimationFrame = window.requestAnimationFrame(
@@ -577,7 +556,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Waits for another animation frame before showing the menu.
+   * Waits another frame before showing the menu.
    */
   private scheduleMenuVisibility(): void {
     this.secondOpenAnimationFrame = window.requestAnimationFrame(
@@ -595,16 +574,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Starts closing the mobile menu.
    *
-   * @param scrollToTop Whether the page should scroll to the top afterwards.
-   * @param afterClose An optional action to run after closing.
+   * @param scrollToTop Whether to scroll to the top afterwards.
+   * @param afterClose An optional action after closing.
    */
   closeMenu(
     scrollToTop: boolean = false,
     afterClose?: () => void
   ): void {
-    if (this.isMenuClosing) {
-      return;
-    }
+    if (this.isMenuClosing) return;
 
     this.isMenuOpen
       ? this.startClosingMenu(scrollToTop, afterClose)
@@ -614,8 +591,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Prepares the mobile menu closing animation.
    *
-   * @param scrollToTop Whether the page should scroll to the top afterwards.
-   * @param afterClose An optional action to run after closing.
+   * @param scrollToTop Whether to scroll to the top afterwards.
+   * @param afterClose An optional action after closing.
    */
   private startClosingMenu(
     scrollToTop: boolean,
@@ -629,7 +606,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Sets the state required for the closing animation.
+   * Sets the closing menu state.
    */
   private setClosingMenuState(): void {
     this.isMenuClosing = true;
@@ -637,9 +614,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Schedules the completion of the closing animation.
+   * Schedules completion of the closing animation.
    *
-   * @param scrollToTop Whether the page should scroll to the top afterwards.
+   * @param scrollToTop Whether to scroll to the top afterwards.
    */
   private scheduleMenuClosing(
     scrollToTop: boolean
@@ -653,7 +630,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Completes the mobile menu closing process.
    *
-   * @param scrollToTop Whether the page should scroll to the top afterwards.
+   * @param scrollToTop Whether to scroll to the top afterwards.
    */
   private finishClosingMenu(
     scrollToTop: boolean
@@ -676,9 +653,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Scrolls to the top of the page when requested.
+   * Scrolls to the top when requested.
    *
-   * @param scrollToTop Whether the page should scroll to the top.
+   * @param scrollToTop Whether to scroll to the top.
    */
   private scrollToTopIfRequired(
     scrollToTop: boolean
@@ -689,7 +666,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Runs the stored action after the mobile menu has closed.
+   * Runs the stored action after the menu closes.
    */
   private runAfterCloseAction(): void {
     const action = this.afterCloseAction;
@@ -698,7 +675,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Locks scrolling on the document body.
+   * Locks document scrolling.
    */
   private lockBodyScroll(): void {
     this.saveScrollPosition();
@@ -716,7 +693,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Adds the classes required to lock document scrolling.
+   * Adds document scroll lock classes.
    */
   private addScrollLockClasses(): void {
     document.documentElement.classList.add('no-scroll');
@@ -739,7 +716,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Removes the document scroll lock.
    *
-   * @param restorePosition Whether the previous scroll position should be restored.
+   * @param restorePosition Whether to restore the previous position.
    */
   private unlockBodyScroll(
     restorePosition: boolean = true
@@ -753,7 +730,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Removes the classes used to lock document scrolling.
+   * Removes document scroll lock classes.
    */
   private removeScrollLockClasses(): void {
     document.documentElement.classList.remove('no-scroll');
@@ -761,7 +738,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Removes the inline styles used to fix the document body.
+   * Removes fixed body styles.
    */
   private clearFixedBodyStyles(): void {
     const style = document.body.style;
@@ -776,7 +753,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Scrolls the window without animation.
    *
-   * @param top The target vertical scroll position.
+   * @param top The target vertical position.
    */
   private scrollWindowTo(
     top: number
@@ -789,7 +766,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Cancels both pending menu opening animation frames.
+   * Cancels pending menu opening frames.
    */
   private clearOpenAnimationFrames(): void {
     this.openAnimationFrame = this.cancelAnimationFrame(
@@ -804,8 +781,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   /**
    * Cancels a pending animation frame.
    *
-   * @param frameId The animation frame id to cancel.
-   * @returns Undefined after the animation frame has been handled.
+   * @param frameId The animation frame id.
+   * @returns Undefined after cancellation.
    */
   private cancelAnimationFrame(
     frameId?: number
@@ -818,24 +795,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Clears the active mobile menu closing timer.
+   * Clears the active menu closing timer.
    */
   private clearMenuCloseTimer(): void {
-    if (this.menuCloseTimer === undefined) {
-      return;
-    }
+    if (this.menuCloseTimer === undefined) return;
 
     window.clearTimeout(this.menuCloseTimer);
     this.menuCloseTimer = undefined;
   }
 
   /**
-   * Cleans up an open or closing mobile menu.
+   * Cleans up an open mobile menu.
    */
   private cleanUpOpenMenu(): void {
-    if (!this.isMenuActive()) {
-      return;
-    }
+    if (!this.isMenuActive()) return;
 
     this.resetMenuState();
     this.resetAfterCloseAction();
@@ -844,7 +817,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Closes the mobile menu immediately without animation.
+   * Closes the mobile menu immediately.
    */
   private closeMenuImmediately(): void {
     this.clearMenuAnimations();
@@ -855,16 +828,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Checks whether the desktop navigation layout is active.
+   * Checks whether desktop navigation is active.
    *
-   * @returns True if the current viewport uses the desktop layout.
+   * @returns True when the viewport uses desktop layout.
    */
   private isDesktop(): boolean {
     return window.innerWidth > 900;
   }
 
   /**
-   * Closes the mobile menu when the Escape key is pressed.
+   * Closes the mobile menu with Escape.
    */
   @HostListener('document:keydown.escape')
   onEsc(): void {
@@ -874,7 +847,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Closes the mobile menu when switching to the desktop layout.
+   * Closes the mobile menu when switching to desktop.
    */
   @HostListener('window:resize')
   onResize(): void {
@@ -891,52 +864,26 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onLogoClick(
     event: MouseEvent
   ): void {
+    this.preventNavigationEvent(event);
+
     if (this.isMenuActive()) {
-      this.handleLogoClickWithOpenMenu(event);
+      this.closeMenu(false, () => this.handleLogoNavigation());
       return;
     }
 
-    this.handleLogoNavigation(event);
+    this.handleLogoNavigation();
   }
 
   /**
-   * Closes the mobile menu before handling logo navigation.
-   *
-   * @param event The triggering mouse event.
+   * Performs the appropriate logo navigation.
    */
-  private handleLogoClickWithOpenMenu(
-    event: MouseEvent
-  ): void {
-    this.preventNavigationEvent(event);
-    this.closeMenu(false, () => this.handleLogoNavigation());
-  }
-
-  /**
-   * Performs the appropriate navigation for a logo click.
-   *
-   * @param event The optional triggering mouse event.
-   */
-  private handleLogoNavigation(
-    event?: MouseEvent
-  ): void {
+  private handleLogoNavigation(): void {
     if (this.variant === 'overlay') {
-      this.handleOverlayLogoNavigation(event);
+      this.navClick.emit('top');
       return;
     }
 
     this.handleDefaultLogoNavigation();
-  }
-
-  /**
-   * Emits navigation to the page top in the overlay variant.
-   *
-   * @param event The optional triggering mouse event.
-   */
-  private handleOverlayLogoNavigation(
-    event?: MouseEvent
-  ): void {
-    event?.preventDefault();
-    this.navClick.emit('top');
   }
 
   /**

@@ -1,6 +1,6 @@
 <div class="privacy-page">
     <section class="privacy-hero">
-        <app-navbar class="nav-privacy-policy" variant="overlay">
+        <app-navbar class="nav-privacy-policy" variant="overlay" (navClick)="navigateToSection($event)">
         </app-navbar>
 
         <img class="privacy-policy-bgr" src="./assets/legal_notice/legal_notice_bgr.webp" alt="" />

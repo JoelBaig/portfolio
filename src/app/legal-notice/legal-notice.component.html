@@ -1,6 +1,6 @@
 <div class="legal-page">
   <section class="legal-hero">
-    <app-navbar class="nav-legal-notice" variant="overlay">
+    <app-navbar class="nav-legal-notice" variant="overlay" (navClick)="navigateToSection($event)">
     </app-navbar>
 
     <img class="legal-notice-bgr" src="./assets/legal_notice/legal_notice_bgr.webp" alt="" />

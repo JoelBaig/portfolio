@@ -22,12 +22,63 @@ export class PrivacyPolicyComponent implements AfterViewInit {
   private readonly contactRestoreKey = 'restoreContactInstantly';
 
   /**
+   * Navigates to the requested portfolio section.
+   *
+   * @param fragment The target section id.
+   */
+  navigateToSection(fragment: string): void {
+    if (fragment === 'top') {
+      void this.router.navigateByUrl('/');
+      return;
+    }
+
+    void this.navigateAndScroll(fragment);
+  }
+
+  /**
+   * Navigates to the landing page and scrolls to the target.
+   *
+   * @param fragment The target section id.
+   */
+  private async navigateAndScroll(fragment: string): Promise<void> {
+    await this.router.navigate(['/'], { fragment });
+    this.waitForSection(fragment);
+  }
+
+  /**
+   * Waits until the requested section exists in the DOM.
+   *
+   * @param fragment The target section id.
+   */
+  private waitForSection(fragment: string): void {
+    requestAnimationFrame(() => {
+      const target = document.getElementById(fragment);
+
+      target
+        ? this.scrollToSection(target)
+        : setTimeout(() => this.waitForSection(fragment), 50);
+    });
+  }
+
+  /**
+   * Scrolls smoothly to the requested section.
+   *
+   * @param target The target section element.
+   */
+  private scrollToSection(target: HTMLElement): void {
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  /**
    * Returns to the landing page and marks the contact section
    * for immediate restoration.
    */
   closeToContact(): void {
     sessionStorage.setItem(this.contactRestoreKey, 'true');
-    this.router.navigateByUrl('/');
+    void this.router.navigateByUrl('/');
   }
 
   /**

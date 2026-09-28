@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 /**
  * Displays the legal notice page and provides navigation
- * back to the home page or contact section.
+ * back to the home page or requested portfolio section.
  */
 @Component({
   selector: 'app-legal-notice',
@@ -28,12 +28,61 @@ export class LegalNoticeComponent implements AfterViewInit {
   private readonly contactRestoreKey = 'restoreContactInstantly';
 
   /**
+   * Navigates to the requested portfolio section.
+   *
+   * @param fragment The target section id.
+   */
+  navigateToSection(fragment: string): void {
+    if (fragment === 'top') {
+      void this.router.navigateByUrl('/');
+      return;
+    }
+
+    void this.navigateAndScroll(fragment);
+  }
+
+  /**
+   * Navigates to the landing page and scrolls to the target.
+   *
+   * @param fragment The target section id.
+   */
+  private async navigateAndScroll(fragment: string): Promise<void> {
+    await this.router.navigate(['/'], { fragment });
+    this.waitForSection(fragment);
+  }
+
+  /**
+   * Waits until the requested section exists in the DOM.
+   *
+   * @param fragment The target section id.
+   */
+  private waitForSection(fragment: string): void {
+    requestAnimationFrame(() => {
+      const target = document.getElementById(fragment);
+
+      target
+        ? this.scrollToSection(target)
+        : setTimeout(() => this.waitForSection(fragment), 50);
+    });
+  }
+
+  /**
+   * Scrolls smoothly to the requested section.
+   *
+   * @param target The target section element.
+   */
+  private scrollToSection(target: HTMLElement): void {
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  /**
    * Navigates back to the home page and scrolls to the top.
    */
   closeToHomeTop(): void {
-    this.router.navigateByUrl('/').then(() => {
-      this.scrollToPageTopInstantly();
-    });
+    void this.router.navigateByUrl('/');
   }
 
   /**
@@ -41,7 +90,7 @@ export class LegalNoticeComponent implements AfterViewInit {
    */
   closeToContact(): void {
     this.markContactRestore();
-    this.router.navigateByUrl('/');
+    void this.router.navigateByUrl('/');
   }
 
   /**

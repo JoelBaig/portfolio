@@ -1,7 +1,7 @@
 <nav class="navbar" [ngClass]="'navbar--' + variant" [class.menu-active]="isMenuOpen || isMenuClosing">
   <!-- Logo -->
   <div class="navbar-left">
-    <a class="logo-wrapper" [routerLink]="['/']" (click)="onLogoClick($event)">
+    <a class="logo-wrapper" href="/" (click)="onLogoClick($event)">
       <img class="logo logo-blue" src="/assets/img/header/logo_blue.png" alt="Logo">
       <img class="logo logo-yellow" src="/assets/img/header/logo_yellow.png" alt="">
     </a>
@@ -11,7 +11,7 @@
   <div class="navbar-center desktop-only">
     <ul class="nav-links">
       <li class="nav-about-me">
-        <a class="nav-link" [routerLink]="['/']" fragment="about-me" (click)="onNavItemClick('about-me', $event)">
+        <a class="nav-link" href="/#about-me" (click)="onNavItemClick('about-me', $event)">
           <span class="nav-text">
             {{ 'NAV.ABOUT' | translate }}
           </span>
@@ -19,7 +19,7 @@
         </a>
       </li>
       <li class="nav-skills">
-        <a class="nav-link" [routerLink]="['/']" fragment="skills" (click)="onNavItemClick('skills', $event)">
+        <a class="nav-link" href="/#skills" (click)="onNavItemClick('skills', $event)">
           <span class="nav-text">
             {{ 'NAV.SKILLS' | translate }}
           </span>
@@ -27,7 +27,7 @@
         </a>
       </li>
       <li class="nav-projects">
-        <a class="nav-link" [routerLink]="['/']" fragment="projects" (click)="onNavItemClick('projects', $event)">
+        <a class="nav-link" href="/#projects" (click)="onNavItemClick('projects', $event)">
           <span class="nav-text">
             {{ 'NAV.PROJECTS' | translate }}
           </span>
@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="nav-contact">
-        <a class="nav-link" [routerLink]="['/']" fragment="contact" (click)="onNavItemClick('contact', $event)">
+        <a class="nav-link" href="/#contact" (click)="onNavItemClick('contact', $event)">
           <span class="nav-text">
             {{ 'NAV.CONTACT' | translate }}
           </span>
