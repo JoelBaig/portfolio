@@ -193,11 +193,13 @@
     max-width: 1440px;
     flex-direction: column;
     align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
   }
 
   .colleagues-headline {
     width: 100%;
-    padding: 40px 100px 24px;
     margin-right: 0;
     box-sizing: border-box;
   }
@@ -466,7 +468,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   :host ::ng-deep .section-header {
     top: 0 !important;
   }
@@ -479,7 +481,8 @@
   }
 
   .colleagues-headline {
-    padding: 32px 20px 20px;
+    padding: 0 0 0;
+    padding-top: 100px;
   }
 
   .feedback-cards {

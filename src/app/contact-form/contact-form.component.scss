@@ -217,7 +217,7 @@ textarea {
   align-self: flex-end;
   margin-top: 80px;
   position: absolute;
-  top: 300px;
+  top: 380px;
   right: 0;
 }
 
@@ -332,6 +332,10 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 900px) {
+  .send-button {
+    top: 350px
+  }
+
   :host ::ng-deep img.animated-line.horizontal-mask[src*="yellow_arrow_contact.png"] {
     position: relative;
     top: 80px;
@@ -351,9 +355,14 @@ textarea:-webkit-autofill:focus {
   }
 
   .contact-wrapper {
+    width: 100%;
+    max-width: 100%;
     flex-direction: column;
     gap: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-bottom: 190px;
+    box-sizing: border-box;
     top: 40px;
   }
 
@@ -377,6 +386,7 @@ textarea:-webkit-autofill:focus {
 
   .contact-con {
     width: 100%;
+    max-width: none;
     top: -20px;
   }
 
@@ -414,6 +424,12 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 500px) {
+  :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 150px;
+    top: 170px;
+  }
+
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 381px;
@@ -433,6 +449,12 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 420px) {
+  :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 150px;
+    top: 170px;
+  }
+
   :host ::ng-deep .contact-headline .line-wrapper {
     position: relative;
     top: 373px;
@@ -451,6 +473,14 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+@media (max-width: 415px) and (max-height: 925px) {
+  :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 150px !important;
+    top: 180px;
+  }
+}
+
 @media (max-width: 370px) {
   :host ::ng-deep button.img-button {
     margin-top: 40px;
@@ -462,5 +492,27 @@ textarea:-webkit-autofill:focus {
 
   .site-footer {
     margin-top: 190px;
+  }
+
+  :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 130px !important;
+    top: 150px;
+  }
+}
+
+@media (max-width: 340px) {
+    :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 100px !important;
+    top: 150px;
+  }
+}
+
+@media (max-width: 310px) {
+    :host ::ng-deep .section-header .line-wrapper img.horizontal-mask {
+    position: relative;
+    width: 70px !important;
+    top: 150px;
   }
 }
