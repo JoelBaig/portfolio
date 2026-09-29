@@ -8,17 +8,10 @@
       </a>
 
       <li class="nav-about-me" *ngIf="showLegalLink">
-        <a *ngIf="legalAsClose; else normalLegal" (click)="openLegalNotice($event)" class="nav-link legal-link">
+        <a routerLink="/impressum" class="nav-link legal-link">
           {{ 'FOOTER.LEGAL_NOTICE' | translate }}
           <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
         </a>
-
-        <ng-template #normalLegal>
-          <a routerLink="/impressum" class="nav-link legal-link">
-            {{ 'FOOTER.LEGAL_NOTICE' | translate }}
-            <img class="legal-notice-img-hover" src="assets/img/header/B.3.png" alt="about" class="hover-bg" />
-          </a>
-        </ng-template>
       </li>
 
       <li class="nav-main" [class.has-interacted]="hasInteracted">

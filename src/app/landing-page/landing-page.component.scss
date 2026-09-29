@@ -203,7 +203,8 @@
   inset: 0;
   display: block;
   height: 100%;
-  border-radius: inherit;
+  border-radius: 999px;
+  overflow: hidden;
 }
 
 .hello-world .fill {
@@ -213,6 +214,7 @@
   z-index: 0;
   transform-origin: left center;
   transform: scaleX(0);
+  border-radius: inherit;
 }
 
 .hello-world.has-interacted .fill {

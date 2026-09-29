@@ -21,24 +21,11 @@ import { TranslateModule } from '@ngx-translate/core';
 export class FooterComponent {
   @Input() showLegalLink = true;
   @Input() theme: 'dark' | 'light' = 'dark';
-  @Input() legalAsClose = false;
 
-  @Output() legalNoticeClick = new EventEmitter<void>();
   @Output() emailClick = new EventEmitter<void>();
 
   over: 'github' | 'linkedin' | 'email' | null = null;
   hasInteracted = false;
-
-  /**
-   * Prevents the default link behavior and emits
-   * an event to open the legal notice page.
-   *
-   * @param event The mouse click event.
-   */
-  openLegalNotice(event: MouseEvent): void {
-    event.preventDefault();
-    this.legalNoticeClick.emit();
-  }
 
   /**
    * Prevents the default email link behavior and emits

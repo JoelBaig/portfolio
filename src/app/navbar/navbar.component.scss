@@ -314,7 +314,7 @@
         right: auto;
         width: 100vw;
         height: 90px;
-        padding: 0 16px;
+        padding: 0 8px;
         box-sizing: border-box;
         transform: translateX(-50%);
         mix-blend-mode: normal !important;
@@ -352,6 +352,8 @@
     .navbar-left {
         position: relative;
         z-index: 1000002;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .logo-wrapper {
