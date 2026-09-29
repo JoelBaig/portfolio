@@ -21,7 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class FooterComponent {
   @Input() showLegalLink = true;
   @Input() theme: 'dark' | 'light' = 'dark';
-
+  @Input() legalAsClose = false;
   @Output() emailClick = new EventEmitter<void>();
 
   over: 'github' | 'linkedin' | 'email' | null = null;

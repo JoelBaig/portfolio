@@ -53,3 +53,10 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 900px) {
+  .arrow-up-con.show {
+    position: fixed;
+    bottom: 70px;
+  }
+}

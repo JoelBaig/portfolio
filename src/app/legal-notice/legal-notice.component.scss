@@ -67,6 +67,8 @@ h1 {
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .back-btn-con {
@@ -154,6 +156,8 @@ a {
 
     .content {
         padding: 64px 8px 80px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .back-btn-con {
