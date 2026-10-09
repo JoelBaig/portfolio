@@ -137,10 +137,6 @@ a {
 }
 
 @media (max-width: 900px) {
-    :host ::ng-deep .logo-wrapper .logo {
-        padding-left: 8px;
-    }
-
     .privacy-hero {
         height: 260px;
         min-height: 260px;
