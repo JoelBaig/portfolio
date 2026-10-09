@@ -3,6 +3,7 @@
 
 .contact-con-main {
   position: relative;
+  isolation: isolate;
   width: 100%;
   min-height: auto;
   padding: 200px 0 32px;
